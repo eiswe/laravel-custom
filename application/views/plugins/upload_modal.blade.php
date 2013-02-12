@@ -1,7 +1,7 @@
 <div class="modal hide" id="upload_modal">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<h3>Upload a new Instapic</h3>
+		<h3>Upload a new Picture</h3>
 	</div>
 	<div class="modal-body">
 		<form method="POST" action="{{ URL::to('photo/upload') }}" id="upload_modal_form" enctype="multipart/form-data">
@@ -13,6 +13,6 @@
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn" data-dismiss="modal">Cancel</a>
-    	<button type="button" onclick="$('#upload_modal_form').submit();" class="btn btn-primary">Upload Instapic</a>
+    	<button type="button" onclick="$('#upload_modal_form').submit();" class="btn btn-primary">Upload Picture</a>
 	</div>
 </div>
