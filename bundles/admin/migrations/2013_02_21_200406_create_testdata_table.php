@@ -8,7 +8,7 @@ class Admin_Create_Testdata_Table {
 	 * @return void
 	 */
 	public function up()
-	{
+	{/*
 		// add database schema: testdata
 		Schema::create('testdata', function($table)
         {
@@ -17,7 +17,7 @@ class Admin_Create_Testdata_Table {
             $table->string('body', 1000);
             $table->string('user', 32);
             $table->timestamps();
-        });
+        }); */
 	}
 
 	/**
@@ -26,9 +26,9 @@ class Admin_Create_Testdata_Table {
 	 * @return void
 	 */
 	public function down()
-	{
+	{/*
 		// drop database schema: admins
 		Schema::drop('testdata');
-	}
+	*/}
 
 }

@@ -15,7 +15,7 @@ class Admin_Create_Pages_Table {
             $table->string('title', 32)->unique();
             $table->string('description', 64);
             $table->string('text');
-            $table->integer('admin_id', 4);
+            $table->integer('admin_id');
             $table->timestamps();
         });
 
