@@ -102,7 +102,8 @@ class Request {
 	 */
 	public static function ip($default = '0.0.0.0')
 	{
-		return value(static::foundation()->getClientIp(), $default);
+		$client_ip = static::foundation()->getClientIp();
+		return $client_ip === NULL ? $default : $client_ip;
 	}
 
 	/**
@@ -118,6 +119,7 @@ class Request {
 	/**
 	 * Determine if the request accepts a given content type.
 	 *
+	 * @param  string  $type
 	 * @return bool
 	 */
 	public static function accepts($type)
@@ -176,6 +178,16 @@ class Request {
 	{
 		return static::foundation()->headers->get('referer');
 	}
+	
+	/**
+	 * Get the timestamp of the time when the request was started.
+	 *
+	 * @return int
+	 */
+	public static function time()
+	{
+		return (int) LARAVEL_START;
+	}
 
 	/**
 	 * Determine if the current request is via the command line.
@@ -184,7 +196,7 @@ class Request {
 	 */
 	public static function cli()
 	{
-		return defined('STDIN');
+		return defined('STDIN') || (substr(PHP_SAPI, 0, 3) == 'cgi' && getenv('TERM'));
 	}
 
 	/**
@@ -235,7 +247,7 @@ class Request {
 			// we will simply return the environment for that URI pattern.
 			foreach ($patterns as $pattern)
 			{
-				if (Str::is($pattern, $uri))
+				if (Str::is($pattern, $uri) or $pattern == gethostname())
 				{
 					return $environment;
 				}

@@ -15,6 +15,7 @@
 - [Setter & Getter Methods](#getter-and-setter-methods)
 - [Mass-Assignment](#mass-assignment)
 - [Converting Models To Arrays](#to-array)
+- [Deleting Models](#delete)
 
 <a name="the-basics"></a>
 ## The Basics
@@ -35,11 +36,13 @@ Eloquent makes a few basic assumptions about your database structure:
 - Each table should have a primary key named **id**.
 - Each table name should be the plural form of its corresponding model name.
 
-Sometimes you may wish to use a table name other than the plural form of your model. No problem. Just add a static **table** property your model:
+Sometimes you may wish to use a table name other than the plural form of your model, or a different primary key column. No problem. Just add a static **table** property your model:
 
 	class User extends Eloquent {
 
 	     public static $table = 'my_users';
+
+	     public static $key = 'my_primary_key';
 
 	}
 
@@ -65,7 +68,7 @@ Need to retrieve an entire table? Just use the static **all** method:
 	     echo $user->email;
 	}
 
-Of course, retrieving an entire table isn't very helpful. Thankfully, **every method that is available through the fluent query builder is available in Eloquent**. Just begin querying your model with a static call to one of the [query builder](/docs/database/query) methods, and execute the query using the **get** or **first** method. The get method will return an array of models, while the first method will return a single model:
+Of course, retrieving an entire table isn't very helpful. Thankfully, **every method that is available through the fluent query builder is available in Eloquent**. Just begin querying your model with a static call to one of the [query builder](/docs/database/fluent) methods, and execute the query using the **get** or **first** method. The get method will return an array of models, while the first method will return a single model:
 
 	$user = User::where('email', '=', $email)->first();
 
@@ -130,6 +133,18 @@ Need to maintain creation and update timestamps on your database records? With E
 	}
 
 Next, add **created_at** and **updated_at** date columns to your table. Now, whenever you save the model, the creation and update timestamps will be set automatically. You're welcome.
+
+In some cases it may be useful to update the **updated_at** date column without actually modifying any data within the model. Simply use the **touch** method, which will also automatically save the changes immediately:
+
+	$comment = Comment::find(1);
+	$comment->touch();
+
+You can also use the **timestamp** function to update the **updated_at** date column without saving the model immediately. Note that if you are actually modifying the model's data this is handled behind the scenes:
+
+	$comment = Comment::find(1);
+	$comment->timestamp();
+	//do something else here, but not modifying the $comment model data
+	$comment->save();
 
 > **Note:** You can change the default timezone of your application in the **application/config/application.php** file.
 
@@ -223,7 +238,7 @@ Want to join on a different foreign key? No problem. Just pass it in the second 
 
 	return $this->has_many('Comment', 'my_foreign_key');
 
-You may be wondering: _If the dynamic properties return the relationship and require less keystokes, why would I ever use the relationship methods?_ Actually, relationship methods are very powerful. They allow you to continue to chain query methods before retrieving the relationship. Check this out:
+You may be wondering: _If the dynamic properties return the relationship and require less keystrokes, why would I ever use the relationship methods?_ Actually, relationship methods are very powerful. They allow you to continue to chain query methods before retrieving the relationship. Check this out:
 
 	echo Post::find(1)->comments()->order_by('votes', 'desc')->take(10)->get();
 
@@ -232,20 +247,23 @@ You may be wondering: _If the dynamic properties return the relationship and req
 
 Many-to-many relationships are the most complicated of the three relationships. But don't worry, you can do this. For example, assume a User has many Roles, but a Role can also belong to many Users. Three database tables must be created to accomplish this relationship: a **users** table, a **roles** table, and a **role_user** table. The structure for each table looks like this:
 
-**Users:**
+**users:**
 
 	id    - INTEGER
 	email - VARCHAR
 
-**Roles:**
+**roles:**
 
 	id   - INTEGER
 	name - VARCHAR
 
-**Roles_Users:**
+**role_user:**
 
+    id      - INTEGER
 	user_id - INTEGER
 	role_id - INTEGER
+
+Tables contain many records and are consequently plural. Pivot tables used in **has\_many\_and\_belongs\_to** relationships are named by combining the singular names of the two related models arranged alphabetically and concatenating them with an underscore.
 
 Now you're ready to define the relationship on your models using the **has\_many\_and\_belongs\_to** method:
 
@@ -266,13 +284,24 @@ Or, as usual, you may retrieve the relationship through the dynamic roles proper
 
 	$roles = User::find(1)->roles;
 
-As you may have noticed, the default name of the intermediate table is the singular names of the two related models arranged alphabetically and concatenated by an underscore. However, you are free to specify your own table name. Simply pass the table name in the second parameter to the **has\_and\_belongs\_to\_many** method:
+If your table names don't follow conventions, simply pass the table name in the second parameter to the **has\_and\_belongs\_to\_many** method:
 
 	class User extends Eloquent {
 
 	     public function roles()
 	     {
 	          return $this->has_many_and_belongs_to('Role', 'user_roles');
+	     }
+
+	}
+
+By default only certain fields from the pivot table will be returned (the two **id** fields, and the timestamps). If your pivot table contains additional columns, you can fetch them too by using the **with()** method :
+
+	class User extends Eloquent {
+
+	     public function roles()
+	     {
+	          return $this->has_many_and_belongs_to('Role', 'user_roles')->with('column');
 	     }
 
 	}
@@ -286,7 +315,7 @@ Let's assume you have a **Post** model that has many comments. Often you may wan
 
 	$post = Post::find(1);
 
-	$post->comments()->insert($comment);
+	$comment = $post->comments()->insert($comment);
 
 When inserting related models through their parent model, the foreign key will automatically be set. So, in this case, the "post_id" was automatically set to "1" on the newly inserted comment.
 
@@ -310,13 +339,17 @@ This is even more helpful when working with many-to-many relationships. For exam
 
 	$user = User::find(1);
 
-	$user->roles()->insert($role);
+	$role = $user->roles()->insert($role);
 
 Now, when the Role is inserted, not only is the Role inserted into the "roles" table, but a record in the intermediate table is also inserted for you. It couldn't be easier!
 
 However, you may often only want to insert a new record into the intermediate table. For example, perhaps the role you wish to attach to the user already exists. Just use the attach method:
 
 	$user->roles()->attach($role_id);
+
+It's also possible to attach data for fields in the intermediate table (pivot table), to do this add a second array variable to the attach command containing the data you want to attach:
+
+	$user->roles()->attach($role_id, array('expires' => $expires));
 
 <a name="sync-method"></a>
 Alternatively, you can use the `sync` method, which accepts an array of IDs to "sync" with the intermediate table. After this operation is complete, only the IDs in the array will be on the intermediate table.
@@ -392,7 +425,7 @@ In this example, **only two queries will be executed**!
 
 	SELECT * FROM "books"
 
-	SELECT * FROM "authors" WHERE "id" IN (1, 2, 3, 4, 5, ...)
+	SELECT * FROM "authors" WHERE "id" IN (1, 2, 3, 4, 5, …)
 
 Obviously, wise use of eager loading can dramatically increase the performance of your application. In the example above, eager loading cut the execution time in half.
 
@@ -405,6 +438,28 @@ Need to eager load more than one relationship? It's easy:
 You may even eager load nested relationships. For example, let's assume our **Author** model has a "contacts" relationship. We can eager load both of the relationships from our Book model like so:
 
 	$books = Book::with(array('author', 'author.contacts'))->get();
+
+If you find yourself eager loading the same models often, you may want to use **$includes** in the model.
+
+	class Book extends Eloquent {
+
+	     public $includes = array('author');
+
+	     public function author()
+	     {
+	          return $this->belongs_to('Author');
+	     }
+
+	}
+
+**$includes** takes the same arguments that **with** takes. The following is now eagerly loaded.
+
+	foreach (Book::all() as $book)
+	{
+	     echo $book->author->name;
+	}
+
+> **Note:** Using **with** will override a models **$includes**.
 
 <a name="constraining-eager-loads"></a>
 ## Constraining Eager Loads
@@ -467,7 +522,7 @@ Or, mass-assignment may be accomplished using the **fill** method.
 
 	$user->save();
 
-By default, all attribute key/value pairs will be store during mass-assignment. However, it is possible to create a white-list of attributes that will be set. If the accessible attribute white-list is set then no attributes other than those specified will be set during mass-assignment.
+By default, all attribute key/value pairs will be stored during mass-assignment. However, it is possible to create a white-list of attributes that will be set. If the accessible attribute white-list is set then no attributes other than those specified will be set during mass-assignment.
 
 You can specify accessible attributes by assigning the **$accessible** static array. Each element contains the name of a white-listed attribute.
 
@@ -499,3 +554,12 @@ Sometimes you may wish to limit the attributes that are included in your model's
 		public static $hidden = array('password');
 
 	}
+
+<a name="delete"></a>
+## Deleting Models
+
+Because Eloquent inherits all the features and methods of Fluent queries, deleting models is a snap:
+
+	$author->delete();
+
+Note, however, than this won't delete any related models (e.g. all the author's Book models will still exist), unless you have set up [foreign keys](/docs/database/schema#foreign-keys) and cascading deletes.

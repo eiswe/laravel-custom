@@ -68,7 +68,7 @@ class Blade {
 			// Once the view has been compiled, we can simply set the path to the
 			// compiled view on the view instance and call the typical "get"
 			// method on the view to evaluate the compiled PHP view.
-			return $view->get();
+			return ltrim($view->get());
 		});
 	}
 
@@ -95,7 +95,6 @@ class Blade {
 	 *
 	 * @param  string  $view
 	 * @param  string  $path
-	 * @param  string  $compiled
 	 * @return bool
 	 */
 	public static function expired($view, $path)
@@ -198,6 +197,8 @@ class Blade {
 	 */
 	protected static function compile_echos($value)
 	{
+		$value = preg_replace('/\{\{\{(.+?)\}\}\}/', '<?php echo HTML::entities($1); ?>', $value);
+
 		return preg_replace('/\{\{(.+?)\}\}/', '<?php echo $1; ?>', $value);
 	}
 
@@ -304,7 +305,7 @@ class Blade {
 	{
 		$pattern = '/(\s*)@unless(\s*\(.*\))/';
 
-		return preg_replace($pattern, '$1<?php if( ! ($2)): ?>', $value);
+		return preg_replace($pattern, '$1<?php if ( ! ($2)): ?>', $value);
 	}
 
 	/**

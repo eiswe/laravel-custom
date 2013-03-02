@@ -31,15 +31,18 @@
 |		});
 |
 */
+Route::get('/about', function(){
+	return View::make('home.about');
+});
 
-/*Route::get('/', function()
-{
+Route::get('/home', function(){
 	return View::make('home.index');
-});*/
-Route::controller(Controller::detect());
-Route::get('login', 'home@login');
-Route::get('about', 'home@about');
-Route::get('impressum', 'home@impressum');
+});
+
+Route::get('/', function(){
+
+	return View::make('home.index');
+});
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -86,7 +89,7 @@ Event::listen('500', function()
 |
 | Next, attach the filter to a route:
 |
-|		Router::register('GET /', array('before' => 'filter', function()
+|		Route::get('/', array('before' => 'filter', function()
 |		{
 |			return 'Hello World!';
 |		}));
@@ -110,10 +113,5 @@ Route::filter('csrf', function()
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::to('home');
-});
-
-Route::filter('nonauth', function()
-{
-	if (Auth::guest() == false) return Redirect::to('dashboard');
+	if (Auth::guest()) return Redirect::to('login');
 });

@@ -1,5 +1,6 @@
 <?php namespace Laravel;
 
+use Closure;
 use Laravel\Database\Expression;
 use Laravel\Database\Connection;
 
@@ -123,6 +124,19 @@ class Database {
 	{
 		return new Expression($value);
 	}
+	
+	/**
+	 * Escape a string for usage in a query.
+	 *
+	 * This uses the correct quoting mechanism for the default database connection.
+	 *
+	 * @param  string      $value
+	 * @return string
+	 */
+	public static function escape($value)
+	{
+		return static::connection()->pdo->quote($value);
+	}
 
 	/**
 	 * Get the profiling data for all queries.
@@ -132,6 +146,18 @@ class Database {
 	public static function profile()
 	{
 		return Database\Connection::$queries;
+	}
+	
+	/**
+	 * Get the last query that was executed.
+	 *
+	 * Returns false if no queries have been executed yet.
+	 *
+	 * @return string
+	 */
+	public static function last_query()
+	{
+		return end(Database\Connection::$queries);
 	}
 
 	/**

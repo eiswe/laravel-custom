@@ -75,7 +75,7 @@ class Validator {
 	/**
 	 * Create a new validator instance.
 	 *
-	 * @param  array  $attributes
+	 * @param  mixed  $attributes
 	 * @param  array  $rules
 	 * @param  array  $messages
 	 * @return void
@@ -89,7 +89,7 @@ class Validator {
 
 		$this->rules = $rules;
 		$this->messages = $messages;
-		$this->attributes = $attributes;
+		$this->attributes = (is_object($attributes)) ? get_object_vars($attributes) : $attributes;
 	}
 
 	/**
@@ -214,7 +214,7 @@ class Validator {
 	 */
 	protected function implicit($rule)
 	{
-		return $rule == 'required' or $rule == 'accepted';
+		return $rule == 'required' or $rule == 'accepted' or $rule == 'required_with';
 	}
 
 	/**
@@ -258,6 +258,28 @@ class Validator {
 	}
 
 	/**
+	 * Validate that an attribute exists in the attributes array, if another
+	 * attribute exists in the attributes array.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_required_with($attribute, $value, $parameters)
+	{
+		$other = $parameters[0];
+		$other_value = array_get($this->attributes, $other);		
+
+		if ($this->validate_required($other, $other_value))
+		{
+			return $this->validate_required($attribute, $value);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Validate that an attribute has a matching confirmation attribute.
 	 *
 	 * @param  string  $attribute
@@ -280,7 +302,7 @@ class Validator {
 	 */
 	protected function validate_accepted($attribute, $value)
 	{
-		return $this->validate_required($attribute, $value) and ($value == 'yes' or $value == '1');
+		return $this->validate_required($attribute, $value) and ($value == 'yes' or $value == '1' or $value == 'on');
 	}
 
 	/**
@@ -295,7 +317,7 @@ class Validator {
 	{
 		$other = $parameters[0];
 
-		return isset($this->attributes[$other]) and $value == $this->attributes[$other];
+		return array_key_exists($other, $this->attributes) and $value == $this->attributes[$other];
 	}
 
 	/**
@@ -310,7 +332,7 @@ class Validator {
 	{
 		$other = $parameters[0];
 
-		return isset($this->attributes[$other]) and $value != $this->attributes[$other];
+		return array_key_exists($other, $this->attributes) and $value != $this->attributes[$other];
 	}
 
 	/**
@@ -401,8 +423,8 @@ class Validator {
 	protected function size($attribute, $value)
 	{
 	 	// This method will determine if the attribute is a number, string, or file and
-	 	// return the proper size accordingly. If it is a number, then number itself is
-	 	// the size; if it is a file, the size is kilobytes in the size; if it is a
+	 	// return the proper size accordingly. If it is a number, the number itself is
+	 	// the size; if it is a file, the kilobytes is the size; if it is a
 	 	// string, the length is the size.
 		if (is_numeric($value) and $this->has_rule($attribute, $this->numeric_rules))
 		{
@@ -560,7 +582,7 @@ class Validator {
 	{
 		$url = str_replace(array('http://', 'https://', 'ftp://'), '', Str::lower($value));
 
-		return checkdnsrr($url);
+		return (trim($url) !== '') ? checkdnsrr($url) : false;
 	}
 
 	/**
@@ -616,6 +638,7 @@ class Validator {
 	 *
 	 * @param  string  $attribute
 	 * @param  mixed   $value
+	 * @param  array   $parameters
 	 * @return bool
 	 */
 	protected function validate_match($attribute, $value, $parameters)
@@ -647,6 +670,70 @@ class Validator {
 	}
 
 	/**
+	 * Validate that an attribute is an array
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @return bool
+	 */
+	protected function validate_array($attribute, $value)
+	{
+		return is_array($value);
+	}
+
+	/**
+	 * Validate that an attribute of type array has a specific count
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_count($attribute, $value, $parameters)
+	{
+		return (is_array($value) && count($value) == $parameters[0]);
+	}
+
+	/**
+	 * Validate that an attribute of type array has a minimum of elements.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_countmin($attribute, $value, $parameters)
+	{
+		return (is_array($value) && count($value) >= $parameters[0]);
+	}
+
+	/**
+	 * Validate that an attribute of type array has a maximum of elements.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_countmax($attribute, $value, $parameters)
+	{
+		return (is_array($value) && count($value) <= $parameters[0]);
+	}
+
+	/**
+	 * Validate that an attribute of type array has elements between max and min.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_countbetween($attribute, $value, $parameters)
+	{
+		return (is_array($value) && count($value) >= $parameters[0] && count($value) <= $parameters[1] );
+	}
+
+	/**
 	 * Validate the date is before a given date.
 	 *
 	 * @param  string  $attribute
@@ -670,6 +757,19 @@ class Validator {
 	protected function validate_after($attribute, $value, $parameters)
 	{
 		return (strtotime($value) > strtotime($parameters[0]));
+	}
+
+	/**
+	 * Validate the date conforms to a given format.
+	 * 
+	 * @param  string  $attribute
+	 * @param  mixed   $value
+	 * @param  array   $parameters
+	 * @return bool
+	 */
+	protected function validate_date_format($attribute, $value, $parameters)
+	{
+		return date_create_from_format($parameters[0], $value) !== false;
 	}
 
 	/**
@@ -743,7 +843,7 @@ class Validator {
 		}
 		// We assume that attributes present in the $_FILES array are files,
 		// which makes sense. If the attribute doesn't have numeric rules
-		// and isn't as file, it's a string.
+		// and isn't a file, it's a string.
 		elseif (array_key_exists($attribute, Input::file()))
 		{
 			$line = 'file';
@@ -775,6 +875,20 @@ class Validator {
 		}
 
 		return $message;
+	}
+
+	/**
+	 * Replace all place-holders for the required_with rule.
+	 *
+	 * @param  string  $message
+	 * @param  string  $attribute
+	 * @param  string  $rule
+	 * @param  array   $parameters
+	 * @return string
+	 */
+	protected function replace_required_with($message, $attribute, $rule, $parameters)
+	{
+		return str_replace(':field', $this->attribute($parameters[0]), $message);
 	}
 
 	/**
@@ -862,7 +976,7 @@ class Validator {
 	}
 
 	/**
-	 * Replace all place-holders for the not_in rule.
+	 * Replace all place-holders for the mimes rule.
 	 *
 	 * @param  string  $message
 	 * @param  string  $attribute
@@ -886,7 +1000,7 @@ class Validator {
 	 */
 	protected function replace_same($message, $attribute, $rule, $parameters)
 	{
-		return str_replace(':other', $parameters[0], $message);
+		return str_replace(':other', $this->attribute($parameters[0]), $message);
 	}
 
 	/**
@@ -900,7 +1014,7 @@ class Validator {
 	 */
 	protected function replace_different($message, $attribute, $rule, $parameters)
 	{
-		return str_replace(':other', $parameters[0], $message);
+		return str_replace(':other', $this->attribute($parameters[0]), $message);
 	}
 
 	/**
@@ -932,6 +1046,62 @@ class Validator {
 	}
 
 	/**
+	 * Replace all place-holders for the count rule.
+	 *
+	 * @param  string  $message
+	 * @param  string  $attribute
+	 * @param  string  $rule
+	 * @param  array   $parameters
+	 * @return string
+	 */
+	protected function replace_count($message, $attribute, $rule, $parameters)
+	{
+		return str_replace(':count', $parameters[0], $message);
+	}
+
+	/**
+	 * Replace all place-holders for the countmin rule.
+	 *
+	 * @param  string  $message
+	 * @param  string  $attribute
+	 * @param  string  $rule
+	 * @param  array   $parameters
+	 * @return string
+	 */
+	protected function replace_countmin($message, $attribute, $rule, $parameters)
+	{
+		return str_replace(':min', $parameters[0], $message);
+	}
+
+	/**
+	 * Replace all place-holders for the countmax rule.
+	 *
+	 * @param  string  $message
+	 * @param  string  $attribute
+	 * @param  string  $rule
+	 * @param  array   $parameters
+	 * @return string
+	 */
+	protected function replace_countmax($message, $attribute, $rule, $parameters)
+	{
+		return str_replace(':max', $parameters[0], $message);
+	}
+
+	/**
+	 * Replace all place-holders for the between rule.
+	 *
+	 * @param  string  $message
+	 * @param  string  $attribute
+	 * @param  string  $rule
+	 * @param  array   $parameters
+	 * @return string
+	 */
+	protected function replace_countbetween($message, $attribute, $rule, $parameters)
+	{
+		return str_replace(array(':min', ':max'), $parameters, $message);
+	}
+
+	/**
 	 * Get the displayable name for a given attribute.
 	 *
 	 * @param  string  $attribute
@@ -953,7 +1123,7 @@ class Validator {
 
 		// If no language line has been specified for the attribute, all of
 		// the underscores are removed from the attribute name and that
-		// will be used as the attribtue name.
+		// will be used as the attribute name.
 		else
 		{
 			return str_replace('_', ' ', $attribute);

@@ -9,13 +9,20 @@ class HTML {
 	 */
 	public static $macros = array();
 
-    /**
-     * Registers a custom macro.
-     *
-     * @param  string   $name
-     * @param  Closure  $input
-     * @return void
-     */
+	/**
+	 * Cache application encoding locally to save expensive calls to config::get().
+	 *
+	 * @var string
+	 */
+	public static $encoding = null;
+
+	/**
+	 * Registers a custom macro.
+	 *
+	 * @param  string   $name
+	 * @param  Closure  $macro
+	 * @return void
+	 */
 	public static function macro($name, $macro)
 	{
 		static::$macros[$name] = $macro;
@@ -31,7 +38,7 @@ class HTML {
 	 */
 	public static function entities($value)
 	{
-		return htmlentities($value, ENT_QUOTES, Config::get('application.encoding'), false);
+		return htmlentities($value, ENT_QUOTES, static::encoding(), false);
 	}
 
 	/**
@@ -42,7 +49,7 @@ class HTML {
 	 */
 	public static function decode($value)
 	{
-		return html_entity_decode($value, ENT_QUOTES, Config::get('application.encoding'));
+		return html_entity_decode($value, ENT_QUOTES, static::encoding());
 	}
 
 	/**
@@ -55,7 +62,7 @@ class HTML {
 	 */
 	public static function specialchars($value)
 	{
-		return htmlspecialchars($value, ENT_QUOTES, Config::get('application.encoding'), false);
+		return htmlspecialchars($value, ENT_QUOTES, static::encoding(), false);
 	}
 
 	/**
@@ -137,9 +144,11 @@ class HTML {
 	 * @param  bool    $https
 	 * @return string
 	 */
-	public static function link($url, $title, $attributes = array(), $https = null)
+	public static function link($url, $title = null, $attributes = array(), $https = null)
 	{
 		$url = URL::to($url, $https);
+
+		if (is_null($title)) $title = $url;
 
 		return '<a href="'.$url.'"'.static::attributes($attributes).'>'.static::entities($title).'</a>';
 	}
@@ -152,7 +161,7 @@ class HTML {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function link_to_secure($url, $title, $attributes = array())
+	public static function link_to_secure($url, $title = null, $attributes = array())
 	{
 		return static::link($url, $title, $attributes, true);
 	}
@@ -168,9 +177,11 @@ class HTML {
 	 * @param  bool    $https
 	 * @return string
 	 */
-	public static function link_to_asset($url, $title, $attributes = array(), $https = null)
+	public static function link_to_asset($url, $title = null, $attributes = array(), $https = null)
 	{
 		$url = URL::to_asset($url, $https);
+		
+		if (is_null($title)) $title = $url;
 
 		return '<a href="'.$url.'"'.static::attributes($attributes).'>'.static::entities($title).'</a>';
 	}
@@ -183,7 +194,7 @@ class HTML {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function link_to_secure_asset($url, $title, $attributes = array())
+	public static function link_to_secure_asset($url, $title = null, $attributes = array())
 	{
 		return static::link_to_asset($url, $title, $attributes, true);
 	}
@@ -207,7 +218,7 @@ class HTML {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function link_to_route($name, $title, $parameters = array(), $attributes = array())
+	public static function link_to_route($name, $title = null, $parameters = array(), $attributes = array())
 	{
 		return static::link(URL::to_route($name, $parameters), $title, $attributes);
 	}
@@ -231,9 +242,22 @@ class HTML {
 	 * @param  array   $attributes
 	 * @return string
 	 */
-	public static function link_to_action($action, $title, $parameters = array(), $attributes = array())
+	public static function link_to_action($action, $title = null, $parameters = array(), $attributes = array())
 	{
 		return static::link(URL::to_action($action, $parameters), $title, $attributes);
+	}
+
+	/**
+	 * Generate an HTML link to a different language
+	 *
+	 * @param  string  $language
+	 * @param  string  $title
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	public static function link_to_language($language, $title = null, $attributes = array())
+	{
+		return static::link(URL::to_language($language), $title, $attributes);
 	}
 
 	/**
@@ -347,6 +371,28 @@ class HTML {
 	}
 
 	/**
+	 * Generate a definition list.
+	 *
+	 * @param  array   $list
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	public static function dl($list, $attributes = array())
+	{
+		$html = '';
+
+		if (count($list) == 0) return $html;
+
+		foreach ($list as $term => $description)
+		{
+			$html .= '<dt>'.static::entities($term).'</dt>';
+			$html .= '<dd>'.static::entities($description).'</dd>';
+		}
+
+		return '<dl'.static::attributes($attributes).'>'.$html.'</dl>';
+	}
+
+	/**
 	 * Build a list of HTML attributes from an array.
 	 *
 	 * @param  array   $attributes
@@ -359,7 +405,7 @@ class HTML {
 		foreach ((array) $attributes as $key => $value)
 		{
 			// For numeric keys, we will assume that the key and the value are the
-			// same, as this will conver HTML attributes such as "required" that
+			// same, as this will convert HTML attributes such as "required" that
 			// may be specified as required="required", etc.
 			if (is_numeric($key)) $key = $value;
 
@@ -406,6 +452,16 @@ class HTML {
 	}
 
 	/**
+	 * Get the appliction.encoding without needing to request it from Config::get() each time.
+	 *
+	 * @return string
+	 */
+	protected static function encoding()
+	{
+		return static::$encoding ?: static::$encoding = Config::get('application.encoding');
+	}
+
+	/**
 	 * Dynamically handle calls to custom macros.
 	 *
 	 * @param  string  $method
@@ -418,7 +474,7 @@ class HTML {
 	    {
 	        return call_user_func_array(static::$macros[$method], $parameters);
 	    }
-	    
+
 	    throw new \Exception("Method [$method] does not exist.");
 	}
 

@@ -16,14 +16,15 @@ return array(
 	|
 	*/
 
-	'driver' => 'cookie',
+	// cookie is default  | now choose Session Table in DataBase
+	'driver' => 'database',
 
 	/*
 	|--------------------------------------------------------------------------
 	| Session Database
 	|--------------------------------------------------------------------------
 	|
-	| The database table on which the session should be stored. It probably
+	| The database table in which the session should be stored. It probably
 	| goes without saying that this option only matters if you are using
 	| the super slick database session driver.
 	|

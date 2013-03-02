@@ -14,7 +14,7 @@ return array(
 	|
 	*/
 
-	'profile' => true,
+	'profile' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ return array(
 	| Default Database Connection
 	|--------------------------------------------------------------------------
 	|
-	| The name of your default database connection. This connection will used
+	| The name of your default database connection. This connection will be used
 	| as the default for all database operations unless a different name is
 	| given when performing said operation. This connection name should be
 	| listed in the array of connections below.
@@ -54,21 +54,51 @@ return array(
 	| the freedom to specify as many connections as you can handle.
 	|
 	| All database work in Laravel is done through the PHP's PDO facilities,
-	| so make sure you have the PDO drivers for your particlar database of
+	| so make sure you have the PDO drivers for your particular database of
 	| choice installed on your machine.
 	|
 	*/
 
 	'connections' => array(
+
+		'sqlite' => array(
+			'driver'   => 'sqlite',
+			'database' => 'application',
+			'prefix'   => '',
+		),
+
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => 'localhost',
+			'host'     => '127.0.0.1',
 			'database' => 'laravel-custom',
-			'username' => 'laraCroft',
-			'password' => '734laraCroft',
+//			'username' => 'lara',
+// 			on server lara already exists
+			'username' => 'lara2',
+			'password' => 'l4r4v3l',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),
+
+		'pgsql' => array(
+			'driver'   => 'pgsql',
+			'host'     => '127.0.0.1',
+			'database' => 'database',
+			'username' => 'root',
+			'password' => '',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+			'schema'   => 'public',
+		),
+
+		'sqlsrv' => array(
+			'driver'   => 'sqlsrv',
+			'host'     => '127.0.0.1',
+			'database' => 'database',
+			'username' => 'root',
+			'password' => '',
+			'prefix'   => '',
+		),
+
 	),
 
 	/*

@@ -11,7 +11,7 @@
 
 Localization is the process of translating your application into different languages. The **Lang** class provides a simple mechanism to help you organize and retrieve the text of your multilingual application.
 
-All of the language files for your application live under the **application/language** directory. Within the **application/language** directory, you should create a directory for each language your application speaks. So, for example, if your application speaks English and Spanish, you might create **en** and **sp** directories under the **language** directory.
+All of the language files for your application live under the **application/language** directory. Within the **application/language** directory, you should create a directory for each language your application speaks. So, for example, if your application speaks English and Spanish, you might create **en** and **es** directories under the **language** directory.
 
 Each language directory may contain many different language files. Each language file is simply an array of string values in that language. In fact, language files are structured identically to configuration files. For example, within the **application/language/en** directory, you could create a **marketing.php** file that looks like this:
 
@@ -23,7 +23,7 @@ Each language directory may contain many different language files. Each language
 
 	);
 
-Next, you should create a corresponding **marketing.php** file within the **application/language/sp** directory. The file would look something like this:
+Next, you should create a corresponding **marketing.php** file within the **application/language/es** directory. The file would look something like this:
 
 	return array(
 
@@ -33,7 +33,7 @@ Next, you should create a corresponding **marketing.php** file within the **appl
 
 Nice! Now you know how to get started setting up your language files and directories. Let's keep localizing!
 
-<a name="basics"></a>
+<a name="get"></a>
 ## Retrieving A Language Line
 
 #### Retrieving a language line:
@@ -50,12 +50,12 @@ Need to retrieve the line in a language other than your default? Not a problem. 
 
 #### Getting a language line in a given language:
 
-	echo Lang::line('marketing.welcome')->get('sp');
+	echo Lang::line('marketing.welcome')->get('es');
 
 <a name="replace"></a>
 ## Place Holders & Replacements
 
-Now, let's work on our welcome message. "Welcome to our website!" is a pretty generic message. It would be helpful to be able to specify the name of the person we are welcoming. But, creating a language line for each user of our application would be time-consuming and ridiculous. Thankfully, you don't have to. You can specify "place-holders" within your language lines. Place-holders are preceeded by a colon:
+Now, let's work on our welcome message. "Welcome to our website!" is a pretty generic message. It would be helpful to be able to specify the name of the person we are welcoming. But, creating a language line for each user of our application would be time-consuming and ridiculous. Thankfully, you don't have to. You can specify "place-holders" within your language lines. Place-holders are preceded by a colon:
 
 #### Creating a language line with place-holders:
 

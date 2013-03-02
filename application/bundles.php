@@ -35,6 +35,18 @@
 
 return array(
 
-	'docs' => array('handles' => 'docs'),
+	'docs'	=> array('handles' => 'docs'),
+
+	// registrating a new bundle: admin
+	'admin'	=> array('handles' => 'admin'),
+
+	// registrating aware bundle -> check forms!
+	'aware' => array(
+	  'autoloads' => array(
+	    'map' => array(
+	      'Aware' => '(:bundle)/model.php'
+	    ),
+	  )
+	),
 
 );

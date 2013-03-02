@@ -49,7 +49,7 @@ class Bundler extends Task {
 			// all of its registered dependencies as well.
 			//
 			// Each bundle provider implements the Provider interface and
-			// is repsonsible for retrieving the bundle source from its
+			// is responsible for retrieving the bundle source from its
 			// hosting party and installing it into the application.
 			$path = path('bundle').$this->path($bundle);
 
@@ -59,6 +59,43 @@ class Bundler extends Task {
 
 			echo "done! Bundle installed.".PHP_EOL;
 		}
+	}
+
+	/**
+	 * Uninstall the given bundles from the application.
+	 *
+	 * @param  array  $bundles
+	 * @return void
+	 */
+	public function uninstall($bundles)
+	{
+		if (count($bundles) == 0)
+		{
+			throw new \Exception("Tell me what bundle to uninstall.");
+		}
+
+		foreach ($bundles as $name)
+		{
+			if ( ! Bundle::exists($name))
+			{
+				echo "Bundle [{$name}] is not installed.";
+				continue;
+			}
+
+			echo "Uninstalling [{$name}]...".PHP_EOL;
+			$migrator = IoC::resolve('task: migrate');
+			$migrator->reset($name);
+
+			$publisher = IoC::resolve('bundle.publisher');
+			$publisher->unpublish($name);
+
+			$location = Bundle::path($name);
+			File::rmdir($location);
+
+			echo "Bundle [{$name}] has been uninstalled!".PHP_EOL;
+		}
+
+		echo "Now, you have to remove those bundle from your application/bundles.php".PHP_EOL;
 	}
 
 	/**
@@ -135,7 +172,7 @@ class Bundler extends Task {
 
 			$responses[] = $bundle;
 
-			// We'll also get the bundle's declared dependenceis so they
+			// We'll also get the bundle's declared dependencies so they
 			// can be installed along with the bundle, making it easy
 			// to install a group of bundles.
 			$dependencies = $this->get($bundle['dependencies']);
@@ -157,6 +194,19 @@ class Bundler extends Task {
 		if (count($bundles) == 0) $bundles = Bundle::names();
 
 		array_walk($bundles, array(IoC::resolve('bundle.publisher'), 'publish'));
+	}
+
+	/**
+	 * Delete bundle assets from the public directory.
+	 *
+	 * @param  array  $bundles
+	 * @return void
+	 */
+	public function unpublish($bundles)
+	{
+		if (count($bundles) == 0) $bundles = Bundle::names();
+
+		array_walk($bundles, array(IoC::resolve('bundle.publisher'), 'unpublish'));
 	}
 
 	/**
