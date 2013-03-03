@@ -31,18 +31,20 @@
 |		});
 |
 */
+Route::controller(Controller::detect('application'));
+
 Route::get('/about', function(){
-	return View::make('home.about');
+	return View::make('home.about')->with('title', 'Custom About');
 });
 
 Route::get('/home', function(){
-	return View::make('home.index');
+	return View::make('home.index')->with('title', 'Custom Home');
 });
 
 Route::get('/', function(){
-
-	return View::make('home.index');
+	return View::make('home.index')->with('title', 'Custom Home');
 });
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

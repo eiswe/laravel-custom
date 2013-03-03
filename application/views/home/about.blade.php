@@ -1,5 +1,11 @@
 @layout('layouts.default')
 
+@section('navigation')
+	@parent
+    <li>				<a href="home">		Home      </a></li>      <!-- class="active" -->	
+    <li class="active"> <a href="about">	About      </a></li>      <!-- class="active" -->	
+@endsection
+
 @section('content')
 
 	<div class="home">

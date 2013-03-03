@@ -49,4 +49,7 @@ return array(
 	  )
 	),
 
+	// registrating bootstrapper
+	'bootstrapper' => array('auto' => true),
+
 );

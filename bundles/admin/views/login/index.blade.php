@@ -1,5 +1,10 @@
 @layout('admin::layouts.new')
 
+@section('navigation')
+    <li class="active">	<a href="../home">	Home      </a></li>      <!-- class="active" -->	
+    <li> 				<a href="../about">	About      </a></li>      <!-- class="active" -->	
+@endsection
+
 @section('content')
   <div class="span9">
 	<h1>Login Page</h1>

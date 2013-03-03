@@ -50,6 +50,6 @@ class Admin_Login_Controller extends Controller {
         Auth::logout();
 
         // return to public home cause he isnt logged in!
-        return View::make('home.index');
+        return View::make('home.index')->with('title', 'Succesfully Logged out!');
     }
 }
