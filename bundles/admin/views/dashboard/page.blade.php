@@ -13,7 +13,7 @@
 	<!--	{{ Form::open() }}
 			Form like a BOSS!        cause BLADE cant change class?!?!
 	 -->
-	<form class="form-horizontal" method="POST" action="http://laravel.dev/admin/page" accept-charset="UTF-8">
+	<form class="form-horizontal" method="POST" action="/admin/page" accept-charset="UTF-8">
 
 		<br />
 		<span class="text text-warning">Warning! Some fileds are required!</span>

@@ -13,7 +13,7 @@
           <div class="row">
               <div class="span12">
                   <br />
-                    <h1>{{ $title }}</h1>  
+                    <h1>Custom{{ $title }}</h1>  
                   <br /><br />
               </div>
           </div>

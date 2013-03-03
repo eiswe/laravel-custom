@@ -3,14 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>LimeBlack: Try something new!</title>
+	<title>CUSTOM:LimeBlack: Try something new!</title>
 	<meta name="viewport" content="width=device-width">
 	{{ HTML::style('laravel/css/style.css') }}
 </head>
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>LimeBlack</h1>
+			<h1>Custom:LimeBlack</h1>
 			<h2>Try something new!</h2>
 			<p class="intro-text" style="margin-top: 45px;">
 			</p>
