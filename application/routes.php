@@ -31,21 +31,27 @@
 |		});
 |
 */
+
 Route::controller('home');
-Route::controller(Controller::detect('application'));
-/*
+Route::controller(Controller::detect('application'));	//Dont need using Controller...
+
+Route::get('/galery', function(){
+	return View::make('galery.tinker')->with('title', 'LimeBlack - About me!');
+});
+
 Route::get('/about', function(){
-	return View::make('home.about')->with('title', 'Custom About');
+	return View::make('home.about')->with('title', 'LimeBlack - About me!');
 });
 
 Route::get('/home', function(){
-	return View::make('home.index')->with('title', 'Custom Home');
+	return View::make('home.index')->with('title', 'LimeBlack - Index');
 });
 
 Route::get('/', function(){
-	return View::make('home.index')->with('title', 'Custom Home');
+
+	return View::make('home.index')->with('title', 'LimeBlack - Index');
 });
-*/
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

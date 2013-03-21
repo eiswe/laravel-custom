@@ -8,28 +8,26 @@ class Admin_Base_Controller extends Controller {
     public function __construct(){
 
         /** !Pink
-
-        ##  i really wanna replace this admin bundle shit!
-        ##  but now it works ... -.-  
-        ##  i see problems with compatibility to other bundles like aware...
-        ##  why he need to Redirect Admin Model (bundles/admin/models/admin.php Line:1,2)
-
+         *  I really wanna replace this admin bundle shit!
+         *  but now it works ... -.-  
+         *  I see problems with compatibility to other bundles like aware...
+         *  why he need to Redirect Admin Model (bundles/admin/models/admin.php Line:1,2) - for reach admin class! Database!
         */
 
         parent::__construct();
 
-        // enable config for login -> credentials
-        // Imports the library and config: libraries/adminauth, cofig/auth
+        // Imports the library and config: libraries/adminauth
         Config::set('auth.driver', 'adminauth');
         
-        // Include bundle and css files from bootstrap/jquery
-        // Assets can be included in the view files!
+        // Include header (css) and footer (js) files
         Asset::container('header')->bundle('admin');
-        Asset::container('header')->add('bootstrap', 'css/bootstrap.min.css');
+        Asset::container('header')->add('bootstrap',    'css/bootstrap.css');               // Added custom bootstrap css, next to Bootstrapper!( Laravel-Bundle )
 
-        Asset::container('footer')->bundle('admin');
-        Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
-        Asset::container('footer')->add('bootstrapjs', 'js/bootstrap.min.js');
+        Asset::container('footer')->bundle('admin');    //Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
+        Asset::container('footer')->add('jquery',       'js/jquery-latest.js');             // Added lokal jQuery
+        Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
+        Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
+        Asset::container('footer')->add('bootstrapjs',  'js/bootstrap.js');                 // Added BootsrtapJS! for things like Pagination!
 
         // using auth filter globally for everything in admins
         $this->filter('before', 'auth');

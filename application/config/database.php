@@ -70,10 +70,8 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => '127.0.0.1',
-			'database' => 'laravel-custom',
-//			'username' => 'lara',
-// 			on server lara already exists
-			'username' => 'lara2',
+			'database' => 'laravel-admin',
+			'username' => 'lara1',
 			'password' => 'l4r4v3l',
 			'charset'  => 'utf8',
 			'prefix'   => '',

@@ -33,8 +33,7 @@ class Admin_Login_Controller extends Controller {
                 // save user id in Session
                 Session::put('id', $value->id);
             }
-            
-            return Redirect::to(URL::to_action('admin::home@index'));
+            return Redirect::to(URL::to_action('admin::home@index'))->with('title', 'Welcome to DVS');
 
         } else {
             return Redirect::back()->with('error', true);
@@ -50,6 +49,6 @@ class Admin_Login_Controller extends Controller {
         Auth::logout();
 
         // return to public home cause he isnt logged in!
-        return View::make('home.index')->with('title', 'Succesfully Logged out!');
+        return Redirect::to(URL::to_action('home@index'))->with('title', 'Welcome to DVS');
     }
 }

@@ -31,11 +31,12 @@ class Home_Controller extends Base_Controller {
 	*/
 
 	public function action_index() {
-		return View::make('home.index')->with('title', 'Home');
+		return View::make('home.index')
+			->with('title', 'LimeBlack - Index');
 	}
 
 	public function action_about() {
-		return View::make('home.about')->with('title', 'About');
+		return View::make('home.about')
+			->with('title', 'LimeBlack - About me!');
 	}
-	
 }

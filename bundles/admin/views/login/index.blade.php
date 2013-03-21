@@ -1,32 +1,29 @@
 @layout('admin::layouts.new')
 
-@section('navigation')
-    <li class="active">	<a href="../home">	Home      </a></li>      <!-- class="active" -->	
-    <li> 				<a href="../about">	About      </a></li>      <!-- class="active" -->	
-@endsection
-
 @section('content')
-  <div class="span9">
-	<h1>Login Page</h1>
+  <div class="span8">
+  	<div class="page-header">
+  		<h1>Login<small> to Repair Stat!</small></h1>
+  	</div>	
+		
+		@if(Session::get('error'))
+			<div class="alert alert-warning">Sorry, your username or password was incorrect.</div>
+		@endif
 
-	@if(Session::get('error'))
-		Sorry, your username or password was incorrect.
-	@endif
+		{{Form::open()}}
 
-	{{Form::open()}}
+		{{Form::label('username', 'Username')}}
+		{{Form::text('username', Input::old('username'))}}
 
-	{{Form::label('username', 'Username')}}
-	{{Form::text('username')}}
+		{{Form::label('password', 'Password')}}
+		{{Form::password('password')}}
 
-	{{Form::label('password', 'Password')}}
-	{{Form::password('password')}}
+		<br />
 
-	<br />
+		{{Form::submit('Login', array('class' => 'btn btn-success'))}}
 
-	{{Form::submit('Login', array('class' => 'btn btn-success'))}}
-
-	{{Form::token()}}
-	{{Form::close()}}
+		{{Form::token()}}
+		{{Form::close()}}
 
 @endsection
 

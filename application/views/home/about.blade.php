@@ -2,13 +2,18 @@
 
 @section('navigation')
 	@parent
-    <li>				<a href="home">		Home      </a></li>      <!-- class="active" -->	
-    <li class="active"> <a href="about">	About      </a></li>      <!-- class="active" -->	
+	<?php
+	    $url = URL::base(); //return http://laravel.dev 
+	    print '<li>         		<a href="'.$url.'/home"> Home      </a></li>'; 
+	    print '<li class="active">	<a href="'.$url.'/about"> About      </a></li>'; 
+	    print '<li>         		<a href="'.$url.'/galery"> Galery      </a></li>'; 	    
+	?>  
 @endsection
 
 @section('content')
 
-	<div class="home">
+  <div class="span9">
+
 		<h2>This Project was written with Laravel</h2>
 		<p>
 			I made it for the DVS a Rohde & Schwarz Company, <br />	
@@ -20,7 +25,7 @@
 		<small>Install Migrations - add Database</small>
 		<pre>
 			<br />	php artisan migrate:install
-			<br />	php artisan session:install
+			<br />	php artisan session:table    - Need to do this after each JS change! JS sucks..
 			<br />	php artisan migrate:rebuild
 		</pre>
 		
@@ -32,6 +37,6 @@
 		</pre>
 
 
-	</div>
+
 
 @endsection

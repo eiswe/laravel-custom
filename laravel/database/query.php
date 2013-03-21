@@ -2,7 +2,6 @@
 
 use Closure;
 use Laravel\Database;
-// change paginator for bootstrapper
 //use Laravel\Paginator;
 use Paginator;
 use Laravel\Database\Query\Grammars\Postgres;

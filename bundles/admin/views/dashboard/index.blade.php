@@ -2,15 +2,26 @@
 
 @section('navigation')
 	@parent
-    <li class="active">	<a href="home"> Home      </a></li>      <!-- class="active" -->	
-    <li>				<a href="list"> List      </a></li>      <!-- class="active" -->	
-    <li>				<a href="page"> Add Card  </a></li>      <!-- class="active" -->	
+	<?php 
+		$url = URL::base(); //return http://laravel.dev
+    	print '<li class="active">	<a href="'.$url.'/admin/home"> Home      </a></li>';
+    	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
+    	print '<li>					<a href="'.$url.'/admin/card"> Add Card  </a></li>';
+    	print '<li>					<a href="'.$url.'/admin/edit"> Edit Card  </a></li>';
+	?>
 @endsection
 
 @section('content')
 
   <div class="span9">
-
+		@if(Session::get('alert'))
+			<?php 
+				// Fetch alert
+				$alert = Session::get('alert'); 
+				// Print Alert message
+				print '<div class="alert alert-success">The '.$alert['event'].' was '.$alert['state'].'</div>';
+			?>
+		@endif
     	<div class="hero-unit">
 		    <h1>DVS</h1>
 		    <span class="text text-info">
@@ -18,9 +29,10 @@
 		    
 		    <p>Reparatur Statistic</p>
 		    <br />
-		    <p><a href="list" class="btn btn-primary btn-large">
-			    	To List!</a></p>
-			
+            <?php 
+                print '<p><a href="'.$url.'/admin/list" class="btn btn-primary btn-large">To List!</a></p>';
+            ?>         
+		    
 	    </div>
 
 @endsection
@@ -28,45 +40,3 @@
 
 
 
-<!--
-
-		experimental code
-	<div class="tabbable">
-	    <ul class="nav nav-tabs">
-		    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-		    <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
-	    </ul>
-	    <div class="tab-content">
-	    	<div class="tab-pane active" id="tab1">
-				<p>Im section 1!</p>
-	    	</div>
-		    <div class="tab-pane" id="tab2">
-		    	<p>I'm in Section 2.</p>
-		    	<div class="tabbable tabs-left">
-    				<ul class="nav nav-tabs">
-					    <li class="active"><a href="#hltab1" data-toggle="tab">Section 1</a></li>
-					    <li><a href="#hltab2" data-toggle="tab">Section 2</a></li>
-    				</ul>
-    				<div class="tab-content">
-				    	<div class="tab-pane active" id="hltab1">
-				    		<p>Howdy, I'm in Section 1.1.</p>
-				    	</div>
-				    	<div class="tab-pane" id="hltab2">
-				    		<p>Howdy, I'm in Section 1.2.</p>
-				    	</div>
-    				</div>
-    			</div>
-		    </div>
-    	</div>
-    </div>
-
-
-	Old Code
-
-<h1>Hello DVS User</h1>
-<p class="lead">This is our dashboard view</p>
-
-<a href="list">Liste</a>
-<a href="list/auto/23">Liste auto 23</a>
-
--->

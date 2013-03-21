@@ -7,34 +7,48 @@
   </head>
   <body>
       <div class="container-fluid">
+
+  <!-- First Row - For Title and leading text.. -->        
           <div class="row">
-              <div class="span12">
-                  <br />
-                    <h1>{{ $title }}</h1>  
-                  <br /><br />
+              <div class="span12"> 
+                  <h1>LimeBlack <!--<h1> {{ $title }}</h1> -->
+                  <?php
+                    echo Typography::lead('coding all for Web, Android and Robotic!', 'i');
+                  ?></h1>
               </div>
           </div>
+
+  <!-- Second Row - For Navi and Content -->
           <div class="row-fluid">
+
+        <!-- Small Span for Navigation -->
               <div class="span1">
-                  <!--Sidebar content-->
-                  <ul class="nav nav-pills nav-stacked">
-                    @section('navigation')
-                        <li class="nav-header"> Navigation</li>
-                        <li><a href="admin/login">    Login    </a></li>
+
+                  <ul class="nav nav-pills nav-stacked">                <!-- Navi Element -->
+                    @section('navigation')                              <!-- Navi Section for adding dynamic Navi links -->
+
+                      <li class="nav-header">Navigation</li>            <!-- Navi Title -->
+                      <?php
+                        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+                        print '<li>         <a href="'.$url.'/admin/login/logout"> Login      </a></li>'; 
+                      ?>    
                     @yield_section
                   </ul>
               </div>
-              <div class="span11">  
 
+
+
+
+
+
+                  <!--Body content-->
+                  <!--       NEVER FORGET TO OPEN ->   <div class="span11">  
+                            But dont need to close!!!!!
+                -->
                   @yield('content')
-
-
-                  <hr />
-                  <br />
-                  <div class="alert alert-warning">You are: {{ Session::get( 'id', function() { return 'guest'; } ); }} </div>
               </div>
+
           </div>
       </div>
-  {{ Asset::container('bootstrapper')->scripts(); }}
+  {{ Asset::container('footer')->scripts() }}
   </body>
-</html>

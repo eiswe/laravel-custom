@@ -2,15 +2,6 @@
 
 class Base_Controller extends Controller {
 
-    public function __construct(){
-
-        parent::__construct();
-
-        // Include bundle and css files from bootstrap/jquery
-		Asset::container('bootstrapper')->styles();
-		Asset::container('bootstrapper')->scripts();
-    }
-
 	/**
 	 * Catch-all method for requests that can't be matched.
 	 *
