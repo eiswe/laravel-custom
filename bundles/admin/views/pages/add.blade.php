@@ -1,15 +1,51 @@
 @layout('admin::layouts.new')
 
-@section('navigation')
-	@parent
-	<?php 
-		$url = URL::base(); //return http://laravel.dev
-    	print '<li>					<a href="'.$url.'/admin/home"> Home      </a></li>';
-    	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/emacs"> Emacs  </a></li>';
-    	print '<li class="active">	<a href="'.$url.'/admin/card"> Add Card  </a></li>';
-    	print '<li>					<a href="'.$url.'/admin/edit"> Edit Card  </a></li>';
-	?>
+@section('topnav')
+    <?php
+        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+        
+        echo Navbar::create()
+            ->with_brand( 'LimeBlack', $url.'/home' )
+            ->with_menus( Navigation::links( 
+                array(
+                  array('Home', $url.'/home'),
+                  array('David', $url.'/david'),
+                  array('Paolo', $url.'/paolo'),
+                  array('Kazo', $url.'/kazo'),
+                  array( 'Dropdown', '#', false, false, array(
+                      array('Action', '#'),
+                      array('Another action', '#'),
+                      array('Something else here', '#'),
+                      
+                      array(Navigation::DIVIDER),
+                      
+                      array(Navigation::HEADER, 'Nav header'),
+                      array('Separated link', '#'),
+                      array('One more separated link', '#'),
+                    )
+                  )
+                ) 
+            ))
+          ->with_menus( Navigation::links( array(
+              array('Admin', $url.'/admin', true),
+              array(Navigation::VERTICAL_DIVIDER),
+
+              array('About', $url.'/about'),
+              array('Logout', $url.'/admin/logout'),
+            )),
+            array('class' => 'pull-right')
+          );
+    ?>
+@endsection
+
+@section('subnav')
+    <?php 
+        print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/list">         List your Card </a></li>';
+        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
+        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
+    ?>
 @endsection
 
 @section('content')
@@ -18,6 +54,9 @@
 	<!--
 			Form like a BOSS! 
 		-->
+<?php
+      echo Breadcrumb::create(array( 'Edit' => $url.'/admin/page/edit', 'List' => $url.'/admin/page/list', 'Add'));
+?>
 		<br /><br />
 		@if(Session::get('error'))
 			<?php 
@@ -42,22 +81,6 @@
 			Form::label('rv', 'Revision'), 
 			Form::medium_text('rv'), '', 
 			Form::block_help('Here you must place your Revision!'));
-
-// Generate DropDown Menus ...
-// ---------------------------------------------------
-
-		$droplist[] = array( 'shrt' => 'kt', 'value' => $type, 'label' => 'Card-Type', 			'desc' => 'Here you have to place Card-Type'  );
-		$droplist[] = array( 'shrt' => 'ao', 'value' => $auso, 'label' => 'Ausfall-Ort', 		'desc' => 'Here you have to place Ausfall Ort'  );
-		$droplist[] = array( 'shrt' => 'et', 'value' => $errr, 'label' => 'ErrorType', 			'desc' => 'Here you have to place ErrorType'  );
-		$droplist[] = array( 'shrt' => 'st', 'value' => $stat, 'label' => 'Status', 			'desc' => 'Here you have to place Status'  );
-		$droplist[] = array( 'shrt' => 'fl', 'value' => $fail, 'label' => 'Failure', 			'desc' => 'Here you have to place Failure'  );
-
-		foreach ( $droplist as $key) {
-			echo Form::control_group(
-				Form::label( 		$key[ 'shrt' ] , $key[ 'label' ] ), 
-				Form::select( 	$key[ 'shrt' ] , $key['value'] ), 'info',     // have to replace value!  // change small_text to $key['element']
-				Form::block_help( $key['desc'] )); 
-		}
 
 // textarea...
 // ---------------------------------------------------

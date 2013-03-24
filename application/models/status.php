@@ -12,4 +12,4 @@ class Status extends Eloquent {
 	
 }
 
-// print '<span class="label label-warning">Application::status</span>&nbsp;';
+print '<span class="label label-warning">Application::status</span>&nbsp;';

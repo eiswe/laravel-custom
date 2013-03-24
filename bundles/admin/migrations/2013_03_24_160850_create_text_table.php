@@ -23,12 +23,12 @@ class Admin_Create_Text_Table {
 
         DB::table('texts')->insert(array(
             'userid'        => '2',
-            'testdate'      => 'Some incredible long text free from the energy of my inspiration!',
+            'text'          => 'Some incredible long text free from the energy of my inspiration!',
       ));
 
         DB::table('texts')->insert(array(
             'userid'        => '2',
-            'testdate'      => 'Some other incredible long text free from the energy of my copy action!',
+            'text'          => 'Some other incredible long text free from the energy of my copy action!',
       ));
 
 	}
@@ -47,13 +47,13 @@ class Admin_Create_Text_Table {
 }
 
 /*
-        DB::table('cards')->insert(array(
-            'serialnumber'  => '28120123',
-            'userid'        => '3',
-            'cardtype'      => '6',
-            'errortype'     => '7',
-            'status'        => '4',
-            'failure'       => '6',
-            'ausort'        => '1',
-            'testdate'      => '21.12.2012',
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => 'Some incredible long text free from the energy of my inspiration!',
       ));
+
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => 'Some other incredible long text free from the energy of my copy action!',
+      ));
+*/

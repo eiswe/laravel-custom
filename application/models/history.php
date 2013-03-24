@@ -12,4 +12,4 @@ class History extends Eloquent {
 	
 }
 
-// print '<span class="label label-warning">Application::history</span>&nbsp;';
+print '<span class="label label-warning">Application::history</span>&nbsp;';

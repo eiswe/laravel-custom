@@ -3,7 +3,7 @@
 @section('content')
   <div class="span8">
   	<div class="page-header">
-  		<h1>Login<small> to Repair Stat!</small></h1>
+  		<h1>Login<small> to Admin Panel</small></h1>
   	</div>	
 		
 		@if(Session::get('error'))

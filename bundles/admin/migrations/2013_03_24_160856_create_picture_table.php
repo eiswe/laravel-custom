@@ -1,6 +1,6 @@
 <?php
 
-class Admin_Create_Image_Table {
+class Admin_Create_Picture_Table {
 
 	/**
 	 * Make changes to the database.
@@ -9,8 +9,8 @@ class Admin_Create_Image_Table {
 	 */
 	public function up()
 	{
-		// add database schema: images
-		Schema::create('images', function($table){
+		// add database schema: pictures
+		Schema::create('pictures', function($table){
 
             $table->increments('id')->unique();
 
@@ -21,6 +21,14 @@ class Admin_Create_Image_Table {
 
             $table->timestamps();
         });
+
+        DB::table('pictures')->insert(array(
+            'userid'        => '2',
+            'desc'      	=> 'Beautiful placeholder',
+            'path' 		    => 'http://placehold.it/64x64',
+      ));
+
+
 	}
 
 	/**
@@ -30,8 +38,8 @@ class Admin_Create_Image_Table {
 	 */
 	public function down()
 	{
-		// drop database schema: images
-		Schema::drop('images');
+		// drop database schema: pictures
+		Schema::drop('pictures');
 	}
 
 }
@@ -48,3 +56,4 @@ class Admin_Create_Image_Table {
             'ausort'        => '1',
             'testdate'      => '21.12.2012',
       ));
+*/

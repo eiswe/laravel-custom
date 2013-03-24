@@ -7,8 +7,9 @@ class Admin_Create_Movie_Table {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
+
+	public function up() {
+		
 		// add database schema: movies
 		Schema::create('movies', function($table){
 
@@ -22,6 +23,22 @@ class Admin_Create_Movie_Table {
             $table->integer('rate');
 
             $table->timestamps();
+		});
+
+        DB::table('movies')->insert(array(
+            'userid'        => '2',
+            'desc'      	=> 'Beautiful placeholder',
+            'path' 		    => 'http://placehold.it/64x64',
+            'rate'			=> '4',
+      	));
+
+	    DB::table('movies')->insert(array(
+            'userid'        => '2',
+            'desc'      	=> 'Beautiful placeholder',
+            'path' 		    => 'http://placehold.it/64x64',
+            'rate'			=> '4',
+    	));
+
 	}
 
 	/**
@@ -29,8 +46,8 @@ class Admin_Create_Movie_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+
+	public function down() {
 		// drop database schema: movies
 		Schema::drop('movies');
 	}
@@ -49,3 +66,4 @@ class Admin_Create_Movie_Table {
             'ausort'        => '1',
             'testdate'      => '21.12.2012',
       ));
+*/
