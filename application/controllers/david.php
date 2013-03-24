@@ -47,7 +47,7 @@ class David_Controller extends Base_Controller {
 
 	public function action_news() {
 
-		$news = Page::where('userid', '=', '2' );    //all();
+		$news = Page::where('userid', '=', 2 );    //all();
 
 		return View::make('david.news')
 			->with('title', 'LimeBlack - About me!')
