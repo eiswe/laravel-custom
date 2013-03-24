@@ -49,29 +49,62 @@
 
   <div class="span9">
 
-    <h2>This Project was written with Laravel</h2>
-    <p>
-      I made it for the DVS a Rohde & Schwarz Company, <br /> 
-      to follow defective boards on the way throught the Repair!
-    </p>
+<!-- Begin row 1 -->    
+    <div class="row">
+      <div class="span3"><h1></h1>
+      </div>
+      <div class="span6"><h1>David Crimi</h1>
+      </div>
+    </div>
+<!-- End row 2 -->        
 
-    <p> Install the DVS RepStat Bundle:</p>
-    
-    <small>Install Migrations - add Database</small>
-    <pre>
-      <br />  php artisan migrate:install
-      <br />  php artisan session:table    - Need to do this after each JS change! JS sucks..
-      <br />  php artisan migrate:rebuild
-    </pre>
-    
-    <hr />
-    
-    <p>Add Table to Admin Bundle</p>
-    <pre>
-      <br />  php artisan migrate::make admin::create_admins_table
-    </pre>
+<!-- Begin row 1 -->    
+    <div class="row">
+      <div class="span1"></div>
+      <div class="span3">
+          <br />
+          <?php
+            echo MediaObject::create('Born: 1992', 'http://placehold.it/64x64')
+            ->with_title('<h4 class="media-heading">LimeBlack</h4>');
+          ?>
 
+      </div>
+      <div class="span3">
+      </div>
+      <div class="span5">
+          <br />
 
+        <?php
+          echo Typography::horizontal_dl( array(
+            'Design'                  => 'Gimp / Photoshop',
+            'Web - Development'       => 'HTML / CSS / PHP5 / JS / jQuery',
+            'CMS / MVC - Development' => 'Drupal / Laravel',
+            'Code Development'        => 'Python / BASH',            
+          )
+          );
+        ?>
+      </div>
+    </div>
+<!-- End row 1 -->        
 
+    <div class="row">
+      <br />
+    </div>    
+
+    <div class="row">
+      <br />
+    </div>   
+
+<!-- Begin row 3 -->    
+    <div class="row">
+      <div class="span3">
+
+      </div>
+      <div class="span3"><h1></h1>
+      </div>
+      <div class="span3"><h1></h1>
+      </div>
+    </div>
+<!-- End row 3 -->       
 
 @endsection                    

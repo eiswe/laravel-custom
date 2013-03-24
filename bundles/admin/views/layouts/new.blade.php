@@ -9,25 +9,19 @@
     <![endif]-->
   </head>
   <body>
+      @yield('topnav')
       <div class="container-fluid">
           <div class="row">
               <div class="span12">
                   <br />
-                    <h1>&nbsp;DVS&nbsp;<small> a Rohde und Schwarz Company</small></h1> <!--<h1> {{ $title }}</h1> -->
+                    <h1>&nbsp;Admin Panel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small> of LimeBlack!</small></h1> <!--<h1> {{ $title }}</h1> -->
               </div>
           </div>
           <div class="row-fluid">
-              <div class="span1">
+              <div class="span2">
                   <!--Sidebar content-->
                   <ul class="nav nav-pills nav-stacked">
-                    @section('navigation')
-                        <li class="nav-header">Navigation</li>
-                        <?php 
-                            $url = URL::base(); //return http://laravel.dev
-                            print '<li> <a href="'.$url.'/admin/login/logout">  Logout      </a></li>';
-                            print '<li> <a href="'.$url.'/admin/export">        Export List </a></li>';
-                        ?>                      
-                    @yield_section
+                    @yield('subnav')
                   </ul>
               </div>
               

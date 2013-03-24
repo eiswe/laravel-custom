@@ -8,7 +8,7 @@
     	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs"> Emacs  </a></li>';
         print '<li>                 <a href="'.$url.'/admin/card"> Add Card  </a></li>';
-    	print '<li class="active">  <a href="'.$url.'/admin/edit"> Search Card  </a></li>';
+    	print '<li class="active">  <a href="'.$url.'/admin/edit"> Get nice Chart!  </a></li>';
 	?>
 @endsection
 
@@ -16,46 +16,14 @@
 
   <div class="span10">
 
-  	<h1>Search for SerialNumber!</h1>
-  	{{ Typography::lead('Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.') }}
-
-  	<!-- <?php
-  		echo Typography::lead('Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.');
-    ?> -->
+  	<h1>Show you a beautiful Chart!</h1>
+  	{{ Typography::lead('with some random data!') }}
 
     <canvas id="canvas" height="600" width="1200"></canvas>
 
 @endsection
 
 @section('script')
-
-<?php                   // Wanna fetch important Numbers for Charts
-
-    if ( isset( $card ) ) {
- 
-        // print_r($card);
-        print_r($date);
-        
-        // $count = count($date);
-        // print('Es gibt '.$count.' Ergebnisse!');
-
-        // $destin = "asddefasdef"; //abcdef
-        // $suchmuster = '/^def/';
-        // preg_match($suchmuster, substr($destin,3), $treffer, PREG_OFFSET_CAPTURE);
-
-        // foreach ( $date as $value ) {
-
-        //     $searchRex = '/^(0[1-9]|[12][0-9]|3[01])[- /.](12)[- /.](19|20)\d\d$/';
-        //     preg_match($searchRex, $value, $dez, PREG_OFFSET_CAPTURE);
-            
-        //     if ( $dez == true ) {
-        //         print('found Dezember!');
-        //     }
-        // }
-
-    }
-
-?>
 
 <script type="text/javascript">
 
@@ -174,40 +142,7 @@
 </script>
 @endsection
 
-<!-- 	ID - Name resolution!
-
-	   	foreach ( $cards as $key => $value ) {
-
-	   		foreach ($user as $key) {             // check foreach user id for change to name
-	   			if ( $value->userid == $key[0] ) { 
-	   				$value->userid = $key[1];
-	   		}	}
-            foreach ($type as $key) {           // check foreach card id for change to name
-                if ( $value->cardtype == $key[0] ) { 
-                    $value->cardtype = $key[1];
-            }	}
-            foreach ($errr as $key) {           // check foreach error id for change to name
-                if ( $value->errortype == $key[0] ) { 
-                    $value->errortype = $key[1];
-            }	}
-            foreach ($stat as $key) {           // check foreach failure id for change to name
-                if ( $value->status == $key[0] ) { 
-                    $value->status = $key[1];
-            }	}
-            foreach ($fail as $key) {           // check foreach failure id for change to name
-                if ( $value->failure == $key[0] ) { 
-                    $value->failure = $key[1];
-            }	}
-		} 
-
-
-
-
-
-
-
-
-
+<!-- 	
 
 /** Radar Chart! */
     // var radarChartData = {        
@@ -282,50 +217,5 @@
     
     // var myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(data,options);
 /** End Doughnut Chart! */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         -->
