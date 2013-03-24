@@ -35,12 +35,16 @@
 Route::controller('home');
 Route::controller(Controller::detect('application'));	//Dont need using Controller...
 
-Route::get('/galery', function(){
-	return View::make('galery.tinker')->with('title', 'LimeBlack - About me!');
+/*Route::get('/david', function(){
+	return View::make('david.index')->with('title', 'David - About me!');
 });
 
+Route::get('/david/galery', function(){
+	return View::make('galery.tinker')->with('title', 'David - Tinkerforge Gallery');
+});*/
+
 Route::get('/about', function(){
-	return View::make('home.about')->with('title', 'LimeBlack - About me!');
+	return View::make('home.about')->with('title', 'LimeBlack - About us!');
 });
 
 Route::get('/home', function(){

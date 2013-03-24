@@ -6,6 +6,7 @@
 		$url = URL::base(); //return http://laravel.dev
     	print '<li class="active">	<a href="'.$url.'/admin/home"> Home      </a></li>';
     	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/emacs"> Emacs  </a></li>';
     	print '<li>					<a href="'.$url.'/admin/card"> Add Card  </a></li>';
     	print '<li>					<a href="'.$url.'/admin/edit"> Edit Card  </a></li>';
 	?>

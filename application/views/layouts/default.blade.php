@@ -6,17 +6,17 @@
     {{ Asset::container('bootstrapper')->styles(); }}
   </head>
   <body>
+      @yield('topnav')
       <div class="container-fluid">
-
-  <!-- First Row - For Title and leading text.. -->        
+  <!-- First Row - For Title and leading text..        
           <div class="row">
               <div class="span12"> 
-                  <h1>LimeBlack <!--<h1> {{ $title }}</h1> -->
+                  <h1>LimeBlack
                   <?php
                     echo Typography::lead('coding all for Web, Android and Robotic!', 'i');
                   ?></h1>
               </div>
-          </div>
+          </div>  --> 
 
   <!-- Second Row - For Navi and Content -->
           <div class="row-fluid">
@@ -25,14 +25,7 @@
               <div class="span1">
 
                   <ul class="nav nav-pills nav-stacked">                <!-- Navi Element -->
-                    @section('navigation')                              <!-- Navi Section for adding dynamic Navi links -->
-
-                      <li class="nav-header">Navigation</li>            <!-- Navi Title -->
-                      <?php
-                        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-                        print '<li>         <a href="'.$url.'/admin/login/logout"> Login      </a></li>'; 
-                      ?>    
-                    @yield_section
+                      @yield('subnav')
                   </ul>
               </div>
 
@@ -51,4 +44,5 @@
           </div>
       </div>
   {{ Asset::container('footer')->scripts() }}
+  @yield('script')
   </body>
