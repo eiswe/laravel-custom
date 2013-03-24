@@ -43,6 +43,7 @@
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/list">         List your Card </a></li>';
         print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
         print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
         print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
     ?>
@@ -88,36 +89,19 @@
 
 @section('script')
 
-<script type="text/javascript">
-// alert("JS is enabled");
-
-$(document).ready(function(){
-    // alert('document is ready');                                  // JS test!
-
-    // $("p").click(function(){                                     // jQuery test!
-    //   $(this).hide();
-    // });
-
-    $('tr').click(function() {                                                // table row was clicked
-        // var first = $(this).parent().siblings(":first").text();            // only show headings
-        // var first = $(this).find("td").parent().siblings(":first").text(); // only show first value id sn rev,.... SHOWS FIRST CARD ROW!
-
-        var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
-        var baseUrl = document.location.hostname;//URL ;                                          // fetch current URL
-        var url = baseUrl + '/admin/page/edit/' + value;                                 // build new url: baseUrl/edit/id
-        window.location.replace(url);                                         // redirect to edit form
-    });
-
-    $('table').tablesorter({                                                  // Sort hole table with click on Title
-    // customize header HTML
-        onRenderHeader: function(index) {                                     // Indexies fields of table
-        // the span wrapper is added by default                               // add little icons - dont work - dont have to work!
-        // this.wrapInner('<span class="icons"></span>');
-        }
-    });
-
-}); 
-
-</script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('tr').click(function() {                                                // table row was clicked
+            var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
+            var baseUrl = document.location.hostname;//URL ;                                          // fetch current URL
+            var url = baseUrl + '/admin/page/edit/' + value;                                 // build new url: baseUrl/edit/id
+            window.location.replace(url);                                         // redirect to edit form
+        });
+        $('table').tablesorter({                                                  // Sort hole table with click on Title
+            onRenderHeader: function(index) {                                     // Indexies fields of table
+            }
+        });
+    }); 
+  </script>
 
 @endsection

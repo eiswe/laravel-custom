@@ -7,8 +7,10 @@
     	print '<li>					<a href="'.$url.'/admin/home"> Home      </a></li>';
     	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs"> Emacs  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/card"> Add Card  </a></li>';
     	print '<li class="active">  <a href="'.$url.'/admin/edit"> Get nice Chart!  </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/text/list">     Texts  </a></li>';       
+        print '<li>                 <a href="'.$url.'/admin/picture/list">  Pictures  </a></li>';        
+        print '<li>                 <a href="'.$url.'/admin/movie/list">    Movies  </a></li>'; 
 	?>
 @endsection
 

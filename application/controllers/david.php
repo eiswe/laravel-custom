@@ -44,4 +44,14 @@ class David_Controller extends Base_Controller {
 		return View::make('david.about')
 			->with('title', 'LimeBlack - About me!');
 	}
+
+	public function action_news() {
+
+		$news = Page::where('userid', '=', '2' );    //all();
+
+		return View::make('david.news')
+			->with('title', 'LimeBlack - About me!')
+			->with('news', $news)
+		;
+	}
 }

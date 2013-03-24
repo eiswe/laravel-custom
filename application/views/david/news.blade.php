@@ -39,8 +39,8 @@
 @section('subnav')
   <?php
       $surl = $url.'/david/';
-      print '<li class="active">  <a href="'.$surl.'home">  Home      </a></li>'; 
-      print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
+      print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
+      print '<li class="active">  <a href="'.$surl.'news">  News      </a></li>'; 
       print '<li>                 <a href="'.$surl.'about"> About      </a></li>';       
       print '<li>                 <a href="'.$url.'/galery"> Galery      </a></li>';      
   ?>  
@@ -50,17 +50,28 @@
 
   <div class="span9">
 
-      <div class="hero-unit">
-        <h1>David Crimi</h1>
-        <span class="text text-info">
-          &nbsp;&nbsp;&nbsp;coding all for Web, Android and Robotic!</span>
-        <br /><br />
-        <p>. .. checkout my Flyduino QuadroCopter Project</p>
-        <br />
-        <p><a href="admin/list" class="btn btn-primary btn-large">
-            To Quadro!</a></p>
-      
-      </div>
+<?php
 
+
+    foreach ($news as $key => $value) {
+      # code...
+      print '<br />';
+      print_r($key);
+      print_r($value);
+      //print 'from news -> keys: '.$key.' and no value: '; //.$value;
+      print '<br />';      
+    }
+
+
+    echo Typography::horizontal_dl(
+        array(
+          'Description lists' => 'A description list is perfect for defining terms.',
+          'Euismod'           => 'Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.',
+          'Malesuada porta'   => 'Etiam porta sem malesuada magna mollis euismod.',
+        )
+    );
+
+
+?>
 
 @endsection                    

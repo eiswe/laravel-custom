@@ -35,6 +35,16 @@ class Admin_Create_Page_Table {
             'movies'        => '1',
         ));
 
+        DB::table('pages')->insert(array(
+            'userid'        => '2',
+            'title'         => 'Second Page',
+            'desc'          => 'My second Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '2',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
 
 
 	}
