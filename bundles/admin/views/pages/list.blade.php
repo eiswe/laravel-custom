@@ -95,7 +95,8 @@
             var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
             var baseUrl = document.location.hostname;//URL ;                                          // fetch current URL
             var url = baseUrl + '/admin/page/edit/' + value;                                 // build new url: baseUrl/edit/id
-            window.location.replace(url);                                         // redirect to edit form
+            //alert(url);
+            window.location.href(url);                                         // redirect to edit form
         });
         $('table').tablesorter({                                                  // Sort hole table with click on Title
             onRenderHeader: function(index) {                                     // Indexies fields of table
