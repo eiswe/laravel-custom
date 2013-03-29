@@ -12,4 +12,4 @@ class Picture extends Eloquent {
 	
 }
 
-print '<span class="label label-warning">Admin::pictures</span>&nbsp;';
+// print '<span class="label label-warning">Admin::pictures</span>&nbsp;';

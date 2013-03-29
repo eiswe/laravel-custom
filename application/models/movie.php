@@ -12,4 +12,4 @@ class Movie extends Eloquent {
 	
 }
 
-print '<span class="label label-warning">Admin::movies</span>&nbsp;';
+// print '<span class="label label-warning">Admin::movies</span>&nbsp;';

@@ -41,7 +41,7 @@
 @section('subnav')
     <?php 
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/list">         List your Card </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
         print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
         print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
         print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
@@ -74,18 +74,38 @@
 	echo Form::horizontal_open();
 
 		echo Form::control_group(
-			Form::label('sn', 'SerialNumber'), 
-			Form::large_text('sn'), 'info', 
-			Form::block_help('8-9 Stellig!, z.B.: 28120123'));
+			Form::label('tt', 'Title'), 
+			Form::large_text('tt'), 'info', 
+			Form::block_help('insert your title'));
 
 		echo Form::control_group(
-			Form::label('rv', 'Revision'), 
-			Form::medium_text('rv'), '', 
-			Form::block_help('Here you must place your Revision!'));
+			Form::label('dc', 'Description'), 
+			Form::medium_text('dc'), '', 
+			Form::block_help('insert your description'));
 
-// textarea...
+		echo Form::control_group(
+			Form::label('st', 'Style'), 
+			Form::medium_text('st'), '', 
+			Form::block_help('choose your style - will add a dropdown here'));
+
+		echo Form::control_group(
+			Form::label('ts', 'Texts'), 
+			Form::medium_text('ts'), '', 
+			Form::block_help('choose your texts - will add a checkboxes here'));
+
+		echo Form::control_group(
+			Form::label('im', 'Images'), 
+			Form::medium_text('im'), '', 
+			Form::block_help('choose your images - will add a checkboxes here'));
+
+		echo Form::control_group(
+			Form::label('mv', 'Movies'), 
+			Form::medium_text('mv'), '', 
+			Form::block_help('choose your movies - will add a checkboxes here'));
+
+// textarea... dont need for pages
 // ---------------------------------------------------
-
+/*
 		echo Form::control_group(										// External Failure Desc. - Externe Fehlerbeschreibung
 			Form::label('ex', 'Ext. Comment'), 
 			Form::xlarge_textarea('ex', '', array('rows' => '2')), '', 
@@ -95,12 +115,11 @@
 			Form::label('dv', 'Comment'), 
 			Form::xlarge_textarea('dv', '', array('rows' => '2')), '', 
 			Form::block_help('Here you can write some Text.. 1024Zeichen'));
-
-
-// Really unimportant fields...
+*/
+// Really unimportant fields... will not shown..
 // ---------------------------------------------------
 
-		// replace values for beauty these **** nice text fields =)
+/*		// replace values for beauty these **** nice text fields =)
 		$textlist[] = array( 'shrt' => 'tt', 'element' => 'small_text',  'label' => 'Test Time', 			'desc' => 'Here you have to place Test Time'  );
 		$textlist[] = array( 'shrt' => 'td', 'element' => 'small_text',  'label' => 'Test Date', 			'desc' => 'Here you have to place Test Date'  );
 		$textlist[] = array( 'shrt' => 'dw', 'element' => 'small_text',  'label' => 'Datum Wareneingang', 	'desc' => 'Here you have to place Datum Wareneingang'  );
@@ -120,6 +139,8 @@
 				Form::$key[ 'element' ]( $key[ 'shrt' ] ), '',     //  , $key[ 'value' ] |  have to replace value!  // change small_text to $key['element']
 				Form::block_help( $key[ 'desc' ] )); 
 		}
+*/
+// --------------------------------------------------------------
 
 		echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 

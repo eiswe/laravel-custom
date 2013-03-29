@@ -61,14 +61,14 @@
 			?>
 		@endif
     	<div class="hero-unit">
-		    <h1>DVS</h1>
-		    <span class="text text-info">
-		    	eine Rohde und Schwarz Company</span>
-		    
-		    <p>Reparatur Statistic</p>
+		    <h1>LimeBlack</h1>
+        <span class="text text-info">
+          &nbsp;&nbsp;&nbsp;coding all for Web, Android and Robotic!</span>
+        <br /><br />
+		    <p>List of your Pages</p>
 		    <br />
             <?php 
-                print '<p><a href="'.$url.'/admin/list" class="btn btn-primary btn-large">To List!</a></p>';
+                print '<p><a href="'.$url.'/admin/page/list" class="btn btn-primary btn-large">To List!</a></p>';
             ?>         
 		    
 	    </div>

@@ -53,7 +53,7 @@
 
   <div class="span10">
 
-    <h1>Movies Area</h1>
+    <h1>Texts Area</h1>
 
   	<?php
       echo Breadcrumb::create(array('Add' => $url.'/admin/text/add', 'Edit' => $url.'/admin/text/edit', 'List'));

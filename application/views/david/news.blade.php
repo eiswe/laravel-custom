@@ -50,28 +50,60 @@
 
   <div class="span9">
 
-<?php
+    <?php
+      // echo Breadcrumb::create(array('DEMO OBJECT' => $url.'/admin/page/add', 'Edit' => $url.'/admin/page/edit', 'List'));
 
-
+/*  New row foreach news */
     foreach ($news as $key => $value) {
-      # code...
-      print '<br />';
-      print_r($key);
-      print_r($value);
-      //print 'from news -> keys: '.$key.' and no value: '; //.$value;
-      print '<br />';      
+
+      echo '<div class="row">';
+      echo "<h1>".$value->title."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>".$value->desc."</small></h1>";
+
+      if ( isset($value->texts) ) {                                         // also check if texts is string (text = 1) or array (texts >= 1)
+        $texts = Text::where('id', '=', $value->texts )->get();             // fetch news->text from DB
+        foreach ($texts as $tkey => $tvalue) {                              // 
+          print_r($tvalue->text);                                           // print each news->text  (is only 1)
+        }
+      }
+
+      //echo Typography::lead( $texts );
+      echo '</div>';
+
+      echo '<div class="row">';       // Footer of News Element!
+      echo     '<br />';
+      echo     '<div class="span3"><p class="text-left">Added by David as UID: '.$value->userid.'</p></div>';
+      echo     '<div class="span3"><p class="text-center">This is the '.$value->id.' Entry!</p></div>';
+      echo     '<div class="span3"><p class="text-right">'.$value->created_at.'</p></div>';
+      echo '</div>';
+      
+      echo '<div class="row">';       // Footer of News Element!
+      echo     '<br /><hr /><br />';
+      echo '</div>';
+
+
     }
 
 
-    echo Typography::horizontal_dl(
-        array(
-          'Description lists' => 'A description list is perfect for defining terms.',
-          'Euismod'           => 'Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus.',
-          'Malesuada porta'   => 'Etiam porta sem malesuada magna mollis euismod.',
-        )
-    );
 
+    ?>
 
-?>
+@endsection
 
-@endsection                    
+@section('script')
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('tr').click(function() {                                                // table row was clicked
+            var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
+            var baseUrl = document.location.hostname;//URL ;                                          // fetch current URL
+            var url = baseUrl + '/admin/page/edit/' + value;                                 // build new url: baseUrl/edit/id
+            window.location.replace(url);                                         // redirect to edit form
+        });
+        $('table').tablesorter({                                                  // Sort hole table with click on Title
+            onRenderHeader: function(index) {                                     // Indexies fields of table
+            }
+        });
+    }); 
+  </script>
+
+@endsection

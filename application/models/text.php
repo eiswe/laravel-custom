@@ -12,4 +12,4 @@ class Text extends Eloquent {
 	
 }
 
-print '<span class="label label-warning">Admin::texts</span>&nbsp;';
+// print '<span class="label label-warning">Admin::texts</span>&nbsp;';

@@ -41,7 +41,7 @@
 @section('subnav')
     <?php 
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/list">         List your Card </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
         print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
         print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
         print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        

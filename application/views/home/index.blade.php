@@ -42,15 +42,16 @@
   <div class="span9">
 
     	<div class="hero-unit">
-		    <h1>LimeBlack</h1>
-		    <span class="text text-info">
-		    	coding all for Web, Android and Robotic!</span>
-		    <br /><br />
-		    <p>. .. checkout my Flyduino QuadroCopter Project</p>
-		    <br />
-		    <p><a href="admin/list" class="btn btn-primary btn-large">
-			    	To Quadro!</a></p>
-			
+
+        <h1>LimeBlack</h1>
+        <span class="text text-info">
+          &nbsp;&nbsp;&nbsp;coding all for Web, Android and Robotic!</span>
+        <br /><br />
+        <p>Checkout Davids news!</p>
+        <br />
+            <?php 
+                print '<p><a href="'.$url.'/david/news" class="btn btn-primary btn-large">To News!</a></p>';
+            ?>   
 	    </div>
 
 	<?php

@@ -31,6 +31,31 @@ class Admin_Create_Text_Table {
             'text'          => 'Some other incredible long text free from the energy of my copy action!',
       ));
 
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => '3th incredible long text free from the energy of my inspiration!',
+      ));
+
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => '4th incredible long text free from the energy of my copy action!',
+      ));
+
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => '5th long text free from the energy of my inspiration!',
+      ));
+
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => '6th incredible long text free from the energy of my copy action!',
+      ));
+
+        DB::table('texts')->insert(array(
+            'userid'        => '2',
+            'text'          => '7th incredible long text free from the energy of my inspiration!',
+      ));
+
 	}
 
 	/**

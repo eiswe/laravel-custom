@@ -57,9 +57,9 @@
         <br /><br />
         <p>. .. checkout my Flyduino QuadroCopter Project</p>
         <br />
-        <p><a href="admin/list" class="btn btn-primary btn-large">
-            To Quadro!</a></p>
-      
+        <?php
+        echo '<p><a href="'.$url.'/admin" class="btn btn-primary btn-large">To Admin!</a></p>';
+        ?>
       </div>
 
 

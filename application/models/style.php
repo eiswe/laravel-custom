@@ -12,4 +12,4 @@ class Style extends Eloquent {
 	
 }
 
-print '<span class="label label-warning">Admin::styles</span>&nbsp;';
+// print '<span class="label label-warning">Admin::styles</span>&nbsp;';
