@@ -17,8 +17,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $pagelist = Page::all();   // lets load all pagelist exist in Database
 
-        // need to fetch if list is empty!
-
         return View::make( 'admin::pages.list' )
             ->with( 'title', 'List of Admin Panel' )
             ->with( 'pages', $pagelist )

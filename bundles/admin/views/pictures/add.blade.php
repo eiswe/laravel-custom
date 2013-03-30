@@ -56,7 +56,7 @@
 			Form like a BOSS! 
 		-->
 <?php
-      echo Breadcrumb::create(array( 'Edit' => $url.'/admin/page/edit', 'List' => $url.'/admin/page/list', 'Add'));
+      echo Breadcrumb::create(array( 'Edit' => $url.'/admin/picture/edit', 'List' => $url.'/admin/picture/list', 'Add'));
 ?>
 		<br /><br />
 		@if(Session::get('error'))

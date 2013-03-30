@@ -50,12 +50,8 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules = array(                                                 // Name  
-            'tt'        =>  'required|max:32',                          // Title
             'dc'        =>  'max:64',                                   // Description
-            'st'        =>  'required|numeric',                         // Style      
-            //'ts'        =>  'required|numeric',                       // Texts      
-            //'im'        =>  'required|numeric',                       // Images     
-            //'mv'        =>  'required|numeric',                       // Movies     
+            'pt'        =>  'required',                         // Path      
             'userid'    =>  'required|numeric|max:100',                 // UserID
         );
 
@@ -76,24 +72,12 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
             // create a relation between input field and database value ( RENAME VARS )
             switch ($key) {
-                case "tt":
-                    $key = 'title';
-                    break;
                 case "dc":
                     $key = 'desc';
                     break;
-                case "st":
-                    $key = 'style';
+                case "pt":
+                    $key = 'path';
                     break;
-                case "ts":
-                    $key = 'texts';
-                    break;
-                case "im":
-                    $key = 'images';
-                    break;
-                case "mv":
-                    $key = 'movies';
-                    break;                
             }
 
             $picture->$key = $value;                   // save each key-value pair in picture!
@@ -134,7 +118,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         }
  
         return View::make( 'admin::pictures.edit' )
-            ->with( 'title', 'Edit a Card!' )
+            ->with( 'title', 'Edit a Picture!' )
             ->with( 'picture', $ppicture )
 //            ->with('error', $messages); // only for debugging
         ;
@@ -143,7 +127,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
 
 /**
-    POST Edit Card!!! 
+    POST Edit Picture!!! 
     -> Fetch id and data for validation. Save into database!
 */
     public function post_edit($id){
@@ -160,12 +144,8 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules = array(                                                 // Name  
-            'tt'        =>  'required|max:32',                          // Title
             'dc'        =>  'max:64',                                   // Description
-            'st'        =>  'required|numeric',                         // Style      
-            //'ts'        =>  'required|numeric',                       // Texts      
-            //'im'        =>  'required|numeric',                       // Images     
-            //'mv'        =>  'required|numeric',                       // Movies     
+            'pt'        =>  'required',                         // Path      
             'userid'    =>  'required|numeric|max:100',                 // UserID
         );
 
@@ -181,7 +161,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         } 
 
         if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $ppage = Page::where('id', '=', $id)->get();
+            $ppicture = Picture::where('id', '=', $id)->get();
         }
 
 
@@ -189,29 +169,17 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
             // create a relation between input field and database value ( RENAME VARS )
             switch ($key) {
-                case "tt":
-                    $key = 'title';
-                    break;
                 case "dc":
                     $key = 'desc';
                     break;
-                case "st":
-                    $key = 'style';
+                case "pt":
+                    $key = 'path';
                     break;
-                case "ts":
-                    $key = 'texts';
-                    break;
-                case "im":
-                    $key = 'images';
-                    break;
-                case "mv":
-                    $key = 'movies';
-                    break;                
             }
 
            // $page->$key = $value;                   // save each key-value pair in page!
   
-            foreach ( $ppage as $ergeb ) {              // save each value in database
+            foreach ( $ppicture as $ergeb ) {              // save each value in database
                 $ergeb->$key = $value;                  // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
             }            
         }

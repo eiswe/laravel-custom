@@ -43,9 +43,9 @@
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs  </a></li>';
         print '<li>                 <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
-        print '<li class="active">  <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
-        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
+        print '<li class="active">  <a href="'.$url.'/admin/text/list">    Texts  </a></li>';               
+        print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
+        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>'; 
     ?>
 @endsection
 
@@ -56,14 +56,14 @@
 			Form like a BOSS! 
 		-->
 <?php
-	echo Breadcrumb::create(array( 'Add' => $url.'/admin/picture/add', 'List' => $url.'/admin/picture/list', 'Edit'));
+	echo Breadcrumb::create(array( 'Add' => $url.'/admin/text/add', 'List' => $url.'/admin/text/list', 'Edit'));
 
-  	if ( isset( $picture ) ) {				// Check if picture is givven!
-		foreach ( $picture as $uniqValue ) {
+  	if ( isset( $text ) ) {				// Check if text is givven!
+		foreach ( $text as $uniqValue ) {
 			// THIS LOOP CONTAINS DEFAULT DATA FOR INPUT FIELDS!!! and save in awesome Var: uniqValue!
 		} 
 	} else {
-		print 'no picture given!';
+		print 'no text given!';
 	}
 
 
@@ -83,25 +83,15 @@
 
 	echo Form::horizontal_open();
 
-		$dc = $uniqValue->desc ;
-		echo Form::control_group(
-			Form::label('dc', 'Description'), 
-			Form::medium_text('dc', $dc), '', 
-			Form::block_help('insert your description'));
-
-		$pt = $uniqValue->path ;
-		echo Form::control_group(
-			Form::label('pt', 'path'), 
-			Form::medium_text('pt', $pt), 'info', 
-			Form::block_help('choose your path - will add a dropdown here'));
+		$tx = $uniqValue->text ;
+		echo Form::control_group(										// External Failure Desc. - Externe Fehlerbeschreibung
+			Form::label('tx', 'Text'), 
+			Form::xlarge_textarea('tx', $tx, array('rows' => '4')), '', 
+			Form::block_help('Insert your Text here!'));
 
 // textarea... dont need for pages
 // ---------------------------------------------------
 /*
-		echo Form::control_group(										// External Failure Desc. - Externe Fehlerbeschreibung
-			Form::label('ex', 'Ext. Comment'), 
-			Form::xlarge_textarea('ex', '', array('rows' => '2')), '', 
-			Form::block_help('Here you must place your Ext. Comment! 1024Zeichen'));
 
 		echo Form::control_group(										// DVS Failure Desc. - DVS Fehlerbeschreibung
 			Form::label('dv', 'Comment'), 
