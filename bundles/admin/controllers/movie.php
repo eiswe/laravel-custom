@@ -66,8 +66,8 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
                 ->with('error', $messages);                         // and return back to form and show them
         } 
 
-        $page = new Page();                                         // get Model page create a database insertion
-        //$his = new history();                                       // if page was saved, we need to create a history entry
+        $movie = new Movie();                                         // get Model movie create a database insertion
+        //$his = new history();                                       // if movie was saved, we need to create a history entry
 
         foreach ( $creds as $key => $value ) {                      // rename input filds to database names ( !DataBase! )
 
@@ -85,12 +85,12 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
               
             }
 
-            $page->$key = $value;                   // save each key-value pair in page!
+            $movie->$key = $value;                   // save each key-value pair in movie!
         }
 
-        $page->save();                              // save the data to database
+        $movie->save();                              // save the data to database
 /*
-        foreach ( $creds as $key => $value ) {      // adding data to new page ( !DataBase! )
+        foreach ( $creds as $key => $value ) {      // adding data to new movie ( !DataBase! )
             if ( isset( $value ) ) {
                 $fields[] = $key;
                 $values[] = $value;                
@@ -100,7 +100,7 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
         $fieldstr = implode(",", $fields);          // convert array to string, to save in DB
         $valuestr = implode(",", $values);          // convert array to string, to save in DB
 
-        $his->pageid = $page->id;                   // get and save id of current item ( page! )
+        $his->movieid = $movie->id;                   // get and save id of current item ( movie! )
         $his->action = 'insert';                    // say what we are doing!
         $his->userid = $id;                         // save userid!
         $his->fields = $fieldstr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
