@@ -35,13 +35,13 @@
 
 return array(
 
-	'docs'	=> array('handles' => 'docs'),
+	'docs'	=> array( 'handles' => 'docs' ),
 
-	// registrating a new bundle: admin
-	'admin'	=> array('handles' => 'admin'),
+	'admin'	=> array( 'handles' => 'admin' ),		// registrating a new bundle: admin
 
-	// registrating aware bundle -> check forms!
-	'aware' => array(
+    'artisan' => array( 'handles' => 'artisan' ),	// registrating a new bundle: artisan
+
+	'aware' => array(								// registrating aware bundle -> check forms!
 	  'autoloads' => array(
 	    'map' => array(
 	      'Aware' => '(:bundle)/model.php'
@@ -49,7 +49,7 @@ return array(
 	  )
 	),
 
-	// register bootstrapper
-   	'bootstrapper' => array('auto' => true),
+   	'bootstrapper' => array('auto' => true),		// registrating a new bundle: bootstrapper
+
 
 );
