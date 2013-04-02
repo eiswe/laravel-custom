@@ -26,7 +26,7 @@
 @endsection
 
 @section('script')
-
+{{ Asset::container('footer')->scripts() }}
 <script type="text/javascript">
 
     var data = {

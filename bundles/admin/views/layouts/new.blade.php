@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ $title }}</title>
-    <!--{{ Asset::container('header')->styles() }} -->
+    <!-- {{ Asset::container('header')->styles() }} -->
     {{ Asset::container('bootstrapper')->styles(); }}
      
     <!--[if lt IE 9]>

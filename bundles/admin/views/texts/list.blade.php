@@ -83,7 +83,7 @@
 @endsection
 
 @section('script')
-
+{{ Asset::container('footer')->scripts() }}
 <script type="text/javascript">
 // alert("JS is enabled");
 
