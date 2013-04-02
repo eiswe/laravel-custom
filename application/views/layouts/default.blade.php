@@ -43,6 +43,7 @@
 
           </div>
       </div>
-  {{ Asset::container('footer')->scripts() }}
-  @yield('script')
+      Asset::container('bootstrapper')->scripts();
+      @yield('script')
   </body>
+</html>
