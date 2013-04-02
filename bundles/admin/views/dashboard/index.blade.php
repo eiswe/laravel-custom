@@ -50,7 +50,7 @@
 @endsection
 
 @section('content')
-
+{{ Asset::container('footer')->scripts() }}
   <div class="span9">
 		@if(Session::get('alert'))
 			<?php 

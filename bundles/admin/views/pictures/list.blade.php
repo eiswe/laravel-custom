@@ -86,7 +86,7 @@
 @endsection
 
 @section('script')
-
+{{ Asset::container('footer')->scripts() }}
   <script type="text/javascript">
     $(document).ready(function(){
         $('tr').click(function() {                                                // table row was clicked
