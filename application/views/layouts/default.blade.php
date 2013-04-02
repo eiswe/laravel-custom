@@ -45,4 +45,15 @@
       </div>
   {{ Asset::container('footer')->scripts() }}
   @yield('script')
+
+  <script type="js/bootstrap.js"></script>
+
+
+
+
+
+
+
+
+
   </body>
