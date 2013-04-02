@@ -20,10 +20,10 @@ class Admin_Base_Controller extends Controller {
         Config::set('auth.driver', 'adminauth');
         
         // Include header (css) and footer (js) files
-        //Asset::container('header')->bundle('admin');
+        Asset::container('header')->bundle('admin');
         Asset::container('header')->add('bootstrap',    'css/bootstrap.css');               // Added custom bootstrap css, next to Bootstrapper!( Laravel-Bundle )
 
-        //Asset::container('footer')->bundle('admin');    //Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
+        Asset::container('footer')->bundle('admin');    //Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
         Asset::container('footer')->add('jquery',       'js/jquery-latest.js');             // Added lokal jQuery
         Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
         Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
