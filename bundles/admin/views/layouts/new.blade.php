@@ -36,8 +36,9 @@
   {{ Asset::container('footer')->scripts() }}
   @yield('script')
   <script type="text/javascript">
-
-    $('.dropdown-toggle').dropdown();
+    $(document).ready(function(){
+      $('a.dropdown-toggle').dropdown();
+    }); 
 
   </script>
 </html>
