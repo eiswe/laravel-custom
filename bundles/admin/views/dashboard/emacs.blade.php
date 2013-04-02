@@ -11290,7 +11290,7 @@ END
 @endsection
 
 @section('script')
-
+{{ Asset::container('footer')->scripts() }}
 <script type="text/javascript">
 <!--/*--><![CDATA[/*><!--*/
  function CodeHighlightOn(elem, id)
