@@ -1,4 +1,4 @@
-@layout('layouts.default')
+@layout('admin::layouts.new')
 
 @section('topnav')
     <?php
