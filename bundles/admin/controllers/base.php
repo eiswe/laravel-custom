@@ -28,7 +28,7 @@ class Admin_Base_Controller extends Controller {
         Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
         Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
         Asset::container('footer')->add('bootstrapjs',  'js/bootstrap.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-button',  'js/bootstrap-buttons.js');                 // Added BootsrtapJS! for things like Pagination!
+        Asset::container('footer')->add('bootstrap-button',  'js/bootstrap-button.js');                 // Added BootsrtapJS! for things like Pagination!
 
         // using auth filter globally for everything in admins
         $this->filter('before', 'auth');
