@@ -83,37 +83,31 @@
 @endsection
 
 @section('script')
-{{ Asset::container('footer')->scripts() }}
-<script type="text/javascript">
-// alert("JS is enabled");
 
-$(document).ready(function(){
-    // alert('document is ready');                                  // JS test!
+  {{ Asset::container('footer')->scripts() }}
 
-    // $("p").click(function(){                                     // jQuery test!
-    //   $(this).hide();
-    // });
+  <script type="text/javascript">
+    // alert("JS is enabled");
 
-    $('tr').click(function() {                                                // table row was clicked
-        // var first = $(this).parent().siblings(":first").text();            // only show headings
-        // var first = $(this).find("td").parent().siblings(":first").text(); // only show first value id sn rev,.... SHOWS FIRST CARD ROW!
+    $(document).ready(function(){
+        // alert('document is ready');                                  // JS test!
 
-        var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
-        var baseUrl = document.URL ;                                          // fetch current URL
-        var url = baseUrl + '/edit/' + value;                                 // build new url: baseUrl/edit/id
-        window.location.replace(url);                                         // redirect to edit form
-    });
+        // $("p").click(function(){                                     // jQuery test!
+        //   $(this).hide();
+        // });
 
-    $('table').tablesorter({                                                  // Sort hole table with click on Title
-    // customize header HTML
-        onRenderHeader: function(index) {                                     // Indexies fields of table
-        // the span wrapper is added by default                               // add little icons - dont work - dont have to work!
-        // this.wrapInner('<span class="icons"></span>');
-        }
-    });
+        $('tr').click(function() {                                                // table row was clicked
+            var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
+            var baseUrl = document.URL ;                                          // fetch current URL
+            var url = baseUrl + '/../edit/' + value;                                 // build new url: baseUrl/edit/id
+            window.location.replace(url);                                         // redirect to edit form
+        });
 
-}); 
-
-</script>
+        $('table').tablesorter({                                                  // Sort hole table with click on Title
+            onRenderHeader: function(index) {                                     // Indexies fields of table
+            }
+        });
+    }); 
+  </script>
 
 @endsection
