@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>{{ $title }}</title>
-    {{ Asset::container('header')->styles() }}
+    <!--{{ Asset::container('header')->styles() }} -->
+    {{ Asset::container('bootstrapper')->styles(); }}
+     
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -32,6 +34,7 @@
               </div>
           </div>
       </div> 
+    {{ Asset::container('bootstrapper')->scripts(); }}
     {{ Asset::container('footer')->scripts() }}
     @yield('script')
     <script type="text/javascript">
