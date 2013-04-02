@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ $title }}</title>
-    <!-- {{ Asset::container('bootstrapper')->styles(); }} -->
+    {{ Asset::container('bootstrapper')->styles(); }}
   </head>
   <body>
       @yield('topnav')
@@ -43,6 +43,7 @@
 
           </div>
       </div>
-  <!-- {{ Asset::container('footer')->scripts() }} -->
-  @yield('script')
+      Asset::container('bootstrapper')->scripts();
+      @yield('script')
   </body>
+</html>
