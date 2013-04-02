@@ -28,19 +28,19 @@ class Admin_Base_Controller extends Controller {
         Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
         Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
         Asset::container('footer')->add('bootstrapjs',          'js/bootstrap.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-affix',      'js/bootstrap-affix.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-carousel',   'js/bootstrap-carousel.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-modal',      'js/bootstrap-modal.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-tab',        'js/bootstrap-tab.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-typeahead',  'js/bootstrap-typeahead.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-alert',      'js/bootstrap-alert.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-collapse',   'js/bootstrap-collapse.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-popover',    'js/bootstrap-popover.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-tooltip',    'js/bootstrap-tooltip.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-button',     'js/bootstrap-button.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-dropdown',   'js/bootstrap-dropdown.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-scrollspy',  'js/bootstrap-scrollspy.js');                 // Added BootsrtapJS! for things like Pagination!
-        Asset::container('footer')->add('bootstrap-transition', 'js/bootstrap-transition.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-affix',      'js/bootstrap-affix.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-carousel',   'js/bootstrap-carousel.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-modal',      'js/bootstrap-modal.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-tab',        'js/bootstrap-tab.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-typeahead',  'js/bootstrap-typeahead.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-alert',      'js/bootstrap-alert.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-collapse',   'js/bootstrap-collapse.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-popover',    'js/bootstrap-popover.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-tooltip',    'js/bootstrap-tooltip.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-button',     'js/bootstrap-button.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-dropdown',   'js/bootstrap-dropdown.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-scrollspy',  'js/bootstrap-scrollspy.js');                 // Added BootsrtapJS! for things like Pagination!
+        // Asset::container('footer')->add('bootstrap-transition', 'js/bootstrap-transition.js');                 // Added BootsrtapJS! for things like Pagination!
 
         // using auth filter globally for everything in admins
         $this->filter('before', 'auth');
