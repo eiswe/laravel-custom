@@ -32,14 +32,13 @@
               </div>
           </div>
       </div> 
+    {{ Asset::container('footer')->scripts() }}
+    @yield('script')
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.dropdown-toggle').dropdown();
+      }); 
+    </script>
   </body>
-  {{ Asset::container('footer')->scripts() }}
-  @yield('script')
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('a.dropdown-toggle').dropdown();
-    }); 
-
-  </script>
 </html>
 
