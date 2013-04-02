@@ -43,7 +43,7 @@
 
           </div>
       </div>
-      Asset::container('bootstrapper')->scripts();
+      {{ Asset::container('bootstrapper')->scripts(); }}
       @yield('script')
   </body>
 </html>
