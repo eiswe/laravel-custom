@@ -3,7 +3,7 @@
 @section('subnav')
   <?php
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-      $surl = $url.'/david/';
+      $surl = $url.'/'.$site.'/';
       print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
       print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
       print '<li class="active">  <a href="'.$surl.'about"> About      </a></li>';       
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="span3"><h1></h1>
       </div>
-      <div class="span6"><h1>David Crimi</h1>
+      <div class="span6"><h1>{{ $site }}/h1>
       </div>
     </div>
 <!-- End row 2 -->        
