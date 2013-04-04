@@ -38,6 +38,19 @@
                 $navlink[] = array( $value->frontname, $url.'/'.$frontlow );      // disable if dont
             }
           }
+      } else {
+          $site = 'login';
+          // an logged in user could get another menu!
+
+          $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
+          foreach ($starredUsers as $key => $value) {
+            $frontlow = strtolower($value->frontname);                            //print $value->frontname.' '.$value->backname.' are listed as starred';
+            if ( $site == $frontlow ) {                                           // enable david if used
+                $navlink[] = array( $value->frontname, $url.'/'.$frontlow, true);
+            } else {
+                $navlink[] = array( $value->frontname, $url.'/'.$frontlow );      // disable if dont
+            }
+          }
       }
 
 
