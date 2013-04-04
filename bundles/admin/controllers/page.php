@@ -145,7 +145,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             $ppage = Page::where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
         } elseif ( $uid >= 1 ) {
             // or_where isnt what i want!!! or?
-            $ppage = Page::where('userid', '=', $uid)->or_where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
+            //$ppage = Page::where('userid', '=', $uid)->or_where('id', '=', $id)->get();   // lets load all pagelist exist in Database  
+
+            $ppage = User::where('id' = $id)->page()->get();
         }
 
         // if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
