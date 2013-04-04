@@ -15,4 +15,5 @@ class Page extends Eloquent {
 	
 }
 
+
 // print '<span class="label label-warning">Admin::Page</span>&nbsp;';
