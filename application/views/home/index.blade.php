@@ -13,7 +13,7 @@
         <p>Checkout Davids news!</p>
         <br />
             <?php 
-      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+                $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
                 print '<p><a href="'.$url.'/david/news" class="btn btn-primary btn-large">To News!</a></p>';
             ?>   
 	    </div>
