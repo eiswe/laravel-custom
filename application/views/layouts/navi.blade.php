@@ -26,7 +26,7 @@
             }
           }
       } elseif ( isset( $id ) ) {
-
+          $site = 'admin';
           // an logged in user could get another menu!
 
           $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
