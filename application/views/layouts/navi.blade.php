@@ -29,6 +29,8 @@
           $site = 'admin';
           // an logged in user could get another menu!
 
+          $navlink = array( array( 'Home', $url.'/home' ));
+
           $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
           foreach ($starredUsers as $key => $value) {
             $frontlow = strtolower($value->frontname);                            //print $value->frontname.' '.$value->backname.' are listed as starred';
@@ -41,6 +43,8 @@
       } else {
           $site = 'login';
           // an logged in user could get another menu!
+
+          $navlink = array( array( 'Home', $url.'/home' ));
 
           $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
           foreach ($starredUsers as $key => $value) {
