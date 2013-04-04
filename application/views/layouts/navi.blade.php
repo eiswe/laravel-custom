@@ -26,7 +26,7 @@
               $navlink[] = array('David', $url.'/david');       // disable if dont
           }
 
-          $starredUsers = Profile::where('starred', '=', 'true')->get();
+          $starredUsers = Profile::where('starred', '=', 1)->get();
 
           print_r($starredUsers);
 
