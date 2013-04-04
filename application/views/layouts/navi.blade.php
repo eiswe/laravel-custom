@@ -5,28 +5,33 @@
   <?php 
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
       
+      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
 
 
       if ( isset( $site ) ) {
-
           if ( $site == "home" ) {                                                // enable home if used
-              $navlink = array(
-                  array('Home', $url.'/home', true),
-              );    
+              $navlink = array( array( 'Home', $url.'/home', true ));    
           } else {
-              $navlink = array(                                                   // disable if dont
-                  array('Home', $url.'/home'),
-              );
+              $navlink = array( array( 'Home', $url.'/home' ));                   // disable if dont
           }
 
-          $starredUsers = Profile::where('starred', '=', 1)->get();
-
+          $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
           foreach ($starredUsers as $key => $value) {
-            //print '<br />';
-            
             $frontlow = strtolower($value->frontname);                            //print $value->frontname.' '.$value->backname.' are listed as starred';
+            if ( $site == $frontlow ) {                                           // enable david if used
+              $navlink[] = array( $value->frontname, $url.'/'.$frontlow, true);
+            } else {
+                $navlink[] = array( $value->frontname, $url.'/'.$frontlow );      // disable if dont
+            }
+          }
+      } elseif ( isset( $id ) ) {
 
+          // an logged in user could get another menu!
+
+          $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
+          foreach ($starredUsers as $key => $value) {
+            $frontlow = strtolower($value->frontname);                            //print $value->frontname.' '.$value->backname.' are listed as starred';
             if ( $site == $frontlow ) {                                           // enable david if used
               $navlink[] = array( $value->frontname, $url.'/'.$frontlow, true);
             } else {
@@ -39,10 +44,12 @@
 
 
       // Login or Logout Button?
-
-      $id = Session::get('id');                                                 // fetch Session:id and 
-      if ( isset( $id ) ) {
+      if ( isset( $id ) ) {                                                       // check for logged in?
           $navlinkr = array(
+            array('Admin', $url.'/admin', true),
+
+            array(Navigation::VERTICAL_DIVIDER),
+
             array( 'Dropdown', '#', false, false, array(
                 array('Action', '#'),
                 array('Another action', '#'),
