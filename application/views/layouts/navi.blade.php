@@ -20,12 +20,6 @@
               );
           }
 
-          if ( $site == "david" ) {                             // enable david if used
-            $navlink[] = array('David', $url.'/david', true);
-          } else {
-              $navlink[] = array('David', $url.'/david');       // disable if dont
-          }
-
           $starredUsers = Profile::where('starred', '=', 1)->get();
 
           foreach ($starredUsers as $key => $value) {
