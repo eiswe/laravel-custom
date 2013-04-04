@@ -21,7 +21,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             //$pagelist = Page::all();   // lets load all pagelist exist in Database        
             $pagelist = Page::all();
         } elseif ( $id >= 1 ) {
-            $pagelist = Page::where('admin_id', '=', $id)->get();   // lets load all pagelist exist in Database        
+            $pagelist = Admin::find( $uid )->page()->get();   // lets load all pagelist exist in Database   
         }
 
         return View::make( 'admin::pages.list' )
@@ -144,15 +144,8 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         if ( $uid == 1 ) {
             $ppage = Page::where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
         } elseif ( $uid >= 1 ) {
-            // or_where isnt what i want!!! or?
-            //$ppage = Page::where('userid', '=', $uid)->or_where('id', '=', $id)->get();   // lets load all pagelist exist in Database  
-
             $ppage = Admin::find( $uid )->page()->where('id', '=', $id)->get();  // ->where('id', '=', $id)
         }
-
-        // if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-        //     $ppage = Page::where('id', '=', $id)->get();
-        // }
  
         return View::make( 'admin::pages.edit' )
             ->with( 'title', 'Edit a Card!' )
