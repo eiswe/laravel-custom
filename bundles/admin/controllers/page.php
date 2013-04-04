@@ -18,7 +18,8 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $id = Session::get('id');                                   // fetch Session:id and 
         
         if ( $id == 1 ) {
-            $pagelist = Page::all();   // lets load all pagelist exist in Database        
+            //$pagelist = Page::all();   // lets load all pagelist exist in Database        
+            $pagelist = Page::all();
         } elseif ( $id >= 1 ) {
             $pagelist = Page::where('userid', '=', $id)->get();   // lets load all pagelist exist in Database        
         }
@@ -137,6 +138,14 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     -> Fetch id and data for validation. Save into database!
 */
     public function get_edit($id){  // for fetching errors need to use routes....^^ ok NOT!
+
+        // $uid = Session::get('id');                                   // fetch Session:id and 
+        
+        // if ( $uid == 1 ) {
+        //     $pagelist = Page::all();   // lets load all pagelist exist in Database        
+        // } elseif ( $uid >= 1 ) {
+        //     $pagelist = Page::where('userid', '=', $uid)->get();   // lets load all pagelist exist in Database        
+        // }
 
         if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
             $ppage = Page::where('id', '=', $id)->get();
