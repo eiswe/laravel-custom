@@ -32,17 +32,23 @@ class David_Controller extends Base_Controller {
 
 	public function action_index() {
 		return View::make('david.index')
-			->with('title', 'LimeBlack - Index');
+			->with('title', 'LimeBlack - Index')
+			->with('site', 'david')
+		;
 	}
 	
 	public function action_home() {
 		return View::make('david.index')
-			->with('title', 'LimeBlack - Index');
+			->with('title', 'LimeBlack - Index')
+			->with('site', 'david')
+		;
 	}
 
 	public function action_about() {
 		return View::make('david.about')
-			->with('title', 'LimeBlack - About me!');
+			->with('title', 'LimeBlack - About me!')
+			->with('site', 'david')
+		;
 	}
 
 	public function action_news() {
@@ -51,6 +57,7 @@ class David_Controller extends Base_Controller {
 
 		return View::make('david.news')
 			->with('title', 'LimeBlack - About me!')
+			->with('site', 'david')
 			->with('news', $news)
 		;
 	}
