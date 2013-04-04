@@ -10,6 +10,10 @@ class Admin extends Eloquent {
 		return $this->has_many('card');
 	}
 
+	public function page(){
+		return $this->has_one('Page');
+	}
+
 	public function get_created(){		// rename db field! ^^
 	    return $this->get_attribute('created_at');
 	}
