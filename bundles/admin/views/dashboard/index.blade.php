@@ -2,6 +2,7 @@
 
 @section('subnav')
 	<?php 
+      $url = URL::base();
     	print '<li class="active">	<a href="'.$url.'/admin/home">          Home      </a></li>';
       print '<li>                 <a href="'.$url.'/admin/emacs">         Emacs  </a></li>';
       print '<li>                 <a href="'.$url.'/admin/page/list">     Pages  </a></li>';
