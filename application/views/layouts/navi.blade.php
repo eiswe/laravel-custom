@@ -24,16 +24,27 @@
                 )
               );
 
-      // check if user is logged in!
-      $id = Session::get('id');                                   // fetch Session:id and 
-      print($id);
 
-      $navlinkr = array(
+      // Login or Logout Button?
+
+      $id = Session::get('id');                                   // fetch Session:id and 
+      if ( isset( $id ) ) {
+          $navlinkr = array(
+            array(Navigation::VERTICAL_DIVIDER),
+
+            array('About', $url.'/about'),
+            array('Logout', $url.'/admin/login/logout'),
+          );
+      } else {
+          $navlinkr = array(
             array(Navigation::VERTICAL_DIVIDER),
 
             array('About', $url.'/about'),
             array('Login', $url.'/admin/login'),
           );
+      }
+
+
 
       echo Navbar::create()
         ->with_brand( 'LimeBlack', $url.'/home' )
