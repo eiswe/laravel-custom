@@ -69,6 +69,28 @@ class Admin_Create_Profile_Table {
             'hobbies'   => $hobbiestr,
         ));
 
+        DB::table('profiles')->insert(array(
+            'adminid'   => '4',
+            'starred'   => true,
+            'frontname' => 'Paolo',
+            'backname'  => 'Crimi',
+            'countries' => $countriestr,
+            'languages' => $languagestr,
+            'skills'    => $skillstr,
+            'hobbies'   => $hobbiestr,
+        ));
+
+        DB::table('profiles')->insert(array(
+            'adminid'   => '5',
+            'starred'   => true,
+            'frontname' => 'Kazzo',
+            'backname'  => 'Sieg',
+            'countries' => $countriestr,
+            'languages' => $languagestr,
+            'skills'    => $skillstr,
+            'hobbies'   => $hobbiestr,
+        ));
+
 	}
 
 	/**

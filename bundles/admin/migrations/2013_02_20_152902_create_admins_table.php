@@ -45,18 +45,18 @@ class Admin_Create_Admins_Table {
         ));
               
         DB::table('admins')->insert(array(
-            'name'      => 'Michael Bethwell',
-            'username'  => 'bethwell',
+            'name'      => 'Paolo Crimi',
+            'username'  => 'paolo',
             'password'  => Hash::make('qwert'),
-            'email'     => 'bethwell@dvs.de',
+            'email'     => 'paolo@dvs.de',
             'role'      => 'user'
         ));
               
         DB::table('admins')->insert(array(
-            'name'      => 'Ralf Stolz',
-            'username'  => 'stolz',
+            'name'      => 'Kevin Sieg',
+            'username'  => 'Kazzo',
             'password'  => Hash::make('qwert'),
-            'email'     => 'stolz@dvs.de',
+            'email'     => 'kevko@live.de',
             'role'      => 'user'
         ));
               
