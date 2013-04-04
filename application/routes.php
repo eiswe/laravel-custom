@@ -62,7 +62,7 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();
 		foreach ( $starredUsers as $key ) {
-			print $key->admin_id;
+			$uid = $key->admin_id;
 		}
         $news = Page::where('admin_id', '=', $uid )->get();
 		// $news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'(
