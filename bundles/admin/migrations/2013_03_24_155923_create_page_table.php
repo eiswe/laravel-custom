@@ -26,7 +26,7 @@ class Admin_Create_Page_Table {
         });
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'userid'        => '1',
             'title'         => 'First Page',
             'desc'          => 'My first Page with my own Laravel-CMS',
             'style'         => '1',
@@ -46,7 +46,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'userid'        => '1',
             'title'         => 'Third Page',
             'desc'          => 'My third Page with my own Laravel-CMS',
             'style'         => '1',
@@ -95,6 +95,75 @@ class Admin_Create_Page_Table {
             'movies'        => '1',
         ));
 
+        DB::table('pages')->insert(array(
+            'userid'        => '3',
+            'title'         => 'First Page',
+            'desc'          => 'My first Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '1',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '3',
+            'title'         => 'Second Page',
+            'desc'          => 'My second Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '2',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '4',
+            'title'         => 'Third Page',
+            'desc'          => 'My third Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '3',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '4',
+            'title'         => 'Fourth Page',
+            'desc'          => 'My fourth Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '4',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '3',
+            'title'         => 'Fifth Page',
+            'desc'          => 'My fifth Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '5',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '4',
+            'title'         => '6th Page',
+            'desc'          => 'My 6th Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '6',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
+
+        DB::table('pages')->insert(array(
+            'userid'        => '1',
+            'title'         => '7th Page',
+            'desc'          => 'My 7th Page with my own Laravel-CMS',
+            'style'         => '1',
+            'texts'         => '7',
+            'images'        => '1',
+            'movies'        => '1',
+        ));
 	}
 
 	/**
