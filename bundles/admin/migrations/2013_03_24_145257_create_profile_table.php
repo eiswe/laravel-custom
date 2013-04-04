@@ -12,7 +12,7 @@ class Admin_Create_Profile_Table {
 		// add database schema: profiles
 		Schema::create('profiles', function($table){
             $table->increments('id')			->unique();
-            $table->integer('adminid')          ->unique();
+            $table->integer('admin_id')          ->unique();
             $table->boolean('starred')          ->nullable();
             $table->string('frontname', 32)		->nullable();
             $table->string('backname', 64)		->nullable();
@@ -37,7 +37,7 @@ class Admin_Create_Profile_Table {
         $hobbiestr = implode(",", $hobbies);										//convert array to string - reolve with explode()
 
         DB::table('profiles')->insert(array(
-        	'adminid'   => '1',
+        	'admin_id'   => '1',
             'starred'   => false,
             'frontname'	=> 'David',
         	'backname'	=> 'Crimi',
@@ -48,7 +48,7 @@ class Admin_Create_Profile_Table {
         ));
 
         DB::table('profiles')->insert(array(
-            'adminid'   => '2',
+            'admin_id'   => '2',
             'starred'   => true,
             'frontname' => 'David',
             'backname'  => 'Crimi',
@@ -59,7 +59,7 @@ class Admin_Create_Profile_Table {
         ));
 
         DB::table('profiles')->insert(array(
-            'adminid'   => '3',
+            'admin_id'   => '3',
             'starred'   => true,
             'frontname' => 'Victor',
             'backname'  => 'Ananev',
@@ -70,7 +70,7 @@ class Admin_Create_Profile_Table {
         ));
 
         DB::table('profiles')->insert(array(
-            'adminid'   => '4',
+            'admin_id'   => '4',
             'starred'   => true,
             'frontname' => 'Paolo',
             'backname'  => 'Crimi',
@@ -81,7 +81,7 @@ class Admin_Create_Profile_Table {
         ));
 
         DB::table('profiles')->insert(array(
-            'adminid'   => '5',
+            'admin_id'   => '5',
             'starred'   => true,
             'frontname' => 'Kazzo',
             'backname'  => 'Sieg',
