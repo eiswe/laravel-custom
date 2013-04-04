@@ -57,9 +57,31 @@ Route::get('/home', function(){
 	;
 });
 
+
+Route::get('/(:any)/home', function($any){ 						// if nothing match use any! - use for profile names!
+	return View::make('show.index')
+		->with('title', 'LimeBlack - '.$any.' Index')
+		->with('site', $any)
+	;
+});
+
+Route::get('/(:any)/index', function($any){ 						// if nothing match use any! - use for profile names!
+	return View::make('show.index')
+		->with('title', 'LimeBlack - '.$any.' Index')
+		->with('site', $any)
+	;
+});
+
+Route::get('/(:any)/about', function($any){ 						// if nothing match use any! - use for profile names!
+	return View::make('show.about')
+		->with('title', 'LimeBlack - '.$any.' Index')
+		->with('site', $any)
+	;
+});
+
 Route::get('/(:any)', function($any){ 						// if nothing match use any! - use for profile names!
-	return Redirect::to(URL::to_action('show@index'))
-		->with('title', 'LimeBlack - Index')
+	return View::make('show.index')
+		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
 	;
 });
