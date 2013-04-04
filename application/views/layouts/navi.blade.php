@@ -8,13 +8,16 @@
 
 
 
-      if ( isset( $site ) AND $site == "home" ) {
-          $navlink = array(
-                array('Home', $url.'/home', true),
-                array('David', $url.'/david'),
-                array('Paolo', $url.'/paolo'),
-                array('Kazo', $url.'/kazo'),
-          );
+      if ( isset( $site ) ) {
+          if ( $site == "home" ) {
+              $navlink = array(
+                  array('Home', $url.'/home', true),
+                      # code...
+              );    
+          }          
+          $navlink[] = array('David', $url.'/david'),
+          $navlink[] =  array('Paolo', $url.'/paolo'),
+          // $navlink[] =  array('Kazo', $url.'/kazo'),
       }
 
 
