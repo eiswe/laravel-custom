@@ -10,18 +10,6 @@
                 array('David', $url.'/david'),
                 array('Paolo', $url.'/paolo'),
                 array('Kazo', $url.'/kazo'),
-                array( 'Dropdown', '#', false, false, array(
-                    array('Action', '#'),
-                    array('Another action', '#'),
-                    array('Something else here', '#'),
-                    
-                    array(Navigation::DIVIDER),
-                    
-                    array(Navigation::HEADER, 'Nav header'),
-                    array('Separated link', '#'),
-                    array('One more separated link', '#'),
-                  )
-                )
               );
 
 
@@ -30,6 +18,19 @@
       $id = Session::get('id');                                   // fetch Session:id and 
       if ( isset( $id ) ) {
           $navlinkr = array(
+            array( 'Dropdown', '#', false, false, array(
+                array('Action', '#'),
+                array('Another action', '#'),
+                array('Something else here', '#'),
+                
+                array(Navigation::DIVIDER),
+                
+                array(Navigation::HEADER, 'Nav header'),
+                array('Separated link', '#'),
+                array('One more separated link', '#'),
+              )
+            ),
+
             array(Navigation::VERTICAL_DIVIDER),
 
             array('About', $url.'/about'),
@@ -37,6 +38,19 @@
           );
       } else {
           $navlinkr = array(
+            array( 'Dropdown', '#', false, false, array(
+                array('Action', '#'),
+                array('Another action', '#'),
+                array('Something else here', '#'),
+                
+                array(Navigation::DIVIDER),
+                
+                array(Navigation::HEADER, 'Nav header'),
+                array('Separated link', '#'),
+                array('One more separated link', '#'),
+              )
+            ),
+            
             array(Navigation::VERTICAL_DIVIDER),
 
             array('About', $url.'/about'),
