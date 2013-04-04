@@ -2,6 +2,7 @@
 
 @section('subnav')
   <?php
+      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       $surl = $url.'/david/';
       print '<li class="active">  <a href="'.$surl.'home">  Home      </a></li>'; 
       print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
