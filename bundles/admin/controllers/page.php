@@ -142,7 +142,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $uid = Session::get('id');                                   // fetch Session:id and 
         
         if ( $uid == 1 ) {
-            $ppage = Page::all();   // lets load all pagelist exist in Database        
+            $ppage = Page::where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
         } elseif ( $uid >= 1 ) {
             $ppage = Page::where('userid', '=', $uid)->and_where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
         }
