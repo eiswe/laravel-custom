@@ -31,10 +31,14 @@ class Show_Controller extends Base_Controller {
 	*/
 
 	public function action_index() {
+
+		return $title.$site;
+/*
 		return View::make('show.index')
 			->with('title', $title)
 			->with('site', $site)
 		;
+		*/
 	}
 	
 	public function action_home() {
