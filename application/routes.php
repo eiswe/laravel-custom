@@ -61,11 +61,11 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 
         $uid = Session::get('id');                                   // fetch Session:id and 
 
-		$news = Admin::find( $uid)->page()->get();    //all();
+		$news = Admin::find( $uid )->page()->get();    //all();
 
-		return View::make('david.news')
-			->with('title', 'LimeBlack - About me!')
-			->with('site', 'david')
+		return View::make('show.news')
+			->with('title', 'LimeBlack - '.$any.' Index')
+			->with('site', $any)
 			->with('news', $news)
 		;
 });
