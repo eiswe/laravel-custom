@@ -12,7 +12,7 @@ class Admin_Create_Page_Table {
 	  Schema::create('pages', function($table){ 		// add database schema: pages
 
             $table->increments('id')->unique();			// with id
-            $table->integer('userid');					// user id
+            $table->integer('admin_id');					// user id
 
             $table->string('title', 32);				// title 	20
             $table->string('desc', 64)->nullable();         // desc     64
@@ -26,7 +26,7 @@ class Admin_Create_Page_Table {
         });
 
         DB::table('pages')->insert(array(
-            'userid'        => '1',
+            'admin_id'        => '1',
             'title'         => 'First Page',
             'desc'          => 'My first Page with my own Laravel-CMS',
             'style'         => '1',
@@ -36,7 +36,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'title'         => 'Second Page',
             'desc'          => 'My second Page with my own Laravel-CMS',
             'style'         => '1',
@@ -46,7 +46,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '1',
+            'admin_id'        => '1',
             'title'         => 'Third Page',
             'desc'          => 'My third Page with my own Laravel-CMS',
             'style'         => '1',
@@ -56,7 +56,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'title'         => 'Fourth Page',
             'desc'          => 'My fourth Page with my own Laravel-CMS',
             'style'         => '1',
@@ -66,7 +66,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'title'         => 'Fifth Page',
             'desc'          => 'My fifth Page with my own Laravel-CMS',
             'style'         => '1',
@@ -76,7 +76,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'title'         => '6th Page',
             'desc'          => 'My 6th Page with my own Laravel-CMS',
             'style'         => '1',
@@ -86,7 +86,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'title'         => '7th Page',
             'desc'          => 'My 7th Page with my own Laravel-CMS',
             'style'         => '1',
@@ -96,7 +96,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '3',
+            'admin_id'        => '3',
             'title'         => 'First Page',
             'desc'          => 'My first Page with my own Laravel-CMS',
             'style'         => '1',
@@ -106,7 +106,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '3',
+            'admin_id'        => '3',
             'title'         => 'Second Page',
             'desc'          => 'My second Page with my own Laravel-CMS',
             'style'         => '1',
@@ -116,7 +116,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '4',
+            'admin_id'        => '4',
             'title'         => 'Third Page',
             'desc'          => 'My third Page with my own Laravel-CMS',
             'style'         => '1',
@@ -126,7 +126,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '4',
+            'admin_id'        => '4',
             'title'         => 'Fourth Page',
             'desc'          => 'My fourth Page with my own Laravel-CMS',
             'style'         => '1',
@@ -136,7 +136,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '3',
+            'admin_id'        => '3',
             'title'         => 'Fifth Page',
             'desc'          => 'My fifth Page with my own Laravel-CMS',
             'style'         => '1',
@@ -146,7 +146,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '4',
+            'admin_id'        => '4',
             'title'         => '6th Page',
             'desc'          => 'My 6th Page with my own Laravel-CMS',
             'style'         => '1',
@@ -156,7 +156,7 @@ class Admin_Create_Page_Table {
         ));
 
         DB::table('pages')->insert(array(
-            'userid'        => '1',
+            'admin_id'        => '1',
             'title'         => '7th Page',
             'desc'          => 'My 7th Page with my own Laravel-CMS',
             'style'         => '1',
