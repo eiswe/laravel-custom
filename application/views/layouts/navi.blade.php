@@ -24,6 +24,10 @@
                 )
               );
 
+      // check if user is logged in!
+      $id = Session::get('id');                                   // fetch Session:id and 
+      print($id);
+
       $navlinkr = array(
             array(Navigation::VERTICAL_DIVIDER),
 
