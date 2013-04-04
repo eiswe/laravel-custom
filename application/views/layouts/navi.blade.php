@@ -85,6 +85,26 @@
             array('About', $url.'/about'),
             array('Logout', $url.'/admin/login/logout'),
           );
+      } elseif ( $site == "login" ) {
+          $navlinkr = array(
+            array( 'Dropdown', '#', false, false, array(
+                array('Action', '#'),
+                array('Another action', '#'),
+                array('Something else here', '#'),
+                
+                array(Navigation::DIVIDER),
+                
+                array(Navigation::HEADER, 'Nav header'),
+                array('Separated link', '#'),
+                array('One more separated link', '#'),
+              )
+            ),
+            
+            array(Navigation::VERTICAL_DIVIDER),
+
+            array('About', $url.'/about'),
+            array('Login', $url.'/admin/login', true),
+          );
       } else {
           $navlinkr = array(
             array( 'Dropdown', '#', false, false, array(
