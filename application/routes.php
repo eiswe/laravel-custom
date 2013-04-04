@@ -59,6 +59,14 @@ Route::get('/home', function(){
 	;
 });
 
+Route::get('/(:any)', function(){
+	return 'any';
+	/*return View::make('home.index')
+		->with('title', 'LimeBlack - Index')
+		->with('site', 'home')
+	;*/
+});
+
 Route::get('/', function(){
 
 	return View::make('home.index')
