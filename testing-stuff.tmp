@@ -43,6 +43,19 @@
 
 
 
+ <!-- First Row - For Title and leading text..        
+          <div class="row">
+              <div class="span12"> 
+                  <h1>LimeBlack
+                  <?php
+                    echo Typography::lead('coding all for Web, Android and Robotic!', 'i');
+                  ?></h1>
+              </div>
+          </div>  --> 
+
+  <!-- Second Row - For Navi and Content -->
+
+
 
 
 
