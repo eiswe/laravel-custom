@@ -142,9 +142,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $uid = Session::get('id');                                   // fetch Session:id and 
         
         if ( $uid == 1 ) {
-            $pagelist = Page::all();   // lets load all pagelist exist in Database        
+            $ppage = Page::all();   // lets load all pagelist exist in Database        
         } elseif ( $uid >= 1 ) {
-            $pagelist = Page::where('userid', '=', $uid)->and_where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
+            $ppage = Page::where('userid', '=', $uid)->and_where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
         }
 
         // if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
