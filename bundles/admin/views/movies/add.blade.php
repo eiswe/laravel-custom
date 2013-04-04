@@ -90,7 +90,7 @@
 */
 // --------------------------------------------------------------
 
-		echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel', '',$url.'/admin/movie/list')));
+		echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 
 		Form::token();
    	Form::close();
