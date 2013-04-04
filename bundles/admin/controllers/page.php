@@ -54,7 +54,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $id = Session::get('id');                                   // fetch Session:id and 
         $creds += array(                                            // add to creds ( creds = input vars)
-            'userid'  =>  $id
+            'admin_id'  =>  $id
         );
 
         // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
@@ -66,7 +66,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             //'ts'        =>  'required|numeric',                       // Texts      
             //'im'        =>  'required|numeric',                       // Images     
             //'mv'        =>  'required|numeric',                       // Movies     
-            'userid'    =>  'required|numeric|max:100',                 // UserID
+            'admin_id'    =>  'required|numeric|max:100',                 // admin_id
         );
 
         $v = Validator::make($creds, $rules);                       // validate the input
@@ -123,7 +123,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $his->pageid = $page->id;                   // get and save id of current item ( page! )
         $his->action = 'insert';                    // say what we are doing!
-        $his->userid = $id;                         // save userid!
+        $his->admin_id = $id;                         // save admin_id!
         $his->fields = $fieldstr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->values = $valuestr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->save();                               // save all to database!
@@ -168,7 +168,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $uid = Session::get('id');                                            // fetch Session:id
 
         $creds += array(                                                      // add admin_id
-            'userid'  =>  $uid
+            'admin_id'  =>  $uid
         );
 
         // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
@@ -180,7 +180,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             //'ts'        =>  'required|numeric',                       // Texts      
             //'im'        =>  'required|numeric',                       // Images     
             //'mv'        =>  'required|numeric',                       // Movies     
-            'userid'    =>  'required|numeric|max:100',                 // UserID
+            'admin_id'    =>  'required|numeric|max:100',                 // admin_id
         );
 
         $v = Validator::make($creds, $rules);                                 // validate the input
@@ -247,7 +247,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $his->cardid = $ergeb->id;                                             // get and save id of current item ( card! )
         $his->action = 'update';                                              // say what we are doing!
-        $his->userid = $uid;                                                  // save userid!
+        $his->admin_id = $uid;                                                  // save userid!
         $his->fields = $fieldstr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->values = $valuestr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->save();  
