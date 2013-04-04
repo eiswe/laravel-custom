@@ -43,8 +43,6 @@ Route::get('/david/galery', function(){
 	return View::make('galery.tinker')->with('title', 'David - Tinkerforge Gallery');
 });*/
 
-
-
 Route::get('/about', function(){
 	return View::make('home.about')
 		->with('title', 'LimeBlack - About us!')
