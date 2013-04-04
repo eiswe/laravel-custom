@@ -20,7 +20,6 @@
 		-->
 <?php
 	echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add', 'List' => $url.'/admin/page/list', 'Edit'));
-	print_r($page);
 
   	if ( isset( $page ) ) {				// Check if page is givven!
 		foreach ( $page as $uniqValue ) {
@@ -29,7 +28,6 @@
 	} else {
 		print 'no page given!';
 	}
-
 
 ?>
 		<br /><br />
