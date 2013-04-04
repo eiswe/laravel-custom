@@ -1,43 +1,8 @@
 @layout('layouts.default')
 
-@section('topnav')
-    <?php
-        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-        
-        echo Navbar::create()
-            ->with_brand( 'LimeBlack', $url.'/home' )
-            ->with_menus( Navigation::links( 
-                array(
-                  array('Home', $url.'/home'),
-                  array('David', $url.'/david', true),
-                  array('Paolo', $url.'/paolo'),
-                  array('Kazo', $url.'/kazo'),
-                  array( 'Dropdown', '#', false, false, array(
-                      array('Action', '#'),
-                      array('Another action', '#'),
-                      array('Something else here', '#'),
-                      
-                      array(Navigation::DIVIDER),
-                      
-                      array(Navigation::HEADER, 'Nav header'),
-                      array('Separated link', '#'),
-                      array('One more separated link', '#'),
-                    )
-                  )
-                ) 
-            ))
-          ->with_menus( Navigation::links( array(
-              array(Navigation::VERTICAL_DIVIDER),
-
-              array('Login', $url.'/admin/login'),
-            )),
-            array('class' => 'pull-right')
-          );
-    ?>
-@endsection
-
 @section('subnav')
   <?php
+      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       $surl = $url.'/david/';
       print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
       print '<li class="active">  <a href="'.$surl.'about"> About      </a></li>'; 
