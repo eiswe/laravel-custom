@@ -9,15 +9,29 @@
 
 
       if ( isset( $site ) ) {
-          if ( $site == "home" ) {
+
+          if ( $site == "home" ) {                              // enable home if used
               $navlink = array(
                   array('Home', $url.'/home', true),
-                      # code...
               );    
-          }          
-          $navlink[] = array('David', $url.'/david');
+          } else {
+              $navlink = array(                                 // disable if dont
+                  array('Home', $url.'/home'),
+              );
+          }
+
+          if ( $site == "david" ) {                             // enable david if used
+            $navlink[] = array('David', $url.'/david', true);
+          } else {
+              $navlink[] = array('David', $url.'/david');       // disable if dont
+          }
+
+          $starredUsers = Profile::where('starred', '=', true);
+
+          print_r($starredUsers);
+
           $navlink[] =  array('Paolo', $url.'/paolo');
-          // $navlink[] =  array('Kazo', $url.'/kazo'),
+          $navlink[] =  array('Kazo', $url.'/kazo'),
       }
 
 
