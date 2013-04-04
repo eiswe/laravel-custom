@@ -15,7 +15,13 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 */    
     public function get_list(){
 
-        $pagelist = Page::all();   // lets load all pagelist exist in Database
+        $id = Session::get('id');                                   // fetch Session:id and 
+        
+        if ( $id == 1 ) {
+            $pagelist = Page::all();   // lets load all pagelist exist in Database        
+        } elseif ( $id >= 1 ) (
+            $pagelist = Page::where('userid', '=', $id);   // lets load all pagelist exist in Database        
+        )
 
         return View::make( 'admin::pages.list' )
             ->with( 'title', 'List of Admin Panel' )
