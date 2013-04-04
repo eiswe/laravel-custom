@@ -32,8 +32,12 @@
             //print '<br />';
             //print $value->frontname.' '.$value->backname.' are listed as starred';
             $frontlow = strtolower($value->frontname);
-            $navlink[] =  array( $value->frontname, $url.'/'.$frontlow);
 
+            if ( $site == $frontlow ) {                             // enable david if used
+              $navlink[] = array( $value->frontname, $url.'/'.$frontlow, true);
+            } else {
+                $navlink[] = array( $value->frontname, $url.'/'.$frontlow );       // disable if dont
+            }
           }
 
           $navlink[] =  array('Paolo', $url.'/paolo');
