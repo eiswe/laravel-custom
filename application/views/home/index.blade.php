@@ -1,7 +1,5 @@
 @layout('layouts.navi')
 
-
-
 @section('content')
 
   <div class="span9">
