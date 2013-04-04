@@ -30,6 +30,11 @@
 
           print_r($starredUsers);
 
+          foreach ($starredUsers as $key => $value) {
+            print '<br />';
+            print $value->frontname.' '.$value->backname.' are listed as starred';
+          }
+
           $navlink[] =  array('Paolo', $url.'/paolo');
           $navlink[] =  array('Kazo', $url.'/kazo');
       }
