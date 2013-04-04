@@ -28,11 +28,12 @@
 
           $starredUsers = Profile::where('starred', '=', 1)->get();
 
-          print_r($starredUsers);
-
           foreach ($starredUsers as $key => $value) {
-            print '<br />';
-            print $value->frontname.' '.$value->backname.' are listed as starred';
+            //print '<br />';
+            //print $value->frontname.' '.$value->backname.' are listed as starred';
+            $frontlow = strtolower($value->frontname);
+            $navlink[] =  array( $value->frontname, $url.'/'.$frontlow);
+
           }
 
           $navlink[] =  array('Paolo', $url.'/paolo');
