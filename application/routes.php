@@ -43,17 +43,28 @@ Route::get('/david/galery', function(){
 	return View::make('galery.tinker')->with('title', 'David - Tinkerforge Gallery');
 });*/
 
+
+
 Route::get('/about', function(){
-	return View::make('home.about')->with('title', 'LimeBlack - About us!');
+	return View::make('home.about')
+		->with('title', 'LimeBlack - About us!')
+		->with('site', 'home')
+	;
 });
 
 Route::get('/home', function(){
-	return View::make('home.index')->with('title', 'LimeBlack - Index');
+	return View::make('home.index')
+		->with('title', 'LimeBlack - Index')
+		->with('site', 'home')
+	;
 });
 
 Route::get('/', function(){
 
-	return View::make('home.index')->with('title', 'LimeBlack - Index');
+	return View::make('home.index')
+		->with('title', 'LimeBlack - Index')
+		->with('site', 'home')
+	;
 });
 
 /*
