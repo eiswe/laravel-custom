@@ -34,8 +34,8 @@
       echo Navbar::create()
         ->with_brand( 'LimeBlack', $url.'/home' )
         ->with_menus( Navigation::links( $navlink ) )
-        ->with_menus( Navigation::links( ),
-          array('class' => 'pull-right')
+        ->with_menus( Navigation::links( $navlinkr ),
+            array('class' => 'pull-right')
         );
     ?>
 @endsection
