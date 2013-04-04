@@ -59,7 +59,7 @@ Route::get('/home', function(){
 	;
 });
 
-Route::get('/(:any)', function(){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)', function($any){ 						// if nothing match use any! - use for profile names!
 	return View::make('home.index')
 		->with('title', 'LimeBlack - Index')
 		->with('site', $any)
