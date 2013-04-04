@@ -12,7 +12,8 @@ class Admin_Create_Profile_Table {
 		// add database schema: profiles
 		Schema::create('profiles', function($table){
             $table->increments('id')			->unique();
-            $table->integer('adminid')			->unique();
+            $table->integer('adminid')          ->unique();
+            $table->boolean('starred')          ->nullable();
             $table->string('frontname', 32)		->nullable();
             $table->string('backname', 64)		->nullable();
             $table->string('countries', 1024)	->nullable();
@@ -36,8 +37,9 @@ class Admin_Create_Profile_Table {
         $hobbiestr = implode(",", $hobbies);										//convert array to string - reolve with explode()
 
         DB::table('profiles')->insert(array(
-        	'adminid'		=> '1',
-        	'frontname'	=> 'David',
+        	'adminid'   => '1',
+            'starred'   => false,
+            'frontname'	=> 'David',
         	'backname'	=> 'Crimi',
         	'countries'	=> $countriestr,
         	'languages'	=> $languagestr,
@@ -46,13 +48,25 @@ class Admin_Create_Profile_Table {
         ));
 
         DB::table('profiles')->insert(array(
-        	'adminid'		=> '2',
-        	'frontname'	=> 'David',
-        	'backname'	=> 'Crimi',
-        	'countries'	=> $countriestr,
-        	'languages'	=> $languagestr,
-        	'skills'	=> $skillstr,
-        	'hobbies'	=> $hobbiestr,
+            'adminid'   => '2',
+            'starred'   => true,
+            'frontname' => 'David',
+            'backname'  => 'Crimi',
+            'countries' => $countriestr,
+            'languages' => $languagestr,
+            'skills'    => $skillstr,
+            'hobbies'   => $hobbiestr,
+        ));
+
+        DB::table('profiles')->insert(array(
+            'adminid'   => '3',
+            'starred'   => true,
+            'frontname' => 'Victor',
+            'backname'  => 'Ananev',
+            'countries' => $countriestr,
+            'languages' => $languagestr,
+            'skills'    => $skillstr,
+            'hobbies'   => $hobbiestr,
         ));
 
 	}
