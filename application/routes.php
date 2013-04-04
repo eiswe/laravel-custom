@@ -62,7 +62,8 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 
         $uid = Session::get('id');                                   // fetch Session:id and 
 
-		$news = Admin::find( $uid )->page()->get();    //all();
+        $news = Page::where('admin_id', '=', $uid )->get();
+		// $news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'(
 
 		return View::make('show.news')
 			->with('title', 'LimeBlack - '.$any.' Index')
