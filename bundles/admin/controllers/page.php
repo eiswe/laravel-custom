@@ -15,12 +15,12 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 */    
     public function get_list(){
 
-        $id = Session::get('id');                                   // fetch Session:id and 
+        $uid = Session::get('id');                                   // fetch Session:id and 
         
-        if ( $id == 1 ) {
+        if ( $uid == 1 ) {
             //$pagelist = Page::all();   // lets load all pagelist exist in Database        
             $pagelist = Page::all();
-        } elseif ( $id >= 1 ) {
+        } elseif ( $uid >= 1 ) {
             $pagelist = Admin::find( $uid )->page()->get();   // lets load all pagelist exist in Database   
         }
 
