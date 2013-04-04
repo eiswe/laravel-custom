@@ -1,7 +1,11 @@
 @layout('layouts.default')
 
+<?php       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+?>
 @section('topnav')
 <?php
+
+
 Navigation::links( 
               array(
                 array('Home', $url.'/home', true),
