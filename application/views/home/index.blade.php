@@ -3,8 +3,8 @@
 @section('topnav')
 
   <?php 
-  /*
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+  /*
       
       $navlink = array(
                 array('Home', $url.'/home', true),
