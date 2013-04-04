@@ -15,8 +15,8 @@
                       # code...
               );    
           }          
-          $navlink[] = array('David', $url.'/david'),
-          $navlink[] =  array('Paolo', $url.'/paolo'),
+          $navlink[] = array('David', $url.'/david');
+          $navlink[] =  array('Paolo', $url.'/paolo');
           // $navlink[] =  array('Kazo', $url.'/kazo'),
       }
 
