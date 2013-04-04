@@ -31,7 +31,7 @@
           print_r($starredUsers);
 
           $navlink[] =  array('Paolo', $url.'/paolo');
-          $navlink[] =  array('Kazo', $url.'/kazo'),
+          $navlink[] =  array('Kazo', $url.'/kazo');
       }
 
 
