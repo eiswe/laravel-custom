@@ -5,12 +5,19 @@
   <?php 
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       
-      $navlink = array(
+
+
+
+      if ( isset( $site ) AND $site == "home" ) {
+          $navlink = array(
                 array('Home', $url.'/home', true),
                 array('David', $url.'/david'),
                 array('Paolo', $url.'/paolo'),
                 array('Kazo', $url.'/kazo'),
-              );
+          );
+      }
+
+
 
 
       // Login or Logout Button?
