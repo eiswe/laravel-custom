@@ -57,6 +57,19 @@ Route::get('/home', function(){
 	;
 });
 
+Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - use for profile names!
+
+        $uid = Session::get('id');                                   // fetch Session:id and 
+
+		$news = Admin::find( $uid)->page()->get();    //all();
+
+		return View::make('david.news')
+			->with('title', 'LimeBlack - About me!')
+			->with('site', 'david')
+			->with('news', $news)
+		;
+});
+
 Route::get('/(:any)/home', function($any){ 						// if nothing match use any! - use for profile names!
 	return View::make('show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')

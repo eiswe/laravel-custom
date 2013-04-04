@@ -20,7 +20,7 @@
     <div class="row">
       <div class="span3"><h1></h1>
       </div>
-      <div class="span6"><h1>{{ $site }}/h1>
+      <div class="span6"><h1>{{ $site }}</h1>
       </div>
     </div>
 <!-- End row 2 -->        
