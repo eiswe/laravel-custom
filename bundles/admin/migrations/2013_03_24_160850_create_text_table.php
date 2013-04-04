@@ -14,7 +14,7 @@ class Admin_Create_Text_Table {
 
             $table->increments('id')->unique();
 
-            $table->integer('userid');
+            $table->integer('admin_id');
 
             $table->string('text', 2048)->nullable();
 
@@ -22,37 +22,37 @@ class Admin_Create_Text_Table {
         });
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => 'Some incredible long text free from the energy of my inspiration!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => 'Some other incredible long text free from the energy of my copy action!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => '3th incredible long text free from the energy of my inspiration!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => '4th incredible long text free from the energy of my copy action!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => '5th long text free from the energy of my inspiration!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => '6th incredible long text free from the energy of my copy action!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => '7th incredible long text free from the energy of my inspiration!',
       ));
 
@@ -73,12 +73,12 @@ class Admin_Create_Text_Table {
 
 /*
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => 'Some incredible long text free from the energy of my inspiration!',
       ));
 
         DB::table('texts')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'text'          => 'Some other incredible long text free from the energy of my copy action!',
       ));
 */
