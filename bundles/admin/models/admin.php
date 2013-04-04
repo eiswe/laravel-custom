@@ -11,7 +11,7 @@ class Admin extends Eloquent {
 	}
 
 	public function page(){
-		return $this->has_one('Page');
+		return $this->has_one('page');
 	}
 
 	public function get_created(){		// rename db field! ^^
