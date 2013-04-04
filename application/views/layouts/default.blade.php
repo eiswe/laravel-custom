@@ -6,7 +6,22 @@
     {{ Asset::container('bootstrapper')->styles(); }}
   </head>
   <body>
-      @yield('topnav')
+      
+    <?php
+      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+      
+      echo Navbar::create()
+          ->with_brand( 'LimeBlack', $url.'/home' )
+          ->with_menus( ?> @yield('topnav') <?php )
+        ->with_menus( Navigation::links( array(
+            array(Navigation::VERTICAL_DIVIDER),
+
+            array('About', $url.'/about'),
+            array('Login', $url.'/admin/login'),
+          )),
+          array('class' => 'pull-right')
+        );
+      ?>
       <div class="container-fluid">
   <!-- First Row - For Title and leading text..        
           <div class="row">
