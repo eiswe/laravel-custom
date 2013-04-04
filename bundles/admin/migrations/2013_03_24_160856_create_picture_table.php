@@ -14,7 +14,7 @@ class Admin_Create_Picture_Table {
 
             $table->increments('id')->unique();
 
-            $table->integer('userid');
+            $table->integer('admin_id');
 
             $table->string('desc', 64)->nullable();
             $table->string('path', 64);
@@ -23,7 +23,7 @@ class Admin_Create_Picture_Table {
         });
 
         DB::table('pictures')->insert(array(
-            'userid'        => '2',
+            'admin_id'        => '2',
             'desc'      	=> 'Beautiful placeholder',
             'path' 		    => 'http://placehold.it/64x64',
       ));
@@ -48,7 +48,7 @@ class Admin_Create_Picture_Table {
 /*
         DB::table('cards')->insert(array(
             'serialnumber'  => '28120123',
-            'userid'        => '3',
+            'admin_id'        => '3',
             'cardtype'      => '6',
             'errortype'     => '7',
             'status'        => '4',
