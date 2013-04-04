@@ -3,19 +3,19 @@
 @section('topnav')
 
   <?php 
-      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
       
 
 
 
       if ( isset( $site ) ) {
 
-          if ( $site == "home" ) {                              // enable home if used
+          if ( $site == "home" ) {                                                // enable home if used
               $navlink = array(
                   array('Home', $url.'/home', true),
               );    
           } else {
-              $navlink = array(                                 // disable if dont
+              $navlink = array(                                                   // disable if dont
                   array('Home', $url.'/home'),
               );
           }
@@ -24,18 +24,15 @@
 
           foreach ($starredUsers as $key => $value) {
             //print '<br />';
-            //print $value->frontname.' '.$value->backname.' are listed as starred';
-            $frontlow = strtolower($value->frontname);
+            
+            $frontlow = strtolower($value->frontname);                            //print $value->frontname.' '.$value->backname.' are listed as starred';
 
-            if ( $site == $frontlow ) {                             // enable david if used
+            if ( $site == $frontlow ) {                                           // enable david if used
               $navlink[] = array( $value->frontname, $url.'/'.$frontlow, true);
             } else {
-                $navlink[] = array( $value->frontname, $url.'/'.$frontlow );       // disable if dont
+                $navlink[] = array( $value->frontname, $url.'/'.$frontlow );      // disable if dont
             }
           }
-
-          $navlink[] =  array('Paolo', $url.'/paolo');
-          $navlink[] =  array('Kazo', $url.'/kazo');
       }
 
 
@@ -43,7 +40,7 @@
 
       // Login or Logout Button?
 
-      $id = Session::get('id');                                   // fetch Session:id and 
+      $id = Session::get('id');                                                 // fetch Session:id and 
       if ( isset( $id ) ) {
           $navlinkr = array(
             array( 'Dropdown', '#', false, false, array(
