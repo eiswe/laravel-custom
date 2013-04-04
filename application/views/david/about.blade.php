@@ -1,14 +1,16 @@
-@layout('layouts.default')
+@layout('layouts.navi')
 
 @section('subnav')
   <?php
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       $surl = $url.'/david/';
       print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
-      print '<li class="active">  <a href="'.$surl.'about"> About      </a></li>'; 
+      print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
+      print '<li class="active">  <a href="'.$surl.'about"> About      </a></li>';       
       print '<li>                 <a href="'.$url.'/galery"> Galery      </a></li>';      
   ?>  
 @endsection
+
 
 @section('content')
 
