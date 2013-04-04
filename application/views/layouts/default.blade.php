@@ -24,7 +24,7 @@
                 -->
                   @yield('content')
               </div>
-              <div class="row">
+              <div class="row-fluid">
                 <?php
 
                   $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
