@@ -16,6 +16,8 @@
   <div class="span9">
 
 <?php
+	public static function create($items, $attributes = array())
+
     echo Carousel::create(array(
     array(
     'image'=>'img/bootstrap-mdo-sfmoma-01.jpg',
