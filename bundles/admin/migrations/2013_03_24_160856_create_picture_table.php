@@ -23,13 +23,93 @@ class Admin_Create_Picture_Table {
             $table->timestamps();
         });
 
+/* Pictures of No 2 */
         DB::table('pictures')->insert(array(
             'admin_id'      => '2',
+            'desc'          => 'First big Picture of David!',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Second big Picture of David!',
+            'path'          => 'http://placehold.it/890x350',
+            'size'          => 'big',
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Third big Picture of David!',
+            'path'          => 'http://placehold.it/930x350',
+            'size'          => 'big',
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Some of Davids small Pictures',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Some of Davids small Pictures',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Some of Davids small Pictures',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '2',
+            'desc'          => 'Some of Davids small Pictures',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+/* Pictures of No 2 */
+
+/* Pictures of No 3 */
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/850x350',
             'size'          => 'big',
         ));
 
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '3',
@@ -38,6 +118,84 @@ class Admin_Create_Picture_Table {
             'size'          => 'big',
         ));
 
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+/* Pictures of No 3 */
+
+/* Pictures of No 4 */
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '4',
@@ -46,223 +204,49 @@ class Admin_Create_Picture_Table {
             'size'          => 'big',
         ));
 
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
 
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+/* Pictures of No 4 */
+
+/* Pictures of No 5 */
         DB::table('pictures')->insert(array(
             'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/850x350',
             'size'          => 'big',
         ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '5',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '5',
@@ -272,59 +256,11 @@ class Admin_Create_Picture_Table {
         ));
 
         DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-
-        DB::table('pictures')->insert(array(
             'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
-            'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'size'          => 'small'
         ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '5',
@@ -334,28 +270,18 @@ class Admin_Create_Picture_Table {
         ));
 
         DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
+            'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
         ));
-
 
         DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
+            'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
         ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/850x350',
-            'size'          => 'big',
-        ));
-
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '5',
@@ -365,28 +291,18 @@ class Admin_Create_Picture_Table {
         ));
 
         DB::table('pictures')->insert(array(
-            'admin_id'      => '2',
+            'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'size'          => 'small'
         ));
-
 
         DB::table('pictures')->insert(array(
-            'admin_id'      => '3',
+            'admin_id'      => '5',
             'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
         ));
-
-
-        DB::table('pictures')->insert(array(
-            'admin_id'      => '4',
-            'desc'          => 'Beautiful placeholder',
-            'path'          => 'http://placehold.it/64x64',
-            'size'          => 'small'
-        ));
-
 
         DB::table('pictures')->insert(array(
             'admin_id'      => '5',
@@ -394,6 +310,21 @@ class Admin_Create_Picture_Table {
             'path'          => 'http://placehold.it/64x64',
             'size'          => 'small'
         ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '5',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/850x350',
+            'size'          => 'big',
+        ));
+
+        DB::table('pictures')->insert(array(
+            'admin_id'      => '5',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'size'          => 'small'
+        ));
+/* Pictures of No 5 */
 
 
 	}
