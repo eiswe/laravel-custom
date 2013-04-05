@@ -22,6 +22,8 @@
 		$spiclist[] = '';
 
 		foreach ($pictures as $key) {
+			print '<br />';
+			print $key->path;
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
 				$bpiclist[] = array(
 				    'image'		=> $key->path,
