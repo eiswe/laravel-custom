@@ -27,13 +27,13 @@
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
 				$bpiclist[] = array(
 				    'image'		=> $key->path,
-				    //'label'		=> 'First Thumbnail label',
+				    'label'		=> 'First Thumbnail label',
 				    'caption'	=> $key->desc,
 				);
 			} elseif ( $key->size == "small" ) {				// else size small create list of preview items items
 				$spiclist[] = array(
 				    'image'		=> $key->path,
-				    //'label'		=> 'First Thumbnail label',
+				    'label'		=> 'First Thumbnail label',
 				    'caption'	=> $key->desc,
 				);				
 			}
