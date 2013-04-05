@@ -18,8 +18,6 @@
 <?php
 
 	if ( isset( $pictures ) ) {
-		$bpiclist[] = '';
-		$spiclist[] = '';
 
 		foreach ($pictures as $key) {
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
