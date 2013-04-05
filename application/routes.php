@@ -1,6 +1,4 @@
 <?php
-use Admin\Models\Admin;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -35,21 +33,17 @@ use Admin\Models\Admin;
 
 //Route::controller('home');
 Route::controller(Controller::detect('application'));	//Dont need using Controller...
-/*
+
 Route::get('/about', function(){
-	return View::make('home.about')
-		->with('title', 'LimeBlack - About us!')
-		->with('site', 'home')
-	;
+	return View::make('home.about')->with('title', 'LimeBlack - About us!')->with('site', 'home');
+});
+Route::get('/home', function(){
+	return View::make('home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
+});
+Route::get('/index', function(){
+	return View::make('home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
 });
 
-Route::get('/home', function(){
-	return View::make('home.index')
-		->with('title', 'LimeBlack - Index')
-		->with('site', 'home')
-	;
-});
-*/
 Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - use for profile names!
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();
@@ -66,40 +60,36 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 		;
 });
 
-Route::get('/(:any)/about', function($any){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)/about', function($any){ 				// fetch ab out site for generated menu
 	return View::make('show.about')
 		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
 	;
 });
 
-Route::get('/(:any)/home', function($any){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)/home', function($any){ 					// fetch index site for generated menu
 	return View::make('show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
 	;
 });
 
-Route::get('/(:any)/index', function($any){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)/index', function($any){ 				// fetch index site for generated menu
 	return View::make('show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
 	;
 });
 
-Route::get('/(:any)', function($any){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)', function($any){ 						// fetch any else
 	return View::make('show.index')
-		->with('title', 'LimeBlack - '.$any.' Index')
+		->with('title', 'LimeBlack - '.$any.' Index')		// if nothing match use any! - use for profile names!
 		->with('site', $any)
 	;
 });
 
-Route::get('/', function(){
-
-	return View::make('home.index')
-		->with('title', 'LimeBlack - Index')
-		->with('site', 'home')
-	;
+Route::get('/', function(){									// fetch /
+	return View::make('home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
 });
 
 /*
