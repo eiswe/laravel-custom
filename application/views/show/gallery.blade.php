@@ -27,21 +27,19 @@
 				    'caption'	=> $key->desc,
 				);
 
-			} elseif ( $key->size == "small" ) {				// else size small create list of preview items items
-				$spiclist[] = array(
-				    'image'		=> $key->path,
-				    'label'		=> 'First Thumbnail label',
-				    'caption'	=> $key->desc,
-				);				
 			}
 		}
     	echo Carousel::create( $bpiclist );
     	
+
     	echo MediaObject::open_list();
-    	foreach ($spiclist as $key) {
-		    echo MediaObject::create( $key->caption, $key->image )->with_h4( $key->label );
-    	}
+    	foreach ($pictures as $key) {
+			if ( $key->size == "small" ) {				// else size small create list of preview items items
+		    	echo MediaObject::create( $key->desc, $key->path )->with_h4( 'First Thumbnail label' );
+			}
+		}
     	echo MediaObject::close_list();
+
 
 	} else {
 		print '<h1>No Pictures found...</h1>';
