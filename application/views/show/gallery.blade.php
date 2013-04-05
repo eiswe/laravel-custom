@@ -23,11 +23,12 @@
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
 				print '<br />';
 				print $key->size.'     '.$key->path.'       '.$key->desc;
-				$bpiclist[] = array( array(
+				$bpiclist[] = array(
 				    'image'		=> $key->path,
 				    'label'		=> 'First Thumbnail label',
 				    'caption'	=> $key->desc,
-				));
+				);
+
 			} elseif ( $key->size == "small" ) {				// else size small create list of preview items items
 				$spiclist[] = array(
 				    'image'		=> $key->path,
@@ -35,6 +36,7 @@
 				    'caption'	=> $key->desc,
 				);				
 			}
+			print_r($bpiclist);
 		}
 
     	echo Carousel::create( $bpiclist );
@@ -42,7 +44,13 @@
 		print '<h1>No Pictures found...</h1>';
 	}
 
-
+	print '<br />';
+	print '<br />';
+	print '<br />';
+	print '<br />';
+	print '<br />';
+	print '<br />';
+	
 
 
     echo Carousel::create(array(
