@@ -19,17 +19,17 @@
 
     echo Carousel::create(array(
 	    array(
-		    'image'		=>'http://placehold.it/64x64',
+		    'image'		=>'http://placehold.it/850x300',
 		    'label'		=>'First Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
 	    array(
-		    'image'		=>'http://placehold.it/128x128',
+		    'image'		=>'http://placehold.it/850x300',
 		    'label'		=>'Second Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
 	    array(
-		    'image'		=>'http://placehold.it/64x64',
+		    'image'		=>'http://placehold.it/850x300',
 		    'label'		=>'Third Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
