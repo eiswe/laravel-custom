@@ -14,14 +14,13 @@
 @section('content')
 
   <div class="span9">
-    <div class="hero-unit">
     <?php
       // echo Breadcrumb::create(array('DEMO OBJECT' => $url.'/admin/page/add', 'Edit' => $url.'/admin/page/edit', 'List'));
 
 /*  New row foreach news */
     foreach ($news as $key => $value) {
 
-      echo '<div class="row">';
+      echo '<div class="hero-unit">';
       echo "<h1>".$value->title."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>".$value->desc."</small></h1>";
 
       if ( isset($value->texts) ) {                                         // also check if texts is string (text = 1) or array (texts >= 1)
@@ -51,7 +50,7 @@
 
 
     ?>
-  </div>
+
 @endsection
 
 @section('script')
