@@ -22,9 +22,9 @@
 		$spiclist[] = '';
 
 		foreach ($pictures as $key) {
-			print '<br />';
-			print $key->size.'     '.$key->path.'       '.$key->desc;
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
+				print '<br />';
+				print $key->size.'     '.$key->path.'       '.$key->desc;
 				$bpiclist[] = array(
 				    'image'		=> $key->path,
 				    'label'		=> 'First Thumbnail label',
@@ -43,6 +43,28 @@
 	} else {
 		print '<h1>No Pictures found...</h1>';
 	}
+
+
+
+
+    echo Carousel::create(array(
+	    array(
+		    'image'=>'http://placehold.it/850x350',
+		    'label'=>'First Thumbnail label',
+		    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
+	    array(
+		    'image'=>'http://placehold.it/850x350',
+		    'label'=>'Second Thumbnail label',
+		    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
+	    array(
+		    'image'=>'http://placehold.it/850x350',
+		    'label'=>'Third Thumbnail label',
+		    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
+    ));
+
 
 ?>
 @endsection
