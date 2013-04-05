@@ -14,7 +14,7 @@
 @section('content')
 
   <div class="span9">
-
+    <div class="row">
     <?php
       // echo Breadcrumb::create(array('DEMO OBJECT' => $url.'/admin/page/add', 'Edit' => $url.'/admin/page/edit', 'List'));
 
@@ -51,7 +51,7 @@
 
 
     ?>
-
+  </div>
 @endsection
 
 @section('script')
