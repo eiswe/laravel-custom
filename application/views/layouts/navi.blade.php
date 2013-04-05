@@ -103,7 +103,7 @@
             array(Navigation::VERTICAL_DIVIDER),
 
             array('About', $url.'/about'),
-            array('Login', $url.'/admin/login', true),
+            array('Login', $url.'/admin/login', true ),
           );
       } else {
           $navlinkr = array(

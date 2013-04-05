@@ -33,17 +33,9 @@ use Admin\Models\Admin;
 |
 */
 
-Route::controller('home');
+//Route::controller('home');
 Route::controller(Controller::detect('application'));	//Dont need using Controller...
-
-/*Route::get('/david', function(){
-	return View::make('david.index')->with('title', 'David - About me!');
-});
-
-Route::get('/david/galery', function(){
-	return View::make('galery.tinker')->with('title', 'David - Tinkerforge Gallery');
-});*/
-
+/*
 Route::get('/about', function(){
 	return View::make('home.about')
 		->with('title', 'LimeBlack - About us!')
@@ -57,7 +49,7 @@ Route::get('/home', function(){
 		->with('site', 'home')
 	;
 });
-
+*/
 Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - use for profile names!
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();
@@ -74,6 +66,13 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 		;
 });
 
+Route::get('/(:any)/about', function($any){ 						// if nothing match use any! - use for profile names!
+	return View::make('show.about')
+		->with('title', 'LimeBlack - '.$any.' Index')
+		->with('site', $any)
+	;
+});
+
 Route::get('/(:any)/home', function($any){ 						// if nothing match use any! - use for profile names!
 	return View::make('show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')
@@ -83,13 +82,6 @@ Route::get('/(:any)/home', function($any){ 						// if nothing match use any! - 
 
 Route::get('/(:any)/index', function($any){ 						// if nothing match use any! - use for profile names!
 	return View::make('show.index')
-		->with('title', 'LimeBlack - '.$any.' Index')
-		->with('site', $any)
-	;
-});
-
-Route::get('/(:any)/about', function($any){ 						// if nothing match use any! - use for profile names!
-	return View::make('show.about')
 		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
 	;
