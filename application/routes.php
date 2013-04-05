@@ -60,6 +60,22 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 		;
 });
 
+Route::get('/(:any)/gallery', function($any){ 						// if nothing match use any! - use for profile names!
+
+		$starredUsers = Profile::where('frontname', 'like', $any)->get();
+		foreach ( $starredUsers as $key ) {
+			$uid = $key->admin_id;
+		}
+        $pictures = Picture::where('admin_id', '=', $uid )->get();
+		// $pictures = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'(
+
+		return View::make('show.gallery')
+			->with('title', 'LimeBlack - '.$any.' Index')
+			->with('site', $any)
+			->with('pictures', $pictures)
+		;
+});
+
 Route::get('/(:any)/about', function($any){ 				// fetch ab out site for generated menu
 	return View::make('show.about')
 		->with('title', 'LimeBlack - '.$any.' Index')
