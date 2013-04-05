@@ -19,17 +19,17 @@
 
     echo Carousel::create(array(
 	    array(
-		    'image'		=>'img/bootstrap-mdo-sfmoma-01.jpg',
+		    'image'		=>'http://placehold.it/64x64',
 		    'label'		=>'First Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
 	    array(
-		    'image'		=>'img/bootstrap-mdo-sfmoma-02.jpg',
+		    'image'		=>'http://placehold.it/128x128',
 		    'label'		=>'Second Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
 	    array(
-		    'image'		=>'img/bootstrap-mdo-sfmoma-03.jpg',
+		    'image'		=>'http://placehold.it/64x64',
 		    'label'		=>'Third Thumbnail label',
 		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
 	    ),
