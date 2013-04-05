@@ -33,7 +33,7 @@
       //echo Typography::lead( $texts );
       echo '</div>';
 
-      echo '<div class="row">';       // Footer of News Element!
+      echo '<div class="hero-unit">';       // Footer of News Element!
       echo     '<br />';
       echo     '<div class="span3"><p class="text-left">Added by David as UID: '.$value->admin_id.'</p></div>';
       echo     '<div class="span3"><p class="text-center">This is the '.$value->id.' Entry!</p></div>';
