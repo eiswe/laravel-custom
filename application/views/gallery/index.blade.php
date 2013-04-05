@@ -16,27 +16,23 @@
   <div class="span9">
 
 <?php
-	public static function create($items, $attributes = array())
 
     echo Carousel::create(array(
-    array(
-    'image'=>'img/bootstrap-mdo-sfmoma-01.jpg',
-    'label'=>'First Thumbnail label',
-    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
-    at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-    ),
-    array(
-    'image'=>'img/bootstrap-mdo-sfmoma-02.jpg',
-    'label'=>'Second Thumbnail label',
-    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-    ),
-    array(
-    'image'=>'img/bootstrap-mdo-sfmoma-03.jpg',
-    'label'=>'Third Thumbnail label',
-    'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-    gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
-    ),
+	    array(
+		    'image'		=>'img/bootstrap-mdo-sfmoma-01.jpg',
+		    'label'		=>'First Thumbnail label',
+		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
+	    array(
+		    'image'		=>'img/bootstrap-mdo-sfmoma-02.jpg',
+		    'label'		=>'Second Thumbnail label',
+		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
+	    array(
+		    'image'		=>'img/bootstrap-mdo-sfmoma-03.jpg',
+		    'label'		=>'Third Thumbnail label',
+		    'caption'	=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+	    ),
     ));
 
 
