@@ -82,10 +82,7 @@ Route::get('/(:any)/index', function($any){ 				// fetch index site for generate
 });
 
 Route::get('/(:any)', function($any){ 						// fetch any else
-	return View::make('show.index')
-		->with('title', 'LimeBlack - '.$any.' Index')		// if nothing match use any! - use for profile names!
-		->with('site', $any)
-	;
+	return View::make('show.index')->with('title', 'LimeBlack - '.$any.' Index')->with('site', $any);
 });
 
 Route::get('/', function(){									// fetch /
