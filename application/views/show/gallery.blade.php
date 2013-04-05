@@ -27,13 +27,13 @@
 				    'image'		=> $key->path,
 				    //'label'		=> 'First Thumbnail label',
 				    'caption'	=> $key->desc,
-				)
+				);
 			} elseif ( $key->size == "small" ) {				// else size small create list of preview items items
 				$spiclist[] = array(
 				    'image'		=> $key->path,
 				    //'label'		=> 'First Thumbnail label',
 				    'caption'	=> $key->desc,
-				)				
+				);				
 			}
 		}
 
@@ -41,9 +41,6 @@
 	} else {
 		print '<h1>No Pictures found...</h1>';
 	}
-
-
-
 
 ?>
 @endsection
