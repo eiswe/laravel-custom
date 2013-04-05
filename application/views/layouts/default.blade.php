@@ -11,15 +11,11 @@
           <div class="row-fluid">
 
         <!-- Small Span for SubNavigation -->
-              <div class="span1">
+              <div class="span2">
 
                   <ul class="nav nav-pills nav-stacked">                <!-- Navi Element -->
                       @yield('subnav')
                   </ul>
-              </div>
-        <!-- Small Span for place next to navi -->
-              <div class="span1">
-                <label> </label>
               </div>        
 
                   <!--Body content-->
