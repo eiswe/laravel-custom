@@ -36,6 +36,13 @@
 			}
 		}
     	echo Carousel::create( $bpiclist );
+    	
+    	echo MediaObject::open_list();
+    	foreach ($spiclist as $key) {
+		    echo MediaObject::create( $key->caption, $key->image )->with_h4( $key->label );
+    	}
+    	echo MediaObject::close_list();
+
 	} else {
 		print '<h1>No Pictures found...</h1>';
 	}
