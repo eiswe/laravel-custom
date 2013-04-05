@@ -28,7 +28,7 @@
           <br />
           <?php
             echo MediaObject::create('Born: 1992', 'http://placehold.it/64x64')
-            ->with_title('<h4 class="media-heading">LimeBlack</h4>');
+            ->with_title('<h4 class="media-heading">'.$site.'</h4>');
           ?>
 
       </div>
