@@ -118,7 +118,7 @@ class CarouselTest extends BootstrapperWrapper
   }
 }
 
-
+?>
 <!--
 
 <h1>Fotos von meinen ersten Erfahrungen mit Tinkerforge!</h1>
