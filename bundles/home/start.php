@@ -4,8 +4,12 @@
 	//     'Home_Base_Controller' => Bundle::path('home').'controllers/base.php',
 	// ));
 
-	Autoloader::namespaces(array(
-	    'Home\Models' => Bundle::path('home'),
+	// Autoloader::namespaces(array(
+	//     'Home\Models' => Bundle::path('home'),
+	// ));
+
+	Autoloader::directories(array(
+		Bundle::path('home').'models',
 	));
 /*
 	    'Home\Libraries' => Bundle::path('home').'libraries',
