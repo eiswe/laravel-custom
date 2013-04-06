@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>{{ $title }}</title>
     {{ Asset::container('bootstrapper')->styles(); }}
+    @yield('style')
   </head>
   <body>
       @yield('topnav')

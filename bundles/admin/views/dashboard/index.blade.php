@@ -12,9 +12,11 @@
 	?>
 @endsection
 
+@section('style')
+	{{ Asset::container('header')->styles() }}
+@endsection
+
 @section('content')
-{{ Asset::container('header')->styles() }}
-{{ Asset::container('footer')->scripts() }}
   <div class="span9">
 		@if(Session::get('alert'))
 			<?php 
@@ -39,6 +41,7 @@
 
 @endsection
 
-
+@section('script')
+{{ Asset::container('footer')->scripts() }}
 
 

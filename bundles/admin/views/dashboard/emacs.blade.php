@@ -32,8 +32,8 @@
 <ul>
 <li><a href="#sec-3.1.1">3.1.1 OSI </a></li>
 <li><a href="#sec-3.1.2">3.1.2 HotspotRechte </a></li>
-<li><a href="#sec-3.1.3">3.1.3 WLAN<sub>Eng</sub> </a></li>
-<li><a href="#sec-3.1.4">3.1.4 VoIP (RTP)<sub>Eng</sub> </a></li>
+<li><a href="#sec-3.1.3">3.1.3 WLAN_Eng</sub> </a></li>
+<li><a href="#sec-3.1.4">3.1.4 VoIP (RTP)_Eng</sub> </a></li>
 <li><a href="#sec-3.1.5">3.1.5 STP </a></li>
 <li><a href="#sec-3.1.6">3.1.6 NAT </a></li>
 <li><a href="#sec-3.1.7">3.1.7 DHCP Funktionen </a></li>
@@ -451,30 +451,30 @@
 <tr><th scope="col">Befehl</th><th scope="col">Funktion</th></tr>
 </thead>
 <tbody>
-<tr><td>C<sub>v</sub></td><td>Bild vor</td></tr>
-<tr><td>M<sub>v</sub></td><td>Bild zurueck</td></tr>
-<tr><td>C<sub>c</sub></td><td>Text in die Mitte</td></tr>
-<tr><td>C<sub>p</sub></td><td>Zeile hoch</td></tr>
-<tr><td>C<sub>f</sub></td><td>Coursor rechts</td></tr>
-<tr><td>C<sub>b</sub></td><td>Coursor links</td></tr>
-<tr><td>C<sub>n</sub></td><td>Zeile runter</td></tr>
-<tr><td>C<sub>k</sub></td><td>Zeile loeschen</td></tr>
+<tr><td>C_v</sub></td><td>Bild vor</td></tr>
+<tr><td>M_v</sub></td><td>Bild zurueck</td></tr>
+<tr><td>C_c</sub></td><td>Text in die Mitte</td></tr>
+<tr><td>C_p</sub></td><td>Zeile hoch</td></tr>
+<tr><td>C_f</sub></td><td>Coursor rechts</td></tr>
+<tr><td>C_b</sub></td><td>Coursor links</td></tr>
+<tr><td>C_n</sub></td><td>Zeile runter</td></tr>
+<tr><td>C_k</sub></td><td>Zeile loeschen</td></tr>
 </tbody>
 <tbody>
-<tr><td>M<sub>w</sub></td><td>Kopieren</td></tr>
-<tr><td>C<sub>y</sub></td><td>Einfuegen</td></tr>
-<tr><td>C<sub>w</sub></td><td>Ausschneiden</td></tr>
-<tr><td>C<sub>c</sub> + .</td><td>Datum einfuegen</td></tr>
+<tr><td>M_w</sub></td><td>Kopieren</td></tr>
+<tr><td>C_y</sub></td><td>Einfuegen</td></tr>
+<tr><td>C_w</sub></td><td>Ausschneiden</td></tr>
+<tr><td>C_c</sub> + .</td><td>Datum einfuegen</td></tr>
 <tr><td>[/]</td><td>Fortschritt ToDos</td></tr>
 <tr><td>[%]</td><td>Fortschritt in %</td></tr>
-<tr><td>C<sub>c</sub> C<sub>c</sub></td><td>Coursor neu laden</td></tr>
-<tr><td>C<sub>c</sub> C<sub>s</sub></td><td>Calender Datum einfuegen</td></tr>
+<tr><td>C_c</sub> C_c</sub></td><td>Coursor neu laden</td></tr>
+<tr><td>C_c</sub> C_s</sub></td><td>Calender Datum einfuegen</td></tr>
 </tbody>
 <tbody>
-<tr><td>C<sub>c</sub> C<sub>e</sub></td><td>Exportieren</td></tr>
-<tr><td>M<sub>x</sub> Shell</td><td>Oeffnet eine Shell</td></tr>
-<tr><td>C<sub>x</sub> k yes</td><td>Schliesst die Shell</td></tr>
-<tr><td>M<sub>x</sub> org-mode</td><td>ORG MODUS aktivieren! ! ! ! ! !</td></tr>
+<tr><td>C_c</sub> C_e</sub></td><td>Exportieren</td></tr>
+<tr><td>M_x</sub> Shell</td><td>Oeffnet eine Shell</td></tr>
+<tr><td>C_x</sub> k yes</td><td>Schliesst die Shell</td></tr>
+<tr><td>M_x</sub> org-mode</td><td>ORG MODUS aktivieren! ! ! ! ! !</td></tr>
 <tr><td>C-x C-f</td><td>lade Datei</td></tr>
 <tr><td>C-x C-s</td><td>sichere Datei</td></tr>
 <tr><td>C-x s</td><td>sichere einige Puffer</td></tr>
@@ -502,8 +502,8 @@
 </tbody>
 <tbody>
 <tr><td>[[URL][LINK] ]</td><td>Einen Link erzeugen</td></tr>
-<tr><td>C<sub>c</sub> C<sub>o</sub></td><td>Einen Link öffnen</td></tr>
-<tr><td>C<sub>c</sub> C<sub>l</sub></td><td>Link mit Manager erstellen</td></tr>
+<tr><td>C_c</sub> C_o</sub></td><td>Einen Link öffnen</td></tr>
+<tr><td>C_c</sub> C_l</sub></td><td>Link mit Manager erstellen</td></tr>
 </tbody>
 </table>
 
@@ -534,8 +534,8 @@
 <tr><td>Umsch + Strg + Tab</td><td>Cycle: Preview</td></tr>
 <tr><td>Alt + Arrow</td><td>Cycle: Arrow</td></tr>
 <tr><td>Super + I</td><td>new Terminator</td></tr>
-<tr><td>Strg + Bild<sub>up</sub></td><td>Tab: Next</td></tr>
-<tr><td>Strg + Bild<sub>down</sub></td><td>Tab: Preview</td></tr>
+<tr><td>Strg + Bild_up</sub></td><td>Tab: Next</td></tr>
+<tr><td>Strg + Bild_down</sub></td><td>Tab: Preview</td></tr>
 <tr><td>Umsch + Strg + R</td><td>Reset</td></tr>
 <tr><td>Umsch + Strg + Arrow</td><td>Resize: Arrow</td></tr>
 <tr><td>Umsch + Strg + Z</td><td>Zoom: This.Term</td></tr>
@@ -615,7 +615,7 @@ Bezieht sich im Besonderen auf Inhalte und datenschutzrechtliche Aspekte.
 </div>
 
 <div id="outline-container-3.1.3" class="outline-4">
-<h4 id="sec-3.1.3"><span class="section-number-4">3.1.3</span> <span class="todo TODO"> TODO</span> WLAN<sub>Eng</sub> </h4>
+<h4 id="sec-3.1.3"><span class="section-number-4">3.1.3</span> <span class="todo TODO"> TODO</span> WLAN_Eng</sub> </h4>
 <div class="outline-text-4" id="text-3.1.3">
 
 <ul>
@@ -634,7 +634,7 @@ WPA/2 (z.B. 128bit) sind moderner und deutlich sicherer als WEP.
 </div>
 
 <div id="outline-container-3.1.4" class="outline-4">
-<h4 id="sec-3.1.4"><span class="section-number-4">3.1.4</span> <span class="todo TODO"> TODO</span> VoIP (RTP)<sub>Eng</sub> </h4>
+<h4 id="sec-3.1.4"><span class="section-number-4">3.1.4</span> <span class="todo TODO"> TODO</span> VoIP (RTP)_Eng</sub> </h4>
 <div class="outline-text-4" id="text-3.1.4">
 
 <ul>
@@ -994,14 +994,14 @@ Ausgabe von Alles aus 2 Tabellen bei dennen 1 Wert gleich ist
 &ndash; PHP-Version: 5.3.6-13ubuntu3.2
 </p>
 <p>
-SET SQL<sub>MODE</sub>="NO<sub>AUTO</sub><sub>VALUE</sub><sub>ON</sub><sub>ZERO</sub>";
-SET time<sub>zone</sub> = "+00:00";
+SET SQL_MODE</sub>="NO_AUTO</sub>_VALUE</sub>_ON</sub>_ZERO</sub>";
+SET time_zone</sub> = "+00:00";
 </p>
 
 <p>
-<i>*!40101 SET @OLD<sub>CHARACTER</sub><sub>SET</sub><sub>CLIENT</sub>=@@CHARACTER<sub>SET</sub><sub>CLIENT</sub> *</i>;
-<i>*!40101 SET @OLD<sub>CHARACTER</sub><sub>SET</sub><sub>RESULTS</sub>=@@CHARACTER<sub>SET</sub><sub>RESULTS</sub> *</i>;
-<i>*!40101 SET @OLD<sub>COLLATION</sub><sub>CONNECTION</sub>=@@COLLATION<sub>CONNECTION</sub> *</i>;
+<i>*!40101 SET @OLD_CHARACTER</sub>_SET</sub>_CLIENT</sub>=@@CHARACTER_SET</sub>_CLIENT</sub> *</i>;
+<i>*!40101 SET @OLD_CHARACTER</sub>_SET</sub>_RESULTS</sub>=@@CHARACTER_SET</sub>_RESULTS</sub> *</i>;
+<i>*!40101 SET @OLD_COLLATION</sub>_CONNECTION</sub>=@@COLLATION_CONNECTION</sub> *</i>;
 <i>*!40101 SET NAMES utf8 *</i>;
 </p>
 <p>
@@ -1019,7 +1019,7 @@ SET time<sub>zone</sub> = "+00:00";
 </p>
 <p>
 CREATE TABLE IF NOT EXISTS `gast` (
-`gastID` int(11) NOT NULL AUTO<sub>INCREMENT</sub>,
+`gastID` int(11) NOT NULL AUTO_INCREMENT</sub>,
 `gName` varchar(50) NOT NULL,
 `gVorname` varchar(50) NOT NULL,
 `gStr` varchar(50) NOT NULL,
@@ -1027,7 +1027,7 @@ CREATE TABLE IF NOT EXISTS `gast` (
 `gOrt` varchar(20) NOT NULL,
 `gStamm` tinyint(1) NOT NULL,
 PRIMARY KEY (`gastID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO<sub>INCREMENT</sub>=4715 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT</sub>=4715 ;
 </p>
 <p>
 --
@@ -1051,12 +1051,12 @@ INSERT INTO `gast` (`gastID`, `gName`, `gVorname`, `gStr`, `gPLZ`, `gOrt`, `gSta
 </p>
 <p>
 CREATE TABLE IF NOT EXISTS `kategorie` (
-`katID` int(11) NOT NULL AUTO<sub>INCREMENT</sub>,
+`katID` int(11) NOT NULL AUTO_INCREMENT</sub>,
 `katBezeichnung` varchar(50) NOT NULL,
 `katPreisEZ` varchar(50) NOT NULL,
 `katPreisDZ` varchar(50) NOT NULL,
 PRIMARY KEY (`katID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO<sub>INCREMENT</sub>=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT</sub>=5 ;
 </p>
 <p>
 --
@@ -1080,14 +1080,14 @@ INSERT INTO `kategorie` (`katID`, `katBezeichnung`, `katPreisEZ`, `katPreisDZ`) 
 </p>
 <p>
 CREATE TABLE IF NOT EXISTS `rechnung` (
-`rechnungID` int(11) NOT NULL AUTO<sub>INCREMENT</sub>,
+`rechnungID` int(11) NOT NULL AUTO_INCREMENT</sub>,
 `gastID` int(11) NOT NULL,
 `zimmerID` int(11) NOT NULL,
 `rBelegung` varchar(5) NOT NULL,
 `rAnkunft` date NOT NULL,
 `rAbreise` date NOT NULL,
 PRIMARY KEY (`rechnungID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO<sub>INCREMENT</sub>=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT</sub>=5 ;
 </p>
 <p>
 --
@@ -1111,10 +1111,10 @@ INSERT INTO `rechnung` (`rechnungID`, `gastID`, `zimmerID`, `rBelegung`, `rAnkun
 </p>
 <p>
 CREATE TABLE IF NOT EXISTS `zimmer` (
-`zimmerID` int(11) NOT NULL AUTO<sub>INCREMENT</sub>,
+`zimmerID` int(11) NOT NULL AUTO_INCREMENT</sub>,
 `katID` int(11) NOT NULL,
 PRIMARY KEY (`zimmerID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO<sub>INCREMENT</sub>=107 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT</sub>=107 ;
 </p>
 <p>
 --
@@ -1131,9 +1131,9 @@ INSERT INTO `zimmer` (`zimmerID`, `katID`) VALUES
 (106, 3);
 </p>
 <p>
-<i>*!40101 SET CHARACTER<sub>SET</sub><sub>CLIENT</sub>=@OLD<sub>CHARACTER</sub><sub>SET</sub><sub>CLIENT</sub> *</i>;
-<i>*!40101 SET CHARACTER<sub>SET</sub><sub>RESULTS</sub>=@OLD<sub>CHARACTER</sub><sub>SET</sub><sub>RESULTS</sub> *</i>;
-<i>*!40101 SET COLLATION<sub>CONNECTION</sub>=@OLD<sub>COLLATION</sub><sub>CONNECTION</sub> *</i>;
+<i>*!40101 SET CHARACTER_SET</sub>_CLIENT</sub>=@OLD_CHARACTER</sub>_SET</sub>_CLIENT</sub> *</i>;
+<i>*!40101 SET CHARACTER_SET</sub>_RESULTS</sub>=@OLD_CHARACTER</sub>_SET</sub>_RESULTS</sub> *</i>;
+<i>*!40101 SET COLLATION_CONNECTION</sub>=@OLD_COLLATION</sub>_CONNECTION</sub> *</i>;
 </p>
 </li>
 <li id="sec-3.1.12.2">Redundant <br/>
@@ -2307,17 +2307,17 @@ To be able for me to fix that PDO error I added this into my empty php.ini
 </p>
 <p>
 extension=pdo.so
-extension=pdo<sub>sqlite</sub>.so
+extension=pdo_sqlite</sub>.so
 extension=sqlite.so
-extension=pdo<sub>mysql</sub>.so
+extension=pdo_mysql</sub>.so
 </p>
 <p>
 After fixing the PDO problem I added the actual configuration code for the file upload which is :
 </p>
 <p>
-post<sub>max</sub><sub>size</sub> = 160M
-upload<sub>max</sub><sub>filesize</sub> = 80M
-magic<sub>quotes</sub><sub>gpc</sub> = off
+post_max</sub>_size</sub> = 160M
+upload_max</sub>_filesize</sub> = 80M
+magic_quotes</sub>_gpc</sub> = off
 </p>
 </div>
 
@@ -2333,11 +2333,11 @@ For example, to increase the limit on uploaded files to 10 MB:
 </p>
 <p>
 Add the below to the relevant php.ini file (recommended, if you have access). Note that for some hosts this is a system-wide setting. However, for hosts running PHP as a CGI script with suexec (for example) you may be able to put these directives in a php.ini file in your Drupal root directory.
-upload<sub>max</sub><sub>filesize</sub> = 10M
-post<sub>max</sub><sub>size</sub> = 10M
+upload_max</sub>_filesize</sub> = 10M
+post_max</sub>_size</sub> = 10M
 Add the below to your .htaccess file in your Drupal root directory.
-php<sub>value</sub> upload<sub>max</sub><sub>filesize</sub> 10M
-php<sub>value</sub> post<sub>max</sub><sub>size</sub> 10M
+php_value</sub> upload_max</sub>_filesize</sub> 10M
+php_value</sub> post_max</sub>_size</sub> 10M
 </p>
 </div>
 
@@ -2355,8 +2355,8 @@ The limit for PHP is by default set to 2 MB for file uploads.
 To increase this to 10 MB, add the following to the .htaccess file in your Drupal directory or to the Apache site definition:
 </p>
 <p>
-php<sub>value</sub> upload<sub>max</sub><sub>filesize</sub> 10M
-php<sub>value</sub> post<sub>max</sub><sub>size</sub> 20M
+php_value</sub> upload_max</sub>_filesize</sub> 10M
+php_value</sub> post_max</sub>_size</sub> 20M
 </p>
 </div>
 </div>
@@ -2938,7 +2938,7 @@ echo "avr wurde gesetzt ist aber noch kein sinnvoller wert drin!";
 
 
 <p>
-&lt;form action="demo<sub>form</sub>.asp"&gt;
+&lt;form action="demo_form</sub>.asp"&gt;
 Country: &lt;input type="text" name="country" value="Norway" readonly="readonly"&gt;&lt;br&gt;
 &lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt; 
@@ -2967,7 +2967,7 @@ zweiter Kommentar!!
 </p>
 <p>
 var = "string"
-name = raw<sub>input</sub>("Wie ist dein Name?")
+name = raw_input</sub>("Wie ist dein Name?")
 color = "LimeBlack"
 preis = 3.50
 summe = preis * 0.15
@@ -3083,7 +3083,7 @@ def smallest(*args):
 return min(args)
 </p>
 <p>
-def distance<sub>from</sub><sub>zero</sub>(*args):
+def distance_from</sub>_zero</sub>(*args):
 return abs(args)
 </p>
 <p>
@@ -3095,7 +3095,7 @@ smallest(-10,10,5,3,21)
 -&gt; gibt -10 zurück!
 </p>
 <p>
-distanze<sub>from</sub><sub>zero</sub>(-213)
+distanze_from</sub>_zero</sub>(-213)
 -&gt; gibt 213 zurück!
 </p>
 
@@ -3126,8 +3126,8 @@ Anzeigen von allen Funktionen eines Imports:
 </p>
 <p>
 import math
-every<sub>function</sub> = dir(math)
-print every<sub>function</sub>
+every_function</sub> = dir(math)
+print every_function</sub>
 </p>
 </li>
 </ul>
@@ -3147,15 +3147,15 @@ from datetime import datetime
 now = datetime.now()       =&gt; 2012-08-24 09:04:37.12092112
 </p>
 <p>
-current<sub>yeah</sub> = now.yeah
-current<sub>month</sub> = now.month
-current<sub>day</sub> = now.day
-current<sub>hour</sub> = now.hour
-current<sub>minute</sub> = now.minute
-current<sub>second</sub> = now.second
+current_yeah</sub> = now.yeah
+current_month</sub> = now.month
+current_day</sub> = now.day
+current_hour</sub> = now.hour
+current_minute</sub> = now.minute
+current_second</sub> = now.second
 </p>
 <p>
-datum = str(current<sub>day</sub>) + "." + str(current<sub>month</sub>) + "." + str(current<sub>yeah</sub>) + " " + str(current<sub>hour</sub>) + ":" + str(current<sub>minute</sub>) + ":" + str(current<sub>second</sub>) 
+datum = str(current_day</sub>) + "." + str(current_month</sub>) + "." + str(current_yeah</sub>) + " " + str(current_hour</sub>) + ":" + str(current_minute</sub>) + ":" + str(current_second</sub>) 
 </p>
 <p>
 print datum               =&gt; 24.8.2012 13:34:23
@@ -3223,7 +3223,7 @@ import thread
 </p>
 <p>
 def thread1():
-thread.start<sub>new</sub><sub>thread</sub>(funktionen(, ())
+thread.start_new</sub>_thread</sub>(funktionen(, ())
 </p>
 <p>
 def funktionen():
@@ -3396,7 +3396,7 @@ It works similarly, but there is a crucial difference:
 <p>
 &gt;&gt;&gt; result =  re.match ( 'This', test )
 &gt;&gt;&gt; print result
-&lt;<sub>sre</sub>.SRE<sub>Match</sub> object at 0x00994250&gt;
+&lt;_sre</sub>.SRE_Match</sub> object at 0x00994250&gt;
 &gt;&gt;&gt; print result.group ( 0 )
 'This'
 &gt;&gt;&gt; result = re.match ( 'regular', test )
@@ -3541,7 +3541,7 @@ For example, we can match only the first four letters of the alphabet:
 &gt;&gt;&gt; anotherTest = 'a101'
 &gt;&gt;&gt; result = re.match ( '[a-d]', anotherTest )
 &gt;&gt;&gt; print result
-&lt;<sub>sre</sub>.SRE<sub>Match</sub> object at 0x00B47B10&gt;
+&lt;_sre</sub>.SRE_Match</sub> object at 0x00B47B10&gt;
 &gt;&gt;&gt; anotherTest = 'q101'
 &gt;&gt;&gt; result = re.match ( '[a-d]', anotherTest )
 &gt;&gt;&gt; print result
@@ -3555,10 +3555,10 @@ We can also match one of a few patterns using “|”::
 &gt;&gt;&gt; testB = 'b'
 &gt;&gt;&gt; result = re.match ( '(a|b)', testA )
 &gt;&gt;&gt; print result
-&lt;<sub>sre</sub>.SRE<sub>Match</sub> object at 0x00B46D60&gt;
+&lt;_sre</sub>.SRE_Match</sub> object at 0x00B46D60&gt;
 &gt;&gt;&gt; result = re.match ( '(a|b)', testB )
 &gt;&gt;&gt; print result
-&lt;<sub>sre</sub>.SRE<sub>Match</sub> object at 0x00B46E60&gt;
+&lt;_sre</sub>.SRE_Match</sub> object at 0x00B46E60&gt;
 </p>
 <p>
 Finally, there are a number of special sequences.
@@ -3743,17 +3743,17 @@ pprint(pets)
 from urllib2 import urlopen
 </p>
 <p>
-width = raw<sub>input</sub>('width?')
-height = raw<sub>input</sub>('height?')
+width = raw_input</sub>('width?')
+height = raw_input</sub>('height?')
 </p>
 <p>
 url = 'http://placekitten.com/' + width + '/' + height
 kitten = urlopen(url).read()
 </p>
 <p>
-kitten<sub>file</sub> = open('kittens.jpg', 'w')
-kitten<sub>file</sub>.write(kitten)
-kitten<sub>file</sub>.close()
+kitten_file</sub> = open('kittens.jpg', 'w')
+kitten_file</sub>.write(kitten)
+kitten_file</sub>.close()
 </p>
 </li>
 </ul>
@@ -3950,12 +3950,12 @@ count += 1
 <li id="sec-5.5.13.1.2"><span class="done DONE"> DONE</span> condition <br/>
 
 <p>
-loop<sub>condition</sub> = True
+loop_condition</sub> = True
 </p>
 <p>
-while loop<sub>condition</sub>:
+while loop_condition</sub>:
 print "I am a loop"
-loop<sub>condition</sub> = False
+loop_condition</sub> = False
 </p>
 </li>
 <li id="sec-5.5.13.1.3"><span class="done DONE"> DONE</span> 1 to 10 squared <br/>
@@ -3972,11 +3972,11 @@ num += 1
 <li id="sec-5.5.13.1.4"><span class="done DONE"> DONE</span> simple errors <br/>
 
 <p>
-choice = raw<sub>input</sub>('Entering choice? (y/n)')
+choice = raw_input</sub>('Entering choice? (y/n)')
 </p>
 <p>
 while choice != 'y' and choice != 'n':
-choice = raw<sub>input</sub>('Sorry didnt catch that. Enter again: ')
+choice = raw_input</sub>('Sorry didnt catch that. Enter again: ')
 </p>
 </li>
 <li id="sec-5.5.13.1.5"><span class="done DONE"> DONE</span> infinite loops <br/>
@@ -4033,13 +4033,13 @@ print 'Guess the random number (in range of 1 to 9)!'
 print 'You have 3 tries!'
 </p>
 <p>
-random<sub>number</sub> = randrange(1,10)
+random_number</sub> = randrange(1,10)
 </p>
 <p>
 count = 0
 while count &lt;= 3:
-guess = int(raw<sub>input</sub>('Enter a guess:'))
-if guess == random<sub>number</sub>:
+guess = int(raw_input</sub>('Enter a guess:'))
+if guess == random_number</sub>:
 print 'You win!'
 break
 count += 1
@@ -4066,7 +4066,7 @@ print i
 <p>
 hobbies = []
 for i in range(3):
-hobby = raw<sub>input</sub>('hobby?')
+hobby = raw_input</sub>('hobby?')
 hobbies.append(hobby)
 print hobbies
 </p>
@@ -4129,11 +4129,11 @@ print index+1, item
 <li id="sec-5.5.13.3.3"><span class="done DONE"> DONE</span> Multiple lists - zip function <br/>
 
 <p>
-list<sub>a</sub> = [3, 9, 17, 15, 19]
-list<sub>b</sub> = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+list_a</sub> = [3, 9, 17, 15, 19]
+list_b</sub> = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
 </p>
 <p>
-for a, b in zip(list<sub>a</sub>, list<sub>b</sub>):
+for a, b in zip(list_a</sub>, list_b</sub>):
 if a &lt;= b:
 print b
 else:
@@ -4171,7 +4171,7 @@ print 'A fine selection of fruits!'
 <li id="sec-5.5.14.1"><span class="done DONE"> DONE</span> Iteration Nation [3/3] <br/>
 
 <p>
-my<sub>dict</sub> = {
+my_dict</sub> = {
 'Name': 'David',
 'Age': 22,
 'BDFL': True
@@ -4181,15 +4181,15 @@ my<sub>dict</sub> = {
 <li id="sec-5.5.14.1.1"><span class="done DONE"> DONE</span> Iterators for Dictionaries - items() <br/>
 
 <p>
-print my<sub>dict</sub>.items()
+print my_dict</sub>.items()
 -&gt; ['Name': 'David', 'Age': 22, 'BDFL': True]
 </p>
 </li>
 <li id="sec-5.5.14.1.2"><span class="done DONE"> DONE</span> keys() and value() <br/>
 
 <p>
-print my<sub>dict</sub>.keys()
-print my<sub>dict</sub>.values()
+print my_dict</sub>.keys()
+print my_dict</sub>.values()
 </p>
 <p>
 -&gt; ['Name', 'Age', 'BDFL']
@@ -4199,8 +4199,8 @@ print my<sub>dict</sub>.values()
 <li id="sec-5.5.14.1.3"><span class="done DONE"> DONE</span> the in Operator <br/>
 
 <p>
-for d in my<sub>dict</sub>:
-print d, my<sub>dict[d]</sub>
+for d in my_dict</sub>:
+print d, my_dict[d]</sub>
 </p>
 </li>
 </ul>
@@ -4227,19 +4227,19 @@ from 2 to 11 every 2nd
 <li id="sec-5.5.14.2.2"><span class="done DONE"> DONE</span> !!!Omitting Indicies <br/>
 
 <p>
-my<sub>list</sub> = range(1,11)
+my_list</sub> = range(1,11)
 </p>
 <p>
-print my<sub>list[</sub>::2]
+print my_list[</sub>::2]
 </p>
 </li>
 <li id="sec-5.5.14.2.3"><span class="done DONE"> DONE</span> Reversing a List <br/>
 
 <p>
-my<sub>list</sub> = range(1,11)
+my_list</sub> = range(1,11)
 </p>
 <p>
-backwards = my<sub>list[</sub>::-1]
+backwards = my_list[</sub>::-1]
 </p>
 <p>
 print backwards
@@ -4251,10 +4251,10 @@ print backwards
 <li id="sec-5.5.14.2.4"><span class="done DONE"> DONE</span> stride length <br/>
 
 <p>
-to<sub>one</sub><sub>hundred</sub> = range(101)
+to_one</sub>_hundred</sub> = range(101)
 </p>
 <p>
-backward<sub>by</sub><sub>ten</sub> = to<sub>one</sub><sub>hundred[</sub>::-10]
+backward_by</sub>_ten</sub> = to_one</sub>_hundred[</sub>::-10]
 </p>
 <p>
 -&gt; [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
@@ -4263,9 +4263,9 @@ backward<sub>by</sub><sub>ten</sub> = to<sub>one</sub><sub>hundred[</sub>::-10]
 <li id="sec-5.5.14.2.5"><span class="todo PROBLEM"> PROBLEM</span> !!!Practice makes Perfekt <br/>
 
 <p>
-to<sub>21</sub> = range(1,22)
-odds = to<sub>21[1</sub>::2]
-middle<sub>third</sub> = to<sub>21[]</sub>  - the middle third of the list should be the values 8 through 14, inclusive
+to_21</sub> = range(1,22)
+odds = to_21[1</sub>::2]
+middle_third</sub> = to_21[]</sub>  - the middle third of the list should be the values 8 through 14, inclusive
 </p>
 </li>
 </ul>
@@ -4275,8 +4275,8 @@ middle<sub>third</sub> = to<sub>21[]</sub>  - the middle third of the list shoul
 <li id="sec-5.5.14.3.1"><span class="done DONE"> DONE</span> Building Lists <br/>
 
 <p>
-events<sub>to</sub><sub>50</sub> = [i for i in range(51) if i % 2 == 0]
-print events<sub>to</sub><sub>50</sub>
+events_to</sub>_50</sub> = [i for i in range(51) if i % 2 == 0]
+print events_to</sub>_50</sub>
 </p>
 <p>
 -&gt; [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, &hellip;, 48, 50]
@@ -4285,8 +4285,8 @@ print events<sub>to</sub><sub>50</sub>
 <li id="sec-5.5.14.3.2"><span class="done DONE"> DONE</span> Lists Comprehension Syntax <br/>
 
 <p>
-even<sub>squares</sub> = [i**2 for i in range(1,11) if i % 2 == 0]
-print even<sub>squares</sub>
+even_squares</sub> = [i**2 for i in range(1,11) if i % 2 == 0]
+print even_squares</sub>
 </p>
 <p>
 -&gt; [4, 16, 36, 64, 100]
@@ -4295,8 +4295,8 @@ print even<sub>squares</sub>
 <li id="sec-5.5.14.3.3"><span class="done DONE"> DONE</span> !!! Now your try: <br/>
 
 <p>
-cubes<sub>by</sub><sub>four</sub> = [i**3 for i in range(1,11) if i**3 % 4 == 0]
-print cubes<sub>by</sub><sub>four</sub>
+cubes_by</sub>_four</sub> = [i**3 for i in range(1,11) if i**3 % 4 == 0]
+print cubes_by</sub>_four</sub>
 </p>
 </li>
 </ul>
@@ -4306,10 +4306,10 @@ print cubes<sub>by</sub><sub>four</sub>
 <li id="sec-5.5.14.4.1"><span class="done DONE"> DONE</span> Anonymous Functions <br/>
 
 <p>
-my<sub>list</sub> = range(16)
+my_list</sub> = range(16)
 </p>
 <p>
-print filter(lambda x: x % 3 == 0, my<sub>list</sub>)
+print filter(lambda x: x % 3 == 0, my_list</sub>)
 </p>
 <p>
 -&gt; [0, 3, 6, 9, 12, 15]
@@ -4359,10 +4359,10 @@ print movies.items()
 <li id="sec-5.5.14.5.2"><span class="done DONE"> DONE</span> Comprehending Comprehensions <br/>
 
 <p>
-threes<sub>and</sub><sub>fives</sub> = [i for i in range(1,16) if i % 3 == 0 or i % 5 == 0]
+threes_and</sub>_fives</sub> = [i for i in range(1,16) if i % 3 == 0 or i % 5 == 0]
 </p>
 <p>
-print threes<sub>and</sub><sub>fives</sub>
+print threes_and</sub>_fives</sub>
 </p>
 <p>
 -&gt; [3, 5, 6, 9, 10, 12, 15]
@@ -4417,7 +4417,7 @@ print message
 <p>
 class Fruit(object):
 """ A class that makes various tasty fruits. """
-def _<sub>init</sub>_<sub>(self, name, color, flavor, poisonous)</sub>:
+def __init</sub>__(self, name, color, flavor, poisonous)</sub>:
 self.name = name
 self.color = color
 self.flavor = flavor
@@ -4428,7 +4428,7 @@ def description(self):
 print 'I am a %s %s an I taste %s.' % (self.color, self.flavor, self.poisonous)
 </p>
 <p>
-def is<sub>edible</sub>(self):
+def is_edible</sub>(self):
 if not self.poisonous:
 print 'Yep! I am edible!'
 else:
@@ -4439,7 +4439,7 @@ lemon = Fruit('lemon', 'yellow', 'sour', False)
 </p>
 <p>
 lemon.description()
-lemon.is<sub>edible</sub>()
+lemon.is_edible</sub>()
 </p>
 </li>
 <li id="sec-5.5.15.1.2"><span class="done DONE"> DONE</span> Class Syntax <br/>
@@ -4453,7 +4453,7 @@ pass
 
 <p>
 class Animal(object):
-def _<sub>init</sub>_<sub>(self)</sub>:
+def __init</sub>__(self)</sub>:
 pass
 </p>
 </li>
@@ -4461,7 +4461,7 @@ pass
 
 <p>
 class Animal(object):
-def _<sub>init</sub>_<sub>(self, name)</sub>
+def __init</sub>__(self, name)</sub>
 self.name = name
 </p>
 </li>
@@ -4469,7 +4469,7 @@ self.name = name
 
 <p>
 class Animal(object):
-def _<sub>init</sub>_<sub>(self, name, typ, age)</sub>
+def __init</sub>__(self, name, typ, age)</sub>
 self.name = name
 self.typ = age
 self.age = typ
@@ -4492,16 +4492,16 @@ print zebra.age
 </li>
 <li id="sec-5.5.15.2"><span class="done DONE"> DONE</span> Member Variables and Functions [3/4] <br/>
 <ul>
-<li id="sec-5.5.15.2.1"><span class="done DONE"> DONE</span> More on _<sub>init</sub>_<sub>()</sub> and self <br/>
+<li id="sec-5.5.15.2.1"><span class="done DONE"> DONE</span> More on __init</sub>__()</sub> and self <br/>
 
 <p>
 # Class definition
 class Animal(object):
 # for initialize our instance objects
-def _<sub>init</sub>_<sub>(self, name, age, is<sub>hungry</sub>)</sub>
+def __init</sub>__(self, name, age, is_hungry</sub>)</sub>
 self.name = name
 self.age = age
-self.is<sub>hungry</sub> = is<sub>hungry</sub>
+self.is_hungry</sub> = is_hungry</sub>
 </p>
 <p>
 zebra = Animal("Jeffrey", 2, True)
@@ -4509,17 +4509,17 @@ giraffe = Animal("Bruce", 1, False)
 panda = Animal("Chad", 7, True)
 </p>
 <p>
-print zebra.name, zebra.age, zebra.is<sub>hungry</sub>
-print giraffe.name, giraffe.age, giraffe.is<sub>hungry</sub>
-print panda.name, panda.age, panda.is<sub>hungry</sub>
+print zebra.name, zebra.age, zebra.is_hungry</sub>
+print giraffe.name, giraffe.age, giraffe.is_hungry</sub>
+print panda.name, panda.age, panda.is_hungry</sub>
 </p>
 </li>
 <li id="sec-5.5.15.2.2"><span class="done DONE"> DONE</span> Class Scope <br/>
 
 <p>
 class Animal(object):
-is<sub>alive</sub> = True
-def _<sub>init</sub>_<sub>(self, name, age)</sub>:
+is_alive</sub> = True
+def __init</sub>__(self, name, age)</sub>:
 self.name = name
 self.age = age
 </p>
@@ -4529,17 +4529,17 @@ giraffe = Animal("Bruce", 1)
 panda = Animal("Chad", 7)
 </p>
 <p>
-print zebra.name, zebra.is<sub>alive</sub>
-print giraffe.name, giraffe.is<sub>alive</sub>
-print panda.name, panda.is<sub>alive</sub>
+print zebra.name, zebra.is_alive</sub>
+print giraffe.name, giraffe.is_alive</sub>
+print panda.name, panda.is_alive</sub>
 </p>
 </li>
 <li id="sec-5.5.15.2.3"><span class="todo PROBLEM"> PROBLEM</span> A Methodical Approach <br/>
 
 <p>
 class Animal(object):
-is<sub>alive</sub> = True
-def _<sub>init</sub>_<sub>(self, name, age)</sub>:
+is_alive</sub> = True
+def __init</sub>__(self, name, age)</sub>:
 self.name = name
 self.age = age
 </p>
@@ -4563,41 +4563,41 @@ print hippo.description
 class ShoppingCart(object):
 </p>
 <p>
-items<sub>in</sub><sub>cart</sub> = {}
+items_in</sub>_cart</sub> = {}
 </p>
 <p>
-def _<sub>init</sub>_<sub>(self, customer<sub>name</sub>)</sub>:
-self.customer<sub>name</sub> = customer<sub>name</sub>
+def __init</sub>__(self, customer_name</sub>)</sub>:
+self.customer_name</sub> = customer_name</sub>
 </p>
 <p>
-def add<sub>item</sub>(self, product, price):
+def add_item</sub>(self, product, price):
 """Add product to the cart."""
 </p>
 <p>
-if not product in self.items<sub>in</sub><sub>cart</sub>:
-self.items<sub>in</sub><sub>cart[product]</sub> = price
+if not product in self.items_in</sub>_cart</sub>:
+self.items_in</sub>_cart[product]</sub> = price
 print product + " added."
 else:
 print product + " is already in the cart."
 </p>
 <p>
-def remove<sub>item</sub>(self, product):
+def remove_item</sub>(self, product):
 """Remove product from the cart."""
 </p>
 <p>
-if product in self.items<sub>in</sub><sub>cart</sub>:
-del self.items<sub>in</sub><sub>cart[product]</sub>
+if product in self.items_in</sub>_cart</sub>:
+del self.items_in</sub>_cart[product]</sub>
 print product + " removed."
 else:
 print product + " is not in the cart."
 </p>
 <p>
-my<sub>cart</sub> = ShoppingCart("PoisonNet")
+my_cart</sub> = ShoppingCart("PoisonNet")
 </p>
 <p>
-my<sub>cart</sub>.add<sub>item</sub>("Blei", 1.50)
-my<sub>cart</sub>.add<sub>item</sub>("Plutonium", 150)
-my<sub>cart</sub>.add<sub>item</sub>("Blei", 1.50)
+my_cart</sub>.add_item</sub>("Blei", 1.50)
+my_cart</sub>.add_item</sub>("Plutonium", 150)
+my_cart</sub>.add_item</sub>("Blei", 1.50)
 </p>
 </li>
 </ul>
@@ -4612,37 +4612,37 @@ State "DONE"       from "STARTED" <span class="timestamp-wrapper"> <span class="
 <p>
 class Customer(object):
 """Produces objects that represent customers."""
-def _<sub>init</sub>_<sub>(self, customer<sub>id</sub>)</sub>:
-self.customer<sub>id</sub> = customer<sub>id</sub>
-def display<sub>cart</sub>(self):
+def __init</sub>__(self, customer_id</sub>)</sub>:
+self.customer_id</sub> = customer_id</sub>
+def display_cart</sub>(self):
 print "I'm a string that stands in for the contents of your shopping cart!"
 </p>
 <p>
 class ReturningCustomer(Customer):
 """For customers of the repeat variety."""
-def _<sub>init</sub>_<sub>(self, customer<sub>id</sub>)</sub>:
-self.customer<sub>id</sub> = customer<sub>id</sub>
+def __init</sub>__(self, customer_id</sub>)</sub>:
+self.customer_id</sub> = customer_id</sub>
 </p>
 <p>
-def display<sub>order</sub><sub>history</sub>(self):
+def display_order</sub>_history</sub>(self):
 print "I'm a string that stands in for your order history!"
 </p>
 <p>
-monty<sub>python</sub> = ReturningCustomer("ID: 12345")
-monty<sub>python</sub>.display<sub>cart</sub>()
-monty<sub>python</sub>.display<sub>order</sub><sub>history</sub>()
+monty_python</sub> = ReturningCustomer("ID: 12345")
+monty_python</sub>.display_cart</sub>()
+monty_python</sub>.display_order</sub>_history</sub>()
 </p>
 </li>
 <li id="sec-5.5.15.3.2"><span class="done DONE"> DONE</span> Inheritance Syntax <br/>
 
 <p>
 class Shape(object):
-def _<sub>init</sub>_<sub>(self, number<sub>of</sub><sub>sides</sub>)</sub>:
-self.number<sub>of</sub><sub>sides</sub> = number<sub>of</sub><sub>sides</sub>
+def __init</sub>__(self, number_of</sub>_sides</sub>)</sub>:
+self.number_of</sub>_sides</sub> = number_of</sub>_sides</sub>
 </p>
 <p>
 class Triangle(Shape):
-def _<sub>init</sub>_<sub>(self, side1, side2, side3)</sub>:
+def __init</sub>__(self, side1, side2, side3)</sub>:
 self.side1 = side1
 self.side2 = side2
 self.side3 = side3
@@ -4655,11 +4655,11 @@ class Employee(object):
 """Models real-life employees!"""
 </p>
 <p>
-def _<sub>init</sub>_<sub>(self, employee<sub>name</sub>)</sub>:
-self.employee<sub>name</sub> = employee<sub>name</sub>
+def __init</sub>__(self, employee_name</sub>)</sub>:
+self.employee_name</sub> = employee_name</sub>
 </p>
 <p>
-def calculate<sub>wage</sub>(self, hours):
+def calculate_wage</sub>(self, hours):
 self.hours = hours
 return hours * 20.00
 </p>
@@ -4667,7 +4667,7 @@ return hours * 20.00
 class PartTimeEmployee(Employee):
 </p>
 <p>
-def calculate<sub>wage</sub>(self, hours):
+def calculate_wage</sub>(self, hours):
 self.hours = hours
 return hours * 12.00
 </p>
@@ -4684,11 +4684,11 @@ State "PROBLEM"    from "DONE" <span class="timestamp-wrapper"> <span class="tim
 """Models real-life employees!"""
 </p>
 <p>
-def _<sub>init</sub>_<sub>(self, employee<sub>name</sub>)</sub>:
-self.employee<sub>name</sub> = employee<sub>name</sub>
+def __init</sub>__(self, employee_name</sub>)</sub>:
+self.employee_name</sub> = employee_name</sub>
 </p>
 <p>
-def calculate<sub>wage</sub>(self, hours):
+def calculate_wage</sub>(self, hours):
 self.hours = hours
 return hours * 20.00
 </p>
@@ -4697,21 +4697,21 @@ return hours * 20.00
 class PartTimeEmployee(Employee):
 </p>
 <p>
-def _<sub>init</sub>_<sub>(self, employee<sub>name</sub>)</sub>:
-self.employee<sub>name</sub> = employee<sub>name</sub>
+def __init</sub>__(self, employee_name</sub>)</sub>:
+self.employee_name</sub> = employee_name</sub>
 </p>
 <p>
-def calculate<sub>wage</sub>(self, hours):
+def calculate_wage</sub>(self, hours):
 self.hours = hours
 return hours * 12.00
 </p>
 <p>
-def full<sub>time</sub><sub>wage</sub>(self):
-super(Employee, self).calculate<sub>wage</sub>(hours)
+def full_time</sub>_wage</sub>(self):
+super(Employee, self).calculate_wage</sub>(hours)
 </p>
 <p>
 milton = PartTimeEmployee('milton')
-print milton.full<sub>time</sub><sub>wage</sub>(10)
+print milton.full_time</sub>_wage</sub>(10)
 </p>
 </li>
 </ul>
@@ -4725,12 +4725,12 @@ print milton.full<sub>time</sub><sub>wage</sub>(10)
 <h4 id="sec-5.5.16"><span class="section-number-4">5.5.16</span> Python Lession Create if statement </h4>
 <div class="outline-text-4" id="text-5.5.16">
 
-<p>Name = raw<sub>input</sub>("Dein Name?")
-backname = raw<sub>input</sub>("Dein Nachname?")
-passwort = raw<sub>input</sub>("Dein Passwort?")
+<p>Name = raw_input</sub>("Dein Name?")
+backname = raw_input</sub>("Dein Nachname?")
+passwort = raw_input</sub>("Dein Passwort?")
 </p>
 <p>
-def the<sub>flying</sub><sub>circus</sub>():
+def the_flying</sub>_circus</sub>():
 #Start coding here!
 </p>
 <p>
@@ -4745,7 +4745,7 @@ print "Alles Falsch"
 return False
 </p>
 <p>
-the<sub>flying</sub><sub>circus</sub>()
+the_flying</sub>_circus</sub>()
 </p></div>
 </div>
 
@@ -5545,9 +5545,9 @@ Link: <a href="http://j.mp/10HdByh">http://j.mp/10HdByh</a>
 &lt;td&gt;&lt;img src="<a href="http://bit.ly/PK1euu"/">http://bit.ly/PK1euu"/</a>&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;img id="bottom<sub>left</sub>" src="<a href="http://bit.ly/PK1euu"/">http://bit.ly/PK1euu"/</a>&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img id="bottom_left</sub>" src="<a href="http://bit.ly/PK1euu"/">http://bit.ly/PK1euu"/</a>&gt;&lt;/td&gt;
 &lt;td&gt;&lt;img src="<a href="http://bit.ly/PK1euu"">http://bit.ly/PK1euu"</a>&gt;&lt;/td&gt;
-&lt;td&gt;&lt;img id="bottom<sub>right</sub>" src="<a href="http://bit.ly/PK1euu"/">http://bit.ly/PK1euu"/</a>&gt;&lt;/td&gt;
+&lt;td&gt;&lt;img id="bottom_right</sub>" src="<a href="http://bit.ly/PK1euu"/">http://bit.ly/PK1euu"/</a>&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;/div&gt;
@@ -6089,7 +6089,7 @@ then add lines in there to control the startup and shutdown;
 </p>
 
 <p>
-local<sub>start</sub>() {
+local_start</sub>() {
 # This is a good place to load any misc programs
 # on startup (use &amp;&gt;/dev/null to hide output)
 /opt/lampp/lampp start
@@ -6098,7 +6098,7 @@ return 0
 }
 </p>
 <p>
-local<sub>stop</sub>() {
+local_stop</sub>() {
 # This is a good place to unload any misc.
 # programs you started above.
 /opt/lampp/lampp stop
@@ -7008,7 +7008,7 @@ Das Project übergeben (hochladen, neue Version erzeugen)
 
 <p>
 Create new Branch 
--&gt; git branch feature<sub>x</sub>
+-&gt; git branch feature_x</sub>
 </p>
 <p>
 View current branches:
@@ -7016,21 +7016,21 @@ View current branches:
 </p>
 <p>
 Output: Der branch mit * ist gerade aktiv
-&lt;-   feature<sub>x</sub>
+&lt;-   feature_x</sub>
 &lt;- * master
 </p>
 <p>
 Change to new branch
--&gt; git checkout feature<sub>x</sub>
+-&gt; git checkout feature_x</sub>
 </p>
 <p>
 Merge new branch to master
 -&gt; git checkout master
--&gt; git merge feature<sub>x</sub>
+-&gt; git merge feature_x</sub>
 </p>
 <p>
 Delete old branch
--&gt; git branch -d feature<sub>x</sub>
+-&gt; git branch -d feature_x</sub>
 </p>
 </li>
 <li id="sec-8.7.1.4"><span class="done DONE"> DONE</span> Status abfrage <br/>
@@ -7095,7 +7095,7 @@ ssh-keygen -t rsa
 </li>
 </ul>
 
-<p>Copy content of ~/.ssh/id<sub>rsa</sub>.pub to GitHub -&gt; Settings -&gt; SSH Keys
+<p>Copy content of ~/.ssh/id_rsa</sub>.pub to GitHub -&gt; Settings -&gt; SSH Keys
 </p>
 <p>
 Create the project directory: mkdir git
@@ -7244,7 +7244,7 @@ Hier siehst du alle LVM Laufwerke wichtig ist hier die VolumeGroup!
 Jetzt wird das Laufwerk an sein Ziel gemounted.
 </p>
 <p>
--&gt; mount /dev/VolumeGroup/lg<sub>aplharev</sub><sub>home</sub> /mnt/home
+-&gt; mount /dev/VolumeGroup/lg_aplharev</sub>_home</sub> /mnt/home
 </p>
 </div>
 
@@ -7545,9 +7545,9 @@ NO TIME
 &hellip;psst! Deutsche Anleitung unter: <a href="http://www.linupedia.org/opensuse/Einrichten_von_public_keys_mit_ssh">http://www.linupedia.org/opensuse/Einrichten_von_public_keys_mit_ssh</a> ^^
 </p>
 <p>
-ConfigDatei -&gt; /etc/ssh/sshd<sub>config</sub>
+ConfigDatei -&gt; /etc/ssh/sshd_config</sub>
 </p><ul>
-<li id="sec-8.7.17.1">sshd<sub>config</sub> <br/>
+<li id="sec-8.7.17.1">sshd_config</sub> <br/>
 
 
 
@@ -7572,7 +7572,7 @@ PermitRootLogin yes
 <p>
 RSAAuthentication yes
 PubkeyAuthentication yes
-AuthorizedKeysFile      .ssh/authorized<sub>keys</sub>
+AuthorizedKeysFile      .ssh/authorized_keys</sub>
 </p>
 
 <p>
@@ -7602,7 +7602,7 @@ ssh &hellip;.
 <colgroup><col align="left" /><col align="left" />
 </colgroup>
 <tbody>
-<tr><td>-2</td><td>Benutzt nur Protocol<sub>Ver</sub>.:2</td></tr>
+<tr><td>-2</td><td>Benutzt nur Protocol_Ver</sub>.:2</td></tr>
 <tr><td>-4</td><td>Nur IPv4</td></tr>
 <tr><td>-6</td><td>Nur IPv6</td></tr>
 <tr><td>-l</td><td>LoginName</td></tr>
@@ -7624,7 +7624,7 @@ ssh &hellip;.
 <li id="sec-8.7.17.2.1.1">Authentification <br/>
 
 <p>
-Unterstüzt SSH protocols 1 und 2 (2 ist Standart, und wird in der ssh<sub>config</sub> eingestellt)
+Unterstüzt SSH protocols 1 und 2 (2 ist Standart, und wird in der ssh_config</sub> eingestellt)
 Both protocols support similar authentication methods, but protocol 2 is the default since it provides additional mechanisms for confidentiality (the traffic
 is  encrypted  using  AES, 3DES, Blowfish, CAST128, or Arcfour) and integrity (hmac-md5, hmac-sha1, umac-64, hmac-ripemd160).
 Protocol 1 lacks a strong mechanism for ensuring the integrity of the connection.
@@ -7643,7 +7643,7 @@ The methods available for authentication are:
 <p>
 Host-based  authentication  works as follows: If the machine the user logs in from is listed in <i>etc/hosts.equiv or /etc/ssh/shosts.equiv on the remote machine, and the user names        are the same on both sides, or if the files ~</i>.rhosts or ~/.shosts exist in the user's home directory on the remote machine and contain a line containing the name  of  the  client
 machine  and the name of the user on that machine, the user is considered for login.  Additionally, the server must be able to verify the client's host key (see the description of
-<i>etc/ssh/ssh<sub>known</sub><sub>hosts</sub> and ~</i>.ssh/known<sub>hosts</sub>, below) for login to be permitted.  This authentication method closes security holes due to IP spoofing, DNS spoofing, and  routing
+<i>etc/ssh/ssh_known</sub>_hosts</sub> and ~</i>.ssh/known_hosts</sub>, below) for login to be permitted.  This authentication method closes security holes due to IP spoofing, DNS spoofing, and  routing
 spoofing.  [Note to the administrator: <i>etc/hosts.equiv, ~</i>.rhosts, and the rlogin/rsh protocol in general, are inherently insecure and should be disabled if security is desired.]
 </p>
 </li>
@@ -7657,14 +7657,14 @@ the public key, and only the user knows the private key.  ssh implements public 
 1 is restricted to using only RSA keys, but protocol 2 may use any.  The HISTORY section of ssl(8) contains a brief discussion of the DSA and RSA algorithms.
 </p>
 <p>
-The file ~/.ssh/authorized<sub>keys</sub> lists the public keys that are permitted for logging in.  When the user logs in, the ssh program tells the server which key pair it would  like  to
+The file ~/.ssh/authorized_keys</sub> lists the public keys that are permitted for logging in.  When the user logs in, the ssh program tells the server which key pair it would  like  to
 use for authentication.  The client proves that it has access to the private key and the server checks that the corresponding public key is authorized to accept the account.
 </p>
 <p>
-The user creates his/her key pair by running ssh-keygen(1).  This stores the private key in ~/.ssh/identity (protocol 1), ~/.ssh/id<sub>dsa</sub> (protocol 2 DSA), ~/.ssh/id<sub>ecdsa</sub> (protocol
-2 ECDSA), or ~/.ssh/id<sub>rsa</sub> (protocol 2 RSA) and stores the public key in ~/.ssh/identity.pub (protocol 1), ~/.ssh/id<sub>dsa</sub>.pub (protocol  2  DSA),  ~/.ssh/id<sub>ecdsa</sub>.pub  (protocol  2
-ECDSA),  or  ~/.ssh/id<sub>rsa</sub>.pub  (protocol 2 RSA) in the user's home directory.  The user should then copy the public key to ~/.ssh/authorized<sub>keys</sub> in his/her home directory on the
-remote machine.  The authorized<sub>keys</sub> file corresponds to the conventional ~/.rhosts file, and has one key per line, though the lines can be very long.  After this,  the  user  can
+The user creates his/her key pair by running ssh-keygen(1).  This stores the private key in ~/.ssh/identity (protocol 1), ~/.ssh/id_dsa</sub> (protocol 2 DSA), ~/.ssh/id_ecdsa</sub> (protocol
+2 ECDSA), or ~/.ssh/id_rsa</sub> (protocol 2 RSA) and stores the public key in ~/.ssh/identity.pub (protocol 1), ~/.ssh/id_dsa</sub>.pub (protocol  2  DSA),  ~/.ssh/id_ecdsa</sub>.pub  (protocol  2
+ECDSA),  or  ~/.ssh/id_rsa</sub>.pub  (protocol 2 RSA) in the user's home directory.  The user should then copy the public key to ~/.ssh/authorized_keys</sub> in his/her home directory on the
+remote machine.  The authorized_keys</sub> file corresponds to the conventional ~/.rhosts file, and has one key per line, though the lines can be very long.  After this,  the  user  can
 log in without giving the password.
 </p>
 <p>
@@ -7698,8 +7698,8 @@ encrypted, the password cannot be seen by someone listening on the network.
 Authentication methods are tried in the order specified above, though protocol 2 has a configuration option to change the default order: PreferredAuthentications.
 </p>
 <p>
-ssh  automatically  maintains  and  checks a database containing identification for all hosts it has ever been used with.  Host keys are stored in ~/.ssh/known<sub>hosts</sub> in the user's
-home directory.  Additionally, the file /etc/ssh/ssh<sub>known</sub><sub>hosts</sub> is automatically checked for known hosts.  Any new hosts are automatically added to the user's file.  If a  host's
+ssh  automatically  maintains  and  checks a database containing identification for all hosts it has ever been used with.  Host keys are stored in ~/.ssh/known_hosts</sub> in the user's
+home directory.  Additionally, the file /etc/ssh/ssh_known</sub>_hosts</sub> is automatically checked for known hosts.  Any new hosts are automatically added to the user's file.  If a  host's
 identification  ever  changes,  ssh warns about this and disables password authentication to prevent server spoofing or man-in-the-middle attacks, which could otherwise be used to
 circumvent the encryption.  The StrictHostKeyChecking option can be used to control logins to machines whose host key is not known or has changed.
 </p>
@@ -7760,21 +7760,21 @@ Es kann der Netzwerkmanager von Gnome benutzt werden.
 Oder einfach eine Umgebungsvariable gesetzt werden:
 </p>
 <p>
-export http<sub>proxy</sub>='http://user:passwort@proxy-server.org:port'
-export ftp<sub>proxy</sub>='ftp://user:passwort@proxy-server.org:port'
-export no<sub>proxy</sub>='http://user:passwort@proxy-server.org:port'
+export http_proxy</sub>='http://user:passwort@proxy-server.org:port'
+export ftp_proxy</sub>='ftp://user:passwort@proxy-server.org:port'
+export no_proxy</sub>='http://user:passwort@proxy-server.org:port'
 </p>
 <p>
 oder bei anderen Distributionen:
 </p>
 <p>
-setenv http<sub>proxy</sub> 'http://user:passwort@proxy-server.org:port'
+setenv http_proxy</sub> 'http://user:passwort@proxy-server.org:port'
 </p>
 <p>
 oder: 
 </p>
 <p>
-EXPORT HTTP<sub>PROXY</sub> 'http://user:passwort@proxy-server.org:port'
+EXPORT HTTP_PROXY</sub> 'http://user:passwort@proxy-server.org:port'
 </p>
 
 <p>
@@ -7961,11 +7961,11 @@ That should be it! You should now see the Laravel page!
 I add only the Option -MultiViews to existent .htaccess file in public folder!
 </p>
 <p>
-&lt;IfModule mod<sub>rewrite</sub>.c&gt;
+&lt;IfModule mod_rewrite</sub>.c&gt;
 Options -MultiViews
 RewriteEngine On
 RewriteBase /l4
-RewriteCond %{REQUEST<sub>FILENAME</sub>} !-f
+RewriteCond %{REQUEST_FILENAME</sub>} !-f
 RewriteRule ^ index.php [L]
 &lt;/IfModule&gt;
 </p>
@@ -8056,7 +8056,7 @@ Backup ist gültig für:
 
 
 <p>
-30 2 * * * /usr/bin/mysqldump -uroot -p!!!!SERCRET!!!! &ndash;opt &ndash;all-databases &gt; /opt/backup/sql/sql<sub>`date</sub> +"%d"-"%m"-"%y"`
+30 2 * * * /usr/bin/mysqldump -uroot -p!!!!SERCRET!!!! &ndash;opt &ndash;all-databases &gt; /opt/backup/sql/sql_`date</sub> +"%d"-"%m"-"%y"`
 </p>
 <p>
 6 0 * * 2 /opt/backup/backup.sh
@@ -8174,7 +8174,7 @@ Commands:   write on sign!
 <p>
 1st Line:  [WStone]
 2nd Line:  t // r       // nur transmitt oder receive!! nicht beides!
-3rd Line:  name         // Muss mit PlayerNamen beginnen z.B. dc<sub>dor1</sub>
+3rd Line:  name         // Muss mit PlayerNamen beginnen z.B. dc_dor1</sub>
 </p>
 </div>
 
@@ -8189,7 +8189,7 @@ Commands:   write on sign!
 <li>
 MobileAdmin
 Config:       ./MobileAdmin/
-User<sub>Admin</sub>:   root // LimeBlack        &lt;- username // password
+User_Admin</sub>:   root // LimeBlack        &lt;- username // password
 User:         user // password         &lt;- FOR REAL!
 Port:         5839
 
@@ -8211,7 +8211,7 @@ Link:         <a href="http://avicra.dyndns.org:8123/">http://avicra.dyndns.org:
 Config:       ./dynmap/
 Render cmd:   root@bukkit# dynmap fullrender world  &lt;- in minecraft console!
 Port:         8123
-Edit<sub>config</sub>:  added -&gt; "webserver-bindadress 192.168.0.105" to ./dynmap/configuration.txt
+Edit_config</sub>:  added -&gt; "webserver-bindadress 192.168.0.105" to ./dynmap/configuration.txt
 
 </li>
 </ul>
@@ -8400,7 +8400,7 @@ Initscript: /etc/init.d/ssh
 <p>
 Link:  avicra.dyndns.org
 Port:  50505
-Confg: /etc/ssh/sshd<sub>config</sub>
+Confg: /etc/ssh/sshd_config</sub>
 </p>
 <p>
 !!  No RSA Key enabled
@@ -8471,7 +8471,7 @@ Installiert mit folgenden Befehlen:
 wget <a href="http://downloads.sourceforge.net/project/webadmin/webmin/1.570/webmin_1.570_all.deb?use_mirror=voxel">http://downloads.sourceforge.net/project/webadmin/webmin/1.570/webmin_1.570_all.deb?use_mirror=voxel</a>
 </li>
 <li>
-mv webmin<sub>1</sub>.570<sub>all</sub>.deb\?use<sub>mirror</sub>=voxel webmin<sub>1</sub>.570<sub>all</sub>.deb &amp;&amp; dpkg -i webmin<sub>1</sub>.570<sub>all</sub>.deb
+mv webmin_1</sub>.570_all</sub>.deb\?use_mirror</sub>=voxel webmin_1</sub>.570_all</sub>.deb &amp;&amp; dpkg -i webmin_1</sub>.570_all</sub>.deb
 
 </li>
 </ul>
@@ -8587,7 +8587,7 @@ User: LimeBlack // EasyPW
 
 <p>
 Initscript: /etc/init.d/etherpad
-Version Etherpad<sub>Lite</sub>
+Version Etherpad_Lite</sub>
 </p>
 <p>
 Files: /opt/etherpad
@@ -8693,7 +8693,7 @@ DVS Reparaturstatistic!
 Link: <a href="http://avicra.dyndns.org/cards">http://avicra.dyndns.org/cards</a>
 </p>
 <p>
-Login<sub>Site</sub>: crimi // qwert
+Login_Site</sub>: crimi // qwert
 </p>
 <p>
 MySQL DB:  card
@@ -8786,7 +8786,7 @@ added "RewriteBase /drupal6"
 settings.php
 </p>
 <p>
-added "$base<sub>url</sub> = 'http://localhost/drupal6';"
+added "$base_url</sub> = 'http://localhost/drupal6';"
 </p></li>
 </ul>
 </li>
@@ -8804,7 +8804,7 @@ added "$base<sub>url</sub> = 'http://localhost/drupal6';"
 Infos: <a href="http://www.lavluda.com/2007/07/15/how-to-enable-mod_rewrite-in-apache22-debian/">http://www.lavluda.com/2007/07/15/how-to-enable-mod_rewrite-in-apache22-debian/</a> 
 </p>
 <p>
-Ensure that mod<sub>rewrite</sub> is enabled for Apache 2:
+Ensure that mod_rewrite</sub> is enabled for Apache 2:
 </p>
 <p>
 root@srv# a2enmod rewrite
@@ -8882,8 +8882,8 @@ PHPMyAdmin wurde installiert!
 </p>
 <p>
 PHPMyAdmin User: root // StdSQL
-Link<sub>Local</sub>:  <a href="http://localhost/PHPMyAdmin">http://localhost/PHPMyAdmin</a>
-Link<sub>Global</sub>: <a href="http:avicra.dyndns.org/PHPMyAdmin">http:avicra.dyndns.org/PHPMyAdmin</a>
+Link_Local</sub>:  <a href="http://localhost/PHPMyAdmin">http://localhost/PHPMyAdmin</a>
+Link_Global</sub>: <a href="http:avicra.dyndns.org/PHPMyAdmin">http:avicra.dyndns.org/PHPMyAdmin</a>
 </p>
 </div>
 </div>
@@ -8905,10 +8905,10 @@ InitScript befindet sich in /etc/init.d/teamspeak
 Aktuelle Version: 3
 </p>
 <p>
-Port:  tcp<sub>30033</sub> // tcp<sub>10011</sub> // udp<sub>9987</sub> 
+Port:  tcp_30033</sub> // tcp_10011</sub> // udp_9987</sub> 
 Link:  avicra.dyndns.org
 Files: <i>opt/ts3</i>
-user:  teamspeak // no<sub>passwd</sub>
+user:  teamspeak // no_passwd</sub>
 </p>
 <p>
 not backup, cause no data!
@@ -9095,7 +9095,7 @@ PHPMyAdmin gekam auch StdSQLPW
 </p>
 <p>
 SSH Port auf 50505 geÃ¤ndert.
-Port 22 /-22  +50505 -&gt; /etc/ssh/sshd<sub>conf</sub>
+Port 22 /-22  +50505 -&gt; /etc/ssh/sshd_conf</sub>
 </p>
 <p>
 Installiert wurden Emacs, HTop und Guake am 28.12.11 aufgrund bequemlichkeit.
@@ -9323,7 +9323,7 @@ keepalive 10 60
 iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth1 -j MASQUERADE
 iptables -A FORWARD -i tun0 -s 10.8.0.0/24 -o eth1 -j ACCEPT
 iptables -A FORWARD -i eth1 -o tun0 -m state &ndash;state ESTABLISHED,RELATED -j ACCEPT
-echo 1 &gt; /proc/sys/net/ipv4/ip<sub>forward</sub>
+echo 1 &gt; /proc/sys/net/ipv4/ip_forward</sub>
 </p>
 <p>
 Windows CLient:
@@ -9615,11 +9615,11 @@ Brickd und Brickv nach Anleitung der HomePage installieren
 
 <p>
 -&gt; sudo apt-get install python python-qt4 python-qt4-gl python-qwt5-qt4 python-opengl python-serial
--&gt; sudo dpkg -i brickv<sub>linux</sub><sub>latest</sub>.deb
+-&gt; sudo dpkg -i brickv_linux</sub>_latest</sub>.deb
 </p>
 <p>
 -&gt; sudo apt-get install python-twisted python-gudev libusb-1.0-0
--&gt; sudo dpkg -i brickd<sub>linux</sub><sub>latest</sub>.deb
+-&gt; sudo dpkg -i brickd_linux</sub>_latest</sub>.deb
 </p>
 
 </li>
@@ -9627,10 +9627,10 @@ Brickd und Brickv nach Anleitung der HomePage installieren
 Bindings für Python nach Anleitung der HamePage installieren
 
 <p>
--&gt; easy<sub>install</sub> tinkerforge.pip
+-&gt; easy_install</sub> tinkerforge.pip
 </p><ul>
 <li>
- easy<sub>install</sub> ist in python-setuptools enthalten
+ easy_install</sub> ist in python-setuptools enthalten
 
 </li>
 </ul>
@@ -9658,7 +9658,7 @@ Zum Ordner gehen:
 </p>
 <p>
 -&gt; cd brickd/src/brickd/
--&gt; sudo python brickd<sub>linux</sub>.py
+-&gt; sudo python brickd_linux</sub>.py
 </p>
 <p>
 Error Log unter
@@ -9759,7 +9759,7 @@ apt-get install wpasupplicant
 network={
 ssid="YOUR-SSID"
 proto=RSN
-key<sub>mgmt</sub>=WPA-PSK
+key_mgmt</sub>=WPA-PSK
 pairwise=CCMP TKIP
 group=CCMP TKIP
 psk="WPA-PASSWORD"
@@ -9847,7 +9847,7 @@ NOTE! Dann ist nurnoch der wechsel auf tty2 möglich..
 </p>
 <p>
 apt-get install python-setuptools
-easy<sub>install</sub> tinkerforge.egg
+easy_install</sub> tinkerforge.egg
 </p>
 <p>
 NOTE! Brick läuft! Tinkerforge ist Installiert und Funktioniert!
@@ -9895,7 +9895,7 @@ apt-get install wpasupplicant
 network={                                                                                                                                                            
 ssid="YOUR-SSID"                                                                                                                                                     
 proto=RSN                                                                                                                                                            
-key<sub>mgmt</sub>=WPA-PSK                                                                                                                                                     
+key_mgmt</sub>=WPA-PSK                                                                                                                                                     
 pairwise=CCMP TKIP                                                                                                                                                   
 group=CCMP TKIP                                                                                                                                                      
 psk="WPA-PASSWORD"                                                                                                                                                   
@@ -10093,7 +10093,7 @@ Schalte alles aus.
 
 
 <p>
-exec: kasp8.0.2134<sub>adminkitde</sub>.exe
+exec: kasp8.0.2134_adminkitde</sub>.exe
 Ort der Installation C:\KAV\AdministrationKit\german
 AdminKit: C:\Programme\Kaspersky Lab\Kaspersky Administration Kit\
 </p>
@@ -10269,7 +10269,7 @@ MySQL Password: kavdandii !!!!!!!!!!!!!!!!!!!!
 -Enable Root access from remote machines!
 </p>
 <p>
-!!!!!!!!!!!!!ERROR: authentication<sub>string</sub> doesn´t have a default
+!!!!!!!!!!!!!ERROR: authentication_string</sub> doesn´t have a default
 value
 mit Hinweis auf Firewall&hellip;die ist aus!
 und von einer vorherigen Install. und PW &hellip;ist aber der erste
@@ -10283,7 +10283,7 @@ gleich? -. -"
 SKIP -&gt; Apply security settings 
 The security settings could not be applied.
 Error Number 1364.
-Field 'authentication<sub>string'</sub> doesn't have a default value.
+Field 'authentication_string'</sub> doesn't have a default value.
 </p>
 <p>
 &hellip;
@@ -10572,9 +10572,9 @@ HW-Test und weitere Inbetriebnahme
 SpeicherOrt für den SpeicherOrt der Logfiles:
 </p>
 <p>
-Registry: \\Computer\HKEY<sub>CURRENT</sub><sub>USER\Software\DVS</sub> GmbH\hwtest\test\logfolder
+Registry: \\Computer\HKEY_CURRENT</sub>_USER\Software\DVS</sub> GmbH\hwtest\test\logfolder
 Data:     Y://internal/abOktober/Ziel
-Type:     REG<sub>SZ</sub>
+Type:     REG_SZ</sub>
 </p>
 </div>
 
@@ -10591,7 +10591,7 @@ Proxy KonfigurationsDatei für Windows:
 </p>
 <p>
 Unter Linux muss unter env folgendes zu finden sein:
-http<sub>proxy</sub>=<a href="http://crimi:!HTTPPasswort123@proxy-emea.rsint.net:8080">http://crimi:!HTTPPasswort123@proxy-emea.rsint.net:8080</a>
+http_proxy</sub>=<a href="http://crimi:!HTTPPasswort123@proxy-emea.rsint.net:8080">http://crimi:!HTTPPasswort123@proxy-emea.rsint.net:8080</a>
 </p>
 </div>
 </div>
