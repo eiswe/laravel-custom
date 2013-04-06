@@ -115,8 +115,12 @@ class Admin_Text_Controller extends Admin_Base_Controller {
 */
     public function get_edit($id){  // for fetching errors need to use routes....^^ ok NOT!
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $ttext = Text::where('id', '=', $id)->get();
+        $uid = Session::get('id');                                   // fetch Session:id and 
+        
+        if ( $uid == 1 ) {
+            $ttext = Text::all();
+        } elseif ( $uid >= 1 ) {
+            $ttext = Admin::find( $uid )->text()->where('id', '=', $id)->get();   // lets load all ttext exist in Database   
         }
  
         return View::make( 'admin::texts.edit' )
@@ -161,8 +165,10 @@ class Admin_Text_Controller extends Admin_Base_Controller {
             ;
         } 
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $ttext = Text::where('id', '=', $id)->get();
+        if ( $uid == 1 ) {
+            $ttext = Text::all();
+        } elseif ( $uid >= 1 ) {
+            $ttext = Admin::find( $uid )->text()->where('id', '=', $id)->get();   // lets load all ttext exist in Database   
         }
 
 

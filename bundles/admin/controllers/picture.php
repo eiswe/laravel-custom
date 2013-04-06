@@ -121,8 +121,12 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 */
     public function get_edit($id){  // for fetching errors need to use routes....^^ ok NOT!
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $ppicture = Picture::where('id', '=', $id)->get();
+        $uid = Session::get('id');                                   // fetch Session:id and 
+        
+        if ( $uid == 1 ) {
+            $ppicture = Picture::all();
+        } elseif ( $uid >= 1 ) {
+            $ppicture = Admin::find( $uid )->picture()->where('id', '=', $id)->get();   // lets load all ppicture exist in Database   
         }
  
         return View::make( 'admin::pictures.edit' )
@@ -168,8 +172,10 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
             ;
         } 
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $ppicture = Picture::where('id', '=', $id)->get();
+        if ( $uid == 1 ) {
+            $ppicture = Picture::all();
+        } elseif ( $uid >= 1 ) {
+            $ppicture = Admin::find( $uid )->picture()->where('id', '=', $id)->get();   // lets load all ppicture exist in Database   
         }
 
 

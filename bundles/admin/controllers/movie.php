@@ -125,8 +125,12 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
 */
     public function get_edit($id){  // for fetching errors need to use routes....^^ ok NOT!
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $mmovie = Movie::where('id', '=', $id)->get();
+        $uid = Session::get('id');                                            // fetch Session:id
+
+        if ( $uid == 1 ) {
+            $mmovie = Movie::all();
+        } elseif ( $uid >= 1 ) {
+            $mmovie = Admin::find( $uid )->movie()->where('id', '=', $id)->get();   // lets load all mmovie exist in Database   
         }
  
         return View::make( 'admin::movies.edit' )
@@ -173,8 +177,10 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
             ;
         } 
 
-        if ( $id <= 123456 ) {                                          // notice automaticlly if you search for sn instead of id... 
-            $mmovie = Movie::where('id', '=', $id)->get();
+        if ( $uid == 1 ) {
+            $mmovie = Movie::all();
+        } elseif ( $uid >= 1 ) {
+            $mmovie = Admin::find( $uid )->movie()->where('id', '=', $id)->get();   // lets load all mmovie exist in Database   
         }
 
 
