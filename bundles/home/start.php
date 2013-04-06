@@ -5,7 +5,7 @@
 	// ));
 
 	Autoloader::namespaces(array(
-	    'Home\Models' => Bundle::path('home').'models',
+	    'Home\Models' => Bundle::path('home'),
 	));
 /*
 	    'Home\Libraries' => Bundle::path('home').'libraries',
