@@ -1,4 +1,5 @@
 <?php
+use Home\Models\Page;
 
 Route::get('/about', function(){
 	return View::make('admin::home.about')->with('title', 'LimeBlack - About us!')->with('site', 'home');
