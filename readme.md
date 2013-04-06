@@ -9,6 +9,18 @@ and my Area to play with some Web Magick!
 A lot of my Projects are private but i will try to publish some of them
 to show you all what i am doing and looking for!
 
+ok now i have put all my stuff into a bundle only need to remove the laravel from my github project
+
+to install my bundle add this to your bundles.php - my project required bootstrapper!
+
+	'admin'	=> array( 'handles' => 'admin' ),		// registrating a new bundle: admin
+	
+	'home'	=> array( 								// registrating a new bundle: home -> for public contents
+		'auto' 		=> true,
+		'handles' => 'home'
+	),	
+
+
 [Official Website & Documentation of using Laravel PHP Framework](http://laravel.com)
 
 ## Feature Overview

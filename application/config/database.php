@@ -68,14 +68,14 @@ return array(
 		),
 
 		'mysql' => array(
-			'driver'   => 'mysql',
-			'host'     => '127.0.0.1',
-			'database' => 'laravel-custom',
-			'username' => 'lara2',
-			'password' => 'l4r4v3l',
-			'charset'  => 'utf8',
-			'prefix'   => '',
-		),
+  			'driver'   => 'mysql',
+   			'host'     => '127.0.0.1',
+  			'database' => 'lara',
+  			'username' => 'lara',
+      		'password' => 'l4r4cr0ft',
+     		'charset'  => 'utf8',
+      		'prefix'   => '',
+    	),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

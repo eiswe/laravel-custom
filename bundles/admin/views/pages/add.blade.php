@@ -1,4 +1,4 @@
-@layout('layouts.navi')
+@layout('admin::ayouts.navi')
 
 @section('subnav')
     <?php 

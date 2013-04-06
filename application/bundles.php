@@ -38,6 +38,11 @@ return array(
 	'docs'	=> array( 'handles' => 'docs' ),
 
 	'admin'	=> array( 'handles' => 'admin' ),		// registrating a new bundle: admin
+	
+	'home'	=> array( 								// registrating a new bundle: home -> for public contents
+		'auto' 		=> true,
+		'handles' => 'home'
+	),												
 
     'artisan' => array( 'handles' => 'artisan' ),	// registrating a new bundle: artisan
 
