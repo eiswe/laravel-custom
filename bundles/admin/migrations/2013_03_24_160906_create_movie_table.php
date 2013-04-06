@@ -26,18 +26,74 @@ class Admin_Create_Movie_Table {
 		});
 
         DB::table('movies')->insert(array(
-            'admin_id'        => '2',
-            'desc'      	=> 'Beautiful placeholder',
-            'path' 		    => 'http://placehold.it/64x64',
-            'rate'			=> '4',
-      	));
+            'admin_id'        => '1',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
 
-	    DB::table('movies')->insert(array(
+        DB::table('movies')->insert(array(
+            'admin_id'        => '1',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
             'admin_id'        => '2',
-            'desc'      	=> 'Beautiful placeholder',
-            'path' 		    => 'http://placehold.it/64x64',
-            'rate'			=> '4',
-    	));
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '2',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '3',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '4',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));                        
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '5',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
+
+        DB::table('movies')->insert(array(
+            'admin_id'        => '5',
+            'desc'          => 'Beautiful placeholder',
+            'path'          => 'http://placehold.it/64x64',
+            'rate'          => '4',
+        ));
 
 	}
 
