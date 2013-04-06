@@ -8,10 +8,10 @@
 		Bundle::path('admin').'models',
 	));
 
-	// Autoloader::namespaces(array(
-	//     //'Admin\Models' => Bundle::path('admin').'models',
-	//     'Admin\Libraries' => Bundle::path('admin').'libraries',
-	// ));
+	Autoloader::namespaces(array(
+	    //'Admin\Models' => Bundle::path('admin').'models',
+	    'Admin\Libraries' => Bundle::path('admin').'libraries',
+	));
 
 	Auth::extend('adminauth', function(){
 		return new Admin\Libraries\AdminAuth;
