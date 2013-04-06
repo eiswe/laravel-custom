@@ -1,6 +1,6 @@
 <?php
-// Import Model to use Admin class
-use Admin\Models\Admin;
+// // Import Model to use Admin class
+// use Admin\Models\Admin;
 
 
 Route::get('/about', function(){
