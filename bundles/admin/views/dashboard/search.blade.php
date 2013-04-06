@@ -18,6 +18,11 @@
 
   <div class="span10">
 
+
+    <form action="{{ url('user/upload')}}" class="dropzone" id="my-awesome-dropzone"></form>
+
+
+
   	<h1>Show you a beautiful Chart!</h1>
   	{{ Typography::lead('with some random data!') }}
 
