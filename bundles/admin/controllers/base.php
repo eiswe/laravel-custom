@@ -27,6 +27,8 @@ class Admin_Base_Controller extends Controller {
         Asset::container('footer')->add('jquery',       'js/jquery-latest.js');             // Added lokal jQuery
         Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
         Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
+        Asset::container('footer')->add('dropzone',       'js/dropzone.js');                // Added DropZone for Drag&Drop File Upload!
+        
         // Asset::container('footer')->add('bootstrapjs',          'js/bootstrap.js');                 // Added BootsrtapJS! for things like Pagination!
         // Asset::container('footer')->add('bootstrap-affix',      'js/bootstrap-affix.js');                 // Added BootsrtapJS! for things like Pagination!
         // Asset::container('footer')->add('bootstrap-carousel',   'js/bootstrap-carousel.js');                 // Added BootsrtapJS! for things like Pagination!
