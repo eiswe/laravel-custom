@@ -1,4 +1,7 @@
 <?php
+// Import Model to use Admin class
+use Admin\Models\Admin;
+
 
 Route::get('/about', function(){
 	return View::make('admin::home.about')->with('title', 'LimeBlack - About us!')->with('site', 'home');
@@ -21,7 +24,7 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 			$uid = $key->admin_id;
 		}
         $news = Page::where('admin_id', '=', $uid )->get();
-		// $news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'(
+		$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'(
 
 		return View::make('admin::show.news')
 			->with('title', 'LimeBlack - '.$any.' Index')
