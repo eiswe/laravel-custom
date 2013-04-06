@@ -1,6 +1,6 @@
 <?php
 namespace Admin\Libraries;
-use Laravel\Auth\Drivers\Eloquent, Laravel\Hash, Laravel\Config; // Admin\Models\Admin, 
+use Admin\Models\Admin, Laravel\Auth\Drivers\Eloquent, Laravel\Hash, Laravel\Config;
 class AdminAuth extends Eloquent{
 
     /**
