@@ -1,7 +1,4 @@
 <?php 
-namespace Admin\Models;
-use \Laravel\Database\Eloquent\Model as Eloquent;
-
 class Page extends Eloquent {
 
 	public static $table = 'pages';

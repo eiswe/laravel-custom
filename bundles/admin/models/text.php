@@ -1,7 +1,4 @@
 <?php 
-namespace Admin\Models;
-use \Laravel\Database\Eloquent\Model as Eloquent;
-
 class Text extends Eloquent {
 
 	public static $table = 'texts';

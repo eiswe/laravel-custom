@@ -46,14 +46,6 @@ return array(
 
     'artisan' => array( 'handles' => 'artisan' ),	// registrating a new bundle: artisan
 
-	'aware' => array(								// registrating aware bundle -> check forms!
-	  'autoloads' => array(
-	    'map' => array(
-	      'Aware' => '(:bundle)/model.php'
-	    ),
-	  )
-	),
-
    	'bootstrapper' => array('auto' => true),		// registrating a new bundle: bootstrapper
 
 
