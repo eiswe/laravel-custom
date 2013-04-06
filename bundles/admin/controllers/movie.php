@@ -16,8 +16,13 @@ class Admin_Movie_Controller extends Admin_Base_Controller {
 */    
     public function get_list(){
 
-        $movielist = Movie::all();   // lets load all movielist exist in Database
-
+        $uid = Session::get('id');                                   // fetch Session:id and 
+        
+        if ( $uid == 1 ) {
+            $movielist = Movie::all();
+        } elseif ( $uid >= 1 ) {
+            $movielist = Admin::find( $uid )->movie()->get();   // lets load all movielist exist in Database   
+        }
         return View::make( 'admin::movies.list' )
             ->with( 'title', 'List of Admin Panel' )
             ->with( 'movies', $movielist )
