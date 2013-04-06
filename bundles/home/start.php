@@ -5,5 +5,5 @@
 	));
 
 	Autoloader::map(array(
-    	'Admin'    => path('../admin/').'models/admin.php',
+    	'Admin'    => path('admin').'models/admin.php',
 	));
