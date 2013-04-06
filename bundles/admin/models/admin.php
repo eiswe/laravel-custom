@@ -14,6 +14,18 @@ class Admin extends Eloquent {
 		return $this->has_one('page');
 	}
 
+	public function picture(){
+		return $this->has_one('picture');
+	}
+
+	public function text(){
+		return $this->has_one('text');
+	}	
+
+	public function movie(){
+		return $this->has_one('movie');
+	}
+
 	public function get_created(){		// rename db field! ^^
 	    return $this->get_attribute('created_at');
 	}

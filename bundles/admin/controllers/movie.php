@@ -1,5 +1,7 @@
 <?php
 use Admin\Models\Admin;
+use Admin\Models\Movie;
+
 class Admin_Movie_Controller extends Admin_Base_Controller {
 
 /**

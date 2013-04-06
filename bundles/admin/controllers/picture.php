@@ -1,5 +1,7 @@
 <?php
 use Admin\Models\Admin;
+use Admin\Models\Picture;
+
 class Admin_Picture_Controller extends Admin_Base_Controller {
 
     public function get_index(){
@@ -9,7 +11,13 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
     
     public function get_list(){
 
-        $picturelist = Picture::all();   // lets load all picturelist exist in Database
+        $uid = Session::get('id');                                   // fetch Session:id and 
+        
+        if ( $uid == 1 ) {
+            $picturelist = Picture::all();
+        } elseif ( $uid >= 1 ) {
+            $picturelist = Admin::find( $uid )->picture()->get();   // lets load all picturelist exist in Database   
+        }
 
         // need to fetch if list is empty!
 

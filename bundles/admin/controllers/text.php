@@ -1,5 +1,6 @@
 <?php
 use Admin\Models\Admin;
+use Admin\Models\Text;
 class Admin_Text_Controller extends Admin_Base_Controller {
 
     public function get_index(){
