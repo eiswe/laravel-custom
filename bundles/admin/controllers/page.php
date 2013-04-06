@@ -1,6 +1,6 @@
 <?php
 use Admin\Models\Admin;
-use Admin\Models\Page;
+//use Admin\Models\Page;
 
 class Admin_Page_Controller extends Admin_Base_Controller {
 

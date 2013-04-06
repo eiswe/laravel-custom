@@ -1,6 +1,6 @@
 <?php
 use Admin\Models\Admin;
-use Admin\Models\Picture;
+//use Admin\Models\Picture;
 
 class Admin_Picture_Controller extends Admin_Base_Controller {
 
