@@ -20,15 +20,15 @@ class Admin_Base_Controller extends Controller {
         Config::set('auth.driver', 'adminauth');
         
         // Include header (css) and footer (js) files
-        // Asset::container('header')->bundle('admin');
-        // Asset::container('header')->add('bootstrap',    'css/bootstrap.css');               // Added custom bootstrap css, next to Bootstrapper!( Laravel-Bundle )
+        Asset::container('header')->bundle('admin');
+        Asset::container('header')->add('dropzonecss',    'css/dropzoneBasic.css');               // Added custom bootstrap css, next to Bootstrapper!( Laravel-Bundle )
 
         Asset::container('footer')->bundle('admin');    //Asset::container('footer')->add('jquery', 'http://code.jquery.com/jquery-latest.min.js');
         Asset::container('footer')->add('jquery',       'js/jquery-latest.js');             // Added lokal jQuery
         Asset::container('footer')->add('tablesort',    'js/jquery.tablesorter.js');        // Added TableSorter for Sort Bootstrap Tables!
         Asset::container('footer')->add('charts',       'js/Chart.js');                     // Added Chart.js for generate nice Charts!
         Asset::container('footer')->add('dropzone',       'js/dropzone.js');                // Added DropZone for Drag&Drop File Upload!
-        
+
         // Asset::container('footer')->add('bootstrapjs',          'js/bootstrap.js');                 // Added BootsrtapJS! for things like Pagination!
         // Asset::container('footer')->add('bootstrap-affix',      'js/bootstrap-affix.js');                 // Added BootsrtapJS! for things like Pagination!
         // Asset::container('footer')->add('bootstrap-carousel',   'js/bootstrap-carousel.js');                 // Added BootsrtapJS! for things like Pagination!

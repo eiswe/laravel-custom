@@ -13,6 +13,7 @@
 @endsection
 
 @section('content')
+{{ Asset::container('header')->styles() }}
 {{ Asset::container('footer')->scripts() }}
   <div class="span9">
 		@if(Session::get('alert'))
