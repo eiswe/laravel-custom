@@ -64,7 +64,7 @@
 
 ?>
   </div>
-  <div class="span4" style="background-color:red;">
+  <div class="span5" style="background-color:red;">
 
   	<h1>some shit</h1>
 
