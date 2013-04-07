@@ -1,62 +1,6 @@
-@layout('admin::layouts.navi')
+@layout('admin::pages.form')
 
-@section('subnav')
-    <?php 
-        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-        print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
-        print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
-        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
-    ?>
-@endsection
-
-
-@section('content')
-
-  <div class="span9">
-	<!--
-			Form like a BOSS! 
-		-->
-<?php
-      echo Breadcrumb::create(array( 'Edit' => $url.'/admin/page/edit', 'List' => $url.'/admin/page/list', 'Add'));
-
-/* admin menu */
-      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
-      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
-
-      if ( isset( $id ) ) {                                                       // check for logged in?
-        echo Navbar::create()
-          ->with_brand('Create Page', $url.'/admin/page/add')
-          ->with_menus(Navigation::links( array(
-              array('Home', '#', true),
-              array('Link', '#'),
-              array('Link', '#'),
-              array('Link', '#'),
-          )));
-
-        echo Tabbable::tabs_left( Navigation::links( array(
-            
-            array(
-                'Section 1',
-                "<p>Here you'can add a title!</p>",
-                true
-            ),
-            
-            array(
-                'Section 2',
-                "<p>Howdy, I'm in Section 2.</p>"
-            ),
-            
-            array(
-                'Section 3',
-                "<p>What up girl, this is Section 3.</p>"
-            ),
-        )));
-
-      }
-/* end of admin menu */
+@section('addform')
 
 ?>
 		<br /><br />
