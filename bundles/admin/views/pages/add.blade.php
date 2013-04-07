@@ -16,12 +16,37 @@
 @section('content')
 
   <div class="span9">
-	@yield('editmenu')
 	<!--
 			Form like a BOSS! 
 		-->
 <?php
       echo Breadcrumb::create(array( 'Edit' => $url.'/admin/page/edit', 'List' => $url.'/admin/page/list', 'Add'));
+
+/* admin menu */
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
+      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+      if ( isset( $id ) ) {                                                       // check for logged in?
+            echo Navbar::create()
+              ->with_brand('Create Page', $url.'/admin/page/add')
+              ->with_menus(Navigation::links( array(
+                  array('Home', '#', true),
+                  array('Link', '#'),
+                  array('Link', '#'),
+                  array('Link', '#'),
+                  array('Dropdown', '#', false, false, array(
+                      array('Action', '#'),
+                      array('Another action', '#'),
+                      array('Something else here', '#'),
+                      array(Navigation::DIVIDER),
+                      array(Navigation::HEADER, 'Nav header'),
+                      array('Separated link', '#'),
+                      array('One more separated link', '#'),
+                  ))
+              )));
+      }
+/* end of admin menu */
+
 ?>
 		<br /><br />
 		@if(Session::get('error'))
