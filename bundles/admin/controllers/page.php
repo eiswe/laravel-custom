@@ -5,26 +5,17 @@ use Admin\Models\Admin;
 
 class Admin_Page_Controller extends Admin_Base_Controller {
 
-/**
-    Index Page!!! 
-*/
-    public function get_index(){
-
-        return Redirect::to(URL::to_action('admin::home@list'));
+    public function get_index(){                                     // Index Page of Page^^
+        return Redirect::to(URL::to_action('admin::home@list'));     // return to list view of pages!
     }
     
-/**
-    List / Index Page!!! 
-*/    
-    public function get_list(){
+    public function get_list(){                                      /**    List / Index Page!!! */
 
         $uid = Session::get('id');                                   // fetch Session:id and 
-        
-        if ( $uid == 1 ) {
-            //$pagelist = Page::all();   // lets load all pagelist exist in Database        
+        if ( $uid == 1 ) {                                           // if root fetch all data
             $pagelist = Page::all();
-        } elseif ( $uid >= 1 ) {
-            $pagelist = Admin::find( $uid )->page()->get();   // lets load all pagelist exist in Database   
+        } elseif ( $uid >= 1 ) {                                     // else only your own!
+            $pagelist = Admin::find( $uid )->page()->get();          // lets load all pagelist exist in Database of user
         }
 
         return View::make( 'admin::pages.list' )
@@ -33,39 +24,33 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         ;
     }
 
-/**
-    Add Title of Page!!! 
-*/
-    public function get_add(){
-
-        // need to fetch if list is empty!
-
-        return View::make( 'admin::pages.add' )
-            ->with( 'title', 'Add new Page Title' )
-        ;
+    public function get_add(){                                      /**    Add Title of Page!!! */
+        return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
+            ->with( 'title', 'Add new Page Title' );
     }
 
-/**
-    Add Style of Page!!! 
-*/
-    public function get_style(){
+    public function post_add(){                                     /**    Inserted new Title and redirect to Styles */
 
-        // need to fetch if list is empty!
-
-        return View::make( 'admin::pages.style' )
+        $title = Input::get('title');
+        return View::make( 'admin::pages.style' )                   // Need to fetch some Infos and available styles?
             ->with( 'title', 'Add new Page Style' )
+            ->with( 'titel', $title )
         ;
-    }    
 
+    } 
+
+    public function get_style(){                                    /**    Add Style of Page!!! */
+        return 'cant reach this page!';
+        // return View::make( 'admin::pages.style' )                // Need to fetch some Infos and available styles?
+        //     ->with( 'title', 'Add new Page Style' );
+    }    
 /**
     POST Add Page!!! 
 */
-    public function post_add(){
-
+    public function post_style(){
         $creds = "";                                                // clear creds
 
-        $creds = Input::all();                                      // fetch all input, 
-        Input::clear();                                             // and clear after!
+        $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
 
         $id = Session::get('id');                                   // fetch Session:id and 
         $creds += array(                                            // add to creds ( creds = input vars)
