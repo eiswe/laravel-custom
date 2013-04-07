@@ -34,16 +34,28 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     }
 
 /**
-    Add Page!!! 
+    Add Title of Page!!! 
 */
     public function get_add(){
 
         // need to fetch if list is empty!
 
         return View::make( 'admin::pages.add' )
-            ->with( 'title', 'Add new Page' )
+            ->with( 'title', 'Add new Page Title' )
         ;
     }
+
+/**
+    Add Style of Page!!! 
+*/
+    public function get_style(){
+
+        // need to fetch if list is empty!
+
+        return View::make( 'admin::pages.style' )
+            ->with( 'title', 'Add new Page Style' )
+        ;
+    }    
 
 /**
     POST Add Page!!! 
