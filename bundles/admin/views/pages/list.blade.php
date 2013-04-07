@@ -36,11 +36,7 @@
       }
 /* end of admin menu */
 
-/**
-
-    Will generate a list of Pages on this site!
-
-*/
+/*    Will generate a list of Pages on this site! */
 		$headi = array(
             'ID',
             'UserID',
@@ -52,14 +48,11 @@
             'MoviesIDs',
 		);
 
-// could generate the list by hand (foreach loop, to have more space to handle the output...)
-
-	    echo Table::hover_tablesorter_condensed_open(); // bordered_hover_condensed_
+	    echo Table::hover_tablesorter_condensed_open();
 	    echo Table::headers($headi);
 	    echo Table::body($pages)
 	    	->ignore( 'created_at', 'updated_at' );
 	    echo Table::close();
-
     ?>
 
 @endsection

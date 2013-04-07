@@ -6,7 +6,7 @@ use Admin\Models\Admin;
 class Admin_Page_Controller extends Admin_Base_Controller {
 
     public function get_index(){                                     // Index Page of Page^^
-        return Redirect::to(URL::to_action('admin::home@list'));     // return to list view of pages!
+        return Redirect::to(URL::to_action('admin::page@list'));     // return to list view of pages!
     }
     
     public function get_list(){                                      /**    List / Index Page!!! */
@@ -30,19 +30,20 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     }
 
     public function post_add(){                                     /**    Inserted new Title and redirect to Styles */
-
+                                                                    // Need to fetch some Infos and available styles?
         $title = Input::get('title');
-        return View::make( 'admin::pages.style' )                   // Need to fetch some Infos and available styles?
+        return Redirect::to(URL::to_action('admin::page@style')  
             ->with( 'title', 'Add new Page Style' )
             ->with( 'titel', $title )
-        ;
+        );
 
     } 
 
     public function get_style(){                                    /**    Add Style of Page!!! */
-        return 'cant reach this page!';
-        // return View::make( 'admin::pages.style' )                // Need to fetch some Infos and available styles?
-        //     ->with( 'title', 'Add new Page Style' );
+        return View::make( 'admin::pages.style' )                   // Need to fetch some Infos and available styles?
+            ->with( 'title', 'Add new Page Style' )
+            ->with( 'titel', $titel )
+        ;
     }    
 /**
     POST Add Page!!! 
