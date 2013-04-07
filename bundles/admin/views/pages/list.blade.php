@@ -22,6 +22,43 @@
       echo Breadcrumb::create(array('Add' => $url.'/admin/page/add', 'Edit' => $url.'/admin/page/edit', 'List'));
     // print_r($pages);
     
+/* admin menu */
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
+      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+      if ( isset( $id ) ) {                                                       // check for logged in?
+        echo Tabbable::tabs_left( Navigation::links( array(
+            
+            array(
+                'Section 1',
+                "<p>I'm in Section 1.</p>",
+                true
+            ),
+            
+            array(
+                'Section 2',
+                "<p>Howdy, I'm in Section 2.</p>"
+            ),
+            
+            array(
+                'Section 3',
+                "<p>What up girl, this is Section 3.</p>"
+            ),
+        )));
+
+
+
+            // echo Navbar::create()
+            //   ->with_brand('Create Page', $url.'/admin/page/add')
+            //   ->with_menus(Navigation::links( array(
+            //       array('Home', '#', true),
+            //       array('Link', '#'),
+            //       array('Link', '#'),
+            //       array('Link', '#'),
+            //   )));
+      }
+/* end of admin menu */
+
 /**
 
     Will generate a list of Pages on this site!
