@@ -27,23 +27,34 @@
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
       if ( isset( $id ) ) {                                                       // check for logged in?
-            echo Navbar::create()
-              ->with_brand('Create Page', $url.'/admin/page/add')
-              ->with_menus(Navigation::links( array(
-                  array('Home', '#', true),
-                  array('Link', '#'),
-                  array('Link', '#'),
-                  array('Link', '#'),
-                  array('Dropdown', '#', false, false, array(
-                      array('Action', '#'),
-                      array('Another action', '#'),
-                      array('Something else here', '#'),
-                      array(Navigation::DIVIDER),
-                      array(Navigation::HEADER, 'Nav header'),
-                      array('Separated link', '#'),
-                      array('One more separated link', '#'),
-                  ))
-              )));
+        echo Navbar::create()
+          ->with_brand('Create Page', $url.'/admin/page/add')
+          ->with_menus(Navigation::links( array(
+              array('Home', '#', true),
+              array('Link', '#'),
+              array('Link', '#'),
+              array('Link', '#'),
+          )));
+
+        echo Tabbable::tabs_left( Navigation::links( array(
+            
+            array(
+                'Section 1',
+                "<p>Here you'can add a title!</p>",
+                true
+            ),
+            
+            array(
+                'Section 2',
+                "<p>Howdy, I'm in Section 2.</p>"
+            ),
+            
+            array(
+                'Section 3',
+                "<p>What up girl, this is Section 3.</p>"
+            ),
+        )));
+
       }
 /* end of admin menu */
 
