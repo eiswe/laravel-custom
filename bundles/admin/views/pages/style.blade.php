@@ -66,7 +66,7 @@
 	?>
   </div>
 
-  <div class="span5" style="background-color:red;">
+  <div class="span5">
 
   	<div class="hero-unit">
   		<p>will show preview here!</p>
