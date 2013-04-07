@@ -24,17 +24,6 @@
                             But dont need to close!!!!!
                 -->
                   @yield('content')
-                  <div class="row">
-
-                    <?php
-
-                      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
-                      if ( isset( $id ) ) {                                                       // if true -> show userid!
-                        echo Typography::lead('Your UserID is: '.$id , 'i');
-                      }
-
-                    ?>
-                  </div>
               </div>
           </div>
       </div>

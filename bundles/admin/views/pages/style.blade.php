@@ -16,26 +16,26 @@
 @section('content')
 
   <div class="span10">
+	<?php
+	/* admin menu */
+	      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
+	      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+	      if ( isset( $id ) ) {                                                       // check for logged in?
+	        echo Navbar::create()
+	          ->with_brand('Create Page', $url.'/admin/page/add')
+	          ->with_menus(Navigation::links( array(
+	              array('Add Title', $url.'/admin/page/add'),
+	              array('Select Sytle', $url.'/admin/page/style', true),
+	          )));
+	      }
+	/* end of admin menu */
+
+	?>
   <div class="span5">
 	<!--
 			Form like a BOSS! 
 		-->
-<?php
-/* admin menu */
-      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
-      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
-
-      if ( isset( $id ) ) {                                                       // check for logged in?
-        echo Navbar::create()
-          ->with_brand('Create Page', $url.'/admin/page/add')
-          ->with_menus(Navigation::links( array(
-              array('Add Title', $url.'/admin/page/add'),
-              array('Select Sytle', $url.'/admin/page/style', true),
-          )));
-      }
-/* end of admin menu */
-
-?>
 		<br /><br />
 		@if(Session::get('error'))
 			<?php 
@@ -47,27 +47,30 @@
 				}
 			?>
 		@endif
-<?php 
 
-	echo Form::horizontal_open();
+	<?php 
+
+		echo Form::horizontal_open();
+
+			echo Form::control_group(
+				Form::label('st', 'Style'), 
+				Form::medium_text('st'), '', 
+				Form::block_help('choose your style - will add a dropdown here'));
 
 
-		echo Form::control_group(
-			Form::label('st', 'Style'), 
-			Form::medium_text('st'), '', 
-			Form::block_help('choose your style - will add a dropdown here'));
+			echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 
+			Form::token();
+	   	Form::close();
 
-		echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
-
-		Form::token();
-   	Form::close();
-
-?>
+	?>
   </div>
+
   <div class="span5" style="background-color:red;">
 
-  	<h1>some shit</h1>
+  	<div class="hero-unit">
+  		<p>will show preview here!</p>
+  	</div>
 
   </div></div>
 
