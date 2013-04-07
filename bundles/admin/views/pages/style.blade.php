@@ -15,6 +15,7 @@
 
 @section('content')
 
+  <div class="span10">
   <div class="span5">
 	<!--
 			Form like a BOSS! 
@@ -68,6 +69,6 @@
 
   	<h1>some shit</h1>
 
-  </div>
+  </div></div>
 
 @endsection
