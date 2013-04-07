@@ -69,7 +69,11 @@
   <div class="span5">
 
   	<div class="hero-unit">
-  		<p>will show preview here!</p>
+  		<p>Here you see your Preview:</p>
+  	</div>
+
+  	<div class="hero-unit">
+  		<p>{{ $titel }}</p>
   	</div>
 
   </div></div>
