@@ -12,11 +12,11 @@
     ?>
 @endsection
 
-@yield('editmenu')
 
 @section('content')
 
   <div class="span9">
+	@yield('editmenu')
 	<!--
 			Form like a BOSS! 
 		-->
