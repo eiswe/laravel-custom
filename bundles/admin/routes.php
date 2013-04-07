@@ -4,7 +4,7 @@ Route::controller(Controller::detect('admin'));			// Enable all Admin Bundle Con
 
 // create route with filter auth? does i need filter?
 
-Route::get('/admin/test', function(){
+Route::get('/admin/test', array('before' => 'auth'), function(){
 	return "blah";
 });
 
