@@ -32,8 +32,6 @@
           ->with_menus(Navigation::links( array(
               array('Add Title', $url.'/admin/page/add', true),
               array('Select Sytle', $url.'/admin/page/style'),
-              array('Link', $url.'/admin/page/add'),
-              array('Link', $url.'/admin/page/add'),
           )));
       }
 /* end of admin menu */
