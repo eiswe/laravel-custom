@@ -26,7 +26,6 @@
                   @yield('content')
                   <div class="row">
 
-                    @yield('editmenu')
                     <?php
 
                       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??

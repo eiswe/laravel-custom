@@ -12,6 +12,8 @@
     ?>
 @endsection
 
+@yield('editmenu')
+
 @section('content')
 
   <div class="span9">
