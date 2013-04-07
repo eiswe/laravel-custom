@@ -20,8 +20,6 @@
 			Form like a BOSS! 
 		-->
 <?php
-      echo Breadcrumb::create(array( 'Edit' => $url.'/admin/page/edit', 'List' => $url.'/admin/page/list', 'Add'));
-
 /* admin menu */
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
