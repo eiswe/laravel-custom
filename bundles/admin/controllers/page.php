@@ -48,7 +48,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 /**
     POST Add Page!!! 
 */
-    public function post_style(){
+    public function post_page(){
         $creds = "";                                                // clear creds
 
         $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
