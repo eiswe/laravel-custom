@@ -35,7 +35,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         return Redirect::to('admin::page.style')  
             ->with( 'title', 'Add new Page Style' )
             ->with( 'titel', $title )
-        );
+        ;
 
     } 
 
