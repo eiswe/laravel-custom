@@ -73,7 +73,7 @@
   	</div>
 
   	<div class="hero-unit">
-  		<p>{{ $titel }}</p>
+  		<p>here showd be the preview..</p>
   	</div>
 
   </div></div>
