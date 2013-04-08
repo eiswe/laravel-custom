@@ -32,7 +32,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     public function post_add(){                                     /**    Inserted new Title and redirect to Styles */
                                                                     // Need to fetch some Infos and available styles?
         $title = Input::get('title');
-        return Redirect::to(URL::to_action('admin::page@style')  
+        return Redirect::to('admin::page.style')  
             ->with( 'title', 'Add new Page Style' )
             ->with( 'titel', $title )
         );
