@@ -97,8 +97,8 @@
 					?>  </div>
 						<?php
 					} else {
+						echo '<div class="tab-pane       " id="'.$d.'">';
 						?>
-						<div class="tab-pane       " id="'.$d.'">
 							@if(Session::get('error'))
 								<?php 
 									$error = Session::get('error'); 
