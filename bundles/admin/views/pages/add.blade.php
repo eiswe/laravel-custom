@@ -49,8 +49,8 @@
 	        "<p>Howdy, I'm in Section 2.</p>"
 	      ),
 	      array(
-	        $url.'/admin/page/desc',
 	        'Section 3', 
+	        '<a href="'$url.'/admin/page/desc">Desc</a>',
 	      ),
 	    )
 	  )
