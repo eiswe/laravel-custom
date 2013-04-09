@@ -13,7 +13,7 @@ class Admin_Create_Style_Table {
 		Schema::create('styles', function($table){
 
 	        $table->increments('id')->unique();
-
+            $table->integer('admin_id');
 	        $table->string('name', 32)->nullable();
 	        $table->string('desc', 128)->nullable();
 	        $table->string('fieldName', 32)->nullable();		// {title,desc,image,text}
@@ -25,6 +25,7 @@ class Admin_Create_Style_Table {
 	    });
 
         DB::table('styles')->insert(array( 			// insert testdata: Text
+            'admin_id'        => '2',
             'name'        	=> 'Text',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Titel',
@@ -34,6 +35,7 @@ class Admin_Create_Style_Table {
       	));
 
         DB::table('styles')->insert(array(
+            'admin_id'        => '2',
             'name'        	=> 'Text',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Desc',
@@ -43,6 +45,7 @@ class Admin_Create_Style_Table {
       	));
 
         DB::table('styles')->insert(array(
+            'admin_id'        => '2',
             'name'        	=> 'Text',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'text',
@@ -52,6 +55,7 @@ class Admin_Create_Style_Table {
       	));
 
         DB::table('styles')->insert(array( 			// insert testdata: Gallery
+            'admin_id'        => '2',
             'name'        	=> 'Gallery',
             'desc'  		=> 'insert Title',
             'fieldName'    	=> 'Titel',
@@ -60,6 +64,7 @@ class Admin_Create_Style_Table {
             'relation'     	=> '',
       	));
         DB::table('styles')->insert(array(
+            'admin_id'        => '2',
             'name'        	=> 'Gallery',
             'desc'  		=> 'insert description',
             'fieldName'    	=> 'Desc',
@@ -68,6 +73,7 @@ class Admin_Create_Style_Table {
             'relation'     	=> '',
       	));
         DB::table('styles')->insert(array(
+            'admin_id'        => '2',
             'name'        	=> 'Gallery',
             'desc'  		=> 'Want Pictures?',
             'fieldName'    	=> 'Display Pictures',
