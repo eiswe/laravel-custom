@@ -37,6 +37,13 @@
 
 
 	<form class="navbar-form pull-left">
+		<select>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
 		<?php
 			echo Form::control_group(Form::label('select01', 'Select list'),
    				Form::select('select01', array('something', '2', '3', '4', '5')));
