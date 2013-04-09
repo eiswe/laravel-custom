@@ -14,22 +14,104 @@ class Admin_Create_Style_Table {
 
 	        $table->increments('id')->unique();
 
-	        $table->string('desc', 64)->nullable();
 	        $table->string('name', 32)->nullable();
-	        $table->string('structure', 2048)->nullable();		// {title,desc,image,text}
+	        $table->string('desc', 128)->nullable();
+	        $table->string('fieldName', 32)->nullable();		// {title,desc,image,text}
+	        $table->string('fieldType', 32)->nullable();		// {title,desc,image,text}
+	        $table->integer('weight')->nullable();				// {title,desc,image,text}
+	        $table->string('relation', 32)->nullable();		// {title,desc,image,text}
 
 	        $table->timestamps();
 	    });
 
-		// create a short array with only one item xD - for testing
-		$structure	= array( 'title', 'text' );
-        $structurestr = implode(",", $structure);
+        DB::table('styles')->insert(array( 			// insert testdata: Text
+            'name'        	=> 'Text',
+            'desc'  		=> 'only text',
+            'fieldName'    	=> 'Titel',
+            'fieldType'    	=> 'text',
+            'weight'        => 1,
+            'relation'     	=> '',
+      	));
 
         DB::table('styles')->insert(array(
-            'desc'  		=> 'only text',
             'name'        	=> 'Text',
-            'structure'    => $structurestr,
+            'desc'  		=> 'only text',
+            'fieldName'    	=> 'Desc',
+            'fieldType'    	=> 'text',
+            'weight'        => 2,
+            'relation'     	=> '',
       	));
+
+        DB::table('styles')->insert(array(
+            'name'        	=> 'Text',
+            'desc'  		=> 'only text',
+            'fieldName'    	=> 'text',
+            'fieldType'    	=> 'textarea',
+            'weight'        => 3,
+            'relation'     	=> '',
+      	));
+
+        DB::table('styles')->insert(array( 			// insert testdata: Gallery
+            'name'        	=> 'Gallery',
+            'desc'  		=> 'insert Title',
+            'fieldName'    	=> 'Titel',
+            'fieldType'    	=> 'text',
+            'weight'        => 1,
+            'relation'     	=> '',
+      	));
+        DB::table('styles')->insert(array(
+            'name'        	=> 'Gallery',
+            'desc'  		=> 'insert description',
+            'fieldName'    	=> 'Desc',
+            'fieldType'    	=> 'text',
+            'weight'        => 2,
+            'relation'     	=> '',
+      	));
+        DB::table('styles')->insert(array(
+            'name'        	=> 'Gallery',
+            'desc'  		=> 'Want Pictures?',
+            'fieldName'    	=> 'Display Pictures',
+            'fieldType'    	=> 'boolean',
+            'weight'        => 3,
+            'relation'     	=> 'pictures',
+      	));
+
+
+
+       //  DB::table('styles')->insert(array(
+       //      'name'        	=> 'Profile',
+       //      'desc'  		=> 'only text',
+       //      'fieldName'    	=> 'Titel',
+       //      'fieldType'    	=> 'text',
+       //      'weight'        => 5,
+       //      'relation'     	=> 'username',
+      	// ));
+
+       //  DB::table('styles')->insert(array(
+       //      'name'        	=> 'Profile',
+       //      'desc'  		=> 'only text',
+       //      'fieldName'    	=> 'Desc',
+       //      'fieldType'    	=> 'text',
+       //      'weight'        => 5,
+       //      'relation'     	=> '',
+      	// ));
+       //  DB::table('styles')->insert(array(
+       //      'name'        	=> 'Profile',
+       //      'desc'  		=> 'only text',
+       //      'fieldName'    	=> 'Titel',
+       //      'fieldType'    	=> 'text',
+       //      'weight'        => 5,
+       //      'relation'     	=> '',
+      	// ));
+       //  DB::table('styles')->insert(array(
+       //      'name'        	=> 'Profile',
+       //      'desc'  		=> 'only text',
+       //      'fieldName'    	=> 'Titel',
+       //      'fieldType'    	=> 'text',
+       //      'weight'        => 5,
+       //      'relation'     	=> '',
+      	// ));
+
 
 	}
 
