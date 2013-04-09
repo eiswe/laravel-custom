@@ -53,15 +53,15 @@
 
 	  			foreach (array_unique( $stylenames ) as $d) {
 					if ( $d == "text" ) {
-						echo '<li class="active"><a href="#tab1" data-toggle="tab">'.$d.'</a></li>';
+						echo '<li class="active"><a href='.$d.' data-toggle="tab">'.$d.'</a></li>';
 					} else {
-						echo '<li               ><a href="#tab1" data-toggle="tab">'.$d.'</a></li>';
+						echo '<li               ><a href='.$d.' data-toggle="tab">'.$d.'</a></li>';
 					}
 				}
 		  	?>
 		  </ul>
 		  <div class="tab-content">
-		    <div class="tab-pane active" id="tab1">
+		    <div class="tab-pane active" id="Text">
 				@if(Session::get('error'))
 					<?php 
 						$error = Session::get('error'); 
@@ -88,7 +88,7 @@
 			   	Form::close();
 					?>
 		    </div>
-		    <div class="tab-pane" id="tab2">
+		    <div class="tab-pane" id="Gallery">
 		      <p>Howdy, I'm in Section 2.</p>
 		    </div>
 		    <div class="tab-pane" id="tab3">
