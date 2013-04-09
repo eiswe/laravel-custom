@@ -33,6 +33,15 @@
 
 		<div class="tabbable tabs-left">
 		  <ul class="nav nav-tabs">
+		  	<?php 
+		  		foreach ($styles as $key => $value) {
+		  			print '<br />';
+		  			print_r($key);
+		  			print_r($value);
+		  			print '<br />';
+		  			print '<br />';
+		  		}
+		  	?>
 		    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
 		    <li  		      ><a href="#tab2" data-toggle="tab">Section 2</a></li>
 		    <li  		      ><a href="#tab3" data-toggle="tab">Section 3</a></li>
