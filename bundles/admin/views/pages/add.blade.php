@@ -50,7 +50,7 @@
 	      ),
 	      array(
 	        'Section 3', 
-	        '<a href="'$url.'/admin/page/desc">Desc</a>',
+	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
 	      ),
 	    )
 	  )
