@@ -34,37 +34,42 @@
 	?>
   <div class="span5">
 
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+    <li  		      ><a href="#tab2" data-toggle="tab">Section 2</a></li>
+    <li  		      ><a href="#tab3" data-toggle="tab">Section 3</a></li>
+    <li  		      ><a href="#tab4" data-toggle="tab">Section 4</a></li>
+    <li  		      ><a href="#tab5" data-toggle="tab">Section 5</a></li>
+    <li  		      ><a href="#tab6" data-toggle="tab">Section 6</a></li>
+    <li  		      ><a href="#tab7" data-toggle="tab">Section 7</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>I'm in Section 1.</p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>Howdy, I'm in Section 2.</p>
+    </div>
+    <div class="tab-pane" id="tab3">
+      <p>Howdy, I'm in Section 3.</p>
+    </div>
+    <div class="tab-pane" id="tab4">
+      <p>Howdy, I'm in Section 4.</p>
+    </div>
+    <div class="tab-pane" id="tab5">
+      <p>Howdy, I'm in Section 5.</p>
+    </div>
+    <div class="tab-pane" id="tab6">
+      <p>Howdy, I'm in Section 6.</p>
+    </div>
+    <div class="tab-pane" id="tab7">
+      <p>Howdy, I'm in Section 7.</p>
+    </div>
+  </div>
+</div>
 
 
-	<form class="navbar-form pull-left">
-		<select>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-		</select>
-		<?php
-			//echo Form::control_group(Form::label('select01', 'Select list'),
-   				
-
-			Form::select('select01', array('something', '2', '3', '4', '5')); //);
-			//echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
-			Form::token();
-		?>
-  	</form>
-<!--   	
-	<form class="navbar-form pull-left">
-		<?php
-			echo Form::control_group(Form::label('select01', 'Select list'),
-   				Form::select('select01', array('something', '2', '3', '4', '5')));
-
-			echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
-
-			Form::token();
-		?>
-  	</form>
- -->
   	<?php
 
 
