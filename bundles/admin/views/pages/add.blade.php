@@ -110,7 +110,7 @@
 								?>
 							@endif <?php 
 
-							echo Form::horizontal_open();
+							echo Form::horizontal_open('gallerie');
 
 								echo Form::control_group(
 									Form::label('st', 'Style'), 
