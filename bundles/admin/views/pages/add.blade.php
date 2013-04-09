@@ -48,7 +48,7 @@
 		  <ul class="nav nav-tabs">
 		  	<?php 
 		  		foreach ($styles as $key => $value) {
-		  			$stylenames[] = $value->name
+		  			$stylenames[] = $value->name;
 		  		}
 
 	  			foreach (array_unique( $stylenames ) as $d) {
