@@ -43,7 +43,7 @@
 	$site[] = "	<?php echo Form::token(); ?>";
 	$site[] = "<?php echo Form::close(); ?>";
 
-
+	print_r($site);
 
 
 
@@ -61,7 +61,7 @@
 	      ),
 	      array(
 	        'Section 3', 
-	        $site,
+	        'bölah', //$site,
 
 	      ),
 	    )
