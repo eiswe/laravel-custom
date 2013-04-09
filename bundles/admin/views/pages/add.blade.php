@@ -80,9 +80,11 @@
 										echo '<div class="alert alert-error">'.$value.'</div>';
 									}
 								?>
-							@endif <?php 
+							@endif 
 
-							echo Form::horizontal_open('text');
+							<form id="text" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
+							<?php 
+							//echo Form::horizontal_open('text');
 
 								echo Form::control_group(
 									Form::label('st', 'Style'), 
@@ -108,8 +110,10 @@
 										echo '<div class="alert alert-error">'.$value.'</div>';
 									}
 								?>
-							@endif <?php 
+							@endif 
 
+							<form id="gallerie" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
+							<?php 
 							echo Form::horizontal_open('gallerie');
 
 								echo Form::control_group(
