@@ -34,39 +34,42 @@
 	?>
   <div class="span5">
 
+
+
+	<form class="navbar-form pull-left">
+		<?php
+			echo Form::control_group(Form::label('select01', 'Select list'),
+   				Form::select('select01', array('something', '2', '3', '4', '5')));
+
+			echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+
+			Form::token();
+		?>
+  	</form>
+
   	<?php
 
 
-	$site[] = "echo Form::horizontal_open(); ";
-	$site[] = "	echo Form::control_group(Form::label('st', 'Style'), Form::medium_text('st'), '', Form::block_help('choose your style - will add a dropdown here')); ";
-	$site[] = "	echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel'))); ";
-	$site[] = "	echo Form::token(); ";
-	$site[] = "echo Form::close(); ";
+ //  	echo Tabbable::tabs_left(
+	//   Navigation::links(
+	//     array(
+	//       array(
+	//         'Section 1', 
+	//         "<p>I'm in Section 1.</p>", 
+	//         true
+	//       ),
+	//       array(
+	//         'Section 2', 
+	//         "<p>Howdy, I'm in Section 2.</p>"
+	//       ),
+	//       array(
+	//         'Section 3', 
+	//         'bölah', //$site,
 
-	print_r($site);
-
-
-
-  	echo Tabbable::tabs_left(
-	  Navigation::links(
-	    array(
-	      array(
-	        'Section 1', 
-	        "<p>I'm in Section 1.</p>", 
-	        true
-	      ),
-	      array(
-	        'Section 2', 
-	        "<p>Howdy, I'm in Section 2.</p>"
-	      ),
-	      array(
-	        'Section 3', 
-	        'bölah', //$site,
-
-	      ),
-	    )
-	  )
-	);
+	//       ),
+	//     )
+	//   )
+	// );
 
   	?>
 
