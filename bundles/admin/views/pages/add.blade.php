@@ -46,7 +46,31 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tab1">
-      <p>I'm in Section 1.</p>
+		@if(Session::get('error'))
+			<?php 
+				$error = Session::get('error'); 
+				//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
+				foreach ($error as $value) {
+					# code...
+					echo '<div class="alert alert-error">'.$value.'</div>';
+				}
+			?>
+		@endif
+			<?php 
+
+		echo Form::horizontal_open();
+
+			echo Form::control_group(
+				Form::label('st', 'Style'), 
+				Form::medium_text('st'), '', 
+				Form::block_help('choose your style - will add a dropdown here'));
+
+
+			echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+
+			Form::token();
+	   	Form::close();
+			?>
     </div>
     <div class="tab-pane" id="tab2">
       <p>Howdy, I'm in Section 2.</p>
@@ -107,8 +131,7 @@
 				}
 			?>
 		@endif
-
-	<?php 
+			<?php 
 
 		echo Form::horizontal_open();
 
