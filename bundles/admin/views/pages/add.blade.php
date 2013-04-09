@@ -27,20 +27,29 @@
 		      array('Add Sytle', $url.'/admin/page/add', true),
 		      array('Add Infos', $url.'/admin/page/desc'),
 		)));  /* end of admin menu */
-	} ?>
+	} 
+
+
+/*
+
+	field for inspiration!
+
+	[id] => 1 [admin_id] => 2 [name] => Text [desc] => only text [fieldname] => Titel [fieldtype] => text [weight] => 1 [relation] 
+
+*/
+
+	?>
+
+
 
   	<div class="span5">
 
 		<div class="tabbable tabs-left">
 		  <ul class="nav nav-tabs">
 		  	<?php 
-		  		foreach ($styles as $key => $value) {
-		  			print '<br />';
-		  			print_r($key);
-		  			print_r($value);
-		  			print '<br />';
-		  			print '<br />';
-		  		}
+	  			foreach (array_unique( $styles->name ) as $d) {
+					print $d;
+				}
 		  	?>
 		    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
 		    <li  		      ><a href="#tab2" data-toggle="tab">Section 2</a></li>
