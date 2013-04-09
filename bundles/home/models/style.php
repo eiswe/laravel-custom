@@ -4,8 +4,8 @@ class Style extends Eloquent {
 	public static $table = 'styles';
 	public static $timestamps = true;
 
-	public function page(){
-		return $this->belongs_to('Page');
+	public function admin(){
+		return $this->belongs_to('Admin');
 	}
 	
 }

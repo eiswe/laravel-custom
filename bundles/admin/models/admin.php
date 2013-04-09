@@ -14,6 +14,10 @@ class Admin extends Eloquent {
 		return $this->has_one('page');
 	}
 
+	public function style(){
+		return $this->has_one('style');
+	}	
+
 	public function picture(){
 		return $this->has_one('picture');
 	}
