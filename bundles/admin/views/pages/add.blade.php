@@ -53,9 +53,9 @@
 
 	  			foreach (array_unique( $stylenames ) as $d) {
 					if ( $d == "text" ) {
-						echo '<li class="active"><a href='.$d.' data-toggle="tab">'.$d.'</a></li>';
+						echo '<li class="active"><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
 					} else {
-						echo '<li               ><a href='.$d.' data-toggle="tab">'.$d.'</a></li>';
+						echo '<li               ><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
 					}
 				}
 		  	?>
