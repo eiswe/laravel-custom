@@ -46,6 +46,16 @@
 			Form::token();
 		?>
   	</form>
+  	<form class="navbar-form pull-left">
+		<?php
+			echo Form::control_group(Form::label('select01', 'Select list'),
+   				Form::select('select01', array('something', '2', '3', '4', '5')));
+
+			echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+
+			Form::token();
+		?>
+  	</form>
 
   	<?php
 
