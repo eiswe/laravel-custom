@@ -50,7 +50,7 @@
 	      ),
 	      array(
 	        'Section 3', 
-	        "<p>What up girl, this is Section 3.</p>"
+	        $url.'/admin/page/desc'
 	      ),
 	    )
 	  )
