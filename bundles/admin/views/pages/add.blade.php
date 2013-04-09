@@ -47,21 +47,18 @@
 		<div class="tabbable tabs-left">
 		  <ul class="nav nav-tabs">
 		  	<?php 
-		  		foreach ($styles as $key => $value) {
+		  		foreach ($styles as $key => $value) {												// generate list of stylenames and create menu entrys
 		  			$stylenames[] = $value->name;
 		  		}
 
 	  			foreach (array_unique( $stylenames ) as $d) {
-					print $d;
+					if ( $d == "text" ) {
+						echo '<li class="active"><a href="#tab1" data-toggle="tab">'.$d.'</a></li>';
+					} else {
+						echo '<li               ><a href="#tab1" data-toggle="tab">'.$d.'</a></li>';
+					}
 				}
 		  	?>
-		    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-		    <li  		      ><a href="#tab2" data-toggle="tab">Section 2</a></li>
-		    <li  		      ><a href="#tab3" data-toggle="tab">Section 3</a></li>
-		    <li  		      ><a href="#tab4" data-toggle="tab">Section 4</a></li>
-		    <li  		      ><a href="#tab5" data-toggle="tab">Section 5</a></li>
-		    <li  		      ><a href="#tab6" data-toggle="tab">Section 6</a></li>
-		    <li  		      ><a href="#tab7" data-toggle="tab">Section 7</a></li>
 		  </ul>
 		  <div class="tab-content">
 		    <div class="tab-pane active" id="tab1">
