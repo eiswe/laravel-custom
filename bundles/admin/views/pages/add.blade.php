@@ -36,6 +36,17 @@
 
   	<?php
 
+
+	$site[] = "<?php echo Form::horizontal_open(); ?>";
+	$site[] = "	<?php echo Form::control_group(Form::label('st', 'Style'), Form::medium_text('st'), '', Form::block_help('choose your style - will add a dropdown here')); ?>";
+	$site[] = "	<?php echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel'))); ?>";
+	$site[] = "	<?php echo Form::token(); ?>";
+	$site[] = "<?php echo Form::close(); ?>";
+
+
+
+
+
   	echo Tabbable::tabs_left(
 	  Navigation::links(
 	    array(
@@ -50,24 +61,8 @@
 	      ),
 	      array(
 	        'Section 3', 
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
-	        '<a href="'.$url.'/admin/page/desc">Desc</a>',
+	        $site,
+
 	      ),
 	    )
 	  )
