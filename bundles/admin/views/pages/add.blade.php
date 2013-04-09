@@ -37,11 +37,11 @@
   	<?php
 
 
-	$site[] = "<?php echo Form::horizontal_open(); ?>";
-	$site[] = "	<?php echo Form::control_group(Form::label('st', 'Style'), Form::medium_text('st'), '', Form::block_help('choose your style - will add a dropdown here')); ?>";
-	$site[] = "	<?php echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel'))); ?>";
-	$site[] = "	<?php echo Form::token(); ?>";
-	$site[] = "<?php echo Form::close(); ?>";
+	$site[] = "echo Form::horizontal_open(); ";
+	$site[] = "	echo Form::control_group(Form::label('st', 'Style'), Form::medium_text('st'), '', Form::block_help('choose your style - will add a dropdown here')); ";
+	$site[] = "	echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel'))); ";
+	$site[] = "	echo Form::token(); ";
+	$site[] = "echo Form::close(); ";
 
 	print_r($site);
 
