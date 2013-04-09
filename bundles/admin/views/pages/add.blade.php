@@ -33,10 +33,32 @@
 
 	?>
   <div class="span5">
-	<!--
-			Form like a BOSS! 
-		-->
-		<br /><br />
+
+  	<?php
+
+  	echo Tabbable::tabs_left(
+	  Navigation::links(
+	    array(
+	      array(
+	        'Section 1', 
+	        "<p>I'm in Section 1.</p>", 
+	        true
+	      ),
+	      array(
+	        'Section 2', 
+	        "<p>Howdy, I'm in Section 2.</p>"
+	      ),
+	      array(
+	        'Section 3', 
+	        "<p>What up girl, this is Section 3.</p>"
+	      ),
+	    )
+	  )
+	);
+
+  	?>
+
+
 		@if(Session::get('error'))
 			<?php 
 				$error = Session::get('error'); 
