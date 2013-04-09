@@ -47,7 +47,11 @@
 		<div class="tabbable tabs-left">
 		  <ul class="nav nav-tabs">
 		  	<?php 
-	  			foreach (array_unique( $styles->name ) as $d) {
+		  		foreach ($styles as $key => $value) {
+		  			$stylenames[] = $value->name
+		  		}
+
+	  			foreach (array_unique( $stylenames ) as $d) {
 					print $d;
 				}
 		  	?>
