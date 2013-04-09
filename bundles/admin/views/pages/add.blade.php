@@ -82,7 +82,7 @@
 								?>
 							@endif <?php 
 
-							echo Form::horizontal_open();
+							echo Form::horizontal_open('text');
 
 								echo Form::control_group(
 									Form::label('st', 'Style'), 
