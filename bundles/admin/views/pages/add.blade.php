@@ -52,7 +52,7 @@
 		  		}
 
 	  			foreach (array_unique( $stylenames ) as $d) {
-					if ( $d == "text" ) {
+					if ( $d == "Text" ) {
 						echo '<li class="active"><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
 					} else {
 						echo '<li               ><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
@@ -61,51 +61,72 @@
 		  	?>
 		  </ul>
 		  <div class="tab-content">
-		    <div class="tab-pane active" id="Text">
-				@if(Session::get('error'))
-					<?php 
-						$error = Session::get('error'); 
-						//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
-						foreach ($error as $value) {
-							# code...
-							echo '<div class="alert alert-error">'.$value.'</div>';
-						}
-					?>
-				@endif
-					<?php 
+		  	<?php
+		  		foreach ($styles as $key => $value) {												// generate list of stylenames and create menu entrys
+		  			$stylenames[] = $value->name;
+		  		}
 
-				echo Form::horizontal_open();
+	  			foreach (array_unique( $stylenames ) as $d) {
 
-					echo Form::control_group(
-						Form::label('st', 'Style'), 
-						Form::medium_text('st'), '', 
-						Form::block_help('choose your style - will add a dropdown here'));
+					if ( $d == "Text" ) {
+						?>
+						<div class="tab-pane active" id="Text">
+							@if(Session::get('error'))
+								<?php 
+									$error = Session::get('error'); 
+									//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
+									foreach ($error as $value) {
+										# code...
+										echo '<div class="alert alert-error">'.$value.'</div>';
+									}
+								?>
+							@endif <?php 
+
+							echo Form::horizontal_open();
+
+								echo Form::control_group(
+									Form::label('st', 'Style'), 
+									Form::medium_text('st'), '', 
+									Form::block_help('choose your style - will add a dropdown here'));
 
 
-					echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+								echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 
-					Form::token();
-			   	Form::close();
-					?>
-		    </div>
-		    <div class="tab-pane" id="Gallery">
-		      <p>Howdy, I'm in Section 2.</p>
-		    </div>
-		    <div class="tab-pane" id="tab3">
-		      <p>Howdy, I'm in Section 3.</p>
-		    </div>
-		    <div class="tab-pane" id="tab4">
-		      <p>Howdy, I'm in Section 4.</p>
-		    </div>
-		    <div class="tab-pane" id="tab5">
-		      <p>Howdy, I'm in Section 5.</p>
-		    </div>
-		    <div class="tab-pane" id="tab6">
-		      <p>Howdy, I'm in Section 6.</p>
-		    </div>
-		    <div class="tab-pane" id="tab7">
-		      <p>Howdy, I'm in Section 7.</p>
-		    </div>
+								Form::token();
+						   	Form::close();
+					?>  </div>
+						<?php
+					} else {
+						?>
+						<div class="tab-pane       " id="'.$d.'">
+							@if(Session::get('error'))
+								<?php 
+									$error = Session::get('error'); 
+									//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
+									foreach ($error as $value) {
+										# code...
+										echo '<div class="alert alert-error">'.$value.'</div>';
+									}
+								?>
+							@endif <?php 
+
+							echo Form::horizontal_open();
+
+								echo Form::control_group(
+									Form::label('st', 'Style'), 
+									Form::medium_text('st'), '', 
+									Form::block_help('choose your style - will add a dropdown here'));
+
+
+								echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+
+								Form::token();
+						   	Form::close();
+					?>	</div>
+						<?php
+					}
+				}
+			?>
 		  </div>
 		</div>
 
