@@ -14,8 +14,8 @@ class Admin extends Eloquent {
 		return $this->has_one('page');
 	}
 
-	public function style(){
-		return $this->has_one('style');
+	public function bone(){
+		return $this->has_one('bones');
 	}	
 
 	public function picture(){

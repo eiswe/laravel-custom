@@ -28,9 +28,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         
         $uid = Session::get('id');                                   // fetch Session:id and 
         if ( $uid == 1 ) {                                           // if root fetch all data
-            $styleslst = Style::all();
+            $styleslst = Bone::all();
         } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $styleslst = Admin::find( $uid )->style()->get();          // lets load all styleslst exist in Database of user
+            $styleslst = Admin::find( $uid )->bone()->get();          // lets load all styleslst exist in Database of user
         }        
 
         return View::make( 'admin::pages.add' )                     // No additional Infos neccessary

@@ -1,7 +1,7 @@
 <?php 
-class Style extends Eloquent {
+class Bone extends Eloquent {
 
-	public static $table = 'styles';
+	public static $table = 'bones';
 	public static $timestamps = true;
 
 	public function admin(){
