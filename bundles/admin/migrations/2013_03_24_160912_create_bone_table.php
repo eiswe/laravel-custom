@@ -13,10 +13,11 @@ class Admin_Create_Bone_Table {
 		Schema::create('bones', function($table){
 
 	        $table->increments('id')->unique();
-	        $table->string('name', 32)->nullable();
+	        $table->string('name', 32);
 	        $table->string('desc', 128)->nullable();
-	        $table->string('fieldName', 32)->nullable();		// {title,desc,image,text}
-	        $table->string('fieldType', 32)->nullable();		// {title,desc,image,text}
+	        $table->string('fieldName', 32);
+	        $table->string('fieldType', 32);
+              $table->string('rules', 200);
 	        $table->integer('weight')->nullable();				// {title,desc,image,text}
 	        $table->string('relation', 32)->nullable();		// {title,desc,image,text}
 
@@ -28,7 +29,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Titel',
             'fieldType'    	=> 'text',
-            'weight'        => 1,
+            'rules'           => 'required|max:32',
+            'weight'          => 1,
             'relation'     	=> '',
       	));
 
@@ -37,7 +39,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
-            'weight'        => 2,
+            'rules'           => 'required|max:64',
+            'weight'          => 2,
             'relation'     	=> '',
       	));
 
@@ -46,7 +49,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'only text',
             'fieldName'    	=> 'text',
             'fieldType'    	=> 'textarea',
-            'weight'        => 3,
+            'rules'           => 'required|max:2048',   
+            'weight'          => 3,
             'relation'     	=> '',
       	));
 
@@ -55,7 +59,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'insert Title',
             'fieldName'    	=> 'Titel',
             'fieldType'    	=> 'text',
-            'weight'        => 1,
+            'rules'           => 'required|max:32',
+            'weight'          => 1,
             'relation'     	=> '',
       	));
         DB::table('bones')->insert(array(
@@ -63,7 +68,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'insert description',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
-            'weight'        => 2,
+            'rules'           => 'required|max:64',
+            'weight'          => 2,
             'relation'     	=> '',
       	));
         DB::table('bones')->insert(array(
@@ -71,7 +77,8 @@ class Admin_Create_Bone_Table {
             'desc'  		=> 'Want Pictures?',
             'fieldName'    	=> 'Display Pictures',
             'fieldType'    	=> 'boolean',
-            'weight'        => 3,
+            'rules'           => 'required|max:2048',
+            'weight'          => 3,
             'relation'     	=> 'pictures',
       	));
 

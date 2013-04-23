@@ -26,8 +26,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
     public function get_add($any){                                      /**    Add Title of Page!!! */
         
-
-        
         $uid = Session::get('id');                                   // fetch Session:id and 
         if ( $uid == 1 ) {                                           // if root fetch all data
             $bonelst = Bonelist::all();
@@ -39,35 +37,23 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
             if ( $value->name == $any ) {
 
+                $boes = Bone::where( 'name', '=', $any )->get();
+
                 return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
                     ->with( 'title', 'Add new Page Title' )
                     ->with( 'styles', $bonelst )
                     ->with( 'extra', $any)
+                    ->with( 'bones', $boes)
                 ;
             }
         }
     }
-
-    public function post_add(){                                     /**    Inserted new Title and redirect to Styles */
-                                                                    // Need to fetch some Infos and available styles?
-        $title = Input::get('title');
-        return Redirect::to('style')  
-            ->with( 'title', 'Add new Page Style' )
-            ->with( 'titel', $title )
-        ;
-
-    } 
-
-    public function get_style(){                                    /**    Add Style of Page!!! */
-        return View::make( 'admin::pages.style' )                   // Need to fetch some Infos and available styles?
-            ->with( 'title', 'Add new Page Style' )
-            ->with( 'titel', $titel )
-        ;
-    }    
+  
 /**
     POST Add Page!!! 
 */
-    public function post_page(){
+    public function post_add($any){
+
         $creds = "";                                                // clear creds
 
         $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
@@ -77,15 +63,18 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             'admin_id'  =>  $id
         );
 
-        // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
+        $boes = Bone::where( 'name', '=', $any )->get();
+        foreach ($boes as $key => $value) {
+            if ( $value->name == $any ) {
+                // need to save fieldnames
+                
+                $rules = array( $value->id => $value->rules, );
+                
+            }
+        }
+
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
-        $rules = array(                                                 // Name  
-            'tt'        =>  'required|max:32',                          // Title
-            'dc'        =>  'max:64',                                   // Description
-            'st'        =>  'required|numeric',                         // Style      
-            //'ts'        =>  'required|numeric',                       // Texts      
-            //'im'        =>  'required|numeric',                       // Images     
-            //'mv'        =>  'required|numeric',                       // Movies     
+        $rules += array(
             'admin_id'    =>  'required|numeric|max:100',                 // admin_id
         );
 

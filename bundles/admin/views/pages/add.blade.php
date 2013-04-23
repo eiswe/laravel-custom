@@ -45,29 +45,60 @@
 	?>
 
   	<div class="span5">
-						<div class="tab-pane active" id="Text">
-							@if(Session::get('error')) <?php 
-									$error = Session::get('error'); 
-									foreach ($error as $value) {
-										echo '<div class="alert alert-error">'.$value.'</div>';
-									} ?>
-							@endif 
+			@if(Session::get('error')) <?php 
+					$error = Session::get('error'); 
+					foreach ($error as $value) {
+						echo '<div class="alert alert-error">'.$value.'</div>';
+					} ?>
+			@endif 
 
-							<form id="text" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
-							<?php 
-							//echo Form::horizontal_open('text');
+			<?php 
+			//<form id="text" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
+			
+			// print_r($bones);
 
-								echo Form::control_group(
-									Form::label('st', 'Style'), 
-									Form::medium_text('st'), '', 
-									Form::block_help('choose your style - will add a dropdown here'));
+			echo Form::horizontal_open('admin/page/add/'.$extra);
+			
+				foreach ($bones as $key => $value) {
+					// print $value->id;
+					// print $value->name;
+					// print $value->desc;
+					// print $value->fieldname;
+					// print $value->fieldtype;
+					// print $value->weight;
+					// print $value->relation;
+					// print '<br />';
+					// print $value->fieldtype;
+					// print '<br />';
+
+					switch ($value->fieldtype) {
+					    case "text":
+							echo Form::control_group(
+								Form::label( $value->id , $value->fieldname ), 
+								Form::medium_text( $value->id ), '', 
+								Form::block_help( $value->desc ));
+					        break;
+					    case "textarea":
+							echo Form::control_group(
+								Form::label( $value->id , $value->fieldname ), 
+								Form::xlarge_textarea( $value->id, '', array('rows' => '2')), '', 
+								Form::block_help( $value->desc ));
+					        break;
+					    case "cake":
+					        echo "i is cake";
+					        break;
+					}
+
+				}
 
 
-								echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 
-								Form::token();
-						   	Form::close();
-					?>  </div>
+
+				echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
+
+				Form::token();
+		   	Form::close();
+	?>
   	</div>
 
 	<div class="span5">
