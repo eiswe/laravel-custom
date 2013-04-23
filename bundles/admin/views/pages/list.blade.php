@@ -20,22 +20,6 @@
 
   	<?php
 
-/* admin menu */
-      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
-      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
-
-      if ( isset( $id ) ) {                                                       // check for logged in?
-        echo Navbar::create()
-          ->with_brand('Create Page', $url.'/admin/page/add')
-          ->with_menus(Navigation::links( array(
-              array('Home', '#', true),
-              array('Link', '#'),
-              array('Link', '#'),
-              array('Link', '#'),
-          )));
-      }
-/* end of admin menu */
-
 /*    Will generate a list of Pages on this site! */
 		$headi = array(
             'ID',
@@ -53,6 +37,13 @@
 	    echo Table::body($pages)
 	    	->ignore( 'created_at', 'updated_at' );
 	    echo Table::close();
+
+/* admin menu */
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
+      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+      echo Button::link( $url.'/admin/page/add/Text', 'Create Page - Text' );
+
     ?>
 
 @endsection

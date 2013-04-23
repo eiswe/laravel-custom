@@ -15,7 +15,11 @@ class Admin extends Eloquent {
 	}
 
 	public function bone(){
-		return $this->has_one('bones');
+		return $this->has_one('bone');
+	}	
+
+	public function bonelist(){
+		return $this->has_one('bonelist');
 	}	
 
 	public function picture(){

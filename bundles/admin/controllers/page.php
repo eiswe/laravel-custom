@@ -24,19 +24,28 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         ;
     }
 
-    public function get_add(){                                      /**    Add Title of Page!!! */
+    public function get_add($any){                                      /**    Add Title of Page!!! */
+        
+
         
         $uid = Session::get('id');                                   // fetch Session:id and 
         if ( $uid == 1 ) {                                           // if root fetch all data
-            $styleslst = Bone::all();
+            $bonelst = Bonelist::all();
+            $bones   = Bone::all();
         } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $styleslst = Admin::find( $uid )->bone()->get();          // lets load all styleslst exist in Database of user
+            $bonelst = Admin::find( $uid )->bonelist()->get();       // lets load all bonelst exist in Database of user
         }        
 
-        return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
-            ->with( 'title', 'Add new Page Title' )
-            ->with( 'styles', $styleslst )
-        ;
+        foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
+            if ( $value->name == $any ) {
+
+                return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
+                    ->with( 'title', 'Add new Page Title' )
+                    ->with( 'styles', $bonelst )
+                    ->with( 'extra', $any)
+                ;
+            }
+        }
     }
 
     public function post_add(){                                     /**    Inserted new Title and redirect to Styles */

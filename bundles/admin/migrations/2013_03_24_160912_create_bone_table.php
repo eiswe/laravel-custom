@@ -122,7 +122,7 @@ class Admin_Create_Bone_Table {
 	public function down()
 	{
 		// drop database schema: styles
-		Schema::drop('styles');
+		Schema::drop('bones');
 	}
 
 }

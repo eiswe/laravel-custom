@@ -20,13 +20,17 @@
 	$url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
 	$id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
+	foreach ($styles as $key => $value) {												// generate list of stylenames and create menu entrys
+		$tmpMenu[] = array($value->name, $url.'/admin/page/add/'.$value->name);
+	}
+	/* $tmpMenu = array(
+		array('Add Sytle', $url.'/admin/page/add', true),
+		array('Add Infos', $url.'/admin/page/desc')); */
+
 	if ( isset( $id ) ) {                                                       // check for logged in?
 		echo Navbar::create()
-		  ->with_brand('Create Page', $url.'/admin/page/add')
-		  ->with_menus(Navigation::links( array(
-		      array('Add Sytle', $url.'/admin/page/add', true),
-		      array('Add Infos', $url.'/admin/page/desc'),
-		)));  /* end of admin menu */
+		  ->with_brand('Create '.$extra.' Page', $url.'/admin/page/add')
+		  ->with_menus(Navigation::links( $tmpMenu ));  /* end of admin menu */
 	} 
 
 
@@ -40,46 +44,13 @@
 
 	?>
 
-
-
   	<div class="span5">
-
-		<div class="tabbable tabs-left">
-		  <ul class="nav nav-tabs">
-		  	<?php 
-		  		foreach ($styles as $key => $value) {												// generate list of stylenames and create menu entrys
-		  			$stylenames[] = $value->name;
-		  		}
-
-	  			foreach (array_unique( $stylenames ) as $d) {
-					if ( $d == "Text" ) {
-						echo '<li class="active"><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
-					} else {
-						echo '<li               ><a href=#'.$d.' data-toggle="tab">'.$d.'</a></li>';
-					}
-				}
-		  	?>
-		  </ul>
-		  <div class="tab-content">
-		  	<?php
-		  		foreach ($styles as $key => $value) {												// generate list of stylenames and create menu entrys
-		  			$stylenames[] = $value->name;
-		  		}
-
-	  			foreach (array_unique( $stylenames ) as $d) {
-
-					if ( $d == "Text" ) {
-						?>
 						<div class="tab-pane active" id="Text">
-							@if(Session::get('error'))
-								<?php 
+							@if(Session::get('error')) <?php 
 									$error = Session::get('error'); 
-									//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
 									foreach ($error as $value) {
-										# code...
 										echo '<div class="alert alert-error">'.$value.'</div>';
-									}
-								?>
+									} ?>
 							@endif 
 
 							<form id="text" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
@@ -97,43 +68,6 @@
 								Form::token();
 						   	Form::close();
 					?>  </div>
-						<?php
-					} else {
-						echo '<div class="tab-pane       " id="'.$d.'">';
-						?>
-							@if(Session::get('error'))
-								<?php 
-									$error = Session::get('error'); 
-									//<div class="alert alert-warning">Sorry, your POST Data was incorrect.</div> 
-									foreach ($error as $value) {
-										# code...
-										echo '<div class="alert alert-error">'.$value.'</div>';
-									}
-								?>
-							@endif 
-
-							<form id="gallerie" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
-							<?php 
-							echo Form::horizontal_open('gallerie');
-
-								echo Form::control_group(
-									Form::label('st', 'Style'), 
-									Form::medium_text('st'), '', 
-									Form::block_help('choose your style - will add a dropdown here'));
-
-
-								echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
-
-								Form::token();
-						   	Form::close();
-					?>	</div>
-						<?php
-					}
-				}
-			?>
-		  </div>
-		</div>
-
   	</div>
 
 	<div class="span5">
