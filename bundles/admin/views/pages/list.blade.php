@@ -5,10 +5,7 @@
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
-        print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
-        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
+        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';      
     ?>
 @endsection
 

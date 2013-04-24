@@ -55,6 +55,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     public function post_add($any){
 
         $creds = "";                                                // clear creds
+        $rules = array( '' => '' );
 
         $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
 
@@ -66,9 +67,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $boes = Bone::where( 'name', '=', $any )->get();
         foreach ($boes as $key => $value) {
             if ( $value->name == $any ) {
-                // need to save fieldnames
                 
-                $rules = array( $value->id => $value->rules, );
+                // need to save fieldnames
+                $rules += array( $value->id => $value->rules );
                 
             }
         }
@@ -85,7 +86,8 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
             $messages = $v->errors->all('<p>:message</p>');         // get all errors
             return Redirect::back()                                 // with custom error message
-                ->with('error', $messages);                         // and return back to form and show them
+                ->with('error', $messages)                         // and return back to form and show them
+                ->with('err', $creds);
         } 
 
         $page = new Page();                                         // get Model page create a database insertion
@@ -175,7 +177,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $creds = Input::all();                                                // fetch all input in one time
 
         $uid = Session::get('id');                                            // fetch Session:id
-
         $creds += array(                                                      // add admin_id
             'admin_id'  =>  $uid
         );

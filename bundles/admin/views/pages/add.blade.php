@@ -29,8 +29,8 @@
 
 	if ( isset( $id ) ) {                                                       // check for logged in?
 		echo Navbar::create()
-		  ->with_brand('Create '.$extra.' Page', $url.'/admin/page/add')
-		  ->with_menus(Navigation::links( $tmpMenu ));  /* end of admin menu */
+		  ->with_brand( 'Create '.$extra.' Page', $url.'/admin/page/add/'.$extra )
+		  ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
 	} 
 
 
@@ -49,6 +49,10 @@
 					$error = Session::get('error'); 
 					foreach ($error as $value) {
 						echo '<div class="alert alert-error">'.$value.'</div>';
+						if ( !isset($err) ) {
+							$err = "blah";
+						}
+						print_r($err);
 					} ?>
 			@endif 
 
@@ -57,9 +61,9 @@
 			
 			// print_r($bones);
 
-			echo Form::horizontal_open('admin/page/add/'.$extra);
+			echo Form::horizontal_open( 'admin/page/add/'.$extra );
 			
-				foreach ($bones as $key => $value) {
+				foreach ( $bones as $key => $value ) {
 					// print $value->id;
 					// print $value->name;
 					// print $value->desc;
@@ -71,7 +75,7 @@
 					// print $value->fieldtype;
 					// print '<br />';
 
-					switch ($value->fieldtype) {
+					switch ( $value->fieldtype ) {
 					    case "text":
 							echo Form::control_group(
 								Form::label( $value->id , $value->fieldname ), 
@@ -88,11 +92,7 @@
 					        echo "i is cake";
 					        break;
 					}
-
 				}
-
-
-
 
 				echo Form::actions(array(Button::primary_submit('Save changes!'), Form::button('Cancel')));
 
@@ -103,12 +103,24 @@
 
 	<div class="span5">
 
-	  	<div class="hero-unit">
-	  		<p>Here you see your Preview:</p>
+	  	<div class="row">
+	  		<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here you see your Preview:</h3>
+	  		<br />
 	  	</div>
 
 	  	<div class="hero-unit">
-	  		<p>here showd be the preview..</p>
+	  		<?php
+
+				switch ( $extra ) {
+	  				case 'Text':
+	  					?>
+	  					<h1>Title</h1>
+	  					<small>Description...</small> <br /><br />
+	  					<p>Lorem ipsum...sdfff efewf wefwe fewf wefwekfwre gfkrg rekg ergvkrej vekj vbebvjke bejb kdeb erfjb ebked bkjfb fjkb ebk erbkej bekrjb frkjb rbjengejrb tb tbikj bjkib rgtjb gfrjbp gfrbkrfg bjfgb fgjb gkbr gbjfdg bjdb bjr bjr bjb jkb bkd gfbjkd brjtgkb djgn djogre bojer bjob dfjbo egbje gvdjfb tgjbtdrfbjgnfbkrkbfbkf bgkfdnb bkejn vbdfk ebktr btrjkb dfk bekj etbked betbj bkdfb eobj tjb trb tb dobj eobjtr bjortb jetb bio dfbojtrb trjbi dbojte btroub tobj fdboj hgoth dfigob trb tedobgdf </p>
+	  					<?php
+	  					break;  					
+	  			}
+	  		?>
 	  	</div>
 	</div>
 </div>

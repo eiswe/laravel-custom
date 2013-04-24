@@ -1,17 +1,13 @@
 @layout('admin::layouts.navi')
 
-@section('navigation')
-	@parent
-	<?php 
-		$url = URL::base(); //return http://laravel.dev
-    	print '<li>					<a href="'.$url.'/admin/home"> Home      </a></li>';
-    	print '<li>					<a href="'.$url.'/admin/list"> List      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/emacs"> Emacs  </a></li>';
-    	print '<li class="active">  <a href="'.$url.'/admin/edit"> Get nice Chart!  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">     Texts  </a></li>';       
-        print '<li>                 <a href="'.$url.'/admin/picture/list">  Pictures  </a></li>';        
-        print '<li>                 <a href="'.$url.'/admin/movie/list">    Movies  </a></li>'; 
-	?>
+@section('subnav')
+    <?php 
+        $url = URL::base(); //return http://laravel.dev
+        print '<li>                 <a href="'.$url.'/admin/home">          Home      </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/emacs">         Emacs  </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/page/list">     Pages  </a></li>';
+        print '<li class="active">  <a href="'.$url.'/admin/search">        Search  </a></li>';
+    ?>
 @endsection
 
 @section('content')
