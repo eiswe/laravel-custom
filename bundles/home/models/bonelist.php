@@ -8,6 +8,13 @@ class Bonelist extends Eloquent {
 		return $this->belongs_to('Admin');
 	}
 	
+	public function bone(){
+		return $this->has_many('Bone');
+	}	
+
+	public function page(){
+		return $this->has_one('page');
+	}	
 }
 
 // print '<span class="label label-warning">Admin::styles</span>&nbsp;';

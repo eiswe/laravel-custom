@@ -11,6 +11,8 @@ class Admin_Create_Task_Table {
 
 		// add database schema: tasks
 		Schema::create('tasks', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
             

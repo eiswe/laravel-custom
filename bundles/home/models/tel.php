@@ -1,17 +1,16 @@
 <?php 
-class Page extends Eloquent {
+class Tel extends Eloquent {
 
-	public static $table = 'pages';
+	public static $table = 'tels';
 	public static $timestamps = true;
 
 	public function admin() {
 		return $this->belongs_to('Admin');
 	}
-
-	public function bonelist() {
-		return $this->belongs_to('Bonelist');
-	}
 	
+	public function telgroup() {
+		return $this->belongs_to('Telgroup');
+	}
 	// public function userid() {
 	// 	return $this->has_one('Admin', 'userid');
 	// }

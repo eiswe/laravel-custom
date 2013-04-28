@@ -11,6 +11,8 @@ class Admin_Create_Countrie_Table {
 		
 		// add database schema: countries
 		Schema::create('countries', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
 

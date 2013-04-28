@@ -12,6 +12,8 @@ class Admin_Create_Bone_Table {
 		// add database schema: bones
 		Schema::create('bones', function($table){
 
+            $table->engine = 'InnoDB';
+            
 	        $table->increments('id')->unique();
 	      
             $table->integer('bonelist_id')  ->unsigned();       // bonelist_id  64

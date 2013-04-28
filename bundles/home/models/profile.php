@@ -4,8 +4,12 @@ class Profile extends Eloquent {
 	public static $table = 'profiles';
 	public static $timestamps = true;
 
-	public function page(){
-		return $this->belongs_to('Page');
+	public function admin(){
+		return $this->belongs_to('Admin');
+	}
+
+	public function role(){
+		return $this->belongs_to('Role');
 	}
 	
 }

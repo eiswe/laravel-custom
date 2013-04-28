@@ -12,10 +12,11 @@ class Admin_Create_Bonelist_Table {
 		// add database schema: bonelists
 		Schema::create('bonelists', function($table){
 
+            $table->engine = 'InnoDB';
+            
 	        $table->increments('id')->unique();
             
             $table->integer('admin_id')->unsigned();
-            $table->integer('bone_id')->unsigned();
 	        
             $table->foreign('admin_id')->references('id')->on('admins')->on_delete('cascade');
             

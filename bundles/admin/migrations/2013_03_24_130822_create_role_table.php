@@ -11,6 +11,8 @@ class Admin_Create_Role_Table {
 		
 		// add database schema: roles
 		Schema::create('roles', function($table){
+
+			$table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
 

@@ -11,6 +11,8 @@ class Admin_Create_Skill_Table {
 		
         // add database schema: skills
 		Schema::create('skills', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
 

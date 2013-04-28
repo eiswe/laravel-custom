@@ -11,6 +11,8 @@ class Admin_Create_Hobbie_Table {
 		
         // add database schema: hobbies
 		Schema::create('hobbies', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
 

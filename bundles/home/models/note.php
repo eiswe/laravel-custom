@@ -1,15 +1,11 @@
 <?php 
-class Page extends Eloquent {
+class Note extends Eloquent {
 
-	public static $table = 'pages';
+	public static $table = 'notes';
 	public static $timestamps = true;
 
 	public function admin() {
 		return $this->belongs_to('Admin');
-	}
-
-	public function bonelist() {
-		return $this->belongs_to('Bonelist');
 	}
 	
 	// public function userid() {

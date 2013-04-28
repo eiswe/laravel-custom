@@ -11,6 +11,8 @@ class Admin_Create_Adressgroup_Table {
 
 		// add database schema: adressgroups
 		Schema::create('adressgroups', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
 

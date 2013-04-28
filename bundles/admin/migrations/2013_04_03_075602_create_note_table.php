@@ -12,6 +12,8 @@ class Admin_Create_Note_Table {
 		// add database schema: notes
 		Schema::create('notes', function($table){
             
+            $table->engine = 'InnoDB';
+
             $table->increments('id')->unique();
             
             $table->integer('admin_id')->unsigned();

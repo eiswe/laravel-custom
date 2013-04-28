@@ -11,6 +11,8 @@ class Admin_Create_Page_Table {
 		
 	  Schema::create('pages', function($table){ 		// add database schema: pages
 
+            $table->engine = 'InnoDB';
+
             $table->increments('id')        ->unique();			// with id
            
             $table->integer('admin_id')     ->unsigned();			// user id

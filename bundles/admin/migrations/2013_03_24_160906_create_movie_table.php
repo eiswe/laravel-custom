@@ -13,6 +13,8 @@ class Admin_Create_Movie_Table {
 		// add database schema: movies
 		Schema::create('movies', function($table){
 
+            $table->engine = 'InnoDB';
+
             $table->increments('id')->unique();
 
             $table->integer('admin_id')->unsigned();

@@ -12,6 +12,8 @@ class Admin_Create_Telgroup_Table {
 		// add database schema: telgroups
 		Schema::create('telgroups', function($table){
             
+            $table->engine = 'InnoDB';
+            
             $table->increments('id')->unique();
 
             $table->string('name', 64);

@@ -11,6 +11,8 @@ class Admin_Create_Tel_Table {
 
 		// add database schema: tels
 		Schema::create('tels', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')        ->unique();
 

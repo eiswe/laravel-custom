@@ -11,6 +11,8 @@ class Admin_Create_Todo_Table {
 
 		// add database schema: todos
 		Schema::create('todos', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
             

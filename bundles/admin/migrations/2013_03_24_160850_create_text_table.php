@@ -12,6 +12,8 @@ class Admin_Create_Text_Table {
 		// add database schema: texts
 		Schema::create('texts', function($table){
 
+            $table->engine = 'InnoDB';
+
             $table->increments('id')->unique();
 
             $table->integer('admin_id')->unsigned();

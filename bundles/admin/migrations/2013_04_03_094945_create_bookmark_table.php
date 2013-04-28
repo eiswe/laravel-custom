@@ -11,6 +11,8 @@ class Admin_Create_Bookmark_Table {
 
 		// add database schema: bookmarks
 		Schema::create('bookmarks', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')->unique();
             

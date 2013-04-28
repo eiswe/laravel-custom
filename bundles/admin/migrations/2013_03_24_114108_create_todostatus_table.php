@@ -12,6 +12,8 @@ class Admin_Create_Todostatus_Table {
 		// add database schema: todostatus
 		Schema::create('todostatus', function($table){
             
+            $table->engine = 'InnoDB';
+            
             $table->increments('id')->unique();
 
             $table->string('name', 64);

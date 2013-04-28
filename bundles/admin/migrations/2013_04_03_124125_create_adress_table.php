@@ -11,6 +11,8 @@ class Admin_Create_Adress_Table {
 
 		// add database schema: adress
 		Schema::create('adress', function($table){
+
+            $table->engine = 'InnoDB';
             
             $table->increments('id')            ->unique();
 
