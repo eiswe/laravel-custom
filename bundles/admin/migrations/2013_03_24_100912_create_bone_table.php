@@ -7,25 +7,33 @@ class Admin_Create_Bone_Table {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
+	public function up() {
+
 		// add database schema: bones
 		Schema::create('bones', function($table){
 
 	        $table->increments('id')->unique();
-	        $table->string('name', 32);
+	      
+            $table->integer('bonelist_id')  ->unsigned();       // bonelist_id  64
+
+            $table->foreign('bonelist_id')
+                ->references('id')
+                ->on('bonelists')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
 	        $table->string('desc', 128)->nullable();
 	        $table->string('fieldName', 32);
 	        $table->string('fieldType', 32);
-              $table->string('rules', 200);
+            $table->string('rules', 200);
 	        $table->integer('weight')->nullable();				// {title,desc,image,text}
 	        $table->string('relation', 32)->nullable();		// {title,desc,image,text}
 
 	        $table->timestamps();
-	    });
+	      });
 
         DB::table('bones')->insert(array( 			// insert testdata: Text
-            'name'        	=> 'Text',
+            'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Titel',
             'fieldType'    	=> 'text',
@@ -35,7 +43,7 @@ class Admin_Create_Bone_Table {
       	));
 
         DB::table('bones')->insert(array(
-            'name'        	=> 'Text',
+            'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
@@ -45,7 +53,7 @@ class Admin_Create_Bone_Table {
       	));
 
         DB::table('bones')->insert(array(
-            'name'        	=> 'Text',
+            'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
             'fieldName'    	=> 'text',
             'fieldType'    	=> 'textarea',
@@ -55,7 +63,7 @@ class Admin_Create_Bone_Table {
       	));
 
         DB::table('bones')->insert(array( 			// insert testdata: Gallery
-            'name'        	=> 'Gallery',
+            'bonelist_id'        	=> '2',
             'desc'  		=> 'insert Title',
             'fieldName'    	=> 'Titel',
             'fieldType'    	=> 'text',
@@ -64,7 +72,7 @@ class Admin_Create_Bone_Table {
             'relation'     	=> '',
       	));
         DB::table('bones')->insert(array(
-            'name'        	=> 'Gallery',
+            'bonelist_id'        	=> '2',
             'desc'  		=> 'insert description',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
@@ -73,7 +81,7 @@ class Admin_Create_Bone_Table {
             'relation'     	=> '',
       	));
         DB::table('bones')->insert(array(
-            'name'        	=> 'Gallery',
+            'bonelist_id'        	=> '2',
             'desc'  		=> 'Want Pictures?',
             'fieldName'    	=> 'Display Pictures',
             'fieldType'    	=> 'boolean',
@@ -81,44 +89,6 @@ class Admin_Create_Bone_Table {
             'weight'          => 3,
             'relation'     	=> 'pictures',
       	));
-
-
-
-       //  DB::table('styles')->insert(array(
-       //      'name'        	=> 'Profile',
-       //      'desc'  		=> 'only text',
-       //      'fieldName'    	=> 'Titel',
-       //      'fieldType'    	=> 'text',
-       //      'weight'        => 5,
-       //      'relation'     	=> 'username',
-      	// ));
-
-       //  DB::table('styles')->insert(array(
-       //      'name'        	=> 'Profile',
-       //      'desc'  		=> 'only text',
-       //      'fieldName'    	=> 'Desc',
-       //      'fieldType'    	=> 'text',
-       //      'weight'        => 5,
-       //      'relation'     	=> '',
-      	// ));
-       //  DB::table('styles')->insert(array(
-       //      'name'        	=> 'Profile',
-       //      'desc'  		=> 'only text',
-       //      'fieldName'    	=> 'Titel',
-       //      'fieldType'    	=> 'text',
-       //      'weight'        => 5,
-       //      'relation'     	=> '',
-      	// ));
-       //  DB::table('styles')->insert(array(
-       //      'name'        	=> 'Profile',
-       //      'desc'  		=> 'only text',
-       //      'fieldName'    	=> 'Titel',
-       //      'fieldType'    	=> 'text',
-       //      'weight'        => 5,
-       //      'relation'     	=> '',
-      	// ));
-
-
 	}
 
 	/**
@@ -126,28 +96,9 @@ class Admin_Create_Bone_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop database schema: styles
 		Schema::drop('bones');
 	}
-
 }
 
-
-/*
-		// create a short array with changed values - for testing
-		$values	= array( '28124567', '1', '1' );
-        $valuestr = implode(",", $values);
-
-        DB::table('cards')->insert(array(
-            'serialnumber'  => '28120123',
-            'userid'        => '3',
-            'cardtype'      => '6',
-            'errortype'     => '7',
-            'status'        => '4',
-            'failure'       => '6',
-            'ausort'        => '1',
-            'testdate'      => '21.12.2012',
-      ));
-*/

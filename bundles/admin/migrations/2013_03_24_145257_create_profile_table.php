@@ -9,86 +9,103 @@ class Admin_Create_Profile_Table {
 	 */
 	public function up()
 	{
-		// add database schema: profiles
-		Schema::create('profiles', function($table){
-            $table->increments('id')			->unique();
-            $table->integer('admin_id')          ->unique();
+
+/*  My Playground
+
+## Primary Key
+$table->primary('id');  Adding a primary key
+
+## Composite Key
+$table->primary(array('fname', 'lname'));   Adding composite keys
+
+## Foreign Key
+$table->foreign('user_id')->references('id')->on('users');
+
+You may also specify options for the "on delete" and "on update" actions of the foreign key:
+
+$table->foreign('user_id')->references('id')->on('users')->on_delete('restrict');
+
+$table->foreign('user_id')->references('id')->on('users')->on_update('cascade');
+
+*/
+
+        // add database schema: profiles
+        Schema::create('profiles', function($table){
+
+            $table->engine = 'InnoDB';
+
+            $table->increments('id')            ->unique();
+
             $table->boolean('starred')          ->nullable();
-            $table->string('frontname', 32)		->nullable();
-            $table->string('backname', 64)		->nullable();
-            $table->string('countries', 1024)	->nullable();
-            $table->string('languages', 1024)	->nullable();
-            $table->string('skills', 1024)		->nullable();
-            $table->string('hobbies', 1024)		->nullable();
-            $table->string('role', 32)			->nullable();
+
+            $table->integer('admin_id')         ->unsigned()->unique();
+            $table->integer('role_id')          ->unsigned();
+
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
+
+            $table->string('frontname', 32)     ->nullable();
+            $table->string('backname', 64)      ->nullable();
+            $table->string('email', 1024)       ->nullable();
+            
             $table->timestamps();
+
         });
 
-		$countries	= array( 'Italien', 'Deutschland' );		// create a short array with countries
-        $countriestr = implode(",", $countries);										//convert array to string - reolve with explode()
-
-		$languages	= array( 'Deutsch', 'English', 'Italienisch' );		// create a short array with languages
-        $languagestr = implode(",", $languages);										//convert array to string - reolve with explode()
-
-		$skills	= array( 'HTML', 'CSS', 'PHP', 'Laravel', 'Python' );		// create a short array with skills
-        $skillstr = implode(",", $skills);										//convert array to string - reolve with explode()
-
-		$hobbies	= array( 'Tinkerforge', 'Flyduino', 'Laravel', 'Italien' );		// create a short array with hobbies
-        $hobbiestr = implode(",", $hobbies);										//convert array to string - reolve with explode()
 
         DB::table('profiles')->insert(array(
-        	'admin_id'   => '1',
             'starred'   => false,
-            'frontname'	=> 'David',
-        	'backname'	=> 'Crimi',
-        	'countries'	=> $countriestr,
-        	'languages'	=> $languagestr,
-        	'skills'	=> $skillstr,
-        	'hobbies'	=> $hobbiestr,
-        ));
-
-        DB::table('profiles')->insert(array(
-            'admin_id'   => '2',
-            'starred'   => true,
+            'admin_id'   => '1',
+            'role_id'   => '1',
             'frontname' => 'David',
             'backname'  => 'Crimi',
-            'countries' => $countriestr,
-            'languages' => $languagestr,
-            'skills'    => $skillstr,
-            'hobbies'   => $hobbiestr,
+            'email'     => 'deathpoison.dc@gmail.com',
         ));
 
         DB::table('profiles')->insert(array(
+            'starred'   => true,
+            'admin_id'   => '2',
+            'role_id'   => '2',
+            'frontname' => 'David',
+            'backname'  => 'Crimi',
+            'email'     => 'deathpoison.dc@gmail.com',
+        ));
+
+        DB::table('profiles')->insert(array(
+            'starred'   => false,
             'admin_id'   => '3',
-            'starred'   => true,
-            'frontname' => 'Victor',
-            'backname'  => 'Ananev',
-            'countries' => $countriestr,
-            'languages' => $languagestr,
-            'skills'    => $skillstr,
-            'hobbies'   => $hobbiestr,
+            'role_id'   => '2',
+            'frontname' => 'Volker',
+            'backname'  => 'Dewald',
+            'email'     => 'volker@gmx.com',
         ));
 
         DB::table('profiles')->insert(array(
-            'admin_id'   => '4',
             'starred'   => true,
+            'admin_id'   => '4',
+            'role_id'   => '2',
             'frontname' => 'Paolo',
             'backname'  => 'Crimi',
-            'countries' => $countriestr,
-            'languages' => $languagestr,
-            'skills'    => $skillstr,
-            'hobbies'   => $hobbiestr,
+            'email'     => 'crimi@gmx.com',
         ));
 
         DB::table('profiles')->insert(array(
-            'admin_id'   => '5',
             'starred'   => true,
+            'admin_id'   => '5',
+            'role_id'   => '2',
             'frontname' => 'Kazzo',
             'backname'  => 'Sieg',
-            'countries' => $countriestr,
-            'languages' => $languagestr,
-            'skills'    => $skillstr,
-            'hobbies'   => $hobbiestr,
+            'email'     => 'sieg@gmx.com', 
         ));
 
 	}
@@ -98,40 +115,8 @@ class Admin_Create_Profile_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop profiles
 		Schema::drop('profiles');
 	}
-
 }
-
-
-/** !Pink
-
-        DB::table('admins')->insert(array(
-        	'name'		=> 'David Crimi',
-        	'username'	=> 'root',
-        	'password'	=> Hash::make('qwert'),
-        	'email'		=> 'deathpoison.dc@gmail.com',
-        	'role'		=> 'admin'
-        ));
-
-		// create a short array with changed fields - for testing
-		$fields	= array( 'sn', 'cardid', 'userid' );
-        //convert array to string - reolve with explode()
-        $fieldstr = implode(",", $fields);
-
-		// create a short array with changed values - for testing
-		$values	= array( '28124567', '1', '1' );
-        $valuestr = implode(",", $values);
-
-        DB::table('histories')->insert(array(
-        	'cardid'		=> '1',
-        	'userid'		=> '1',
-        	'action'		=> 'insert',
-        	'fields'		=> $fieldstr,
-        	'values'		=> $valuestr,
-        ));
-
-*/

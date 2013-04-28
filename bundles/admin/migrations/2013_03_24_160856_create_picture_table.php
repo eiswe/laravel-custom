@@ -7,14 +7,20 @@ class Admin_Create_Picture_Table {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
+	public function up() {
+
 		// add database schema: pictures
 		Schema::create('pictures', function($table){
 
             $table->increments('id')->unique();
 
-            $table->integer('admin_id');
+            $table->integer('admin_id')->unsigned();
+
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->on_delete('restrict')
+                ->on_update('cascade');
 
             $table->string('desc', 64)->nullable();
             $table->string('path', 64);
@@ -334,24 +340,8 @@ class Admin_Create_Picture_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop database schema: pictures
 		Schema::drop('pictures');
 	}
-
 }
-
-
-/*
-        DB::table('cards')->insert(array(
-            'serialnumber'  => '28120123',
-            'admin_id'        => '3',
-            'cardtype'      => '6',
-            'errortype'     => '7',
-            'status'        => '4',
-            'failure'       => '6',
-            'ausort'        => '1',
-            'testdate'      => '21.12.2012',
-      ));
-*/

@@ -8,12 +8,18 @@ class Admin_Create_Bonelist_Table {
 	 * @return void
 	 */
 	public function up() {
+
 		// add database schema: bonelists
 		Schema::create('bonelists', function($table){
 
 	        $table->increments('id')->unique();
-            $table->integer('admin_id');
-	        $table->string('name', 32)->nullable();
+            
+            $table->integer('admin_id')->unsigned();
+            $table->integer('bone_id')->unsigned();
+	        
+            $table->foreign('admin_id')->references('id')->on('admins')->on_delete('cascade');
+            
+            $table->string('name', 32)->nullable();
 	        $table->string('desc', 128)->nullable();
 	        $table->integer('weight')->nullable();
 
@@ -82,8 +88,7 @@ class Admin_Create_Bonelist_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop database schema: bonelists
 		Schema::drop('bonelists');	
 	}

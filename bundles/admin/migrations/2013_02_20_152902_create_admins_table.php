@@ -7,98 +7,52 @@ class Admin_Create_Admins_Table {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
-		// add database schema: admins
-		Schema::create('admins', function($table){
+	public function up() {
+
+        // add database schema: admins
+        Schema::create('admins', function($table){
+            
+            $table->engine = 'InnoDB';
+            
             $table->increments('id')->unique();
+            
             $table->string('name', 200);
             $table->string('username', 32)->unique();
             $table->string('password', 64);
-            $table->string('email', 320)->unique();
-            $table->string('role', 32);
+            
             $table->timestamps();
         });
 
         DB::table('admins')->insert(array(
-        	'name'		=> 'David Crimi',
-        	'username'	=> 'root',
-        	'password'	=> Hash::make('qwert'),
-        	'email'		=> 'deathpoison.dc@gmail.com',
-        	'role'		=> 'admin'
+            'name'      => 'David',
+            'username'  => 'root',
+            'password'  => Hash::make('qwert'),
         ));
 
         DB::table('admins')->insert(array(
-            'name'      => 'David Crimi',
+            'name'      => 'David',
             'username'  => 'dcrimi',
             'password'  => Hash::make('qwert'),
-            'email'     => 'dcrimi@dvs.de',
-            'role'      => 'admin'
         ));
               
         DB::table('admins')->insert(array(
-            'name'      => 'Viktor Ananev',
-            'username'  => 'ananev',
+            'name'      => 'Volker',
+            'username'  => 'volker',
             'password'  => Hash::make('qwert'),
-            'email'     => 'ananev@dvs.de',
-            'role'      => 'user'
         ));
               
         DB::table('admins')->insert(array(
             'name'      => 'Paolo Crimi',
             'username'  => 'paolo',
             'password'  => Hash::make('qwert'),
-            'email'     => 'paolo@dvs.de',
-            'role'      => 'user'
         ));
               
         DB::table('admins')->insert(array(
             'name'      => 'Kevin Sieg',
             'username'  => 'Kazzo',
             'password'  => Hash::make('qwert'),
-            'email'     => 'kevko@live.de',
-            'role'      => 'user'
         ));
-              
-        DB::table('admins')->insert(array(
-            'name'      => 'Julia Justus',
-            'username'  => 'justus',
-            'password'  => Hash::make('qwert'),
-            'email'     => 'justus@dvs.de',
-            'role'      => 'user'
-        ));
-              
-        DB::table('admins')->insert(array(
-            'name'      => 'Vassilios Giourgas',
-            'username'  => 'giourgas',
-            'password'  => Hash::make('qwert'),
-            'email'     => 'giourgas@dvs.de',
-            'role'      => 'user'
-        ));
-              
-        DB::table('admins')->insert(array(
-            'name'      => 'Mark Schmalenberg',
-            'username'  => 'schmalenberg',
-            'password'  => Hash::make('qwert'),
-            'email'     => 'schmalenberg@dvs.de',
-            'role'      => 'user'
-        ));
-              
-        DB::table('admins')->insert(array(
-            'name'      => 'Michael Scholz',
-            'username'  => 'scholz',
-            'password'  => Hash::make('qwert'),
-            'email'     => 'scholz@dvs.de',
-            'role'      => 'user'
-        ));
-              
-        DB::table('admins')->insert(array(
-            'name'      => 'Service Abteilung',
-            'username'  => 'service',
-            'password'  => Hash::make('dvs'),
-            'email'     => 'service@dvs.de',
-            'role'      => 'user'
-        ));      
+                  
 	}
 
 	/**
@@ -106,10 +60,8 @@ class Admin_Create_Admins_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop database schema: admins
 		Schema::drop('admins');
 	}
-
 }

@@ -5,10 +5,7 @@
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">    Texts  </a></li>';       
-        print '<li>                 <a href="'.$url.'/admin/picture/list"> Pictures  </a></li>';        
-        print '<li>                 <a href="'.$url.'/admin/movie/list">   Movies  </a></li>';       
+        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';     
     ?>
 @endsection
 
@@ -79,13 +76,13 @@
 					    case "text":
 							echo Form::control_group(
 								Form::label( $value->id , $value->fieldname ), 
-								Form::medium_text( $value->id ), '', 
+								Form::medium_text( 'input_'.$value->id ), '', 
 								Form::block_help( $value->desc ));
 					        break;
 					    case "textarea":
 							echo Form::control_group(
 								Form::label( $value->id , $value->fieldname ), 
-								Form::xlarge_textarea( $value->id, '', array('rows' => '2')), '', 
+								Form::xlarge_textarea( 'input_'.$value->id, '', array('rows' => '2')), '', 
 								Form::block_help( $value->desc ));
 					        break;
 					    case "cake":

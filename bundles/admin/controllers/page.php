@@ -61,7 +61,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $id = Session::get('id');                                   // fetch Session:id and 
         $creds += array(                                            // add to creds ( creds = input vars)
-            'admin_id'  =>  $id
+            'admins_id'  =>  $id
         );
 
         $boes = Bone::where( 'name', '=', $any )->get();
@@ -69,14 +69,14 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             if ( $value->name == $any ) {
                 
                 // need to save fieldnames
-                $rules += array( $value->id => $value->rules );
+                $rules += array( 'input_'.$value->id => $value->rules );
                 
             }
         }
 
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
-            'admin_id'    =>  'required|numeric|max:100',                 // admin_id
+            'admins_id'    =>  'required|numeric|max:100',                 // admins_id
         );
 
         $v = Validator::make($creds, $rules);                       // validate the input
@@ -134,7 +134,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $his->pageid = $page->id;                   // get and save id of current item ( page! )
         $his->action = 'insert';                    // say what we are doing!
-        $his->admin_id = $id;                         // save admin_id!
+        $his->admins_id = $id;                         // save admins_id!
         $his->fields = $fieldstr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->values = $valuestr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->save();                               // save all to database!
@@ -177,8 +177,8 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $creds = Input::all();                                                // fetch all input in one time
 
         $uid = Session::get('id');                                            // fetch Session:id
-        $creds += array(                                                      // add admin_id
-            'admin_id'  =>  $uid
+        $creds += array(                                                      // add admins_id
+            'admins_id'  =>  $uid
         );
 
         // define rules for input    working ( with php ) regex datum: ^\d{1,2}\.\d{1,2}\.\d{4}$
@@ -190,7 +190,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             //'ts'        =>  'required|numeric',                       // Texts      
             //'im'        =>  'required|numeric',                       // Images     
             //'mv'        =>  'required|numeric',                       // Movies     
-            'admin_id'    =>  'required|numeric|max:100',                 // admin_id
+            'admins_id'    =>  'required|numeric|max:100',                 // admins_id
         );
 
         $v = Validator::make($creds, $rules);                                 // validate the input
@@ -257,7 +257,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $his->cardid = $ergeb->id;                                             // get and save id of current item ( card! )
         $his->action = 'update';                                              // say what we are doing!
-        $his->admin_id = $uid;                                                  // save userid!
+        $his->admins_id = $uid;                                                  // save userid!
         $his->fields = $fieldstr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->values = $valuestr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
         $his->save();  

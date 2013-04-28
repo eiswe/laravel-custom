@@ -7,16 +7,22 @@ class Admin_Create_Text_Table {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
+	public function up() {
+        
 		// add database schema: texts
 		Schema::create('texts', function($table){
 
             $table->increments('id')->unique();
 
-            $table->integer('admin_id');
+            $table->integer('admin_id')->unsigned();
 
-            $table->string('text', 2048)->nullable();
+            $table->foreign('admin_id')
+                ->references('id')
+                ->on('admins')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
+            $table->text('text')->nullable();
 
             $table->timestamps();
         });
@@ -208,22 +214,8 @@ class Admin_Create_Text_Table {
 	 *
 	 * @return void
 	 */
-	public function down()
-	{
+	public function down() {
 		// drop database schema: texts
 		Schema::drop('texts');
 	}
-
 }
-
-/*
-        DB::table('texts')->insert(array(
-            'admin_id'        => '2',
-            'text'          => 'Some incredible long text free from the energy of my inspiration!',
-      ));
-
-        DB::table('texts')->insert(array(
-            'admin_id'        => '2',
-            'text'          => 'Some other incredible long text free from the energy of my copy action!',
-      ));
-*/
