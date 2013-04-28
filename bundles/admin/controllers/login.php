@@ -7,11 +7,7 @@ class Admin_Login_Controller extends Controller {
 
     public function __construct(){
         parent::__construct();
-
         Config::set('auth.driver', 'adminauth');
-
-        Asset::container('header')->bundle('admin');
-        Asset::container('header')->add('bootstrap', 'css/bootstrap.min.css');
     }
 
     public function get_index(){
@@ -27,13 +23,11 @@ class Admin_Login_Controller extends Controller {
 
         if(Auth::attempt($creds)){
 
-            // get Username and search in DB for id
-            $adminn = Admin::where( 'username', '=', $creds['username'] )->get();
+            $adminn = Admin::where( 'username', '=', $creds['username'] )->get();   // get Username and search in DB for id
             foreach ( $adminn as $value ) {
-                // save user id in Session
-                Session::put('id', $value->id);
+                Session::put('id', $value->id);     // save user id in Session
             }
-            return Redirect::to(URL::to_action('admin::home@index'))->with('title', 'Welcome to DVS');
+            return Redirect::to(URL::to_action('admin::home@index'))->with('title', 'Welcome to LimeBlack');
 
         } else {
             return Redirect::back()->with('error', true);
@@ -42,13 +36,9 @@ class Admin_Login_Controller extends Controller {
 
     public function get_logout(){
 
-        // Delete Data stored in Session
-        Session::flush();
-        
-        // Logout!
-        Auth::logout();
+        Session::flush();           // Delete Data stored in Session        
+        Auth::logout();             // Logout!
 
-        // return to public home cause he isnt logged in!
-        return Redirect::to(URL::to_action('home@index'))->with('title', 'Welcome to DVS');
+        return Redirect::to(URL::to_action('home@index'))->with('title', 'Welcome to LimeBlack');
     }
 }

@@ -35,9 +35,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }        
 
         foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
-            if ( $value->name == $any ) {
+            if ( $value->bonelist_id == $any ) {
 
-                $boes = Bone::where( 'name', '=', $any )->get();
+                $boes = Bone::where( 'bonelist_id', '=', $any )->get();
 
                 return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
                     ->with( 'title', 'Add new Page Title' )
