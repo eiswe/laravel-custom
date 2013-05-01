@@ -25,7 +25,8 @@ class Admin_Create_Bone_Table {
                 ->on_update('cascade');
 
 	        $table->string('desc', 128)->nullable();
-	        $table->string('fieldName', 32);
+            $table->string('dbName', 32);
+            $table->string('fieldName', 32);
 	        $table->string('fieldType', 32);
             $table->string('rules', 200);
 	        $table->integer('weight')->nullable();				// {title,desc,image,text}
@@ -37,7 +38,8 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array( 			// insert testdata: Text
             'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
-            'fieldName'    	=> 'Titel',
+            'dbName'     => 'title',
+            'fieldName'     => 'Titel',
             'fieldType'    	=> 'text',
             'rules'           => 'required|max:32',
             'weight'          => 1,
@@ -47,6 +49,7 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
+            'dbName'     => 'desc',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
             'rules'           => 'required|max:64',
@@ -57,7 +60,8 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '1',
             'desc'  		=> 'only text',
-            'fieldName'    	=> 'text',
+            'dbName'     => 'text',
+            'fieldName'    	=> 'Text',
             'fieldType'    	=> 'textarea',
             'rules'           => 'required|max:2048',   
             'weight'          => 3,
@@ -67,6 +71,7 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array( 			// insert testdata: Gallery
             'bonelist_id'        	=> '2',
             'desc'  		=> 'insert Title',
+            'dbName'     => 'titel',
             'fieldName'    	=> 'Titel',
             'fieldType'    	=> 'text',
             'rules'           => 'required|max:32',
@@ -76,6 +81,7 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '2',
             'desc'  		=> 'insert description',
+            'dbName'     => 'desc',
             'fieldName'    	=> 'Desc',
             'fieldType'    	=> 'text',
             'rules'           => 'required|max:64',
@@ -85,6 +91,7 @@ class Admin_Create_Bone_Table {
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '2',
             'desc'  		=> 'Want Pictures?',
+            'dbName'     => 'foto',
             'fieldName'    	=> 'Display Pictures',
             'fieldType'    	=> 'boolean',
             'rules'           => 'required|max:2048',

@@ -71,14 +71,14 @@
 					switch ( $value->fieldtype ) {
 					    case "text":
 							echo Form::control_group(
-								Form::label( $value->id , $value->fieldname ), 
-								Form::medium_text( 'input_'.$value->id ), '', 
+								Form::label( $value->dbname , $value->fieldname ), 
+								Form::medium_text( $value->dbname ), '', 
 								Form::block_help( $value->desc ));
 					        break;
 					    case "textarea":
 							echo Form::control_group(
-								Form::label( $value->id , $value->fieldname ), 
-								Form::xlarge_textarea( 'input_'.$value->id, '', array('rows' => '2')), '', 
+								Form::label( $value->dbname , $value->fieldname ), 
+								Form::xlarge_textarea( $value->dbname, '', array('rows' => '2')), '', 
 								Form::block_help( $value->desc ));
 					        break;
 					    case "cake":

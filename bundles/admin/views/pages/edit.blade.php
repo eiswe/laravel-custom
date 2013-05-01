@@ -16,12 +16,17 @@
 			Form like a BOSS! 
 		-->
 <?php
-	echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add', 'List' => $url.'/admin/page/list', 'Edit'));
+	echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add/Text', 'List' => $url.'/admin/page/list', 'Edit'));
+	print_r($bones);
+	print_r($text);	
 
-  	if ( isset( $page ) ) {				// Check if page is givven!
-		foreach ( $page as $uniqValue ) {
-			// THIS LOOP CONTAINS DEFAULT DATA FOR INPUT FIELDS!!! and save in awesome Var: uniqValue!
-		} 
+  	if ( isset( $page ) AND isset( $bones ) AND isset( $text ) ) {				// Check if page is givven!
+		foreach ( $page as $uniqPage ) {	
+		} 	// THIS LOOP CONTAINS DEFAULT DATA FOR INPUT FIELDS!!! and save in awesome Var: uniqPage!
+		foreach ( $bones as $uniqBones ) {	
+		} 	// THIS LOOP CONTAINS DEFAULT DATA FOR INPUT FIELDS!!! and save in awesome Var: uniqBones!
+		foreach ( $text as $uniqText ) {	
+		} 	// THIS LOOP CONTAINS DEFAULT DATA FOR INPUT FIELDS!!! and save in awesome Var: uniqText!
 	} else {
 		print 'no page given!';
 	}
@@ -42,37 +47,37 @@
 
 	echo Form::horizontal_open();
 
-		$tt = $uniqValue->title ;
+		$tt = $uniqPage->title ;
 		echo Form::control_group(
 			Form::label('tt', 'Title'), 
 			Form::large_text('tt', $tt), 'info', 
 			Form::block_help('insert your title'));
 
-		$dc = $uniqValue->desc ;
+		$dc = $uniqPage->desc ;
 		echo Form::control_group(
 			Form::label('dc', 'Description'), 
 			Form::medium_text('dc', $dc), '', 
 			Form::block_help('insert your description'));
 
-		$st = $uniqValue->style ;
+		$st = $uniqPage->bonelist_id ;
 		echo Form::control_group(
 			Form::label('st', 'Style'), 
 			Form::medium_text('st', $st), 'info', 
 			Form::block_help('choose your style - will add a dropdown here'));
 
-		$ts = $uniqValue->texts ;
+		$ts = $uniqText->text ;
 		echo Form::control_group(
 			Form::label('ts', 'Texts'), 
 			Form::medium_text('ts', $ts), '', 
 			Form::block_help('choose your texts - will add a checkboxes here'));
 
-		$im = $uniqValue->images ;
+		$im = $uniqPage->images ;
 		echo Form::control_group(
 			Form::label('im', 'Images'), 
 			Form::medium_text('im', $im), '', 
 			Form::block_help('choose your images - will add a checkboxes here'));
 
-		$mv = $uniqValue->movies ;
+		$mv = $uniqPage->movies ;
 		echo Form::control_group(
 			Form::label('mv', 'Movies'), 
 			Form::medium_text('mv', $mv), '', 

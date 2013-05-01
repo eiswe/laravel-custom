@@ -36,7 +36,7 @@
 
       echo '<div class="hero-unit">';       // Footer of News Element!
       echo     '<br />';
-      echo     '<div class="span3"><p class="text-left">Added by David as UID: '.$value->admins_id.'</p></div>';
+      echo     '<div class="span3"><p class="text-left">Added by David as UID: '.$value->admin_id.'</p></div>';
       echo     '<div class="span3"><p class="text-center">This is the '.$value->id.' Entry!</p></div>';
       echo     '<div class="span3"><p class="text-right">'.$value->created_at.'</p></div>';
       echo '</div>';

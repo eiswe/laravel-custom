@@ -57,7 +57,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     public function post_add($any){
 
         $creds = "";                                                // clear creds
-        $rules = array( '' => '' );
+        $rules = array();
 
         $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
 
@@ -73,24 +73,17 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             $bonelst = Admin::find( $id )->bonelist()->get();       // lets load all bonelst exist in Database of user
         }        
 
-        foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
+        foreach ($bonelst as $key => $value) {                       // fetch current bonelist_id
             if ( $value->name == $any ) {
                 $listid = $value->id;
-                //$boes = 
-                //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
-                $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
-                //$boes = Bone::where( 'name', '=', $any )->get();
-                foreach ($boes as $bkey => $bvalue) {
-                    if ( $bvalue->bonelist_id == $value->id ) {
-                        
-                        // need to save fieldnames
-                        $rules += array( 'input_'.$bvalue->id => $bvalue->rules );
-                        
-                    }
-                }
+        }   }
+                
+        $boes = Bone::where( 'bonelist_id', '=', $listid )->get();  //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
+        foreach ($boes as $bkey => $bvalue) {                       //$boes = Bone::where( 'name', '=', $any )->get();
+            if ( $bvalue->bonelist_id == $listid ) {                //print_r($bvalue->dbname);  //print_r($bvalue->rules);
+                $rules += array( $bvalue->dbname => $bvalue->rules, );  // fetch rules for current bone-fields
             }
         }
-
 
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
@@ -98,68 +91,71 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         );
 
         $v = Validator::make($creds, $rules);                       // validate the input
-
-        if ( $v->fails() ) {                                        // if validator fails...
-
-            // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
+        if ( $v->fails() ) {                                        // if validator fails...  // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
             $messages = $v->errors->all('<p>:message</p>');         // get all errors
             return Redirect::back()                                 // with custom error message
                 ->with('error', $messages)                         // and return back to form and show them
                 ->with('err', $creds);
         } 
 
-        $page = new Page();                                         // get Model page create a database insertion
-        //$his = new history();                                       // if page was saved, we need to create a history entry
 
+        foreach ($bonelst as $key => $value) {                      // fetch current bonelist_id
+            if ( $value->name == $any ) {                           // compare with current style
+                switch ( $value->name ) {                           // and save each its own way
+                    case "Text":
+                        // Nessesary Database
+                        $page = new Page();                                 // get Model page create a database insertion
+                        $text = new Text();                                 // if page was saved, we need to create a history entry
 
-        foreach ($boes as $bkey => $bvalue) {
-            if ( $bvalue->bonelist_id == $listid ) {
-                
-                // create a relation between input field and database value ( RENAME VARS )
-                switch ($bkey) {
-                    case "input_1":
-                        $bkey = 'title';
+                        // Whitelist for each field to save value in correct database - have to use relation field of bones to figure out with DB is used!
+                        foreach ($creds as $key => $value) {
+                            // print '<br />'.$key.' has value '.$value;
+                            switch ( $key ) {
+                                case 'title':
+                                    $page->$key = $value;                   // save each key-value pair in page!
+                                    $page->admin_id = $id;                  // save each key-value pair in page!
+                                    $page->bonelist_id = $listid;           // save each key-value pair in page!
+                                    $text->admin_id = $id;                  // save each key-value pair in page!
+                                    break;
+                                case 'desc':
+                                    $page->$key = $value;                   // save each key-value pair in page!
+                                    break;
+                                case 'text':
+                                    $text->$key = $value;                   // save each key-value pair in page!
+                                    break;
+                                // case 'admin_id':                            // this case does not work!
+                                //     $page->$key = $value;                   // save each key-value pair in page!
+                                //     $text->$key = $value;                   // save each key-value pair in page!
+                                //     break;
+                            }
+                        }
+                        
+                        $text->save();
+                        $page->texts = $text->id;
+                        $page->save();
                         break;
-                    case "input_2":
-                        $bkey = 'desc';
-                        break;
-                    case "input_3":
-                        $bkey = 'style';
-                        break;
-                    case "ts":
-                        $bkey = 'texts';
-                        break;
-                    case "im":
-                        $bkey = 'images';
-                        break;
-                    case "mv":
-                        $bkey = 'movies';
-                        break;                
-            }
 
-            $page->$bkey = $value;                   // save each key-value pair in page!
+                    case "Gallery":
+                        echo "not implemented yet";
+                        break;
+                    case "Foto":
+                        echo "wanna save foto? you have to code your save routine!";
+                        break;
+                    case "lie":
+                        echo "but you gonna DIE!";
+                        break;                    
+                }
+            }   
         }
-        }
 
-        $page->save();                              // save the data to database
-/*
-        foreach ( $creds as $key => $value ) {      // adding data to new page ( !DataBase! )
-            if ( isset( $value ) ) {
-                $fields[] = $key;
-                $values[] = $value;                
-            }
-        }
+        // print 'This is Bonelist Style: '.$listid.'<br />';
+        // print '<br />';
+        // print_r($boes);
+        // print '<br />';
+        // print_r($rules);
+        // print '<br />';
+        // print_r($creds);
 
-        $fieldstr = implode(",", $fields);          // convert array to string, to save in DB
-        $valuestr = implode(",", $values);          // convert array to string, to save in DB
-
-        $his->pageid = $page->id;                   // get and save id of current item ( page! )
-        $his->action = 'insert';                    // say what we are doing!
-        $his->admins_id = $id;                         // save admins_id!
-        $his->fields = $fieldstr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        $his->values = $valuestr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        $his->save();                               // save all to database!
-*/
         // return back to home view
         return Redirect::to(URL::to_action('admin::home@index'));  
           
@@ -169,21 +165,27 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     Edit Page!!! 
     -> Fetch id and data for validation. Save into database!
 */
-    public function get_edit($id){  // for fetching errors need to use routes....^^ ok NOT!
+    public function get_edit($id){ 
 
         $uid = Session::get('id');                                   // fetch Session:id and 
         
         if ( $uid == 1 ) {
-            $ppage = Page::where('id', '=', $id)->get();   // lets load all pagelist exist in Database        
+            $ppage = Page::where('id', '=', $id)->get();            // load all pagelist exist in Database        
         } elseif ( $uid >= 1 ) {
             $ppage = Admin::find( $uid )->page()->where('id', '=', $id)->get();  // ->where('id', '=', $id)
         }
- 
+
+        foreach ($ppage as $key => $value) {                        // fetch bbones (input fields) and ttext (text of page)
+            $bbones = Bone::where( 'bonelist_id', '=', $value->bonelist_id )->get();
+            $ttext  = Text::where( 'id',          '=', $value->texts )->get();
+        }
+
         return View::make( 'admin::pages.edit' )
             ->with( 'title', 'Edit a Card!' )
             ->with( 'page', $ppage )
-//            ->with('error', $messages); // only for debugging
-        ;
+            ->with( 'bones', $bbones)
+            ->with( 'text', $ttext)
+        ;      
     }
 
 
@@ -241,11 +243,11 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                     $key = 'desc';
                     break;
                 case "st":
-                    $key = 'style';
+                    $key = 'bonelist_id';
                     break;
-                case "ts":
-                    $key = 'texts';
-                    break;
+                // case "ts":
+                //     $key = 'texts';
+                //     break;
                 case "im":
                     $key = 'images';
                     break;
@@ -256,38 +258,29 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
            // $page->$key = $value;                   // save each key-value pair in page!
   
-            foreach ( $ppage as $ergeb ) {              // save each value in database
-                $ergeb->$key = $value;                  // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
+            foreach ( $ppage as $ergeb ) {              // unpack PPage and
+                if ( $key == "ts" ) {                   // if input field name = ts
+                    $ttext = Text::where( 'id', '=', $ergeb->texts)->get(); // get text by id of current page->texts (id of text)
+                    foreach ($ttext as $texxt) {        // unpack ttext
+                        $texxt->text = $value;          // save user edited text to textDB
+                    }
+                    $texxt->save();                     // commit save for text
+                    $key   = 'texts';                   // rename fieldname to texts
+                    $value = $ergeb->texts;             // replace real text with id of text
+                } 
+                print '<br />saved: '.$key.' with this value: '.$value;
+                $ergeb->$key = $value;              // save all other fields to page!
+                                                   // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
             }            
         }
 
-        $ergeb->save();                                                       // finally save to database!
-        /*
-        $his = new history();                                                 // if card was saved, we need to create a history entry
+        //$ergeb->save();                                                       // finally save to database!
 
-        // try to compare $value with field content
-        foreach ( $creds as $key => $svalue ) {      // adding data to new Card ( !DataBase! )
-            if ( $value != $svalue ) {
-                $fields[] = $key;
-                $values[] = $svalue;                
-            }
-        }
-        
-        $fieldstr = implode(",", $fields);                                    // convert array to string, to save in DB
-        $valuestr = implode(",", $values);                                    // convert array to string, to save in DB
+        // $messages = array(                                                    // Generate a success message
+        //     'event'  => 'UpdateCard',
+        //     'state'  => 'Successfully'
+        // );
 
-        $his->cardid = $ergeb->id;                                             // get and save id of current item ( card! )
-        $his->action = 'update';                                              // say what we are doing!
-        $his->admins_id = $uid;                                                  // save userid!
-        $his->fields = $fieldstr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        $his->values = $valuestr;                                             // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        $his->save();  
-        */
-        $messages = array(                                                    // Generate a success message
-            'event'  => 'UpdateCard',
-            'state'  => 'Successfully'
-        );
-
-        return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
+        // return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
     }  
 }
