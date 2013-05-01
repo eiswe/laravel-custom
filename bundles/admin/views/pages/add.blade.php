@@ -46,17 +46,13 @@
 					$error = Session::get('error'); 
 					foreach ($error as $value) {
 						echo '<div class="alert alert-error">'.$value.'</div>';
-						if ( !isset($err) ) {
-							$err = "blah";
-						}
-						print_r($err);
 					} ?>
 			@endif 
 
 			<?php 
 			//<form id="text" class="form-horizontal" method="POST" action="http://192.168.0.163/laravel-custom/public/text" accept-charset="UTF-8">
 			
-			// print_r($bones);
+			//print_r($bones);
 
 			echo Form::horizontal_open( 'admin/page/add/'.$extra );
 			

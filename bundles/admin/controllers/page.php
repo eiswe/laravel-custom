@@ -35,9 +35,11 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }        
 
         foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
-            if ( $value->bonelist_id == $any ) {
+            if ( $value->name == $any ) {
 
-                $boes = Bone::where( 'bonelist_id', '=', $any )->get();
+                //$boes = 
+                //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
+                $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
 
                 return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
                     ->with( 'title', 'Add new Page Title' )
@@ -64,15 +66,31 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             'admins_id'  =>  $id
         );
 
-        $boes = Bone::where( 'name', '=', $any )->get();
-        foreach ($boes as $key => $value) {
+        if ( $id == 1 ) {                                           // if root fetch all data
+            $bonelst = Bonelist::all();
+            $bones   = Bone::all();
+        } elseif ( $id >= 1 ) {                                     // else only your own!
+            $bonelst = Admin::find( $id )->bonelist()->get();       // lets load all bonelst exist in Database of user
+        }        
+
+        foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
             if ( $value->name == $any ) {
-                
-                // need to save fieldnames
-                $rules += array( 'input_'.$value->id => $value->rules );
-                
+                $listid = $value->id;
+                //$boes = 
+                //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
+                $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
+                //$boes = Bone::where( 'name', '=', $any )->get();
+                foreach ($boes as $bkey => $bvalue) {
+                    if ( $bvalue->bonelist_id == $value->id ) {
+                        
+                        // need to save fieldnames
+                        $rules += array( 'input_'.$bvalue->id => $bvalue->rules );
+                        
+                    }
+                }
             }
         }
+
 
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
@@ -93,31 +111,34 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         $page = new Page();                                         // get Model page create a database insertion
         //$his = new history();                                       // if page was saved, we need to create a history entry
 
-        foreach ( $creds as $key => $value ) {                      // rename input filds to database names ( !DataBase! )
 
-            // create a relation between input field and database value ( RENAME VARS )
-            switch ($key) {
-                case "tt":
-                    $key = 'title';
-                    break;
-                case "dc":
-                    $key = 'desc';
-                    break;
-                case "st":
-                    $key = 'style';
-                    break;
-                case "ts":
-                    $key = 'texts';
-                    break;
-                case "im":
-                    $key = 'images';
-                    break;
-                case "mv":
-                    $key = 'movies';
-                    break;                
+        foreach ($boes as $bkey => $bvalue) {
+            if ( $bvalue->bonelist_id == $listid ) {
+                
+                // create a relation between input field and database value ( RENAME VARS )
+                switch ($bkey) {
+                    case "input_1":
+                        $bkey = 'title';
+                        break;
+                    case "input_2":
+                        $bkey = 'desc';
+                        break;
+                    case "input_3":
+                        $bkey = 'style';
+                        break;
+                    case "ts":
+                        $bkey = 'texts';
+                        break;
+                    case "im":
+                        $bkey = 'images';
+                        break;
+                    case "mv":
+                        $bkey = 'movies';
+                        break;                
             }
 
-            $page->$key = $value;                   // save each key-value pair in page!
+            $page->$bkey = $value;                   // save each key-value pair in page!
+        }
         }
 
         $page->save();                              // save the data to database

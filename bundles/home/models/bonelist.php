@@ -5,7 +5,7 @@ class Bonelist extends Eloquent {
 	public static $timestamps = true;
 
 	public function admin(){
-		return $this->belongs_to('Admin');
+		return $this->belongs_to('Admin');  //  cant find admin?
 	}
 	
 	public function bone(){
