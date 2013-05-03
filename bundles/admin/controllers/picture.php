@@ -3,57 +3,36 @@ use Admin\Models\Admin;
 //use Admin\Models\Page;
 //use Home\Models\Page;
 
-class Admin_Page_Controller extends Admin_Base_Controller {
+class Admin_Picture_Controller extends Admin_Base_Controller {
 
     public function get_index(){                                     // Index Page of Page^^
-        return Redirect::to(URL::to_action('admin::page@list'));     // return to list view of pages!
+        return Redirect::to(URL::to_action('admin::picture@list'));     // return to list view of pages!
     }
     
     public function get_list(){                                      /**    List / Index Page!!! */
 
         $uid = Session::get('id');                                   // fetch Session:id and 
         if ( $uid == 1 ) {                                           // if root fetch all data
-            $pagelist = Page::all();
+            $ppicture = Picture::all();
         } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $pagelist = Admin::find( $uid )->page()->get();          // lets load all pagelist exist in Database of user
+            $ppicture = Admin::find( $uid )->picture()->get();          // lets load all ppicture exist in Database of user
         }
 
-        return View::make( 'admin::pages.list' )
+        return View::make( 'admin::picture.index' )
             ->with( 'title', 'List of Admin Panel' )
-            ->with( 'pages', $pagelist )
+            ->with( 'picture', $ppicture)
         ;
     }
 
-    public function get_add($any){                                      /**    Add Title of Page!!! */
+    public function get_add(){                                      /**    Add Title of Page!!! */
         
-        $uid = Session::get('id');                                   // fetch Session:id and 
-        if ( $uid == 1 ) {                                           // if root fetch all data
-            $bonelst = Bonelist::all();
-            $bones   = Bone::all();
-        } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $bonelst = Admin::find( $uid )->bonelist()->get();       // lets load all bonelst exist in Database of user
-        }        
-
-        foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
-            if ( $value->name == $any ) {
-
-                //$boes = 
-                //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
-                $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
-
-                return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
-                    ->with( 'title', 'Add new Page Title' )
-                    ->with( 'styles', $bonelst )
-                    ->with( 'extra', $any)
-                    ->with( 'bones', $boes)
-                ;
-            }
-        }
+        return View::make( 'admin::picture.add' )                     // No additional Infos neccessary
+            ->with( 'title', 'Add new Page Title' )
+        ;
     }
-  
-/**
-    POST Add Page!!! 
-*/
+  /**
+
+  */
     public function post_add($any){
 
         $creds = "";                                                // clear creds
@@ -66,28 +45,12 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             'admins_id'  =>  $id
         );
 
-        if ( $id == 1 ) {                                           // if root fetch all data
-            $bonelst = Bonelist::all();
-            $bones   = Bone::all();
-        } elseif ( $id >= 1 ) {                                     // else only your own!
-            $bonelst = Admin::find( $id )->bonelist()->get();       // lets load all bonelst exist in Database of user
-        }        
-
-        foreach ($bonelst as $key => $value) {                       // fetch current bonelist_id
-            if ( $value->name == $any ) {
-                $listid = $value->id;
-        }   }
-                
-        $boes = Bone::where( 'bonelist_id', '=', $listid )->get();  //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
-        foreach ($boes as $bkey => $bvalue) {                       //$boes = Bone::where( 'name', '=', $any )->get();
-            if ( $bvalue->bonelist_id == $listid ) {                //print_r($bvalue->dbname);  //print_r($bvalue->rules);
-                $rules += array( $bvalue->dbname => $bvalue->rules, );  // fetch rules for current bone-fields
-            }
-        }
-
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
+            'name'    =>  'required|numeric|max:100',                 // admins_id
             'admins_id'    =>  'required|numeric|max:100',                 // admins_id
+            'path'    =>  'required|numeric|max:100',                 // admins_id
+            'size'    =>  'required|numeric|max:100',                 // admins_id
         );
 
         $v = Validator::make($creds, $rules);                       // validate the input
@@ -156,15 +119,70 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         // print '<br />';
         // print_r($creds);
 
-        $messages = array(                                                    // Generate a success message
-            'event'  => 'AddPage',
-            'state'  => 'Successfully'
-        );
+        // $messages = array(                                                    // Generate a success message
+        //     'event'  => 'AddPicture',
+        //     'state'  => 'Successfully'
+        // );
 
-        // return back to home view
-        return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  
+        // // return back to home view
+        // return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);;  
           
     } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
     Edit Page!!! 
@@ -273,16 +291,19 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                     $key   = 'texts';                   // rename fieldname to texts
                     $value = $ergeb->texts;             // replace real text with id of text
                 } 
-                print '<br />saved: '.$key.' with this value: '.$value; // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
-                $ergeb->$key = $value;                  // save all other fields to page!
+                print '<br />saved: '.$key.' with this value: '.$value;
+                $ergeb->$key = $value;              // save all other fields to page!
+                                                   // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
             }            
         }
 
-        $messages = array(                                                    // Generate a success message
-            'event'  => 'UpdatePage',
-            'state'  => 'Successfully'
-        );
+        //$ergeb->save();                                                       // finally save to database!
 
-        return Redirect::to(URL::to_action('admin::page@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
+        // $messages = array(                                                    // Generate a success message
+        //     'event'  => 'UpdatePicture',
+        //     'state'  => 'Successfully'
+        // );
+
+        // return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
     }  
 }

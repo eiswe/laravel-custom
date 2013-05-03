@@ -5,7 +5,8 @@
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';      
+        print '<li>                 <a href="'.$url.'/admin/page/list">    Pages  </a></li>';      
+        print '<li class="active">  <a href="'.$url.'/admin/picture">      Picture  </a></li>';      
     ?>
 @endsection
 
@@ -13,42 +14,31 @@
 
   <div class="span10">
 
-    <h1>Page Area</h1>
-
-    @if(Session::get('alert'))
-        <?php 
-            // Fetch alert
-            $alert = Session::get('alert'); 
-            // Print Alert message
-            print '<div class="alert alert-success">The '.$alert['event'].' was '.$alert['state'].'</div>';
-        ?>
-    @endif
+    <h1>Picture Area</h1>
 
   	<?php
 
 /*    Will generate a list of Pages on this site! */
-		$headi = array(
+        $headi = array(
             'ID',
             'UserID',
-            'Title',
             'Description',
-            'StyleID',
-            'TextsIDs',
-            'ImagesIDs',
-            'MoviesIDs',
-		);
+            'Path',
+            'Size',
+        );
 
-	    echo Table::hover_tablesorter_condensed_open();
-	    echo Table::headers($headi);
-	    echo Table::body($pages)
-	    	->ignore( 'created_at', 'updated_at' );
-	    echo Table::close();
+        echo Table::hover_tablesorter_condensed_open();
+        echo Table::headers($headi);
+        echo Table::body($picture)
+            ->ignore( 'created_at', 'updated_at' );
+        echo Table::close();
 
 /* admin menu */
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
-      echo Button::link( $url.'/admin/page/add/Text', 'Create Page - Text' );
+      echo Button::link( $url.'/admin/picture/add', 'Create Picture' );
+
 
     ?>
 
@@ -79,6 +69,7 @@
             onRenderHeader: function(index) {                                     // Indexies fields of table
             }
         });
+
     }); 
   </script>
 
