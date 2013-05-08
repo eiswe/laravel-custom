@@ -17,8 +17,8 @@
 		-->
 <?php
 	echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add/Text', 'List' => $url.'/admin/page/list', 'Edit'));
-	print_r($bones);
-	print_r($text);	
+	// print_r($bones);
+	// print_r($text);	
 
   	if ( isset( $page ) AND isset( $bones ) AND isset( $text ) ) {				// Check if page is givven!
 		foreach ( $page as $uniqPage ) {	

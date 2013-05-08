@@ -162,7 +162,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         );
 
         // return back to home view
-        return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  
+        return Redirect::to(URL::to_action('admin::page@list'))->with('alert', $messages);  
           
     } 
 
@@ -283,6 +283,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
             'state'  => 'Successfully'
         );
 
-        return Redirect::to(URL::to_action('admin::page@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
+        return Redirect::to(URL::to_action('admin::page@list'))->with('alert', $messages);  // return back to home view - looking for error message or events!
     }  
 }
