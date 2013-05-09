@@ -24,7 +24,7 @@
 			if ( $key->size == "big" ) {						// if size big create list of caroussel items
 				$bpiclist[] = array(
 				    'image'		=> $key->path,
-				    'label'		=> 'First Thumbnail label',
+				    'label'		=> $key->name,
 				    'caption'	=> $key->desc,
 				);
 
@@ -36,7 +36,7 @@
     	echo MediaObject::open_list();
     	foreach ($pictures as $key) {
 			if ( $key->size == "small" ) {				// else size small create list of preview items items
-		    	echo MediaObject::create( $key->desc, $key->path )->with_h4( 'First Thumbnail label' );
+		    	echo MediaObject::create( $key->desc, $key->path )->with_h4( $key->name );
 			}
 		}
     	echo MediaObject::close_list();

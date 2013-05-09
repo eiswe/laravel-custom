@@ -29,6 +29,7 @@
 
 /*    Will generate a list of Pages on this site! */
         $headi = array(
+            'ID',
             'UserID',
             'Name',
             'Description',
@@ -39,7 +40,7 @@
         echo Table::hover_tablesorter_condensed_open();
         echo Table::headers($headi);
         echo Table::body($picture)
-            ->ignore( 'id', 'created_at', 'updated_at' );
+            ->ignore( 'created_at', 'updated_at' );
         echo Table::close();
 
 /* admin menu */
@@ -48,6 +49,22 @@
 
       echo Button::link( $url.'/admin/picture/add', 'Create Picture' );
 
+?>      <br /><br /><br />
+        <h3>Delete Picture!</h3>  
+
+            @if(Session::get('error')) <?php 
+                    $error = Session::get('error'); 
+                    foreach ($error as $value) {
+                        echo '<div class="alert alert-error">'.$value.'</div>';
+                    } ?>
+            @endif 
+<?php
+
+    echo Form::inline_open();
+    echo Form::text('id', null, array('class' => 'input-small', 'placeholder' => 'ID of Picture'));
+    echo Form::submit('Delete Picture!');
+    echo Form::token();
+    echo Form::close();   
 
     ?>
 

@@ -46,6 +46,7 @@ class Admin_Base_Controller extends Controller {
 
         // using auth filter globally for everything in admins
         $this->filter('before', 'auth');
+        $this->filter('before', 'csrf')->on('post');
     }
 
     /*

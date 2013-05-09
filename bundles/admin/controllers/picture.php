@@ -24,6 +24,35 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         ;
     }
 
+    public function post_list(){
+
+        $creds = "";                                                // clear creds
+        $rules = array();
+
+        $creds = Input::all();        Input::clear();              // Fetch all Input and clear after!
+
+        // it could be so cool with aware bundle and rules for MODELS not for FORMS
+        $rules += array(
+            'id'    =>  'required|numeric',                 // admins_id
+        );
+
+        $v = Validator::make($creds, $rules);                       // validate the input
+        if ( $v->fails() ) {                                        // if validator fails...  // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
+            $messages = $v->errors->all('<p>:message</p>');         // get all errors
+            return Redirect::back()                                 // with custom error message
+                ->with('error', $messages);                       // and return back to form and show
+        } 
+
+        $messages = array(                                                    // Generate a success message
+            'event'  => 'DeletePicture',
+            'state'  => 'Successfully'
+        );
+
+        // return back to home view
+        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);;  
+          
+    } 
+
     public function get_add(){                                      /**    Add Title of Page!!! */
         
         return View::make( 'admin::picture.add' )                     // No additional Infos neccessary
@@ -55,7 +84,6 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
             'size'    =>  'required',                 // admins_id
         );
 
-
         $upload_success = Input::upload( 'photo', $directory, $filename );
 
         $v = Validator::make($creds, $rules);                       // validate the input
@@ -75,9 +103,6 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         $ppicture->size = $creds['size'];
 
         $ppicture->save();
-
-        print URL::to('uploads/'.sha1( Auth::user()->id ).'/'.$filename);
-        print 'success!';
 
         $messages = array(                                                    // Generate a success message
             'event'  => 'AddPicture',

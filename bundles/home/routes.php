@@ -62,9 +62,13 @@ Route::get('/(:any)/gallery', function($any){ 						// if nothing match use any!
 });
 
 Route::get('/(:any)/about', function($any){ 				// fetch ab out site for generated menu
+
+	$pprofile = Profile::where('frontname', 'like', $any)->get();
+
 	return View::make('admin::show.about')
 		->with('title', 'LimeBlack - '.$any.' Index')
 		->with('site', $any)
+		->with('profile', $pprofile)
 	;
 });
 
