@@ -32,17 +32,23 @@ class Admin_Create_Projectgroup_Table {
 	    });
 
         DB::table('projectgroups')->insert(array( 			// insert testdata: Text
-            'admin_id'  		=> 2,
+            'admin_id'  		=> 1,
             'title'  			=> 'QuadroCopter',
             'desc'  			=> 'My first Project',
       	));
 	    
         DB::table('projectgroups')->insert(array( 			// insert testdata: Text
-            'admin_id'  		=> 1,
+            'admin_id'  		=> 2,
             'title'  			=> 'QuadroCopter',
             'desc'  			=> 'My first Project',            
       	));
-
+	    
+        DB::table('projectgroups')->insert(array( 			// insert testdata: Text
+            'admin_id'  		=> 2,
+            'title'  			=> 'LaravelCMS',
+            'desc'  			=> 'My second Project',            
+      	));
+	    
 	}
 
 	/**

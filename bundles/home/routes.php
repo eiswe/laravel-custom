@@ -14,7 +14,7 @@ Route::get('/admin', function(){
 	return Redirect::to(URL::to_action('admin::home@index'));
 });
 
-Route::get('/(:any)/projects', function($any){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)/projects/(:any)', function($any, $pro){ 						// if nothing match use any! - use for profile names!
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();
 		foreach ( $starredUsers as $key ) {
@@ -28,9 +28,10 @@ Route::get('/(:any)/projects', function($any){ 						// if nothing match use any
 
 		return View::make('admin::show.projects')
 			->with('title', 'LimeBlack - '.$any.' Index')
-			->with('site', $any)
-			->with('project', $pprojects)
-			->with('projectpage', $pprojectPage)
+			->with('site', 			$any)
+			->with('project', 		$pro)
+			->with('projects', 		$pprojects)
+			->with('projectpage', 	$pprojectPage)
 			//->with('news', $news)
 		;
 });

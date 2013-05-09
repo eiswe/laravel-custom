@@ -59,21 +59,14 @@ class Admin_Create_Project_Table {
         DB::table('projects')->insert(array( 			// insert testdata: Text
             'admin_id'  		=> 2,
             'page_id'  			=> 4,
-            'projectgroup_id'  	=> 2,            
+            'projectgroup_id'  	=> 3,            
       	));
 	    
         DB::table('projects')->insert(array( 			// insert testdata: Text
             'admin_id'  		=> 1,
             'page_id'  			=> 2,
             'projectgroup_id'  	=> 1,            
-      	));
-	    
-        DB::table('projects')->insert(array( 			// insert testdata: Text
-            'admin_id'  		=> 1,
-            'page_id'  			=> 3,
-            'projectgroup_id'  	=> 1,
-      	));
-	    
+      	));   
 	}
 
 	/**

@@ -17,21 +17,64 @@
   <div class="span9">
     <?php
 
-      if (  isset( $project )) {
-        print "<br /><br /> <p>Project</p>";
-        print_r( $project );
-      } 
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
 
-      if ( isset( $projectpage )) {
-        print "<br /><br /> <p>ProjectPage</p>";
-        print_r( $projectpage );
-      }   
+      foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
+        
+        $tmpMenu[] = array($value->title, $url.'/'.$site.'/projects/'.$value->title);
+        //print_r($value);
+      }
+
+      echo Navbar::create()
+        ->with_brand( 'Projects', $url.'/'.$site.'/projects/Home' )
+        ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
+
+      if ( $project == "Home") {
+          ?>
+            <div class="span9">
+              <h2>Hier sind meine letzten Projekte!</h2>
+          <?php
+
+          if (  isset( $projects ) AND isset( $projectpage )) {
+
+            print "<br />";
+
+            foreach ($projects as $key => $value ) {
+
+              print '<div class="hero-unit">';
+              print '<h2>'.$value->title.'</h2>';
+
+              foreach ($projectpage as $pkey => $pvalue) {
+
+                print '<br />'.'<br />'.$pvalue->projectgroup_id.' should be same with '.$value->id;
+
+                if ( $pvalue->projectgroup_id == $value->id ) {
+                  print 'win';
+                  print $pvalue->title;       // here should be a value...
+                }
+              }
+              print '</div>';              
+            }
+          } 
 
 
-      // echo Breadcrumb::create(array('DEMO OBJECT' => $url.'/admin/page/add', 'Edit' => $url.'/admin/page/edit', 'List'));
+          ?>
+            </div>
+          <?php          
+      } else {
 
-/*  New row foreach news */
-    // print_r($news);
+          if (  isset( $projects )) {
+            print "<br /><br /> <p>Projects</p>";
+            print_r( $projects );
+          } 
+
+          if ( isset( $projectpage )) {
+            print "<br /><br /> <p>ProjectPage</p>";
+            print_r( $projectpage );
+          }
+      }
+
+
     // foreach ($news as $key => $value) {
 
     //   echo '<div class="hero-unit">';
