@@ -28,6 +28,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
         $creds = "";                                                // clear creds
         $rules = array();
+        $uid = Auth::user()->id;                                     // fetch uid 
 
         $creds = Input::all();        Input::clear();              // Fetch all Input and clear after!
 
@@ -43,14 +44,15 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
                 ->with('error', $messages);                       // and return back to form and show
         } 
 
+        $ppicture = Admin::find( $uid )->picture()->where( 'id', '=', $creds['id'] )->delete();          // lets load all ppicture exist in Database of user
+
         $messages = array(                                                    // Generate a success message
             'event'  => 'DeletePicture',
             'state'  => 'Successfully'
         );
 
         // return back to home view
-        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);;  
-          
+        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);
     } 
 
     public function get_add(){                                      /**    Add Title of Page!!! */
@@ -110,8 +112,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         );
 
         // return back to home view
-        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);;  
-          
+        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);
     } 
 
 

@@ -70,6 +70,14 @@ class Admin extends Eloquent {
 		return $this->has_many('Todo');
 	}	
 
+	public function project(){
+		return $this->has_many('Project');
+	}	
+
+	public function projectgroup(){
+		return $this->has_many('Projectgroup');
+	}	
+
 	public function get_created(){		// rename db field! ^^
 	    return $this->get_attribute('created_at');
 	}

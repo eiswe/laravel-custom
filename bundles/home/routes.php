@@ -20,13 +20,18 @@ Route::get('/(:any)/projects', function($any){ 						// if nothing match use any
 		foreach ( $starredUsers as $key ) {
 			$uid = $key->admin_id;
 		}
-        $news = Page::where('admin_id', '=', $uid )->get();
+        
+        $pprojects = Projectgroup::where( 'admin_id', '=', $uid)->get();
+        $pprojectPage = Project::where( 'admin_id', '=', $uid)->get();
+        //$news = Page::where('admin_id', '=', $uid )->get();
 		//$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
 
-		return View::make('admin::show.news')
+		return View::make('admin::show.projects')
 			->with('title', 'LimeBlack - '.$any.' Index')
 			->with('site', $any)
-			->with('news', $news)
+			->with('project', $pprojects)
+			->with('projectpage', $pprojectPage)
+			//->with('news', $news)
 		;
 });
 

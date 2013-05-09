@@ -8,3 +8,4 @@ Route::filter('auth', function(){						// filter: if guest(): before go to home 
 	if (Auth::guest()) return Redirect::to(URL::to_action('admin::login'));
 });
 
+// Dont need to add CSRF Filter can use from Base Application!
