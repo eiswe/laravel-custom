@@ -7,7 +7,8 @@
       print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
       print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
       print '<li>  				  <a href="'.$surl.'about"> About      </a></li>';       
-      print '<li class="active">  <a href="'.$surl.'gallery"> Galery      </a></li>';      
+      print '<li class="active">  <a href="'.$surl.'gallery"> Galery      </a></li>';   
+      print '<li>                 <a href="'.$surl.'projects"> Projects      </a></li>';          
   ?>  
 @endsection
 

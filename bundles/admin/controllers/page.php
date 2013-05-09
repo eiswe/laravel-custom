@@ -11,7 +11,8 @@ class Admin_Page_Controller extends Admin_Base_Controller {
     
     public function get_list(){                                      /**    List / Index Page!!! */
 
-        $uid = Session::get('id');                                   // fetch Session:id and 
+        $uid = Auth::user()->id;                                     // fetch id and 
+        
         if ( $uid == 1 ) {                                           // if root fetch all data
             $pagelist = Page::all();
         } elseif ( $uid >= 1 ) {                                     // else only your own!
@@ -24,24 +25,23 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         ;
     }
 
+
+/** !Pink
+            Add Page - here you get a forḿ were you can add a new site to your Project! xD
+*/
+
     public function get_add($any){                                      /**    Add Title of Page!!! */
         
-        $uid = Session::get('id');                                   // fetch Session:id and 
-        if ( $uid == 1 ) {                                           // if root fetch all data
-            $bonelst = Bonelist::all();
-            $bones   = Bone::all();
-        } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $bonelst = Admin::find( $uid )->bonelist()->get();       // lets load all bonelst exist in Database of user
-        }        
+        $uid = Auth::user()->id;                                        // fetch id and 
+        
+        $bonelst = Admin::find( $uid )->bonelist()->get();              // lets load all bonelst exist in Database of user       
 
-        foreach ($bonelst as $key => $value) {                       // only allow owners of bones to add them!
+        foreach ($bonelst as $key => $value) {                          // only allow owners of bones to add them!
             if ( $value->name == $any ) {
 
-                //$boes = 
-                //$boes = Bonelist::find( $uid )->bone()->where( 'bonelist_id', '=', $value->id )->get();
                 $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
 
-                return View::make( 'admin::pages.add' )                     // No additional Infos neccessary
+                return View::make( 'admin::pages.add' )                 // No additional Infos neccessary
                     ->with( 'title', 'Add new Page Title' )
                     ->with( 'styles', $bonelst )
                     ->with( 'extra', $any)
@@ -51,9 +51,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }
     }
   
-/**
-    POST Add Page!!! 
-*/
     public function post_add($any){
 
         $creds = "";                                                // clear creds
@@ -61,7 +58,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
 
-        $id = Session::get('id');                                   // fetch Session:id and 
+        $id = Auth::user()->id;                                   // fetch Session:id and 
         $creds += array(                                            // add to creds ( creds = input vars)
             'admins_id'  =>  $id
         );
@@ -131,7 +128,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                         }
                         
                         $text->save();
-                        $page->texts = $text->id;
+                        $page->text_id = $text->id;
                         $page->save();
                         break;
 
@@ -166,7 +163,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
           
     } 
 
-/**
+/** !Pink
     Edit Page!!! 
     -> Fetch id and data for validation. Save into database!
 */
@@ -182,14 +179,15 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         foreach ($ppage as $key => $value) {                        // fetch bbones (input fields) and ttext (text of page)
             $bbones = Bone::where( 'bonelist_id', '=', $value->bonelist_id )->get();
-            $ttext  = Text::where( 'id',          '=', $value->texts )->get();
+            $ttext  = Text::where( 'id',          '=', $value->text_id )->get();
         }
 
         return View::make( 'admin::pages.edit' )
             ->with( 'title', 'Edit a Card!' )
-            ->with( 'page', $ppage )
-            ->with( 'bones', $bbones)
-            ->with( 'text', $ttext)
+            ->with( 'page' , $ppage )
+            ->with( 'bones', $bbones )
+            ->with( 'text' , $ttext )
+            ->with( 'pid'  , $id )
         ;      
     }
 
@@ -265,7 +263,7 @@ class Admin_Page_Controller extends Admin_Base_Controller {
   
             foreach ( $ppage as $ergeb ) {              // unpack PPage and
                 if ( $key == "ts" ) {                   // if input field name = ts
-                    $ttext = Text::where( 'id', '=', $ergeb->texts)->get(); // get text by id of current page->texts (id of text)
+                    $ttext = Text::where( 'id', '=', $ergeb->text_id)->get(); // get text by id of current page->texts (id of text)
                     foreach ($ttext as $texxt) {        // unpack ttext
                         $texxt->text = $value;          // save user edited text to textDB
                     }

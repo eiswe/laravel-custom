@@ -16,12 +16,21 @@
 
     <h1>Picture Area</h1>
 
+    @if(Session::get('alert'))
+        <?php 
+            // Fetch alert
+            $alert = Session::get('alert'); 
+            // Print Alert message
+            print '<div class="alert alert-success">The '.$alert['event'].' was '.$alert['state'].'</div>';
+        ?>
+    @endif
+
   	<?php
 
 /*    Will generate a list of Pages on this site! */
         $headi = array(
-            'ID',
             'UserID',
+            'Name',
             'Description',
             'Path',
             'Size',
@@ -30,7 +39,7 @@
         echo Table::hover_tablesorter_condensed_open();
         echo Table::headers($headi);
         echo Table::body($picture)
-            ->ignore( 'created_at', 'updated_at' );
+            ->ignore( 'id', 'created_at', 'updated_at' );
         echo Table::close();
 
 /* admin menu */
@@ -61,7 +70,7 @@
         $('tr').click(function() {                                                // table row was clicked
             var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
             var baseUrl = document.URL ;                                          // fetch current URL
-            var url = baseUrl + '/../edit/' + value;                                 // build new url: baseUrl/edit/id
+            var url = baseUrl + '/../edit/' + value;                              // build new url: baseUrl/edit/id
             window.location.replace(url);                                         // redirect to edit form
         });
 

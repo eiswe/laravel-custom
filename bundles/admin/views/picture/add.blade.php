@@ -6,6 +6,7 @@
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
         print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
         print '<li class="active">  <a href="'.$url.'/admin/page/list">    Pages  </a></li>';     
+        print '<li>                 <a href="'.$url.'/admin/picture">      Picture </a></li>';
     ?>
 @endsection
 
@@ -46,8 +47,8 @@
 			// 		// print '<br />';
 
 				echo Form::control_group(
-					Form::label( 'foto' , 'Foto' ), 
-					Form::file( 'foto' ), '', 
+					Form::label( 'photo' , 'photo' ), 
+					Form::file( 'photo' ), '', 
 					Form::block_help( 'Here choose Foto!' ));
 
 				echo Form::control_group(
@@ -56,9 +57,17 @@
 					Form::block_help( 'Name your Photo!' ));
 
 				echo Form::control_group(
-					Form::label( 'description' , 'description' ), 
-					Form::xlarge_textarea( 'description', '', array('rows' => '2')), '', 
+					Form::label( 'desc' , 'description' ), 
+					Form::xlarge_textarea( 'desc', '', array('rows' => '2')), '', 
 					Form::block_help( 'Describe your photo in a few sentences' ));
+
+				echo Form::control_group(
+					Form::label('size', 'Choose Size'),
+					Form::labelled_radio('size', 'Small for inSite Pictures', 'small'));
+
+				echo Form::control_group(
+					Form::label('size', ' '),
+					Form::labelled_radio('size', 'Big for Sliders', 'big'));
 
 			 	echo Form::actions(array(Button::primary_submit('Upload!'), Form::button('Cancel')));
 

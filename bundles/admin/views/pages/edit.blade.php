@@ -16,9 +16,6 @@
 			Form like a BOSS! 
 		-->
 <?php
-	echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add/Text', 'List' => $url.'/admin/page/list', 'Edit'));
-	// print_r($bones);
-	// print_r($text);	
 
   	if ( isset( $page ) AND isset( $bones ) AND isset( $text ) ) {				// Check if page is givven!
 		foreach ( $page as $uniqPage ) {	
@@ -30,6 +27,17 @@
 	} else {
 		print 'no page given!';
 	}
+
+	echo Navbar::create()
+	  ->with_brand( 'Edit Page: '.$uniqPage->title , $url.'/admin/page/edit/'.$pid )
+	  ->with_menus( Navigation::links( array( 
+	  		array( 'back to list', $url.'/admin/page' ) 
+	  )
+	));  /* end of admin menu */
+
+	//echo Breadcrumb::create(array( 'Add' => $url.'/admin/page/add/Text', 'List' => $url.'/admin/page/list', 'Edit'));
+	// print_r($bones);
+	// print_r($text);	
 
 ?>
 		<br /><br />
@@ -62,26 +70,26 @@
 		$st = $uniqPage->bonelist_id ;
 		echo Form::control_group(
 			Form::label('st', 'Style'), 
-			Form::medium_text('st', $st), 'info', 
+			Form::small_text('st', $st), 'error', 
 			Form::block_help('choose your style - will add a dropdown here'));
 
 		$ts = $uniqText->text ;
 		echo Form::control_group(
 			Form::label('ts', 'Texts'), 
-			Form::medium_text('ts', $ts), '', 
-			Form::block_help('choose your texts - will add a checkboxes here'));
+			Form::xxlarge_text('ts', $ts), '', 
+			Form::block_help('change text'));
 
 		$im = $uniqPage->images ;
 		echo Form::control_group(
 			Form::label('im', 'Images'), 
-			Form::medium_text('im', $im), '', 
-			Form::block_help('choose your images - will add a checkboxes here'));
+			Form::small_text('im', $im), 'warning', 
+			Form::block_help('choose your images - will add in future'));
 
 		$mv = $uniqPage->movies ;
 		echo Form::control_group(
 			Form::label('mv', 'Movies'), 
-			Form::medium_text('mv', $mv), '', 
-			Form::block_help('choose your movies - will add a checkboxes here'));
+			Form::small_text('mv', $mv), 'warning', 
+			Form::block_help('choose your movies - will add in future'));
 
 // textarea... dont need for pages
 // ---------------------------------------------------

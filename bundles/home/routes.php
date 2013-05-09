@@ -14,6 +14,22 @@ Route::get('/admin', function(){
 	return Redirect::to(URL::to_action('admin::home@index'));
 });
 
+Route::get('/(:any)/projects', function($any){ 						// if nothing match use any! - use for profile names!
+
+		$starredUsers = Profile::where('frontname', 'like', $any)->get();
+		foreach ( $starredUsers as $key ) {
+			$uid = $key->admin_id;
+		}
+        $news = Page::where('admin_id', '=', $uid )->get();
+		//$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
+
+		return View::make('admin::show.news')
+			->with('title', 'LimeBlack - '.$any.' Index')
+			->with('site', $any)
+			->with('news', $news)
+		;
+});
+
 Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - use for profile names!
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();

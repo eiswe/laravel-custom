@@ -18,7 +18,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
             $ppicture = Admin::find( $uid )->picture()->get();          // lets load all ppicture exist in Database of user
         }
 
-        return View::make( 'admin::picture.index' )
+        return View::make( 'admin::picture.list' )
             ->with( 'title', 'List of Admin Panel' )
             ->with( 'picture', $ppicture)
         ;
@@ -33,99 +33,59 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
   /**
 
   */
-    public function post_add($any){
+    public function post_add(){
 
         $creds = "";                                                // clear creds
         $rules = array();
 
-        $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
-
-        $id = Session::get('id');                                   // fetch Session:id and 
+        $creds = Input::all();        Input::clear();              // Fetch all Input and clear after!
+        $extension = File::extension( $creds['photo']['name']);
+        
+        $directory = path( 'public' ).'uploads/'.sha1( Auth::user()->id );
+        $filename= sha1( Auth::user()->id.time() ).".{$extension}";
+        
         $creds += array(                                            // add to creds ( creds = input vars)
-            'admins_id'  =>  $id
+            'path'       => $directory.$filename
         );
 
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
-            'name'    =>  'required|numeric|max:100',                 // admins_id
-            'admins_id'    =>  'required|numeric|max:100',                 // admins_id
-            'path'    =>  'required|numeric|max:100',                 // admins_id
-            'size'    =>  'required|numeric|max:100',                 // admins_id
+            'name'    =>  'required',                 // admins_id
+            'path'    =>  'required',                 // admins_id
+            'size'    =>  'required',                 // admins_id
         );
+
+
+        $upload_success = Input::upload( 'photo', $directory, $filename );
 
         $v = Validator::make($creds, $rules);                       // validate the input
         if ( $v->fails() ) {                                        // if validator fails...  // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
             $messages = $v->errors->all('<p>:message</p>');         // get all errors
             return Redirect::back()                                 // with custom error message
-                ->with('error', $messages)                         // and return back to form and show them
-                ->with('err', $creds);
+                ->with('error', $messages);                       // and return back to form and show
         } 
 
-
-        foreach ($bonelst as $key => $value) {                      // fetch current bonelist_id
-            if ( $value->name == $any ) {                           // compare with current style
-                switch ( $value->name ) {                           // and save each its own way
-                    case "Text":
-                        // Nessesary Database
-                        $page = new Page();                                 // get Model page create a database insertion
-                        $text = new Text();                                 // if page was saved, we need to create a history entry
-
-                        // Whitelist for each field to save value in correct database - have to use relation field of bones to figure out with DB is used!
-                        foreach ($creds as $key => $value) {
-                            // print '<br />'.$key.' has value '.$value;
-                            switch ( $key ) {
-                                case 'title':
-                                    $page->$key = $value;                   // save each key-value pair in page!
-                                    $page->admin_id = $id;                  // save each key-value pair in page!
-                                    $page->bonelist_id = $listid;           // save each key-value pair in page!
-                                    $text->admin_id = $id;                  // save each key-value pair in page!
-                                    break;
-                                case 'desc':
-                                    $page->$key = $value;                   // save each key-value pair in page!
-                                    break;
-                                case 'text':
-                                    $text->$key = $value;                   // save each key-value pair in page!
-                                    break;
-                                // case 'admin_id':                            // this case does not work!
-                                //     $page->$key = $value;                   // save each key-value pair in page!
-                                //     $text->$key = $value;                   // save each key-value pair in page!
-                                //     break;
-                            }
-                        }
-                        
-                        $text->save();
-                        $page->texts = $text->id;
-                        $page->save();
-                        break;
-
-                    case "Gallery":
-                        echo "not implemented yet";
-                        break;
-                    case "Foto":
-                        echo "wanna save foto? you have to code your save routine!";
-                        break;
-                    case "lie":
-                        echo "but you gonna DIE!";
-                        break;                    
-                }
-            }   
+        $ppicture = new Picture();
+        $ppicture->admin_id = Auth::user()->id;
+        $ppicture->name = $creds['name'];
+        if ( isset($creds['desc'])) {
+            $ppicture->desc     = $creds['desc'];
         }
+        $ppicture->path = URL::to('uploads/'.sha1( Auth::user()->id ).'/'.$filename);
+        $ppicture->size = $creds['size'];
 
-        // print 'This is Bonelist Style: '.$listid.'<br />';
-        // print '<br />';
-        // print_r($boes);
-        // print '<br />';
-        // print_r($rules);
-        // print '<br />';
-        // print_r($creds);
+        $ppicture->save();
 
-        // $messages = array(                                                    // Generate a success message
-        //     'event'  => 'AddPicture',
-        //     'state'  => 'Successfully'
-        // );
+        print URL::to('uploads/'.sha1( Auth::user()->id ).'/'.$filename);
+        print 'success!';
 
-        // // return back to home view
-        // return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);;  
+        $messages = array(                                                    // Generate a success message
+            'event'  => 'AddPicture',
+            'state'  => 'Successfully'
+        );
+
+        // return back to home view
+        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);;  
           
     } 
 
