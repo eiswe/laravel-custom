@@ -3,24 +3,25 @@ use Admin\Models\Admin;
 //use Admin\Models\Page;
 //use Home\Models\Page;
 
-class Admin_Picture_Controller extends Admin_Base_Controller {
+class Admin_Text_Controller extends Admin_Base_Controller {
 
     public function get_index(){                                     // Index Page of Page^^
-        return Redirect::to(URL::to_action('admin::picture@list'));     // return to list view of pages!
+        return Redirect::to(URL::to_action('admin::text@list'));     // return to list view of pages!
     }
     
     public function get_list(){                                      /**    List / Index Page!!! */
 
-        $uid = Session::get('id');                                   // fetch Session:id and 
+        $uid = Auth::user()->id;                                     // fetch id and 
+        
         if ( $uid == 1 ) {                                           // if root fetch all data
-            $ppicture = Picture::all();
+            $textlist = Text::all();
         } elseif ( $uid >= 1 ) {                                     // else only your own!
-            $ppicture = Admin::find( $uid )->picture()->get();          // lets load all ppicture exist in Database of user
+            $textlist = Admin::find( $uid )->text()->get();          // lets load all textlist exist in Database of user
         }
 
-        return View::make( 'admin::picture.list' )
+        return View::make( 'admin::texts.list' )
             ->with( 'title', 'List of Admin Panel' )
-            ->with( 'picture', $ppicture)
+            ->with( 'text', $textlist )
         ;
     }
 
@@ -44,133 +45,74 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
                 ->with('error', $messages);                       // and return back to form and show
         } 
 
-        $ppicture = Admin::find( $uid )->picture()->where( 'id', '=', $creds['id'] )->delete();          // lets load all ppicture exist in Database of user
+        $ppicture = Admin::find( $uid )->text()->where( 'id', '=', $creds['id'] )->delete();          // lets load all ppicture exist in Database of user
 
         $messages = array(                                                    // Generate a success message
-            'event'  => 'DeletePicture: '.$creds['id'],
-            'state'  => 'Successfully'
+            'event'  => 'DeleteText: '.$creds['id'],
+            'state'  => 'Successfully, if it was yours and exists!'
         );
 
         // return back to home view
-        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);
+        return Redirect::to(URL::to_action('admin::text@list'))->with('alert', $messages);
     } 
+
+/** !Pink
+            Add Page - here you get a forḿ were you can add a new site to your Project! xD
+*/
 
     public function get_add(){                                      /**    Add Title of Page!!! */
         
-        return View::make( 'admin::picture.add' )                     // No additional Infos neccessary
-            ->with( 'title', 'Add new Page Title' )
-        ;
-    }
-  /**
+        $uid = Auth::user()->id;                                        // fetch id and 
 
-  */
+        $ppage = Admin::find( $uid )->page()->get();          // lets load all ppicture exist in Database of user        
+
+        return View::make( 'admin::texts.add' )                 // No additional Infos neccessary
+            ->with( 'title', 'Add new Page Title' )
+            ->with( 'page',  $ppage)
+        ;
+
+    }
+  
     public function post_add(){
 
         $creds = "";                                                // clear creds
         $rules = array();
 
-        $creds = Input::all();        Input::clear();              // Fetch all Input and clear after!
-        $extension = File::extension( $creds['photo']['name']);
-        
-        $directory = path( 'public' ).'uploads/'.sha1( Auth::user()->id );
-        $filename= sha1( Auth::user()->id.time() ).".{$extension}";
-        
-        $creds += array(                                            // add to creds ( creds = input vars)
-            'path'       => $directory.$filename
-        );
+        $creds = Input::all();     Input::clear();                  // Fetch all Input and clear after!
+
+        $id = Auth::user()->id;                                   // fetch Session:id and 
 
         // it could be so cool with aware bundle and rules for MODELS not for FORMS
         $rules += array(
-            'name'    =>  'required',                 // admins_id
-            'path'    =>  'required',                 // admins_id
-            'size'    =>  'required',                 // admins_id
+            'page_id' =>  'required|numeric',                 // admins_id
+            'text'    =>  'required|max:1024',                 // admins_id
         );
-
-        $upload_success = Input::upload( 'photo', $directory, $filename );
 
         $v = Validator::make($creds, $rules);                       // validate the input
         if ( $v->fails() ) {                                        // if validator fails...  // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
             $messages = $v->errors->all('<p>:message</p>');         // get all errors
             return Redirect::back()                                 // with custom error message
-                ->with('error', $messages);                       // and return back to form and show
+                ->with('error', $messages);                         // and return back to form and show them
         } 
 
-        $ppicture = new Picture();
-        $ppicture->admin_id = Auth::user()->id;
-        $ppicture->name = $creds['name'];
-        if ( isset($creds['desc'])) {
-            $ppicture->desc     = $creds['desc'];
-        }
-        $ppicture->path = URL::to('uploads/'.sha1( Auth::user()->id ).'/'.$filename);
-        $ppicture->size = $creds['size'];
-
-        $ppicture->save();
+        // Nessesary Database
+        $text = new Text();                                 // if page was saved, we need to create a history entry
+        $text->admin_id = $id;
+        $text->page_id  = $creds['page_id'];
+        $text->text     = $creds['text'];
+        $text->save();
 
         $messages = array(                                                    // Generate a success message
-            'event'  => 'AddPicture',
+            'event'  => 'AddText',
             'state'  => 'Successfully'
         );
 
         // return back to home view
-        return Redirect::to(URL::to_action('admin::picture@list'))->with('alert', $messages);
+        return Redirect::to(URL::to_action('admin::text@list'))->with('alert', $messages);  
+          
     } 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
+/** !Pink
     Edit Page!!! 
     -> Fetch id and data for validation. Save into database!
 */
@@ -186,14 +128,15 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
         foreach ($ppage as $key => $value) {                        // fetch bbones (input fields) and ttext (text of page)
             $bbones = Bone::where( 'bonelist_id', '=', $value->bonelist_id )->get();
-            $ttext  = Text::where( 'id',          '=', $value->texts )->get();
+            $ttext  = Text::where( 'id',          '=', $value->text_id )->get();
         }
 
         return View::make( 'admin::pages.edit' )
             ->with( 'title', 'Edit a Card!' )
-            ->with( 'page', $ppage )
-            ->with( 'bones', $bbones)
-            ->with( 'text', $ttext)
+            ->with( 'page' , $ppage )
+            ->with( 'bones', $bbones )
+            ->with( 'text' , $ttext )
+            ->with( 'pid'  , $id )
         ;      
     }
 
@@ -269,7 +212,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
   
             foreach ( $ppage as $ergeb ) {              // unpack PPage and
                 if ( $key == "ts" ) {                   // if input field name = ts
-                    $ttext = Text::where( 'id', '=', $ergeb->texts)->get(); // get text by id of current page->texts (id of text)
+                    $ttext = Text::where( 'id', '=', $ergeb->text_id)->get(); // get text by id of current page->texts (id of text)
                     foreach ($ttext as $texxt) {        // unpack ttext
                         $texxt->text = $value;          // save user edited text to textDB
                     }
@@ -277,19 +220,16 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
                     $key   = 'texts';                   // rename fieldname to texts
                     $value = $ergeb->texts;             // replace real text with id of text
                 } 
-                print '<br />saved: '.$key.' with this value: '.$value;
-                $ergeb->$key = $value;              // save all other fields to page!
-                                                   // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
+                print '<br />saved: '.$key.' with this value: '.$value; // print 'Speichere '.$value.' to the following Key: '.$key.'<br/>';
+                $ergeb->$key = $value;                  // save all other fields to page!
             }            
         }
 
-        //$ergeb->save();                                                       // finally save to database!
+        $messages = array(                                                    // Generate a success message
+            'event'  => 'UpdatePage',
+            'state'  => 'Successfully'
+        );
 
-        // $messages = array(                                                    // Generate a success message
-        //     'event'  => 'UpdatePicture',
-        //     'state'  => 'Successfully'
-        // );
-
-        // return Redirect::to(URL::to_action('admin::home@index'))->with('alert', $messages);  // return back to home view - looking for error message or events!
+        return Redirect::to(URL::to_action('admin::page@list'))->with('alert', $messages);  // return back to home view - looking for error message or events!
     }  
 }

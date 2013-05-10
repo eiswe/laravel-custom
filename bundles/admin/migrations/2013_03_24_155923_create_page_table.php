@@ -33,29 +33,29 @@ class Admin_Create_Page_Table {
             $table->string('title', 32);                // title    20
             $table->string('desc', 64)      ->nullable();         // desc     64
 
-            $table->integer('text_id')  ->unsigned();       // bonelist_id  64
+            // $table->integer('text_id')  ->unsigned();       // bonelist_id  64
 
-            $table->foreign('text_id')
-                ->references('id')
-                ->on('texts')
-                ->on_delete('restrict')
-                ->on_update('cascade');
+            // $table->foreign('text_id')
+            //     ->references('id')
+            //     ->on('texts')
+            //     ->on_delete('restrict')
+            //     ->on_update('cascade');
 
-            //$table->integer('texts')	    ->nullable()  ->unsigned();	// texts 	{1,2,3,4}
-            $table->integer('images')	    ->nullable()  ->unsigned();	// images 	{1,2,3,4}
-            $table->integer('movies')	    ->nullable()  ->unsigned();	// movies 	{1,2,3,4}
+            $table->boolean('texts')	    ->default( true );	// texts 	{1,2,3,4}
+            $table->boolean('images')	    ->default( false);	// images 	{1,2,3,4}
+            $table->boolean('movies')	    ->default( false);	// movies 	{1,2,3,4}
             
             $table->timestamps();						// timestamp of created and updated
         });
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '1',
+            'admin_id'      => '1',
             'title'         => 'First Page',
             'desc'          => 'My first Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '1',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
@@ -63,129 +63,149 @@ class Admin_Create_Page_Table {
             'title'         => 'Quadro Copter',
             'desc'          => 'This is my first SubPage of my QuadroCopter Project',
             'bonelist_id'   => '1',
-            'text_id'         => '2',
-            'images'        => '1',
-            'movies'        => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '1',
+            'admin_id'      => '1',
             'title'         => 'Third Page',
             'desc'          => 'My third Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '3',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '2',
+            'admin_id'      => '2',
             'title'         => 'Fourth Page',
             'desc'          => 'My fourth Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '4',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '2',
+            'admin_id'      => '2',
             'title'         => 'Fifth Page',
             'desc'          => 'My fifth Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '5',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '2',
+            'admin_id'      => '2',
             'title'         => '6th Page',
             'desc'          => 'My 6th Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '6',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '2',
+            'admin_id'      => '2',
             'title'         => '7th Page',
             'desc'          => 'My 7th Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '7',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '3',
+            'admin_id'      => '3',
             'title'         => 'First Page',
             'desc'          => 'My first Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '1',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '3',
+            'admin_id'      => '3',
             'title'         => 'Second Page',
             'desc'          => 'My second Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '2',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '4',
+            'admin_id'      => '4',
             'title'         => 'Third Page',
             'desc'          => 'My third Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '3',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '4',
+            'admin_id'      => '4',
             'title'         => 'Fourth Page',
             'desc'          => 'My fourth Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '4',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '3',
+            'admin_id'      => '3',
             'title'         => 'Fifth Page',
             'desc'          => 'My fifth Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '5',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '4',
+            'admin_id'      => '4',
             'title'         => '6th Page',
             'desc'          => 'My 6th Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '6',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 
         DB::table('pages')->insert(array(
-            'admin_id'     => '1',
+            'admin_id'      => '1',
             'title'         => '7th Page',
             'desc'          => 'My 7th Page with my own Laravel-CMS',
-            'bonelist_id'         => '1',
-            'text_id'         => '7',
-            'images'        => '1',
-            'movies'        => '1',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
+        ));
+
+        DB::table('pages')->insert(array(
+            'admin_id'      => '4',
+            'title'         => '6th Page',
+            'desc'          => 'My 6th Page with my own Laravel-CMS',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
+        ));
+
+        DB::table('pages')->insert(array(
+            'admin_id'      => '1',
+            'title'         => '7th Page',
+            'desc'          => 'My 7th Page with my own Laravel-CMS',
+            'bonelist_id'   => '1',
+            'texts'         => true,
+            'images'        => false,
+            'movies'        => false,
         ));
 	}
 

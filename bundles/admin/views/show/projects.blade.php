@@ -8,7 +8,7 @@
       print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
       print '<li>                 <a href="'.$surl.'about"> About      </a></li>';       
       print '<li>                 <a href="'.$surl.'gallery"> Galery      </a></li>';  
-      print '<li class="active">  <a href="'.$surl.'projects"> Projects      </a></li>';           
+      print '<li class="active">  <a href="'.$surl.'projects/Home"> Projects      </a></li>';           
   ?>  
 @endsection
 
@@ -19,49 +19,70 @@
 
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
 
-      foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
-        
-        $tmpMenu[] = array($value->title, $url.'/'.$site.'/projects/'.$value->title);
-        //print_r($value);
-      }
+      if (  isset( $projects )) {
+        foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
+          
+          $tmpMenu[] = array($value->title, $url.'/'.$site.'/projects/'.$value->title);
+          //print_r($value);
+        }
 
-      echo Navbar::create()
-        ->with_brand( 'Projects', $url.'/'.$site.'/projects/Home' )
-        ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
+        echo Navbar::create()
+          ->with_brand( 'Projects', $url.'/'.$site.'/projects/Home' )
+          ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
+      } 
+
 
       if ( $project == "Home") {
-          ?>
-            <div class="span9">
-              <h2>Hier sind meine letzten Projekte!</h2>
-          <?php
 
-          if (  isset( $projects ) AND isset( $projectpage )) {
-
-            print "<br />";
+          // If all nessessary data isset show the Page!
+          if ( isset( $projects ) AND isset( $projectpage ) AND isset($page) AND isset($text) ) {
 
             foreach ($projects as $key => $value ) {
 
               print '<div class="hero-unit">';
               print '<h2>'.$value->title.'</h2>';
+              print '<p>'.$value->desc.'</p>';
 
               foreach ($projectpage as $pkey => $pvalue) {
-
-                print '<br />'.'<br />'.$pvalue->projectgroup_id.' should be same with '.$value->id;
-
+                //print '<br />'.'<br />'.$pvalue->projectgroup_id.' should be same with '.$value->id;
                 if ( $pvalue->projectgroup_id == $value->id ) {
-                  print 'win';
-                  print $pvalue->title;       // here should be a value...
+                  //print $value->title.'<br />';       // here should be a value...
+                  foreach ($page as $akey => $avalue) {
+                    //print $pvalue->page_id.' should equal with '.$avalue->id;
+                    if ( $pvalue->page_id == $avalue->id ) {
+                      //print 'Get Pages witch a related to this Project!<br />'.$avalue->title.'<br />';
+                      print '<br /><a href="'.$url.'/'.$site.'/site/'.$avalue->id.'">'.$avalue->title.'</a>';
+                      print '<p>'.$avalue->desc.'</p>';
+                      foreach ($text as $tkey => $tvalue) {
+                        //print 'Text ID:'.$avalue->text_id.' of user '.$avalue->admin_id.' should equal to '.$tvalue->id.'<br />';
+                        if ( $avalue->text_id == $tvalue->id ) {
+                          print '<p>'.$tvalue->text.'</p>';
+                        }
+                      }
+                    }
+                  }
                 }
               }
               print '</div>';              
             }
           } 
-
-
-          ?>
-            </div>
-          <?php          
+       
       } else {
+
+          if (  isset( $text )) {
+            print "<br /><br /> <p>text</p>";
+            foreach ($text as $key => $value) {
+              //print_r($value);
+              print $value->id.':&'.$value->text.'<br />';
+
+            }
+            //print_r( $text );
+          } 
+
+          if ( isset( $page )) {
+            print "<br /><br /> <p>page</p>";
+            print_r( $page );
+          }
 
           if (  isset( $projects )) {
             print "<br /><br /> <p>Projects</p>";

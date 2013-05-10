@@ -18,10 +18,17 @@ class Admin_Create_Movie_Table {
             $table->increments('id')->unique();
 
             $table->integer('admin_id')->unsigned();
+            $table->integer('page_id')->unsigned()->nullable();
 
             $table->foreign('admin_id')
                 ->references('id')
                 ->on('admins')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
+            $table->foreign('page_id')
+                ->references('id')
+                ->on('pages')
                 ->on_delete('restrict')
                 ->on_update('cascade');
 
@@ -35,6 +42,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '1',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -42,6 +50,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '1',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -49,6 +58,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '2',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -56,6 +66,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '2',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -63,6 +74,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '3',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -70,6 +82,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '3',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -77,6 +90,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '4',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -84,6 +98,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '4',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -91,6 +106,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '5',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',
@@ -98,6 +114,7 @@ class Admin_Create_Movie_Table {
 
         DB::table('movies')->insert(array(
             'admin_id'        => '5',
+            'page_id'       => '1',
             'desc'          => 'Beautiful placeholder',
             'path'          => 'http://placehold.it/64x64',
             'rate'          => '4',

@@ -14,15 +14,39 @@ Route::get('/admin', function(){
 	return Redirect::to(URL::to_action('admin::home@index'));
 });
 
-Route::get('/(:any)/projects/(:any)', function($any, $pro){ 						// if nothing match use any! - use for profile names!
+Route::get('/(:any)/site/(:num)', function($any, $id){ 						// if nothing match use any! - use for profile names!
+
+		$starredUsers = Profile::where('frontname', 'like', $any)->get();
+		foreach ( $starredUsers as $key ) {
+			$uid = $key->admin_id;
+		}
+
+		$ppages	= Page::where( 'admin_id', '=', $uid )->get();	
+        $ppage 	= Page::where( 'id', 	   '=', $id  )->get();				// wanna use eloquent :'(
+
+		return View::make('admin::show.site')
+			->with( 'title', 'LimeBlack - '.$any.' Index')
+			->with( 'site', 	$any)
+			->with( 'id', 		$id)
+			->with( 'page',		$ppage)
+			->with( 'pages',		$ppages)
+			->with( 'userid',	$uid)
+		;
+});
+
+Route::get('/(:any)/projects/(:any)', function($any, $pro){ 				// if nothing match use any! - use for profile names!
 
 		$starredUsers = Profile::where('frontname', 'like', $any)->get();
 		foreach ( $starredUsers as $key ) {
 			$uid = $key->admin_id;
 		}
         
-        $pprojects = Projectgroup::where( 'admin_id', '=', $uid)->get();
-        $pprojectPage = Project::where( 'admin_id', '=', $uid)->get();
+        // Would be much easier if i redirect eloquent to use from here!
+        $pprojects 		= Projectgroup::where( 	'admin_id', '=', $uid)->get();
+        $pprojectPage 	= Project::where( 		'admin_id', '=', $uid)->get();
+        $ppage 			= Page::where( 			'admin_id', '=', $uid)->get();
+        $ttext 			= Text::where( 			'admin_id', '=', $uid)->get();
+
         //$news = Page::where('admin_id', '=', $uid )->get();
 		//$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
 
@@ -30,9 +54,10 @@ Route::get('/(:any)/projects/(:any)', function($any, $pro){ 						// if nothing 
 			->with('title', 'LimeBlack - '.$any.' Index')
 			->with('site', 			$any)
 			->with('project', 		$pro)
+			->with('text',			$ttext)
+			->with('page',			$ppage)
 			->with('projects', 		$pprojects)
 			->with('projectpage', 	$pprojectPage)
-			//->with('news', $news)
 		;
 });
 
@@ -42,13 +67,24 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 		foreach ( $starredUsers as $key ) {
 			$uid = $key->admin_id;
 		}
-        $news = Page::where('admin_id', '=', $uid )->get();
-		//$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
+
+        $news = Page::where('admin_id', '=', $uid )->get();  //$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
+        foreach ($news as $key => $value) {
+        	if ( $value->texts == true) {
+        		$ppagelist[] = $value->id;
+        	}
+        }
+		
+		foreach ($ppagelist as $key) {
+			$ttext[] = Text::where( 'page_id', '=', $key)->where( 'admin_id', '=', $uid )->get();
+		}
 
 		return View::make('admin::show.news')
 			->with('title', 'LimeBlack - '.$any.' Index')
 			->with('site', $any)
 			->with('news', $news)
+			->with('tlist', $ttext)
+			->with('plist', $ppagelist)
 		;
 });
 

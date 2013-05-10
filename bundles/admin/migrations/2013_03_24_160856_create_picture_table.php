@@ -17,10 +17,17 @@ class Admin_Create_Picture_Table {
             $table->increments('id')->unique();
 
             $table->integer('admin_id')->unsigned();
+            $table->integer('page_id')->unsigned()->nullable();
 
             $table->foreign('admin_id')
                 ->references('id')
                 ->on('admins')
+                ->on_delete('restrict')
+                ->on_update('cascade');
+
+            $table->foreign('page_id')
+                ->references('id')
+                ->on('pages')
                 ->on_delete('restrict')
                 ->on_update('cascade');
 
@@ -38,6 +45,7 @@ class Admin_Create_Picture_Table {
 
                 DB::table('pictures')->insert(array(
                     'admin_id'      => $key,
+                    //'page_id'       => $i,
                     'name'          => 'Small Picture '.$i,
                     'desc'          => 'No. '.$i.' of UID: '.$key.' small Pictures',
                     'path'          => 'http://placehold.it/64x64',
@@ -51,6 +59,7 @@ class Admin_Create_Picture_Table {
 
                 DB::table('pictures')->insert(array(
                     'admin_id'      => $key,
+                    //'page_id'       => $i,
                     'name'          => 'Big Picture '.$i,
                     'desc'          => 'No. '.$i.' of UID: '.$key.' big Pictures',
                     'path'          => 'http://placehold.it/850x350',
