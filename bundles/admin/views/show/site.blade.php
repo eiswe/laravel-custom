@@ -33,6 +33,7 @@
         echo '<div class="hero-unit">';
         print "<br />";
 
+        // have to check for bonelist! type of page! sry site!
         foreach ($page as $key => $value) {
 
           print '<h2>'.$value->title.'</h2>';
@@ -61,7 +62,7 @@
               print '<br /><br />here should be a movie';//$value->text;
 
             }
-          } else { print '<br /><br />no movie given'; }                           
+          } else { print '<br /><br />no movie given'; }
         } 
 
         print '</div>';
