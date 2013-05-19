@@ -19,13 +19,13 @@ class Admin_Create_Adress_Table {
             $table->integer('admin_id')        ->unsigned();
             $table->integer('adressgroup_id')  ->unsigned();
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('adressgroup_id')
+            $table->foreign('adressgroup_id') // restrict deletion if adressgroup exist
                 ->references('id')
                 ->on('adressgroups')
                 ->on_delete('restrict')

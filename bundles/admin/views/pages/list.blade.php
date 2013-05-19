@@ -3,9 +3,16 @@
 @section('subnav')
     <?php 
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+        print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/page">         Pages  </a></li>';      
+        print '<li>                 <a href="'.$url.'/admin/profile"> Profile  </a></li>';
+        print '<hr />';
+        print '<li class="active">  <a href="'.$url.'/admin/page">         Pages  </a></li>'; 
+        print '<ul>';
+        print '<li class="active">  <a href="'.$url.'/admin/page/add/Text">         Add  </a></li>'; 
+        print '<li class="active">  <a href="'.$url.'/admin/page/edit">         Edit  </a></li>'; 
+        print '<li class="active">  <a href="'.$url.'/admin/page/list">         List  </a></li>'; 
+        print '</ul>';
         print '<li>                 <a href="'.$url.'/admin/text">         Texts  </a></li>';  
         print '<li>                 <a href="'.$url.'/admin/bone">         Bones  </a></li>'; 
         print '<li>                 <a href="'.$url.'/admin/picture">      Pictures  </a></li>';  
@@ -52,6 +59,23 @@
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
       echo Button::link( $url.'/admin/page/add/Text', 'Create Page - Text' );
+
+?>      <br /><br /><br />
+        <h3>Delete Page!</h3>  
+
+            @if(Session::get('error')) <?php 
+                    $error = Session::get('error'); 
+                    foreach ($error as $value) {
+                        echo '<div class="alert alert-error">'.$value.'</div>';
+                    } ?>
+            @endif 
+<?php
+
+    echo Form::inline_open();
+    echo Form::text('id', null, array('class' => 'input-small', 'placeholder' => 'ID of Page'));
+    echo Form::submit('Delete Page!');
+    echo Form::token();
+    echo Form::close();   
 
     ?>
 

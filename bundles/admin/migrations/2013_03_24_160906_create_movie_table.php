@@ -20,16 +20,16 @@ class Admin_Create_Movie_Table {
             $table->integer('admin_id')->unsigned();
             $table->integer('page_id')->unsigned()->nullable();
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id')  // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('page_id')
+            $table->foreign('page_id') // with page all his data will lost...
                 ->references('id')
                 ->on('pages')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
             $table->string('desc', 64)->nullable();

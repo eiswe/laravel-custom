@@ -12,9 +12,6 @@
           <div class="row-fluid">
 
         <!-- Small Span for SubNavigation -->
-              <div class="span2">
-
-                  <ul class="nav nav-pills nav-stacked">                <!-- Navi Element -->
                       @yield('subnav')
                   </ul>
               </div>        
@@ -25,6 +22,12 @@
                 -->
                   @yield('content')
               </div>
+
+                  <!--Body content
+                  
+              @yield('botnav')
+                -->
+
           </div>
       </div>
       {{ Asset::container('bootstrapper')->scripts(); }}

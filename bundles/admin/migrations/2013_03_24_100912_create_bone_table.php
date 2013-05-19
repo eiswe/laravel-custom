@@ -18,10 +18,10 @@ class Admin_Create_Bone_Table {
 	      
             $table->integer('bonelist_id')  ->unsigned();       // bonelist_id  64
 
-            $table->foreign('bonelist_id')
+            $table->foreign('bonelist_id') // with bonelist all his data will lost...
                 ->references('id')
                 ->on('bonelists')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
 	        $table->string('desc', 128)->nullable();

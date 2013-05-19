@@ -68,7 +68,7 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 			$uid = $key->admin_id;
 		}
 
-        $news = Page::where('admin_id', '=', $uid )->get();  //$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
+        $news = Page::where('admin_id', '=', $uid )->order_by('id', 'desc')->get();  //$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
         foreach ($news as $key => $value) {
         	if ( $value->texts == true) {
         		$ppagelist[] = $value->id;

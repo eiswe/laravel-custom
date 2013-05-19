@@ -18,10 +18,10 @@ class Admin_Create_Hobbie_Table {
 
             $table->integer('admin_id')->unsigned();
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
             $table->string('hobbie', 200);

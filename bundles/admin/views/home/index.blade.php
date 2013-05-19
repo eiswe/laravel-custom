@@ -1,8 +1,9 @@
 @layout('admin::layouts.navi')
 
+
 @section('content')
 
-  <div class="span9">
+  <div class="span12">
 
     	<div class="hero-unit">
 

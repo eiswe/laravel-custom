@@ -41,13 +41,13 @@ $table->foreign('user_id')->references('id')->on('users')->on_update('cascade');
             $table->integer('admin_id')         ->unsigned()->unique();
             $table->integer('role_id')          ->unsigned();
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('role_id')
+            $table->foreign('role_id') // if role dies admins keep alive
                 ->references('id')
                 ->on('roles')
                 ->on_delete('restrict')

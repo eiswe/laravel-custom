@@ -19,13 +19,13 @@ class Admin_Create_Tel_Table {
             $table->integer('admin_id')    ->unsigned();
             $table->integer('telgroup_id') ->unsigned();
             
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('telgroup_id')
+            $table->foreign('telgroup_id') // if telgroup dies numbers will kept!
                 ->references('id')
                 ->on('telgroups')
                 ->on_delete('restrict')
