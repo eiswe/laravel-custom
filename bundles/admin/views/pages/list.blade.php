@@ -8,11 +8,6 @@
         print '<li>                 <a href="'.$url.'/admin/profile"> Profile  </a></li>';
         print '<hr />';
         print '<li class="active">  <a href="'.$url.'/admin/page">         Pages  </a></li>'; 
-        print '<ul>';
-        print '<li class="active">  <a href="'.$url.'/admin/page/add/Text">         Add  </a></li>'; 
-        print '<li class="active">  <a href="'.$url.'/admin/page/edit">         Edit  </a></li>'; 
-        print '<li class="active">  <a href="'.$url.'/admin/page/list">         List  </a></li>'; 
-        print '</ul>';
         print '<li>                 <a href="'.$url.'/admin/text">         Texts  </a></li>';  
         print '<li>                 <a href="'.$url.'/admin/bone">         Bones  </a></li>'; 
         print '<li>                 <a href="'.$url.'/admin/picture">      Pictures  </a></li>';  

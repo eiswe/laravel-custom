@@ -2,11 +2,14 @@
 
 class Admin_Home_Controller extends Admin_Base_Controller {
 
-    public function get_index(){
-    	return View::make('admin::dashboard.index')->with('title', 'Index of Admin Panel'); 		// return to Index Page!
-    }
-    
-    public function get_home(){
+    public function get_home(){							// redirect to index if search for home
     		return Redirect::to(URL::to_action('admin::home@index'));
     }    
+    
+    public function get_index(){						// return to Index Page!
+    	return View::make('admin::dashboard.index')
+    		->with( 'title', 	'LimeBlack - Admin Dashboard')
+    		->with( 'bott', 	'home' )
+    	; 		
+    }
 }

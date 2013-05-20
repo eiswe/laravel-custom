@@ -7,8 +7,6 @@
       
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
-
-
       if ( isset( $site ) ) {
           if ( $site == "home" ) {                                                // enable home if used
               $navlink = array( array( 'Home', $url.'/home', true ));    
@@ -26,8 +24,7 @@
             }
           }
       } elseif ( isset( $id ) ) {
-          $site = 'admin';
-          // an logged in user could get another menu!
+          $site = 'admin'; // an logged in user could get another menu!
 
           $navlink = array( array( 'Home', $url.'/home' ));
 
@@ -42,8 +39,6 @@
           }
       } else {
           $site = 'login';
-          // an logged in user could get another menu!
-
           $navlink = array( array( 'Home', $url.'/home' ));
 
           $starredUsers = Profile::where('starred', '=', 1)->get();               // fetch starred users!
@@ -57,16 +52,12 @@
           }
       }
 
-
       /*
           Admin Pane on right side of Top Navigation
       */
-
-      // Login or Logout Button?
       if ( isset( $id ) ) {                                // Navi for User
           $navlinkr = array(
             //array('Admin', $url.'/admin', true),
-
             //array(Navigation::VERTICAL_DIVIDER),
 
             array( 'Admin', $url.'/admin', true, false, array(
@@ -85,7 +76,6 @@
                 array('Logout', $url.'/admin/login/logout'),
               )
             ),
-
             array(Navigation::VERTICAL_DIVIDER),
 
             array('About', $url.'/about'),
@@ -97,13 +87,10 @@
           );
       } else {                                              // Navi for Public User
           $navlinkr = array(
-
             array('About', $url.'/about'),
             array('Login', $url.'/admin/login'),
           );
       }
-
-
 
       echo Navbar::create()
         ->with_brand( 'LimeBlack', $url.'/home' )
@@ -120,55 +107,122 @@
       
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
-      // Login or Logout Button?
-      if ( isset( $id ) ) {                                // Navi for User
-        ?>
-<!--         <div class="navbar navbar-fixed-bottom">
-          <div class="navbar-inner">
-              <div class="container-fluid">
-                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </a>
-                <a href="<?=$url?>/admin/home" class="brand">Admin Home</a> 
-                <div class="nav-collapse">
-                  <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li class="dropdown-submenu">
-                          <a href="#">More options</a>
-                          <ul class="dropdown-menu">
-                            <li><a href="#">Second level link</a></li>
-                            <li><a href="#">Second level link</a></li>
-                            <li><a href="#">Second level link</a></li>
-                            <li><a href="#">Second level link</a></li>
-                            <li><a href="#">Second level link</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="nav-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-          </div>
-        </div> -->
+      if ( isset( $id ) AND isset( $bott )) {                                     // Navi for User
 
-<?php
-        print 'logged in!';
-      } else {
-        print 'not logged in!';
+        print '         <div class="navbar navbar-fixed-bottom">';
+        print '          <div class="navbar-inner">';
+        print '              <div class="container-fluid">';
+
+        print '                <a href="'.$url.'/admin/home" class="brand">Admin Home</a> ';
+        print '                <div class="nav-collapse">';
+        print '                  <ul class="nav">';
+
+        switch ( $bott ) {
+          case 'emacs':
+              print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+            break;
+          case 'home':
+              print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+            break;
+          case 'play':
+              print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+            break;
+          
+        }
+
+
+        if ( isset( $subbott )) {     // mENU FOR ENTRIES WITH sUBtITLE
+          switch ( $bott ) {
+
+            case 'bone':
+              print '                    <li><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+              switch ( $subbott ) {
+                case 'list':
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  break;
+              }   break;
+
+            case 'page':
+              print '                    <li><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+              switch ( $subbott ) {
+                case 'list':
+                  print '                    <li class="active">  <a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li>                 <a href="'.$url.'/admin/'.$bott.'/add/Text">Add</a></li>';
+                  print '                    <li class="disabled"><a href="'.$url.'/admin/'.$bott.'/edit">Edit</a></li>';
+                  break;
+                case 'add':
+                  print '                    <li>                 <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+                  print '                    <li class="active">  <a href="'.$url.'/admin/'.$bott.'/'.$subbott.'/Text">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li class="disabled"><a href="'.$url.'/admin/'.$bott.'/edit">Edit</a></li>';
+                  break;
+                case 'edit':
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/add/Text">Add</a></li>';
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  break;
+              }   break;              
+
+            case 'picture':
+              print '                    <li><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+              switch ( $subbott ) {
+                case 'list':
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/add/">Add</a></li>';
+                  break;
+                case 'add':
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  break;
+              }   break;
+
+            case 'profile':
+              print '                    <li><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+              switch ( $subbott ) {
+                case 'index':
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/password">Password</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/profile">Profile</a></li>';
+                  break;
+                case 'password':
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/index">Index</a></li>';
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/profile">Profile</a></li>';
+                  break;
+                case 'profile':
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/index">Index</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/password">Password</a></li>';
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  break;
+              }   break;
+
+            case 'text':
+              print '                    <li><a href="'.$url.'/admin/'.$bott.'"><b>'.ucfirst($bott).'</b></a></li>';
+              switch ( $subbott ) {
+                case 'list':
+                  print '                    <li class="active">  <a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li>                 <a href="'.$url.'/admin/'.$bott.'/add">Add</a></li>';
+                  print '                    <li class="disabled"><a href="'.$url.'/admin/'.$bott.'/edit">Edit</a></li>';
+                  break;
+                case 'add':
+                  print '                    <li>                 <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+                  print '                    <li class="active">  <a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  print '                    <li class="disabled"><a href="'.$url.'/admin/'.$bott.'/edit">Edit</a></li>';
+                  break;
+                case 'edit':
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+                  print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/add">Add</a></li>';
+                  print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'/'.$subbott.'">'.ucfirst($subbott).'</a></li>';
+                  break;
+              }   break;                                          
+          }
+        }
+
+        print '                  </ul>';
+        print '                </div>';
+        
+        print '              </div>';
+        print '          </div>';
+        print '        </div>';
       }
 ?>
 @endsection

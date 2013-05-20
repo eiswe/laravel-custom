@@ -20,8 +20,10 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::pages.list' )
-            ->with( 'title', 'List of Admin Panel' )
-            ->with( 'pages', $pagelist )
+            ->with( 'title',    'LimeBlack - Page List' )
+            ->with( 'bott',     'page' )
+            ->with( 'subbott',  'list' )
+            ->with( 'pages',    $pagelist )
         ;
     }
 
@@ -71,10 +73,12 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                 $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
 
                 return View::make( 'admin::pages.add' )                 // No additional Infos neccessary
-                    ->with( 'title', 'Add new Page Title' )
-                    ->with( 'styles', $bonelst )
-                    ->with( 'extra', $any)
-                    ->with( 'bones', $boes)
+                    ->with( 'title',    'LimeBlack - Page Add' )
+                    ->with( 'bott',     'page' )
+                    ->with( 'subbott',  'add' )
+                    ->with( 'styles',   $bonelst )
+                    ->with( 'extra',    $any)
+                    ->with( 'bones',    $boes)
                 ;
             }
         }
@@ -209,7 +213,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::pages.edit' )
-            ->with( 'title', 'Edit a Card!' )
+            ->with( 'title', 'LimeBlack - Page Edit' )
+            ->with( 'bott',     'page' )
+            ->with( 'subbott',  'edit' )            
             ->with( 'page' , $ppage )
             ->with( 'bones', $bbones )
             ->with( 'text' , $ttext )

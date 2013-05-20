@@ -5,11 +5,12 @@
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
         $surl = $url.'/'.$site.'/';
         print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
-        print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
-        print '<li>                 <a href="'.$surl.'news">  News      </a></li>'; 
-        print '<li>                 <a href="'.$surl.'about"> About      </a></li>';       
-        print '<li>                 <a href="'.$surl.'gallery"> Galery      </a></li>';  
+        print '<li>                 <a href="'.$surl.'home">          Home      </a></li>'; 
+        print '<li>                 <a href="'.$surl.'news">          News      </a></li>'; 
+        print '<li>                 <a href="'.$surl.'gallery">       Galery      </a></li>';  
         print '<li class="active">  <a href="'.$surl.'projects/Home"> Projects      </a></li>';           
+        print '<hr />';
+        print '<li>                 <a href="'.$surl.'about">         About      </a></li>';       
     ?>  
 @endsection
 

@@ -4,7 +4,9 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
 
     public function get_index()    {
         return View::make( 'admin::admin.index' )
-            ->with( 'title', 'Welcome to Profile Dashboard!' )
+            ->with( 'title', 'LimeBlack - Profile Index' )
+            ->with( 'bott',     'profile' )
+            ->with( 'subbott',  'index' )
         ;
     }
     
@@ -17,7 +19,9 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
         $userid = Auth::user()->id;                                   // fetch Session:id and 
         
         return View::make( 'admin::admin.password' )               // show User Profile
-            ->with( 'title', 'Welcome to Profile Dashboard!' )
+            ->with( 'title', 'LimeBlack - Profile Password' )
+            ->with( 'bott',     'profile' )
+            ->with( 'subbott',  'password' )
             ->with( 'userid', $userid )
         ;
     }
@@ -86,23 +90,6 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
 
         $ergeb->save();                          // save the data to database
 
-        // foreach ( $creds as $key => $value ) {      // adding data to new Admin ( !DataBase! )
-        //     if ( isset( $value ) ) {
-        //         $fields[] = $key;
-        //         $values[] = $value;                
-        //     }
-        // }
-
-        // $fieldstr = implode(",", $fields);          // convert array to string, to save in DB
-        // $valuestr = implode(",", $values);          // convert array to string, to save in DB
-
-        // $his->Adminid = $Admin->id;                   // get and save id of current item ( Admin! )
-        // $his->action = 'insert';                    // say what we are doing!
-        // $his->userid = $id;                         // save userid!
-        // $his->fields = $fieldstr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        // $his->values = $valuestr;                   // converted to string, looks like: {xy,cx,vc,bv,nb,mn}
-        // $his->save();                               // save all to database!
-
         $messages = array(                                                    // Generate a success message
             'event'  => 'Changed PW',
             'state'  => 'Successfully'
@@ -121,7 +108,9 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
         $userid = $id;                                               // add to userid!
         
         return View::make( 'admin::admin.profile' )               // show User Profile
-            ->with( 'title', 'Welcome to Profile Dashboard!' )
+            ->with( 'title', 'LimeBlack - Profile Profile' )
+            ->with( 'bott',     'profile' )
+            ->with( 'subbott',  'profile' )
             ->with( 'userid', $userid )
         ;
     }

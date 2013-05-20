@@ -4,6 +4,9 @@ class Admin_Emacs_Controller extends Admin_Base_Controller {
 
     public function get_index(){
 
-        return View::make( 'admin::dashboard.emacs' )->with( 'title', 'Emacs File' );
+        return View::make( 'admin::dashboard.emacs' )
+        	->with( 'title', 'Emacs File' )
+        	->with( 'bott',  'emacs')
+        ;
     }
 }

@@ -23,10 +23,8 @@
                   @yield('content')
               </div>
 
-                  <!--Body content
-                  
+              <!-- SubNav on Bottom of Page - only for Admin!   - each site needs to define extra rules, else not shown..-->  
               @yield('botnav')
-                -->
 
           </div>
       </div>

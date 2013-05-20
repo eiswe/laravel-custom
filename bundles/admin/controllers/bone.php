@@ -17,7 +17,9 @@ class Admin_Bone_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::bone.list' )
-            ->with( 'title', 'List of Bones - Styles' )
+            ->with( 'title',    'List of Bones - Styles' )
+            ->with( 'bott',     'bone')
+            ->with( 'subbott',  'list')
             ->with( 'bonelist', $bbonelist)
         ;
     }
@@ -52,12 +54,12 @@ class Admin_Bone_Controller extends Admin_Base_Controller {
 
 
 
+/* ////////////////////////
 
 
+    Not funtional !!!
 
-
-
-
+*/ ///////////////////////
 
 
 
