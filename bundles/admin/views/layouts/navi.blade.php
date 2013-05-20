@@ -218,8 +218,31 @@
         }
 
         print '                  </ul>';
+        print '                  <ul class="nav pull-right">';
+        print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+        print '                    <li>               <a href="'.$url.'/admin/'.$bott.'/add/Text">Add</a></li>';
+        print '                    <li class="active"><a href="'.$url.'/admin/'.$bott.'">Blah</a></li>';
+        print '                    <li class="dropdown">';
+        print '                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>';
+        print '                      <ul class="dropdown-menu">';
+        print '                        <li class="dropdown-submenu">';
+        print '                          <a href="#">More options</a>';
+        print '                          <ul class="dropdown-menu">';
+        print '                            <li>               <a href="'.$url.'/admin/'.$bott.'/list">List</a></li>';
+        print '                            <li>               <a href="'.$url.'/admin/'.$bott.'/add/Text">Add</a></li>';
+        print '                            <li class="active"><a href="'.$url.'/admin/'.$bott.'">Blah</a></li>';
+        print '                          </ul>';
+        print '                        </li>';
+        print '                        <li><a href="#">Another action</a></li>';
+        print '                        <li><a href="#">Something else here</a></li>';
+        print '                        <li class="divider"></li>';
+        print '                        <li class="nav-header">Nav header</li>';
+        print '                        <li><a href="#">Separated link</a></li>';
+        print '                        <li><a href="#">One more separated link</a></li>';
+        print '                      </ul>';
+        print '                    </li>';
+        print '                  </ul>';
         print '                </div>';
-        
         print '              </div>';
         print '          </div>';
         print '        </div>';
