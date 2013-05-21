@@ -24,6 +24,14 @@ class Admin_Create_Task_Table {
                 ->on_delete('cascade')
                 ->on_update('cascade');
             
+            $table->integer('status_id')->unsigned();
+            
+            $table->foreign('status_id') // with admin all his data will lost...
+                ->references('id')
+                ->on('status')
+                ->on_delete('cascade')
+                ->on_update('cascade');
+            
             $table->string('start', 200);
             $table->string('ende', 32)->nullable();
             
@@ -35,7 +43,8 @@ class Admin_Create_Task_Table {
 
         DB::table('tasks')->insert(array(
         	
-            'admin_id'		=> '2',
+            'admin_id'      => '2',
+            'status_id'      => '2',
         	
             'start'			=> '15-02-2013', // PHP TimeStamp
         	'ende'			=> '15-02-2013',
@@ -46,6 +55,7 @@ class Admin_Create_Task_Table {
         DB::table('tasks')->insert(array(
             
             'admin_id'      	=> '3',
+            'status_id'      => '2',
         	
             'start'			=> '15-02-2013', // PHP TimeStamp
         	'ende'			=> '15-02-2013',
@@ -56,6 +66,7 @@ class Admin_Create_Task_Table {
         DB::table('tasks')->insert(array(
             
             'admin_id'      	=> '2',
+            'status_id'      => '2',
         	
             'start'			=> '15-02-2013', // PHP TimeStamp
         	'ende'			=> '15-02-2013',

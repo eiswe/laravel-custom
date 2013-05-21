@@ -8,8 +8,12 @@ class Note extends Eloquent {
 		return $this->belongs_to('Admin');
 	}
 	
-	// public function userid() {
-	// 	return $this->has_one('Admin', 'userid');
-	// }
+	public function notetag(){
+		return $this->has_one('Notetag');
+	}	
+
+	public function notegroup(){
+		return $this->has_one('Notegroup');
+	}
 	
 }

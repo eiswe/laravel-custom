@@ -12,8 +12,4 @@ class Page extends Eloquent {
 		return $this->belongs_to('Bonelist');
 	}
 	
-	// public function userid() {
-	// 	return $this->has_one('Admin', 'userid');
-	// }
-	
 }

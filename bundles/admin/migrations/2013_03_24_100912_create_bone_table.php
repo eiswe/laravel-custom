@@ -24,6 +24,14 @@ class Admin_Create_Bone_Table {
                 ->on_delete('cascade')
                 ->on_update('cascade');
 
+            $table->integer('admin_id')->unsigned();
+
+            $table->foreign('admin_id') // if admin dies also his bookmarkgroups would useless
+                ->references('id')
+                ->on('admins')
+                ->on_delete('cascade')
+                ->on_update('cascade');
+
 	        $table->string('desc', 128)->nullable();
             $table->string('dbName', 32);
             $table->string('fieldName', 32);
@@ -37,6 +45,7 @@ class Admin_Create_Bone_Table {
 
         DB::table('bones')->insert(array( 			// insert testdata: Text
             'bonelist_id'        	=> '1',
+            'admin_id'      => '2',
             'desc'  		=> 'only text',
             'dbName'     => 'title',
             'fieldName'     => 'Titel',
@@ -48,6 +57,7 @@ class Admin_Create_Bone_Table {
 
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '1',
+            'admin_id'      => '2',
             'desc'  		=> 'only text',
             'dbName'     => 'desc',
             'fieldName'    	=> 'Desc',
@@ -59,6 +69,7 @@ class Admin_Create_Bone_Table {
 
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '1',
+            'admin_id'      => '2',
             'desc'  		=> 'only text',
             'dbName'     => 'text',
             'fieldName'    	=> 'Text',
@@ -70,6 +81,7 @@ class Admin_Create_Bone_Table {
 
         DB::table('bones')->insert(array( 			// insert testdata: Gallery
             'bonelist_id'        	=> '2',
+            'admin_id'      => '2',
             'desc'  		=> 'insert Title',
             'dbName'     => 'titel',
             'fieldName'    	=> 'Titel',
@@ -80,6 +92,7 @@ class Admin_Create_Bone_Table {
       	));
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '2',
+            'admin_id'      => '2',
             'desc'  		=> 'insert description',
             'dbName'     => 'desc',
             'fieldName'    	=> 'Desc',
@@ -90,6 +103,7 @@ class Admin_Create_Bone_Table {
       	));
         DB::table('bones')->insert(array(
             'bonelist_id'        	=> '2',
+            'admin_id'      => '2',
             'desc'  		=> 'Want Pictures?',
             'dbName'     => 'foto',
             'fieldName'    	=> 'Display Pictures',

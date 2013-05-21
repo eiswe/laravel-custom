@@ -24,6 +24,14 @@ class Admin_Create_Bookmark_Table {
                 ->on_delete('cascade')
                 ->on_update('cascade');
 
+            $table->integer('bookmarkgroup_id')->unsigned();
+
+            $table->foreign('bookmarkgroup_id') // with admin all his data will lost...
+                ->references('id')
+                ->on('bookmarkgroups')
+                ->on_delete('cascade')
+                ->on_update('cascade');
+
             $table->string('title', 32);
             $table->string('link', 200);
             $table->string('path', 200);
@@ -33,6 +41,7 @@ class Admin_Create_Bookmark_Table {
 
         DB::table('bookmarks')->insert(array(
         	'admin_id'	=> '2',
+            'bookmarkgroup_id'  => '2',
         	
         	'title'		=> 'GMail',
         	'link'      => 'http://gmail.com/',
@@ -41,6 +50,7 @@ class Admin_Create_Bookmark_Table {
 
         DB::table('bookmarks')->insert(array(
         	'admin_id'	=> '1',
+            'bookmarkgroup_id'  => '2',
         	
         	'title'		=> 'GMail',
         	'link'		=> 'http://gmail.com/',
@@ -49,6 +59,7 @@ class Admin_Create_Bookmark_Table {
 
         DB::table('bookmarks')->insert(array(
         	'admin_id'		=> '3',
+            'bookmarkgroup_id'  => '2',
         	
         	'title'		=> 'GMail',
         	'link'		=> 'http://gmail.com/',
@@ -57,6 +68,7 @@ class Admin_Create_Bookmark_Table {
 
         DB::table('bookmarks')->insert(array(
         	'admin_id'		=> '2',
+            'bookmarkgroup_id'  => '2',
         	
         	'title'		=> 'Outlook',
         	'link'		=> 'http://login.live.com/',

@@ -1,7 +1,7 @@
 <?php 
-class Hobbie extends Eloquent {
+class Status extends Eloquent {
 
-	public static $table = 'hobbies';
+	public static $table = 'status';
 	public static $timestamps = true;
 
 	public function admin() {
