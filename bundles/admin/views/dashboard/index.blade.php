@@ -44,6 +44,9 @@
 @endsection
 
 @section('script')
-{{ Asset::container('footer')->scripts() }}
+
+	{{ Asset::container('footer')->scripts() }}
+
 @endsection
+
 

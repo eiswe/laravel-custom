@@ -25,7 +25,6 @@
         ?> @endif
 
         <?php
-
     		$headi = array(                                       // Define Title for Table Columns
                 'ID',
                 'UserID',
@@ -39,7 +38,6 @@
     	    echo Table::body($bonelist)                           // Import Table Body
     	    	->ignore( 'created_at', 'updated_at' );           // Ignore these Fields
     	    echo Table::close();
-
         ?>   
 
         <br /><br /><br /><h3>Delete Picture!</h3>  
@@ -51,24 +49,12 @@
         @endif 
     
         <?php
-
             echo Form::inline_open();
             echo Form::text('id', null, array('class' => 'input-small', 'placeholder' => 'ID of Picture'));
             echo Form::submit('Delete Bonelist!');
             echo Form::token();
-            echo Form::close();   
-
+            echo Form::close();
         ?>
-
-        <ul id="sortable">
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 1 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 2 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 3 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 4 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 5 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 6 of Sortable List!</li>
-            <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item Number. 7 of Sortable List!</li>
-        </ul>    
 
 @endsection
 
@@ -79,11 +65,6 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-
-            $(function() {
-                $( "#sortable" ).sortable();
-                $( "#sortable" ).disableSelection();
-            });
             
             $('tr').click(function() {                                                // table row was clicked
                 var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row

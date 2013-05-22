@@ -39,9 +39,6 @@
 @endsection
 
 @section('script')
-    <?php
-        $url = URL::base(); //return http://laravel.dev
-    ?>
 
     {{ Asset::container('footer')->scripts() }}
     {{ Asset::container('chart')->scripts() }}
@@ -56,40 +53,32 @@
 
         var data = {
             labels : ["January","February","March","April","May","June","July","August","Septembre","Ottobre","Novembre","Dezembre"],
-            datasets : [
-                {
+            datasets : [ {
                     fillColor : "rgba(180,180,180,0.5)",
                     strokeColor : "rgba(180,180,180,1)",
                     pointColor : "rgba(180,180,180,1)",
                     pointStrokeColor : "#fff",
                     data : [0,3,6,8,9,8,7,9,5,4,6,7]
-                },
-                {
+                }, {
                     fillColor : "rgba(151,187,205,0.5)",
                     strokeColor : "rgba(151,187,205,1)",
                     pointColor : "rgba(151,187,205,1)",
                     pointStrokeColor : "#fff",
                     data : [0,3,5,6,5,7,6,4,7,5,8,5]
-                },
-                {
+                }, {
                     fillColor : "rgba(51,87,105,0.5)",
                     strokeColor : "rgba(51,87,105,1)",
                     pointColor : "rgba(51,87,105,1)",
                     pointStrokeColor : "#fff",
                     data : [0,2,1,3,2,1,4,3,2,1,4,2]
-                }
-            ]
+                } ]
         }
-
         var options = {
                     
             scaleOverlay : false,                   //Boolean - If we show the scale above the chart data           
-            
             scaleOverride : false,                  //Boolean - If we want to override with a hard coded scale
-            
             //** Required if scaleOverride is true **
             scaleSteps : null,                      //Number - The number of steps in a hard coded scale
-            
             scaleStepWidth : null,                  //Number - The value jump in the hard coded scale
             scaleStartValue : null,                 //Number - The scale starting value
             scaleLineColor : "rgba(0,0,0,.1)",      //String - Colour of the scale line 

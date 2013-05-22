@@ -88,28 +88,21 @@
     {{ Asset::container('footer')->scripts() }}
     {{ Asset::container('table')->scripts() }}
 
-  <script type="text/javascript">
-    // alert("JS is enabled");
+    <script type="text/javascript">
+        $(document).ready(function(){
 
-    $(document).ready(function(){
-        // alert('document is ready');                                  // JS test!
+            $('tr').click(function() {                                                // table row was clicked
+                var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
+                var baseUrl = document.URL ;                                          // fetch current URL
+                var url = baseUrl + '/../edit/' + value;                                 // build new url: baseUrl/edit/id
+                window.location.replace(url);                                         // redirect to edit form
+            });
 
-        // $("p").click(function(){                                     // jQuery test!
-        //   $(this).hide();
-        // });
-
-        $('tr').click(function() {                                                // table row was clicked
-            var value= $(this).closest('tr').children('td:first').text();         // fetch id of clicked row
-            var baseUrl = document.URL ;                                          // fetch current URL
-            var url = baseUrl + '/../edit/' + value;                                 // build new url: baseUrl/edit/id
-            window.location.replace(url);                                         // redirect to edit form
-        });
-
-        $('table').tablesorter({                                                  // Sort hole table with click on Title
-            onRenderHeader: function(index) {                                     // Indexies fields of table
-            }
-        });
-    }); 
-  </script>
+            $('table').tablesorter({                                                  // Sort hole table with click on Title
+                onRenderHeader: function(index) {                                     // Indexies fields of table
+                }
+            });
+        }); 
+    </script>
 
 @endsection

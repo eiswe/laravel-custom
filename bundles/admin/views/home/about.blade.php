@@ -38,27 +38,26 @@
                     echo Typography::info('David let`s QuadroCopter`s rock`s on Laravel Web Project`s! xD');
 
                 ?>
+	
+            <br /><br /><br /><br />
+
+			<p>Install Migrations - add Database</p>
+			<pre>
+				<br />	php artisan migrate:install
+				<br />	php artisan migrate
+			</pre>
+			
+			<p>Add Table to Admin Bundle</p>
+			<pre>
+				<br />  php artisan migrate:make admin::create_admins_table
+			</pre>
+
+			<P>Publish publish data of Bundles</p>
+			<pre>
+				<br />  php artisan bundle:publish 
+				<br />  php artisan bundle:publish application
+			</pre>		
         </div>
 
 @endsection
 
-<!-- #
-
-		<p>	Install the DVS RepStat Bundle:</p>
-		
-		<small>Install Migrations - add Database</small>
-		<pre>
-			<br />	php artisan migrate:install
-			<br />	php artisan session:table    - Need to do this after each JS change! JS sucks..
-			<br />	php artisan migrate:rebuild
-		</pre>
-		
-		<hr />
-		
-		<p>Add Table to Admin Bundle</p>
-		<pre>
-			<br />  php artisan migrate::make admin::create_admins_table
-		</pre>
-
-
--->
