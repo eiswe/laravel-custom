@@ -18,135 +18,113 @@
 
   <div class="span10">
 
-
     <form action="{{ url('user/upload')}}" class="dropzone" id="my-awesome-dropzone"></form>
-
-
 
   	<h1>Show you a beautiful Chart!</h1>
   	{{ Typography::lead('with some random data!') }}
 
     <canvas id="canvas" height="600" width="1200"></canvas>
 
+    <ol id="sortable">
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+        <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+    </ol>
+
 @endsection
 
 @section('script')
-{{ Asset::container('footer')->scripts() }}
-<script type="text/javascript">
+    <?php
+        $url = URL::base(); //return http://laravel.dev
+    ?>
 
-    var data = {
-        labels : ["January","February","March","April","May","June","July","August","Septembre","Ottobre","Novembre","Dezembre"],
-        datasets : [
-            {
-                fillColor : "rgba(180,180,180,0.5)",
-                strokeColor : "rgba(180,180,180,1)",
-                pointColor : "rgba(180,180,180,1)",
-                pointStrokeColor : "#fff",
-                data : [0,3,6,8,9,8,7,9,5,4,6,7]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [0,3,5,6,5,7,6,4,7,5,8,5]
-            },
-            {
-                fillColor : "rgba(51,87,105,0.5)",
-                strokeColor : "rgba(51,87,105,1)",
-                pointColor : "rgba(51,87,105,1)",
-                pointStrokeColor : "#fff",
-                data : [0,2,1,3,2,1,4,3,2,1,4,2]
-            }
-        ]
-    }
+    {{ Asset::container('footer')->scripts() }}
+    {{ Asset::container('chart')->scripts() }}
+    {{ Asset::container('dropzone')->scripts() }}
 
-    var options = {
-                
-        //Boolean - If we show the scale above the chart data           
-        scaleOverlay : false,
-        
-        //Boolean - If we want to override with a hard coded scale
-        scaleOverride : false,
-        
-        //** Required if scaleOverride is true **
-        //Number - The number of steps in a hard coded scale
-        scaleSteps : null,
-        //Number - The value jump in the hard coded scale
-        scaleStepWidth : null,
-        //Number - The scale starting value
-        scaleStartValue : null,
+    <script type="text/javascript">
 
-        //String - Colour of the scale line 
-        scaleLineColor : "rgba(0,0,0,.1)",
-        
-        //Number - Pixel width of the scale line    
-        scaleLineWidth : 1,
+        $(function() {
+            $( "#sortable" ).sortable();
+            $( "#sortable" ).disableSelection();
+        });
 
-        //Boolean - Whether to show labels on the scale 
-        scaleShowLabels : true, //false,                    // Show label left of chart! ( Value Size )
-        
-        //Interpolated JS string - can access value
-        scaleLabel : "<%=value%>",
-        
-        //String - Scale label font declaration for the scale label
-        scaleFontFamily : "'Arial'",
-        
-        //Number - Scale label font size in pixels  
-        scaleFontSize : 12,
-        
-        //String - Scale label font weight style    
-        scaleFontStyle : "normal",
-        
-        //String - Scale label font colour  
-        scaleFontColor : "#666",    
-        
-        ///Boolean - Whether grid lines are shown across the chart
-        scaleShowGridLines : true,
-        
-        //String - Colour of the grid lines
-        scaleGridLineColor : "rgba(0,0,0,.05)",
-        
-        //Number - Width of the grid lines
-        scaleGridLineWidth : 1, 
-        
-        //Boolean - Whether the line is curved between points
-        bezierCurve : true,
-        
-        //Boolean - Whether to show a dot for each point
-        pointDot : true,
-        
-        //Number - Radius of each point dot in pixels
-        pointDotRadius : 3,
-        
-        //Number - Pixel width of point dot stroke
-        pointDotStrokeWidth : 1,
-        
-        //Boolean - Whether to show a stroke for datasets
-        datasetStroke : true,
-        
-        //Number - Pixel width of dataset stroke
-        datasetStrokeWidth : 2,
-        
-        //Boolean - Whether to fill the dataset with a colour
-        datasetFill : true,
-        
-        //Boolean - Whether to animate the chart
-        animation : true,
+        var data = {
+            labels : ["January","February","March","April","May","June","July","August","Septembre","Ottobre","Novembre","Dezembre"],
+            datasets : [
+                {
+                    fillColor : "rgba(180,180,180,0.5)",
+                    strokeColor : "rgba(180,180,180,1)",
+                    pointColor : "rgba(180,180,180,1)",
+                    pointStrokeColor : "#fff",
+                    data : [0,3,6,8,9,8,7,9,5,4,6,7]
+                },
+                {
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [0,3,5,6,5,7,6,4,7,5,8,5]
+                },
+                {
+                    fillColor : "rgba(51,87,105,0.5)",
+                    strokeColor : "rgba(51,87,105,1)",
+                    pointColor : "rgba(51,87,105,1)",
+                    pointStrokeColor : "#fff",
+                    data : [0,2,1,3,2,1,4,3,2,1,4,2]
+                }
+            ]
+        }
 
-        //Number - Number of animation steps
-        animationSteps : 60,
+        var options = {
+                    
+            scaleOverlay : false,                   //Boolean - If we show the scale above the chart data           
+            
+            scaleOverride : false,                  //Boolean - If we want to override with a hard coded scale
+            
+            //** Required if scaleOverride is true **
+            scaleSteps : null,                      //Number - The number of steps in a hard coded scale
+            
+            scaleStepWidth : null,                  //Number - The value jump in the hard coded scale
+            scaleStartValue : null,                 //Number - The scale starting value
+            scaleLineColor : "rgba(0,0,0,.1)",      //String - Colour of the scale line 
+            scaleLineWidth : 1,                     //Number - Pixel width of the scale line    
+            scaleShowLabels : true,                 //Boolean - Whether to show labels on the scale  // Show label left of chart! ( Value Size )
+            scaleLabel : "<%=value%>",              //Interpolated JS string - can access value
+            scaleFontFamily : "'Arial'",            //String - Scale label font declaration for the scale label
+            scaleFontSize : 12,                     //Number - Scale label font size in pixels  
+            scaleFontStyle : "normal",              //String - Scale label font weight style
+            scaleFontColor : "#666",                //String - Scale label font colour
+            
+            
+            scaleShowGridLines : true,              //Boolean - Whether grid lines are shown across the chart
+            scaleGridLineColor : "rgba(0,0,0,.05)", //String - Colour of the grid lines
+            scaleGridLineWidth : 1,                 //Number - Width of the grid lines
+            
+            bezierCurve : true,                     //Boolean - Whether the line is curved between points
+            
+            pointDot : true,                        //Boolean - Whether to show a dot for each point
+            pointDotRadius : 3,                     //Number - Radius of each point dot in pixels
+            pointDotStrokeWidth : 1,                //Number - Pixel width of point dot stroke
+            
+            datasetStroke : true,                   //Boolean - Whether to show a stroke for datasets
+            datasetStrokeWidth : 2,                 //Number - Pixel width of dataset stroke
+            datasetFill : true,                     //Boolean - Whether to fill the dataset with a colour
+            
+            animation : true,                       //Boolean - Whether to animate the chart
+            animationSteps : 60,                    //Number - Number of animation steps            
+            animationEasing : "easeOutQuart",       //String - Animation easing effect
+            onAnimationComplete : null              //Function - Fires when the animation is complete
+        }
         
-        //String - Animation easing effect
-        animationEasing : "easeOutQuart",
+        var myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Line(data,options);
 
-        //Function - Fires when the animation is complete
-        onAnimationComplete : null
-    }
-    
-    var myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Line(data,options);
+    </script>
 
-</script>
 @endsection
 
 <!-- 	

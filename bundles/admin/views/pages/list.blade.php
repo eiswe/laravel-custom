@@ -85,7 +85,8 @@
 
 @section('script')
 
-  {{ Asset::container('footer')->scripts() }}
+    {{ Asset::container('footer')->scripts() }}
+    {{ Asset::container('table')->scripts() }}
 
   <script type="text/javascript">
     // alert("JS is enabled");
