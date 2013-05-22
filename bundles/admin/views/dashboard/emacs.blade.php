@@ -3,26 +3,8 @@
 @section('subnav')
 	<?php 
 		$url = URL::base(); //return http://laravel.dev
-        print '<li>                 <a href="'.$url.'/admin/home">     Home      </a></li>';
-        print '<li class="active">  <a href="'.$url.'/admin/emacs">    Emacs  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/page">     Pages  </a></li>';
-      	print '<li>                 <a href="'.$url.'/admin/text">     Texts  </a></li>';  
-        print '<li>  				<a href="'.$url.'/admin/bone">         Bones  </a></li>'; 
-        print '<li>                 <a href="'.$url.'/admin/picture">  Pictures </a></li>';        
-	?>
-@endsection
-
-@section('content')
-
-  <div class="span9">
-
-
-<h1 class="title">exem</h1>
-
-
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+    	?>
+<div class="span5"> <ul class="nav nav-pills nav-stacked">
 <ul>
 <li><a href="#sec-1">1 Emacs </a></li>
 <li><a href="#sec-2">2 Terminator </a></li>
@@ -435,6 +417,21 @@
 <li><a href="#sec-25">25 </a></li>
 <li><a href="#sec-26">26 Emacs Reference </a></li>
 </ul>
+      
+@endsection
+
+@section('content')
+
+  <div class="span7">
+
+
+<h1 class="title">exem</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+
 </div>
 </div>
 

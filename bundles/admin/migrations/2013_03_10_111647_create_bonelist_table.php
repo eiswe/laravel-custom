@@ -18,7 +18,11 @@ class Admin_Create_Bonelist_Table {
             
             $table->integer('admin_id')->unsigned();
 	        
-            $table->foreign('admin_id')->references('id')->on('admins')->on_delete('cascade');
+            $table->foreign('admin_id') // with admin all his data will lost...
+                ->references('id')
+                ->on('admins')
+                ->on_delete('cascade')
+                ->on_update('cascade');
             
             $table->string('name', 32)->nullable();
 	        $table->string('desc', 128)->nullable();

@@ -17,18 +17,18 @@ class Admin_Create_Tel_Table {
             $table->increments('id')        ->unique();
 
             $table->integer('admin_id')    ->unsigned();
-            $table->integer('telgroup_id') ->unsigned();
+            $table->integer('adress_id') ->unsigned();
             
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('telgroup_id')
+            $table->foreign('adress_id') // if telgroup dies numbers will kept!
                 ->references('id')
-                ->on('telgroups')
-                ->on_delete('restrict')
+                ->on('adress')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
             $table->integer('tel');
@@ -39,21 +39,21 @@ class Admin_Create_Tel_Table {
 
         DB::table('tels')->insert(array(
         	'admin_id'      => '2',
-            'telgroup_id'  => '2',
+            'adress_id'  => '2',
             'tel'		   => '0171123456',
         	'type'		   => 'Handy',
         ));
  
         DB::table('tels')->insert(array(
         	'admin_id'	   => '1',
-            'telgroup_id'  => '2',
+            'adress_id'  => '2',
         	'tel'		   => '017512433',
         	'type'		   => 'Ĥandy',
         ));
  
         DB::table('tels')->insert(array(
         	'admin_id'	   => '3',
-            'telgroup_id'  => '2',
+            'adress_id'  => '2',
         	'tel'		   => '0143234325',
         	'type'		   => 'Haus',
         ));

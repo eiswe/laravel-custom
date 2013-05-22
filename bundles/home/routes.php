@@ -21,7 +21,7 @@ Route::get('/(:any)/site/(:num)', function($any, $id){ 						// if nothing match
 			$uid = $key->admin_id;
 		}
 
-		$ppages	= Page::where( 'admin_id', '=', $uid )->get();	
+		$ppages	= Page::where( 'admin_id', '=', $uid )->order_by('id', 'desc')->get();	
         $ppage 	= Page::where( 'id', 	   '=', $id  )->get();				// wanna use eloquent :'(
 
 		return View::make('admin::show.site')
@@ -29,7 +29,7 @@ Route::get('/(:any)/site/(:num)', function($any, $id){ 						// if nothing match
 			->with( 'site', 	$any)
 			->with( 'id', 		$id)
 			->with( 'page',		$ppage)
-			->with( 'pages',		$ppages)
+			->with( 'pages',	$ppages)
 			->with( 'userid',	$uid)
 		;
 });
@@ -42,9 +42,9 @@ Route::get('/(:any)/projects/(:any)', function($any, $pro){ 				// if nothing ma
 		}
         
         // Would be much easier if i redirect eloquent to use from here!
-        $pprojects 		= Projectgroup::where( 	'admin_id', '=', $uid)->get();
+        $pprojects 		= Projectgroup::where( 	'admin_id', '=', $uid)->order_by('id', 'desc')->get();
         $pprojectPage 	= Project::where( 		'admin_id', '=', $uid)->get();
-        $ppage 			= Page::where( 			'admin_id', '=', $uid)->get();
+        $ppage 			= Page::where( 			'admin_id', '=', $uid)->order_by('id', 'desc')->get();
         $ttext 			= Text::where( 			'admin_id', '=', $uid)->get();
 
         //$news = Page::where('admin_id', '=', $uid )->get();
@@ -68,7 +68,7 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 			$uid = $key->admin_id;
 		}
 
-        $news = Page::where('admin_id', '=', $uid )->get();  //$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
+        $news = Page::where('admin_id', '=', $uid )->order_by('id', 'desc')->get();  //$news = Admin::find( $uid )->page()->get();    //all();  // cant use eloquent.. :'( - also cant autoload admin models...         ! cant reach admin class!
         foreach ($news as $key => $value) {
         	if ( $value->texts == true) {
         		$ppagelist[] = $value->id;

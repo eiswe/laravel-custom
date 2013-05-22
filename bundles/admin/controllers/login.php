@@ -11,7 +11,7 @@ class Admin_Login_Controller extends Controller {
     }
 
     public function get_index(){
-        return View::make('admin::login.index')->with('title', 'Login to Admin Section');
+        return View::make('admin::login.index')->with('title', 'LimeBlack - Login to Dashboard');
     }
 
     public function post_index(){
@@ -27,7 +27,9 @@ class Admin_Login_Controller extends Controller {
             foreach ( $adminn as $value ) {
                 Session::put('id', $value->id);     // save user id in Session
             }
-            return Redirect::to(URL::to_action('admin::home@index'))->with('title', 'Welcome to LimeBlack');
+            return Redirect::to(URL::to_action('admin::home@index'))
+                ->with( 'title', 'LimeBlack - Admin Dashboard')
+                ->with( 'bott',  'index');
 
         } else {
             return Redirect::back()->with('error', true);
@@ -39,6 +41,8 @@ class Admin_Login_Controller extends Controller {
         Session::flush();           // Delete Data stored in Session        
         Auth::logout();             // Logout!
 
-        return Redirect::to(URL::to_action('home@index'))->with('title', 'Welcome to LimeBlack');
+        return Redirect::to(URL::to_action('home@index'))
+            ->with( 'title', 'Welcome to LimeBlack')
+            ->with( 'site',  'home' );
     }
 }

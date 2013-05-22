@@ -8,8 +8,8 @@ class Bookmark extends Eloquent {
 		return $this->belongs_to('Admin');
 	}
 	
-	// public function userid() {
-	// 	return $this->has_one('Admin', 'userid');
-	// }
+	public function bookmarkgroup(){
+		return $this->has_one('Bookmarkgroup');
+	}
 	
 }

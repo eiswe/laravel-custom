@@ -3,8 +3,10 @@
 @section('subnav')
     <?php 
         $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+        print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
         print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/emacs">        Emacs </a></li>';
+        print '<li>                 <a href="'.$url.'/admin/profile"> Profile  </a></li>';
+        print '<hr />';
         print '<li>                 <a href="'.$url.'/admin/page/list">    Pages  </a></li>';          
         print '<li class="active">  <a href="'.$url.'/admin/text/list">    Texts  </a></li>';      
         print '<li>                 <a href="'.$url.'/admin/bone">         Bones  </a></li>'; 

@@ -20,7 +20,9 @@ class Admin_Text_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::texts.list' )
-            ->with( 'title', 'List of Admin Panel' )
+            ->with( 'title', 'LimeBlack - Text List' )
+            ->with( 'bott',     'text' )
+            ->with( 'subbott',  'list' )            
             ->with( 'text', $textlist )
         ;
     }
@@ -67,7 +69,9 @@ class Admin_Text_Controller extends Admin_Base_Controller {
         $ppage = Admin::find( $uid )->page()->get();          // lets load all ppicture exist in Database of user        
 
         return View::make( 'admin::texts.add' )                 // No additional Infos neccessary
-            ->with( 'title', 'Add new Page Title' )
+            ->with( 'title', 'LimeBlack - Text Add' )
+            ->with( 'bott',     'text' )
+            ->with( 'subbott',  'add' )            
             ->with( 'page',  $ppage)
         ;
 
@@ -132,7 +136,9 @@ class Admin_Text_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::pages.edit' )
-            ->with( 'title', 'Edit a Card!' )
+            ->with( 'title', 'LimeBlack - Text Edit' )
+            ->with( 'bott',     'text' )
+            ->with( 'subbott',  'edit' )
             ->with( 'page' , $ppage )
             ->with( 'bones', $bbones )
             ->with( 'text' , $ttext )

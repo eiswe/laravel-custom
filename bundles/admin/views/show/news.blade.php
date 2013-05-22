@@ -4,11 +4,14 @@
   <?php
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       $surl = $url.'/'.$site.'/';
-      print '<li>                 <a href="'.$surl.'home">  Home      </a></li>'; 
-      print '<li class="active">  <a href="'.$surl.'news">  News      </a></li>'; 
-      print '<li>                 <a href="'.$surl.'about"> About      </a></li>';       
-      print '<li>                 <a href="'.$surl.'gallery"> Galery      </a></li>';      
+      print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
+      print '<li>                 <a href="'.$surl.'home">          Home      </a></li>'; 
+      print '<li class="active">  <a href="'.$surl.'news">          News      </a></li>'; 
+      print '<li>                 <a href="'.$surl.'gallery">       Galery      </a></li>';      
       print '<li>                 <a href="'.$surl.'projects/Home"> Projects      </a></li>';       
+      print '<li>                 <a href="'.$surl.'site/0">        All Sites      </a></li>';           
+      print '<hr />';
+      print '<li>                 <a href="'.$surl.'about">         About      </a></li>';       
   ?>  
 @endsection
 
@@ -20,7 +23,7 @@
     foreach ($news as $key => $value) {
 
       echo '<div class="hero-unit">';
-      echo "<h1>".$value->title."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>".$value->desc."</small></h1>";
+      echo "<h1>".$value->title."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><a href=".$surl.'site/'.$value->id.">".$value->desc."</a></small></h1>";
 
       if ( isset($tlist) ) {                            // if text exist
         foreach ($tlist as $tkey => $tvalue) {          // unpack text                    

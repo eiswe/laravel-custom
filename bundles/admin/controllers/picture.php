@@ -19,7 +19,9 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::picture.list' )
-            ->with( 'title', 'List of Admin Panel' )
+            ->with( 'title', 'LimeBlack - Picture List' )
+            ->with( 'bott',     'picture' )
+            ->with( 'subbott',  'list' )            
             ->with( 'picture', $ppicture)
         ;
     }
@@ -58,7 +60,9 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
     public function get_add(){                                      /**    Add Title of Page!!! */
         
         return View::make( 'admin::picture.add' )                     // No additional Infos neccessary
-            ->with( 'title', 'Add new Page Title' )
+            ->with( 'title', 'LimeBlack - Picture Add' )
+            ->with( 'bott',     'picture' )
+            ->with( 'subbott',  'add' )
         ;
     }
   /**
@@ -125,40 +129,7 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/// Not in use because useless to change a single pic.. need build s.th. for more pictures!
 
 
 

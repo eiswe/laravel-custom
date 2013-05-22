@@ -20,12 +20,43 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::pages.list' )
-            ->with( 'title', 'List of Admin Panel' )
-            ->with( 'pages', $pagelist )
+            ->with( 'title',    'LimeBlack - Page List' )
+            ->with( 'bott',     'page' )
+            ->with( 'subbott',  'list' )
+            ->with( 'pages',    $pagelist )
         ;
     }
 
+    public function post_list(){
 
+        $creds = "";                                                // clear creds
+        $rules = array();
+        $uid = Auth::user()->id;                                     // fetch uid 
+
+        $creds = Input::all();        Input::clear();              // Fetch all Input and clear after!
+
+        // it could be so cool with aware bundle and rules for MODELS not for FORMS
+        $rules += array(
+            'id'    =>  'required|numeric',                 // admins_id
+        );
+
+        $v = Validator::make($creds, $rules);                       // validate the input
+        if ( $v->fails() ) {                                        // if validator fails...  // $v->errors->has('sn'); - will only give a true (1) if SN is wrong!
+            $messages = $v->errors->all('<p>:message</p>');         // get all errors
+            return Redirect::back()                                 // with custom error message
+                ->with('error', $messages);                       // and return back to form and show
+        } 
+
+        $ppage = Admin::find( $uid )->page()->where( 'id', '=', $creds['id'] )->delete();          // lets load all ppage exist in Database of user
+
+        $messages = array(                                                    // Generate a success message
+            'event'  => 'DeletePage: '.$creds['id'],
+            'state'  => 'Successfully'
+        );
+
+        // return back to home view
+        return Redirect::to(URL::to_action('admin::page@list'))->with('alert', $messages);
+    } 
 /** !Pink
             Add Page - here you get a forḿ were you can add a new site to your Project! xD
 */
@@ -42,10 +73,12 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                 $boes = Bone::where( 'bonelist_id', '=', $value->id )->get();
 
                 return View::make( 'admin::pages.add' )                 // No additional Infos neccessary
-                    ->with( 'title', 'Add new Page Title' )
-                    ->with( 'styles', $bonelst )
-                    ->with( 'extra', $any)
-                    ->with( 'bones', $boes)
+                    ->with( 'title',    'LimeBlack - Page Add' )
+                    ->with( 'bott',     'page' )
+                    ->with( 'subbott',  'add' )
+                    ->with( 'styles',   $bonelst )
+                    ->with( 'extra',    $any)
+                    ->with( 'bones',    $boes)
                 ;
             }
         }
@@ -112,24 +145,21 @@ class Admin_Page_Controller extends Admin_Base_Controller {
                                     $page->$key = $value;                   // save each key-value pair in page!
                                     $page->admin_id = $id;                  // save each key-value pair in page!
                                     $page->bonelist_id = $listid;           // save each key-value pair in page!
-                                    $text->admin_id = $id;                  // save each key-value pair in page!
                                     break;
                                 case 'desc':
                                     $page->$key = $value;                   // save each key-value pair in page!
                                     break;
                                 case 'text':
-                                    $text->$key = $value;                   // save each key-value pair in page!
+                                    $text->admin_id = $id;                  // save each key-value pair in page!
+                                    $text->$key = $value;
+                                    $page->texts = true;
                                     break;
-                                // case 'admin_id':                            // this case does not work!
-                                //     $page->$key = $value;                   // save each key-value pair in page!
-                                //     $text->$key = $value;                   // save each key-value pair in page!
-                                //     break;
                             }
                         }
                         
-                        $text->save();
-                        $page->text_id = $text->id;
                         $page->save();
+                        $text->page_id = $page->id;
+                        $text->save();
                         break;
 
                     case "Gallery":
@@ -183,7 +213,9 @@ class Admin_Page_Controller extends Admin_Base_Controller {
         }
 
         return View::make( 'admin::pages.edit' )
-            ->with( 'title', 'Edit a Card!' )
+            ->with( 'title', 'LimeBlack - Page Edit' )
+            ->with( 'bott',     'page' )
+            ->with( 'subbott',  'edit' )            
             ->with( 'page' , $ppage )
             ->with( 'bones', $bbones )
             ->with( 'text' , $ttext )

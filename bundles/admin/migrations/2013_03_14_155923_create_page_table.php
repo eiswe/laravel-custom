@@ -16,15 +16,15 @@ class Admin_Create_Page_Table {
             $table->increments('id')        ->unique();			// with id
            
             $table->integer('admin_id')     ->unsigned();			// user id
-            $table->integer('bonelist_id')	->unsigned();		// bonelist_id 	64
+            $table->integer('bonelist_id')  ->unsigned();       // bonelist_id  64
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id') // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
-            $table->foreign('bonelist_id')
+            $table->foreign('bonelist_id') // if bonelist will die page keep alive
                 ->references('id')
                 ->on('bonelists')
                 ->on_delete('restrict')

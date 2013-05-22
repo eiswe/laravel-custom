@@ -50,24 +50,20 @@ class Admin extends Eloquent {
 		return $this->has_many('Tel');
 	}	
 
-	public function countrie(){
-		return $this->has_many('Countrie');
+	public function bookmarkgroup(){
+		return $this->has_many('Bookmarkgroup');
 	}
 
-	public function language(){
-		return $this->has_many('Language');
+	public function status(){
+		return $this->has_many('Status');
 	}
 
-	public function skill(){
-		return $this->has_many('Skill');
+	public function notegroup(){
+		return $this->has_many('Notegroup');
 	}	
 
-	public function hobbie(){
-		return $this->has_many('Hobbie');
-	}	
-
-	public function todo(){
-		return $this->has_many('Todo');
+	public function notetag(){
+		return $this->has_many('Notetag');
 	}	
 
 	public function project(){

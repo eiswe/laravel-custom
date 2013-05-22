@@ -17,11 +17,27 @@ class Admin_Create_Note_Table {
             $table->increments('id')->unique();
             
             $table->integer('admin_id')->unsigned();
+            $table->integer('notegroup_id')->unsigned();
+            $table->integer('notetag_id')->unsigned();
             
-            $table->foreign('admin_id')
+            $table->foreign('admin_id')  // with admin all his data will lost...
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
+                ->on_update('cascade');
+            
+            
+            $table->foreign('notegroup_id')  // with admin all his data will lost...
+                ->references('id')
+                ->on('notegroups')
+                ->on_delete('cascade')
+                ->on_update('cascade');
+            
+            
+            $table->foreign('notetag_id')  // with admin all his data will lost...
+                ->references('id')
+                ->on('notetags')
+                ->on_delete('cascade')
                 ->on_update('cascade');
             
             $table->string('title', 200);
@@ -31,19 +47,25 @@ class Admin_Create_Note_Table {
         });
 
         DB::table('notes')->insert(array(
-        	'admin_id'		=> '2',
+            'admin_id'      => '2',
+            'notegroup_id'      => '2',
+            'notetag_id'      => '2',
         	'title'		=> 'short Note',
         	'desc'	=> 'first short Note...',
         ));
 
         DB::table('notes')->insert(array(
             'admin_id'      => '2',
+            'notegroup_id'      => '2',
+            'notetag_id'      => '2',
             'title'		=> 'little Note',
         	'desc'  => 'second short Note...',
         ));
               
         DB::table('notes')->insert(array(
-            'admin_id'      => '3',
+            'admin_id'      => '2',
+            'notegroup_id'      => '2',
+            'notetag_id'      => '2',
             'title'		=> 'short Note',
         	'desc'  => 'first short Note...',
         ));

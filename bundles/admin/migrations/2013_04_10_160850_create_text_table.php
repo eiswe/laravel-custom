@@ -18,18 +18,18 @@ class Admin_Create_Text_Table {
 
             $table->integer('admin_id')->unsigned();
 
-            $table->foreign('admin_id')
+            $table->foreign('admin_id')  // if admin id change cascade to its texts!
                 ->references('id')
                 ->on('admins')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
             $table->integer('page_id')->unsigned()->nullable();
 
-            $table->foreign('page_id')
+            $table->foreign('page_id')  // if page will destroyed -> destroy text of this site!
                 ->references('id')
                 ->on('pages')
-                ->on_delete('restrict')
+                ->on_delete('cascade')
                 ->on_update('cascade');
 
             $table->text('text')->nullable();
