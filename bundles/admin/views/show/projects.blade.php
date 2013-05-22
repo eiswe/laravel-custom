@@ -3,7 +3,7 @@
 @section('subnav')
   <?php
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-      $surl = $url.'/'.$site.'/';
+      $surl = $url.'/'.URI::segment(1).'/';
       print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
       print '<li>                 <a href="'.$surl.'home">          Home      </a></li>'; 
       print '<li>                 <a href="'.$surl.'news">          News      </a></li>'; 
@@ -25,12 +25,12 @@
       if (  isset( $projects )) {
         foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
           
-          $tmpMenu[] = array($value->title, $url.'/'.$site.'/projects/'.$value->title);
+          $tmpMenu[] = array($value->title, $url.'/'.URI::segment(1).'/projects/'.$value->title);
           //print_r($value);
         }
 
         echo Navbar::create()
-          ->with_brand( 'Projects', $url.'/'.$site.'/projects/Home' )
+          ->with_brand( 'Projects', $url.'/'.URI::segment(1).'/projects/Home' )
           ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
       } 
 
@@ -54,7 +54,7 @@
                     //print $pvalue->page_id.' should equal with '.$avalue->id;
                     if ( $pvalue->page_id == $avalue->id ) {
                       //print 'Get Pages witch a related to this Project!<br />'.$avalue->title.'<br />';
-                      print '<br /><a href="'.$url.'/'.$site.'/site/'.$avalue->id.'">'.$avalue->title.'</a>';
+                      print '<br /><a href="'.$url.'/'.URI::segment(1).'/site/'.$avalue->id.'">'.$avalue->title.'</a>';
                       print '<p>'.$avalue->desc.'</p>';
                       foreach ($text as $tkey => $tvalue) {
                         //print 'Text ID:'.$avalue->text_id.' of user '.$avalue->admin_id.' should equal to '.$tvalue->id.'<br />';

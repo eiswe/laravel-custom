@@ -7,6 +7,9 @@
       
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
+      $site = URI::current();
+      //echo URI::segment(1);
+
       if ( isset( $site ) ) {
           if ( $site == "home" ) {                                                // enable home if used
               $navlink = array( array( 'Home', $url.'/home', true ));    

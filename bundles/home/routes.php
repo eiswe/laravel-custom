@@ -1,13 +1,13 @@
 <?php
 
 Route::get('/about', function(){
-	return View::make('admin::home.about')->with('title', 'LimeBlack - About us!')->with('site', 'home');
+	return View::make('admin::home.about')->with('title', 'LimeBlack - About us!');
 });
 Route::get('/home', function(){
-	return View::make('admin::home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
+	return View::make('admin::home.index')->with('title', 'LimeBlack - Index');
 });
 Route::get('/index', function(){
-	return View::make('admin::home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
+	return View::make('admin::home.index')->with('title', 'LimeBlack - Index');
 });
 
 Route::get('/admin', function(){
@@ -52,7 +52,6 @@ Route::get('/(:any)/projects/(:any)', function($any, $pro){ 				// if nothing ma
 
 		return View::make('admin::show.projects')
 			->with('title', 'LimeBlack - '.$any.' Index')
-			->with('site', 			$any)
 			->with('project', 		$pro)
 			->with('text',			$ttext)
 			->with('page',			$ppage)
@@ -81,7 +80,6 @@ Route::get('/(:any)/news', function($any){ 						// if nothing match use any! - 
 
 		return View::make('admin::show.news')
 			->with('title', 'LimeBlack - '.$any.' Index')
-			->with('site', $any)
 			->with('news', $news)
 			->with('tlist', $ttext)
 			->with('plist', $ppagelist)
@@ -98,7 +96,6 @@ Route::get('/(:any)/gallery', function($any){ 						// if nothing match use any!
 
 		return View::make('admin::show.gallery')
 			->with('title', 'LimeBlack - '.$any.' Index')
-			->with('site', $any)
 			->with('pictures', $pictures)
 		;
 });
@@ -109,7 +106,6 @@ Route::get('/(:any)/about', function($any){ 				// fetch ab out site for generat
 
 	return View::make('admin::show.about')
 		->with('title', 'LimeBlack - '.$any.' Index')
-		->with('site', $any)
 		->with('profile', $pprofile)
 	;
 });
@@ -117,21 +113,19 @@ Route::get('/(:any)/about', function($any){ 				// fetch ab out site for generat
 Route::get('/(:any)/home', function($any){ 					// fetch index site for generated menu
 	return View::make('admin::show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')
-		->with('site', $any)
 	;
 });
 
 Route::get('/(:any)/index', function($any){ 				// fetch index site for generated menu
 	return View::make('admin::show.index')
 		->with('title', 'LimeBlack - '.$any.' Index')
-		->with('site', $any)
 	;
 });
 
 Route::get('/(:any)', function($any){ 						// fetch any else
-	return View::make('admin::show.index')->with('title', 'LimeBlack - '.$any.' Index')->with('site', $any);
+	return View::make('admin::show.index')->with('title', 'LimeBlack - '.$any.' Index');
 });
 
 Route::get('/', function(){									// fetch /
-	return View::make('admin::home.index')->with('title', 'LimeBlack - Index')->with('site', 'home');
+	return View::make('admin::home.index')->with('title', 'LimeBlack - Index');
 });
