@@ -21,8 +21,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         return View::make( 'admin::pages.list' )
             ->with( 'title',    'LimeBlack - Page List' )
-            ->with( 'bott',     'page' )
-            ->with( 'subbott',  'list' )
             ->with( 'pages',    $pagelist )
         ;
     }
@@ -74,8 +72,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
                 return View::make( 'admin::pages.add' )                 // No additional Infos neccessary
                     ->with( 'title',    'LimeBlack - Page Add' )
-                    ->with( 'bott',     'page' )
-                    ->with( 'subbott',  'add' )
                     ->with( 'styles',   $bonelst )
                     ->with( 'extra',    $any)
                     ->with( 'bones',    $boes)
@@ -214,8 +210,6 @@ class Admin_Page_Controller extends Admin_Base_Controller {
 
         return View::make( 'admin::pages.edit' )
             ->with( 'title', 'LimeBlack - Page Edit' )
-            ->with( 'bott',     'page' )
-            ->with( 'subbott',  'edit' )            
             ->with( 'page' , $ppage )
             ->with( 'bones', $bbones )
             ->with( 'text' , $ttext )

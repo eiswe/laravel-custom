@@ -5,8 +5,6 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
     public function get_index()    {
         return View::make( 'admin::admin.index' )
             ->with( 'title', 'LimeBlack - Profile Index' )
-            ->with( 'bott',     'profile' )
-            ->with( 'subbott',  'index' )
         ;
     }
     
@@ -20,8 +18,6 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
         
         return View::make( 'admin::admin.password' )               // show User Profile
             ->with( 'title', 'LimeBlack - Profile Password' )
-            ->with( 'bott',     'profile' )
-            ->with( 'subbott',  'password' )
             ->with( 'userid', $userid )
         ;
     }
@@ -109,8 +105,6 @@ class Admin_Profile_Controller extends Admin_Base_Controller {
         
         return View::make( 'admin::admin.profile' )               // show User Profile
             ->with( 'title', 'LimeBlack - Profile Profile' )
-            ->with( 'bott',     'profile' )
-            ->with( 'subbott',  'profile' )
             ->with( 'userid', $userid )
         ;
     }

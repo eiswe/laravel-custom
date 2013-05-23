@@ -28,8 +28,7 @@ class Admin_Login_Controller extends Controller {
                 Session::put('id', $value->id);     // save user id in Session
             }
             return Redirect::to(URL::to_action('admin::home@index'))
-                ->with( 'title', 'LimeBlack - Admin Dashboard')
-                ->with( 'bott',  'index');
+                ->with( 'title', 'LimeBlack - Admin Dashboard');
 
         } else {
             return Redirect::back()->with('error', true);

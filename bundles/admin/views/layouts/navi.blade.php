@@ -7,8 +7,8 @@
       
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
 
-      $site = URI::current();
-      //echo URI::segment(1);
+      $site = URI::segment(1);
+      //echo URI::current();
 
       if ( isset( $site ) ) {
           if ( $site == "home" ) {                                                // enable home if used
@@ -109,6 +109,11 @@
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
       
       $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+      $bott = URI::segment(2);        // 1=admin 2=page 3=attribute 4=id(onEdit)
+      $subbott = URI::segment(3);
+      //echo URI::current();
+
 
       if ( isset( $id ) AND isset( $bott )) {                                     // Navi for User
 

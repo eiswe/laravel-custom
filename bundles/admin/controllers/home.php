@@ -9,7 +9,6 @@ class Admin_Home_Controller extends Admin_Base_Controller {
     public function get_index(){						// return to Index Page!
     	return View::make('admin::dashboard.index')
     		->with( 'title', 	'LimeBlack - Admin Dashboard')
-    		->with( 'bott', 	'home' )
     	; 		
     }
 }

@@ -20,8 +20,6 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
 
         return View::make( 'admin::picture.list' )
             ->with( 'title', 'LimeBlack - Picture List' )
-            ->with( 'bott',     'picture' )
-            ->with( 'subbott',  'list' )            
             ->with( 'picture', $ppicture)
         ;
     }
@@ -61,8 +59,6 @@ class Admin_Picture_Controller extends Admin_Base_Controller {
         
         return View::make( 'admin::picture.add' )                     // No additional Infos neccessary
             ->with( 'title', 'LimeBlack - Picture Add' )
-            ->with( 'bott',     'picture' )
-            ->with( 'subbott',  'add' )
         ;
     }
   /**

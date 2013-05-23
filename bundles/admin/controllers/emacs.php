@@ -6,7 +6,6 @@ class Admin_Emacs_Controller extends Admin_Base_Controller {
 
         return View::make( 'admin::dashboard.emacs' )
         	->with( 'title', 'Emacs File' )
-        	->with( 'bott',  'emacs')
         ;
     }
 }

@@ -20,7 +20,7 @@
   <div class="span9">
 
       <div class="hero-unit">
-        <h1>{{ URI::current() }}</h1>
+        <h1>{{ URI::segment(1) }}</h1>
         <span class="text text-info">
           &nbsp;&nbsp;&nbsp;coding all for Web, Android and Robotic!</span>
         <br /><br />
