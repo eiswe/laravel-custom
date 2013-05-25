@@ -1,19 +1,5 @@
 @layout('admin::layouts.navi')
 
-@section('subnav')
-    <?php 
-        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-        print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
-        print '<li>                 <a href="'.$url.'/admin/home">         Home      </a></li>';
-        print '<li>         <a href="'.$url.'/admin/profile"> Profile  </a></li>';
-        print '<hr />';
-        print '<li>                 <a href="'.$url.'/admin/page/list">    Pages  </a></li>';   
-        print '<li>                 <a href="'.$url.'/admin/text">         Texts  </a></li>';             
-        print '<li>         <a href="'.$url.'/admin/bone">         Bones  </a></li>'; 
-        print '<li class="active">  <a href="'.$url.'/admin/picture">      Pictures  </a></li>';      
-    ?>
-@endsection
-
 @section('content')
 
   <div class="span10">
@@ -29,7 +15,8 @@
         ?>
     @endif
 
-  	<?php
+    <?php
+        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
 
 /*    Will generate a list of Pages on this site! */
         $headi = array(

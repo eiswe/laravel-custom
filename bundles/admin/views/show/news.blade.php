@@ -1,22 +1,10 @@
 @layout('admin::layouts.navi')
 
-@section('subnav')
+@section('content')
   <?php
       $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
       $surl = $url.'/'.URI::segment(1).'/';
-      print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
-      print '<li>                 <a href="'.$surl.'home">          Home      </a></li>'; 
-      print '<li class="active">  <a href="'.$surl.'news">          News      </a></li>'; 
-      print '<li>                 <a href="'.$surl.'gallery">       Galery      </a></li>';      
-      print '<li>                 <a href="'.$surl.'projects/Home"> Projects      </a></li>';       
-      print '<li>                 <a href="'.$surl.'site/0">        All Sites      </a></li>';           
-      print '<hr />';
-      print '<li>                 <a href="'.$surl.'about">         About      </a></li>';       
-  ?>  
-@endsection
-
-@section('content')
-
+  ?>
   <div class="span9">
   <?php
 

@@ -1,20 +1,5 @@
 @layout('admin::layouts.navi')
 
-@section('subnav')
-    <?php 
-        $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
-		print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
-        print '<li>                 <a href="'.$url.'/admin/home">    Home      </a></li>';
-      	print '<li>  				<a href="'.$url.'/admin/profile"> Profile  </a></li>';
-      	print '<hr />';
-        print '<li class="active">  <a href="'.$url.'/admin/page">    Pages  </a></li>';  
-      	print '<li>                 <a href="'.$url.'/admin/text">    Texts  </a></li>';  
-      	print '<li>  				<a href="'.$url.'/admin/bone">         Bones  </a></li>'; 
-        print '<li>                 <a href="'.$url.'/admin/picture"> Pictures  </a></li>';  
-    ?>
-@endsection
-
-
 @section('content')
 
 <div class="span10">
@@ -34,16 +19,7 @@
 		  ->with_brand( 'Create '.$extra.' Page', $url.'/admin/page/add/'.$extra )
 		  ->with_menus( Navigation::links( $tmpMenu ));  /* end of admin menu */
 	} 
-
-
-/*
-
-	field for inspiration!
-
-	[id] => 1 [admin_id] => 2 [name] => Text [desc] => only text [fieldname] => Titel [fieldtype] => text [weight] => 1 [relation] 
-
-*/
-
+	
 	?>
 
   	<div class="span5">

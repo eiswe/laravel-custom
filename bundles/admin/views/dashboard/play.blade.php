@@ -1,24 +1,75 @@
 @layout('admin::layouts.navi')
 
-@section('subnav')
-    <?php 
-        $url = URL::base(); //return http://laravel.dev
-        print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';
-        print '<li>                 <a href="'.$url.'/admin/home">          Home      </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/profile">       Profile  </a></li>';
-        print '<hr />';
-        print '<li>                 <a href="'.$url.'/admin/page/list">     Pages  </a></li>';
-        print '<li>                 <a href="'.$url.'/admin/text/list">     Texts  </a></li>';  
-        print '<li>                 <a href="'.$url.'/admin/bone">          Bones  </a></li>'; 
-        print '<li>                 <a href="'.$url.'/admin/picture">       Pictures </a></li>';        
-    ?>
-@endsection
-
 @section('content')
 
   <div class="span10">
 
+      <div class="row-fluid">
+        <div class="span12 text-center">
+
+          <div class="span4"> <!--  style="width: 15%;" -->
+            <?php
+
+              $url = "http://www.engadget.com/rss.xml";
+              $rss = simplexml_load_file($url);
+              
+              if ( $rss ) {
+
+                echo '<h1>'.$rss->channel->title.'</h1>';
+                //echo '<li>'.$rss->channel->pubDate.'</li>';
+
+                $items = $rss->channel->item;
+                
+                foreach ( $items as $item ) {
+
+                  $title = $item->title;
+                  $link = $item->link;
+                  $published_on = $item->pubDate;
+                  $description = $item->description;
+
+                  echo '<h3><a href="'.$link.'">'.$title.'</a></h3>';
+                  //echo '<span>('.$published_on.')</span>';
+                  echo '<p>'.$description.'</p>';
+                }
+              }
+            ?>
+          </div> 
+
+          <div class="span6"> <!--  style="width: 15%;" -->
+            <?php
+
+              $url = "http://www.xda-developers.com/feed/";
+              $rss = simplexml_load_file($url);
+              
+              if ( $rss ) {
+
+                echo '<h1>'.$rss->channel->title.'</h1>';
+                //echo '<li>'.$rss->channel->pubDate.'</li>';
+
+                $items = $rss->channel->item;
+                
+                foreach ( $items as $item ) {
+
+                  $title = $item->title;
+                  $link = $item->link;
+                  $published_on = $item->pubDate;
+                  $description = $item->description;
+
+                  echo '<h3><a href="'.$link.'">'.$title.'</a></h3>';
+                  //echo '<span>('.$published_on.')</span>';
+                  echo '<p>'.$description.'</p>';
+                }
+              }
+            ?>
+          </div> 
+
+        </div>
+      </div>
+
+
     <form action="{{ url('user/upload')}}" class="dropzone" id="my-awesome-dropzone"></form>
+
+
 
   	<h1>Show you a beautiful Chart!</h1>
   	{{ Typography::lead('with some random data!') }}
@@ -45,6 +96,12 @@
     {{ Asset::container('dropzone')->scripts() }}
 
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('label.tree-toggler').click(function () {
+                $(this).parent().children('ul.tree').toggle(300);
+            });
+        });
 
         $(function() {
             $( "#sortable" ).sortable();

@@ -104,6 +104,146 @@
     ?>
 @endsection
 
+@section('subnav')
+  <?php
+
+      $url = URL::base(); // http://laravel.dev       //   return the Base URL for Developing from different Servers
+      $surl = $url.'/'.URI::segment(1).'/';
+
+      $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers
+      
+      $id = Session::get('id');                                                   // fetch Session:id - user is logged in??
+
+      $bott = URI::segment(2);        // 1=admin 2=page 3=attribute 4=id(onEdit)
+      $subbott = URI::segment(3);
+
+      $publicSite = array(    // Sites witch will available in Public Menu
+        array( 'Home',      'home',     $surl.'home' ),
+        array( 'News',      'news',     $surl.'news' ),
+        array( 'Galery',    'gallery',  $surl.'gallery' ),
+        array( 'Projects',  'projects', $surl.'projects/Home' ),
+        array( 'All Sites', 'site',     $surl.'site/0' ),
+        array( 'About',     'about',    $surl.'about' ),
+      );
+
+      $adminSite = array(    // Sites witch will available in Admin Menu
+        array( 'Home',      'home',     $surl.'home' ),
+        array( 'Profile',   'profile',  $surl.'profile' ),
+        array( 'Page',      'page',     $surl.'page' ),
+        array( 'Text',      'text',     $surl.'text' ),
+        array( 'Bones',     'bone',     $surl.'bone' ),
+        array( 'Pictures',  'picture',  $surl.'picture' ),
+      );
+
+      /* 
+       * Build SubNavi located at left site of Page!
+       * - will take publicSite from var and build Navi 
+       */
+      if ( URI::segment(1) == "home" OR URI::segment(1) == "about" OR URI::segment(2) == "login" ) {
+        
+        // If Home or About Page - only show blank space!
+
+        print '<div class="span2"> <ul class="nav nav-pills nav-stacked"> </div>';  
+
+      } elseif ( URI::segment(1) != "admin" ) {                                 // check for non admin
+
+        // Header of Navi:
+        print '<div class="span2">';     // BUild subnavi for non admin users! (public users)
+        print '<div class="well" style="padding: 8px 0;">'; //width:300px; 
+        print '<div style="overflow-x: hidden;">';
+        print '<ul class="nav nav-list">';
+//        print '<li><label class="nav-header">Menu</label>';
+
+        foreach ($publicSite as $key) {
+          if ( $key[1] == URI::segment(2) ) {
+            print '<li class="active">  <a href="'.$key[2].'">'.$key[0].'</a></li>'; 
+            
+            switch ( $key[1] ) { // make spezific thinks only for activated page
+              
+              case 'projects':
+                if (  isset( $projects )) {
+                  print '<ul class="nav nav-list tree">';
+                  foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
+                    print '<li><a href="'.$url.'/'.URI::segment(1).'/projects/'.$value->id.'">'.$value->title.'</a></li>';
+                  }
+                  print '</ul>';
+                } 
+                break;
+              
+              case 'site':
+                if (  isset( $pages )) {
+                  print '<ul class="nav nav-list tree">';
+                  foreach ($pages as $key => $value) {                       // generate list of stylenames and create menu entrys
+                    print '<li><a href="'.$url.'/'.URI::segment(1).'/site/'.$value->id.'">'.$value->title.'</a></li>';
+                  }
+                  print '</ul>';
+                } 
+                break;
+
+            }
+          } else {
+            print '<li>                 <a href="'.$key[2].'">'.$key[0].'</a></li>'; 
+          }
+        }
+
+        // Close Navi except one div
+        print '</ul>';
+        print '</div>';
+        print '</div>';
+        print '</div>';
+
+      } elseif ( URI::segment(1) == "admin" ) {
+
+        // Header of Navi:
+        print '<div class="span2">';     // BUild subnavi for non admin users! (public users)
+        print '<div class="well" style="padding: 8px 0;">'; //width:300px; 
+        print '<div style="overflow-x: hidden;">';
+        print '<ul class="nav nav-list">';
+
+        foreach ($adminSite as $key) {
+          if ( $key[1] == URI::segment(2) ) {
+            print '<li class="active">  <a href="'.$key[2].'">'.$key[0].'</a></li>'; 
+            
+            switch ( $key[1] ) { // make spezific thinks only for activated page
+              
+              case 'projects':
+                if (  isset( $projects )) {
+                  print '<ul class="nav nav-list tree">';
+                  foreach ($projects as $key => $value) {                       // generate list of stylenames and create menu entrys
+                    print '<li><a href="'.$url.'/'.URI::segment(1).'/projects/'.$value->id.'">'.$value->title.'</a></li>';
+                  }
+                  print '</ul>';
+                } 
+                break;
+              
+              case 'site':
+                if (  isset( $pages )) {
+                  print '<ul class="nav nav-list tree">';
+                  foreach ($pages as $key => $value) {                       // generate list of stylenames and create menu entrys
+                    print '<li><a href="'.$url.'/'.URI::segment(1).'/site/'.$value->id.'">'.$value->title.'</a></li>';
+                  }
+                  print '</ul>';
+                } 
+                break;
+
+            }
+          } else {
+            print '<li>                 <a href="'.$key[2].'">'.$key[0].'</a></li>'; 
+          }
+        }
+
+                // Close Navi except one div
+        print '</ul>';
+        print '</div>';
+        print '</div>';
+        print '</div>';
+
+      }
+
+  ?>  
+@endsection
+
+
 @section('botnav')
     <?php
       $url = URL::base();       // http://laravel.dev                             //   return the Base URL for Developing from different Servers

@@ -1,12 +1,5 @@
 @layout('admin::layouts.navi')
 
-@section('subnav')
-    <?php 
-        $url = URL::base();
-        print '<div class="span2"> <ul class="nav nav-pills nav-stacked">';      
-    ?>
-@endsection
-
 @section('content')
   <div class="span9">
         @if(Session::get('alert'))
